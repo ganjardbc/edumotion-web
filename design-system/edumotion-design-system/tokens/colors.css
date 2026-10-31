@@ -1,0 +1,36 @@
+/* Sumber: design-references/tako_character_sheet.png dan src/characters/cast/characters/*.tsx.
+   Aturan 3 nada: setiap objek memakai main (isi), rim (tepi lebih gelap), shine (kilau kecil). */
+:root {
+  /* Tako: palet merek akun */
+  --tako-500: #4CAF50;   /* utama */
+  --tako-300: #A7E17A;   /* sekunder */
+  --tako-600: #43A047;   /* lengan dan kaki */
+  --tako-700: #2E8B42;   /* bayangan topi antena */
+  --tako-900: #0F3D2E;   /* aksen gelap, teks */
+  --tako-mouth: #FF6B7D; /* mulut, aksen hangat */
+  --tako-tear: #6EC6E8;  /* air mata, keringat */
+
+  /* Netral (hijau-krem, mengikuti latar lembar karakter) */
+  --canvas: #F7FAF4;
+  --surface: #FFFFFF;
+  --ink: #0F3D2E;
+  --ink-muted: rgba(15, 61, 46, 0.65);
+  --line: rgba(15, 61, 46, 0.14);
+
+  /* Warna topik: main / rim / shine. Satu topik = satu keluarga warna di seluruh video. */
+  --topic-tubuh-main: #EF5350;   --topic-tubuh-rim: #D63B3E;   --topic-tubuh-shine: #FF9A92;   --topic-tubuh-ink: #3D1416;
+  --topic-cuaca-main: #BFE3FA;   --topic-cuaca-rim: #93CBF2;   --topic-cuaca-shine: #EAF7FF;   --topic-cuaca-ink: #1B3A6B;
+  --topic-ilmu-main: #8E5FC2;    --topic-ilmu-rim: #6E43A3;    --topic-ilmu-shine: #B493E0;    --topic-ilmu-ink: #2A1548;
+  --topic-planet-main: #4FA8E0;  --topic-planet-rim: #3B8FCC;  --topic-planet-shine: #BFE4FA;  --topic-planet-ink: #0F3350;
+  --topic-sejarah-main: #F9C74F; --topic-sejarah-rim: #E8A93A; --topic-sejarah-shine: #FFE08A; --topic-sejarah-ink: #3D2A10;
+  --topic-teknologi-main: #D5DCE4; --topic-teknologi-rim: #AEB9C6; --topic-teknologi-shine: #F2F5F8; --topic-teknologi-ink: #1E2F52;
+  --topic-air-main: #64B5F6;     --topic-air-rim: #3D97E3;     --topic-air-shine: #C6E7FF;     --topic-air-ink: #0F3D5E;
+  --topic-alam-main: #4CAF50;    --topic-alam-rim: #2E8B42;    --topic-alam-shine: #A7E17A;    --topic-alam-ink: #0F3D2E;
+
+  /* Dukungan visual */
+  --land: #5FB07A;
+  --land-dark: #4A9A66;
+  --highlight: #FFD84D; /* penanda angka atau kata kunci di layar, satu per adegan */
+  --danger: #EF5350;
+  --success: #4CAF50;
+}

@@ -1,0 +1,15 @@
+import type { Scene, VideoMeta } from "../_shared/types";
+
+export const META: VideoMeta = {
+  id: "__NAME__",
+  title: "__TITLE__",
+  topic: "__TOPIC__",
+  cast: [__CASTLIST__],
+  fps: 30,
+};
+
+// Urutan scene = urutan tayang. `dur` adalah perkiraan detik dari naskah sampai audio asli dibuat.
+// who: kunci suara di voiceover.ts ("tako" untuk Tako).
+export const BASE_SCENES: ReadonlyArray<Scene> = [
+__SCENES__
+];

@@ -1,0 +1,68 @@
+{
+  "character": "Petir",
+  "topic": "cuaca & air",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#FFD93B",
+    "rim": "#F2B01E",
+    "shine": "#FFF1A0",
+    "limb": "#C98A0C",
+    "ink": "#4A3200",
+    "blush": "#FF9A7A",
+    "tongue": "#FF8A65"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      350,
+      628
+    ],
+    "leg_right": [
+      372,
+      628
+    ],
+    "arm_left": [
+      250,
+      440
+    ],
+    "arm_right": [
+      562,
+      350
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 385,
+    "eyeGap": 50,
+    "eyeRx": 18,
+    "eyeRy": 26,
+    "style": "dot",
+    "mouthY": 440,
+    "mouthScale": 0.7,
+    "ball": "#4A3200",
+    "pupil": "#4A3200",
+    "lid": "#FFD93B",
+    "ink": "#4A3200",
+    "accent": "#FF8A65"
+  },
+  "marks": {
+    "x": 440,
+    "y": 340,
+    "scale": 0.9
+  }
+}

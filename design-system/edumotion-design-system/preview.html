@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>edumotion Design System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{margin:0;background:var(--canvas);color:var(--ink);font:700 18px/1.5 var(--font-body);padding:40px 24px}
+  h1{font:800 40px/1.1 var(--font-display);margin:0 0 8px} h2{font:800 24px var(--font-display);margin:40px 0 12px}
+  .row{display:flex;flex-wrap:wrap;gap:12px}
+  .sw{width:120px;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);font-size:12px}
+  .sw i{display:block;height:64px}.sw span{display:block;padding:6px 8px}
+  .topic{display:flex;gap:0;border-radius:16px;overflow:hidden;width:260px;border:1px solid var(--line);background:#fff}
+  .topic div{flex:1;height:56px} .topic+small{display:block;margin:4px 0 12px}
+  .safe{position:relative;width:270px;height:480px;background:#fff;border:2px solid var(--ink);border-radius:20px}
+  .safe .z{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(239,83,80,.15) 0 6px,transparent 6px 12px)}
+  .safe .ok{position:absolute;left:16px;top:55px;right:40px;bottom:120px;background:#fff;border:2px dashed var(--tako-500);display:grid;place-items:center;text-align:center;font-size:14px}
+</style></head><body>
+<h1>edumotion Design System</h1>
+<p>Diturunkan dari Tako. Token ada di <code>tokens/</code>, panduan di <code>readme.md</code>.</p>
+
+<h2>Palet Tako</h2>
+<div class="row">
+  <div class="sw"><i style="background:var(--tako-500)"></i><span>500 #4CAF50<br>utama</span></div>
+  <div class="sw"><i style="background:var(--tako-300)"></i><span>300 #A7E17A<br>sekunder</span></div>
+  <div class="sw"><i style="background:var(--tako-600)"></i><span>600 #43A047<br>anggota badan</span></div>
+  <div class="sw"><i style="background:var(--tako-700)"></i><span>700 #2E8B42<br>bayangan</span></div>
+  <div class="sw"><i style="background:var(--tako-900)"></i><span>900 #0F3D2E<br>ink</span></div>
+  <div class="sw"><i style="background:var(--tako-mouth)"></i><span>#FF6B7D<br>mulut</span></div>
+  <div class="sw"><i style="background:var(--tako-tear)"></i><span>#6EC6E8<br>air mata</span></div>
+  <div class="sw"><i style="background:var(--highlight)"></i><span>#FFD84D<br>sorotan</span></div>
+</div>
+
+<h2>Warna topik (main · rim · shine)</h2>
+<div class="row" style="gap:20px">
+  <div><div class="topic"><div style="background:var(--topic-tubuh-main)"></div><div style="background:var(--topic-tubuh-rim)"></div><div style="background:var(--topic-tubuh-shine)"></div></div><small>tubuh · Jantung</small></div>
+  <div><div class="topic"><div style="background:var(--topic-cuaca-main)"></div><div style="background:var(--topic-cuaca-rim)"></div><div style="background:var(--topic-cuaca-shine)"></div></div><small>cuaca · Awan</small></div>
+  <div><div class="topic"><div style="background:var(--topic-ilmu-main)"></div><div style="background:var(--topic-ilmu-rim)"></div><div style="background:var(--topic-ilmu-shine)"></div></div><small>ilmu · Buku</small></div>
+  <div><div class="topic"><div style="background:var(--topic-planet-main)"></div><div style="background:var(--topic-planet-rim)"></div><div style="background:var(--topic-planet-shine)"></div></div><small>planet · Bumi</small></div>
+  <div><div class="topic"><div style="background:var(--topic-sejarah-main)"></div><div style="background:var(--topic-sejarah-rim)"></div><div style="background:var(--topic-sejarah-shine)"></div></div><small>sejarah · Raka</small></div>
+  <div><div class="topic"><div style="background:var(--topic-teknologi-main)"></div><div style="background:var(--topic-teknologi-rim)"></div><div style="background:var(--topic-teknologi-shine)"></div></div><small>teknologi · Robo</small></div>
+  <div><div class="topic"><div style="background:var(--topic-air-main)"></div><div style="background:var(--topic-air-rim)"></div><div style="background:var(--topic-air-shine)"></div></div><small>air · Tetes</small></div>
+  <div><div class="topic"><div style="background:var(--topic-alam-main)"></div><div style="background:var(--topic-alam-rim)"></div><div style="background:var(--topic-alam-shine)"></div></div><small>alam · Tako</small></div>
+</div>
+
+<h2>Tipografi (Nunito)</h2>
+<div style="font:var(--text-hook);font-size:56px">Kenapa jantung tidak capek?</div>
+<div style="font:var(--text-subtitle)">Subtitle 56 · Label 44 · Caption 64</div>
+
+<h2>Safe zone 9:16 (1080×1920, diperkecil)</h2>
+<div class="safe"><div class="z"></div><div class="ok">area aman<br>atas 220 · bawah 480<br>kiri 64 · kanan 160</div></div>
+</body></html>

@@ -1,0 +1,9 @@
+import { VOICES } from "../_shared/voices";
+import { createVoiceover } from "../_shared/voiceover";
+import manifest from "./voiceover.json";
+import { VO_FILES } from "./voiceover-files";
+
+export const VO = createVoiceover({ manifest, files: VO_FILES, voices: { tako: VOICES.aldo } });
+
+// Dibaca scripts/vo-lines.mjs dan scripts/vo-generate.mjs.
+export const { VO_VOICES, VO_MODEL, VO_SPEED, VO_MANIFEST, lineId, ttsText } = VO;

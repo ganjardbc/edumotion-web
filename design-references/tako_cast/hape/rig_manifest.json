@@ -1,0 +1,76 @@
+{
+  "character": "Hape",
+  "topic": "teknologi (gawai)",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#2EC4B6",
+    "rim": "#1F9E92",
+    "shine": "#8FE8DF",
+    "screen": "#F4FBFF",
+    "limb": "#17796F",
+    "ink": "#12324A",
+    "blush": "#FFB3C1",
+    "tongue": "#FF8FA3"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      350,
+      610
+    ],
+    "leg_right": [
+      450,
+      610
+    ],
+    "arm_left": [
+      252,
+      430
+    ],
+    "arm_right": [
+      548,
+      430
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 370,
+    "eyeGap": 56,
+    "eyeRx": 20,
+    "eyeRy": 27,
+    "style": "dot",
+    "mouthY": 440,
+    "mouthScale": 0.8,
+    "ball": "#12324A",
+    "pupil": "#12324A",
+    "lid": "#F4FBFF",
+    "ink": "#12324A",
+    "accent": "#FF8FA3",
+    "blush": {
+      "color": "#FFB3C1",
+      "gap": 92,
+      "y": 440,
+      "rx": 24,
+      "ry": 15
+    }
+  },
+  "marks": {
+    "x": 440,
+    "y": 340,
+    "scale": 0.9
+  }
+}

@@ -1,0 +1,14 @@
+/* Nunito 800 dipakai CastDemo; lembar karakter memakai huruf bulat tebal. */
+:root {
+  --font-display: 'Nunito', ui-rounded, system-ui, sans-serif;
+  --font-body: 'Nunito', ui-rounded, system-ui, sans-serif;
+
+  /* Skala untuk kanvas 1080x1920 (px, bukan rem) */
+  --text-hook: 800 120px/1.05 var(--font-display);     /* kalimat pembuka, maks 6 kata */
+  --text-title: 800 88px/1.1 var(--font-display);
+  --text-subtitle: 700 56px/1.2 var(--font-display);
+  --text-label: 700 44px/1.25 var(--font-body);        /* label objek, callout */
+  --text-caption: 800 64px/1.2 var(--font-display);    /* subtitle VO: 2 baris maks, 28 huruf per baris */
+  --text-number: 800 200px/1 var(--font-display);      /* angka besar, counter */
+  --tracking-tight: -0.02em;
+}

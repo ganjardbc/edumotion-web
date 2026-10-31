@@ -1,0 +1,77 @@
+{
+  "character": "Buku",
+  "topic": "ilmu & pengetahuan",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "cover": "#8E5FC2",
+    "spine": "#6E43A3",
+    "rim": "#7A4FB0",
+    "pages": "#EFE6F8",
+    "shine": "#B493E0",
+    "limb": "#4A2C78",
+    "ink": "#2A1548",
+    "blush": "#E58FB0",
+    "tongue": "#FF6B7D"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      320,
+      640
+    ],
+    "leg_right": [
+      520,
+      640
+    ],
+    "arm_left": [
+      176,
+      425
+    ],
+    "arm_right": [
+      622,
+      425
+    ]
+  },
+  "face": {
+    "cx": 430,
+    "eyeY": 345,
+    "eyeGap": 76,
+    "eyeRx": 44,
+    "eyeRy": 52,
+    "style": "sclera",
+    "mouthY": 450,
+    "mouthScale": 0.9,
+    "ball": "#FFFFFF",
+    "pupil": "#2A1548",
+    "lid": "#8E5FC2",
+    "ink": "#2A1548",
+    "accent": "#FF6B7D",
+    "blush": {
+      "color": "#E58FB0",
+      "gap": 122,
+      "y": 438,
+      "rx": 30,
+      "ry": 18
+    }
+  },
+  "marks": {
+    "x": 450,
+    "y": 320,
+    "scale": 1
+  }
+}

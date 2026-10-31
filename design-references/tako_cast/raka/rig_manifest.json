@@ -1,0 +1,74 @@
+{
+  "character": "Raka",
+  "topic": "sejarah",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#F9C74F",
+    "rim": "#E8A93A",
+    "shine": "#FFE08A",
+    "limb": "#EFB23F",
+    "hat": "#C9973A",
+    "hatDark": "#8C5A1E",
+    "ink": "#3D2A10",
+    "tongue": "#FF6B7D"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "topper",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      353,
+      645
+    ],
+    "leg_right": [
+      447,
+      645
+    ],
+    "topper": [
+      400,
+      262
+    ],
+    "arm_left": [
+      245,
+      490
+    ],
+    "arm_right": [
+      555,
+      490
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 395,
+    "eyeGap": 78,
+    "eyeRx": 44,
+    "eyeRy": 52,
+    "style": "sclera",
+    "mouthY": 495,
+    "mouthScale": 0.92,
+    "ball": "#FFFFFF",
+    "pupil": "#3D2A10",
+    "lid": "#F9C74F",
+    "ink": "#3D2A10",
+    "accent": "#FF6B7D"
+  },
+  "marks": {
+    "x": 440,
+    "y": 335,
+    "scale": 1
+  }
+}

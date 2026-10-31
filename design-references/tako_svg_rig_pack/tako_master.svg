@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="800" height="800" viewBox="0 0 800 800">
+  <title>Tako - SVG-first mascot master</title>
+  <desc>Flat green curious creature mascot, built from independently named SVG groups.</desc>
+  <defs>
+    <style>
+      .green { fill: #4CAF50; }
+      .green-dark { fill: #2E8B42; }
+      .green-light { fill: #A7E17A; }
+      .ink { fill: #0F3D2E; }
+      .mouth-accent { fill: #FF6B7D; }
+      .outline { stroke: #2E8B42; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <!-- BACK LIMBS: rotate around shoulder/hip pivots -->
+  <g id="leg_left" transform="translate(0 0)">
+    <path d="M330 570 C306 600 298 650 302 692 C305 718 326 731 355 728
+             C380 725 390 710 388 690 L386 602 Z" class="green-dark"/>
+  </g>
+  <g id="leg_right" transform="translate(0 0)">
+    <path d="M432 575 C451 603 458 650 456 693 C455 718 435 731 407 728
+             C383 725 374 710 378 690 L382 600 Z" class="green"/>
+  </g>
+
+  <!-- BODY / HEAD: one simple silhouette for reliable shape consistency -->
+  <g id="body_head">
+    <path d="M394 151
+      C427 115 484 91 520 111
+      C553 129 552 170 521 189
+      C505 199 482 201 462 198
+      C502 222 552 267 566 333
+      C584 418 541 484 482 518
+      C505 551 515 590 504 627
+      C493 667 455 687 410 687
+      L329 687
+      C287 687 260 664 256 628
+      C252 591 271 557 301 523
+      C246 499 212 448 210 382
+      C207 301 251 235 320 205
+      C343 195 366 184 394 151 Z" class="green"/>
+    <!-- subtle, flat secondary patch; still a simple vector shape -->
+    <path d="M290 505 C325 526 365 536 407 530
+      C390 568 383 611 390 650 C352 667 310 653 299 624
+      C287 594 295 548 290 505 Z" class="green-light" opacity="0.9"/>
+  </g>
+
+  <!-- ANTENNA: separate group; pivot at (405,165) -->
+  <g id="antenna" transform="translate(0 0)">
+    <path d="M398 173 C390 133 409 91 449 75" fill="none"
+          stroke="#2E8B42" stroke-width="25" stroke-linecap="round"/>
+    <circle cx="464" cy="68" r="31" class="green-dark"/>
+    <circle cx="456" cy="59" r="11" class="green-light"/>
+  </g>
+
+  <!-- ARMS: pivots at shoulders (285,500) and (510,500) -->
+  <g id="arm_left">
+    <path d="M286 493 C251 504 231 538 237 574
+      C242 602 267 611 286 591
+      C306 570 310 533 302 510 Z" class="green-dark"/>
+  </g>
+  <g id="arm_right">
+    <path d="M510 491 C544 502 563 538 557 574
+      C552 602 527 611 508 591
+      C488 570 484 533 492 510 Z" class="green"/>
+  </g>
+
+  <!-- EYES: independent groups; pupils can be moved separately -->
+  <g id="eye_left">
+    <ellipse cx="337" cy="350" rx="68" ry="83" fill="#FFFFFF"/>
+    <ellipse id="pupil_left" cx="354" cy="360" rx="29" ry="42" class="ink"/>
+    <circle cx="345" cy="342" r="10" fill="#FFFFFF"/>
+  </g>
+  <g id="eye_right">
+    <ellipse cx="478" cy="326" rx="60" ry="75" fill="#FFFFFF"/>
+    <ellipse id="pupil_right" cx="492" cy="337" rx="26" ry="38" class="ink"/>
+    <circle cx="485" cy="320" r="9" fill="#FFFFFF"/>
+  </g>
+
+  <!-- EYEBROWS: separate for expression swaps -->
+  <g id="brow_left">
+    <path d="M290 250 Q317 225 344 239" fill="none" stroke="#0F3D2E"
+          stroke-width="13" stroke-linecap="round"/>
+  </g>
+  <g id="brow_right">
+    <path d="M451 222 Q479 204 505 220" fill="none" stroke="#0F3D2E"
+          stroke-width="13" stroke-linecap="round"/>
+  </g>
+
+  <!-- MOUTH: separate replaceable group -->
+  <g id="mouth">
+    <path d="M376 438 Q409 416 440 438 Q431 477 406 478 Q382 475 376 438 Z" class="ink"/>
+    <path d="M390 458 Q408 448 429 458 Q420 475 405 475 Q394 473 390 458 Z" class="mouth-accent"/>
+  </g>
+</svg>

@@ -1,0 +1,77 @@
+{
+  "character": "Komputer",
+  "topic": "teknologi (komputer)",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#5B7CFA",
+    "rim": "#4261D6",
+    "shine": "#A9BBFF",
+    "screen": "#EAF1FF",
+    "base": "#3A52B8",
+    "limb": "#2A3D8C",
+    "ink": "#1B2A5E",
+    "blush": "#FFB3C1",
+    "tongue": "#FF8FA3"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      290,
+      585
+    ],
+    "leg_right": [
+      510,
+      585
+    ],
+    "arm_left": [
+      190,
+      430
+    ],
+    "arm_right": [
+      610,
+      430
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 365,
+    "eyeGap": 74,
+    "eyeRx": 22,
+    "eyeRy": 30,
+    "style": "dot",
+    "mouthY": 445,
+    "mouthScale": 0.9,
+    "ball": "#1B2A5E",
+    "pupil": "#1B2A5E",
+    "lid": "#EAF1FF",
+    "ink": "#1B2A5E",
+    "accent": "#FF8FA3",
+    "blush": {
+      "color": "#FFB3C1",
+      "gap": 124,
+      "y": 440,
+      "rx": 28,
+      "ry": 17
+    }
+  },
+  "marks": {
+    "x": 450,
+    "y": 340,
+    "scale": 1
+  }
+}

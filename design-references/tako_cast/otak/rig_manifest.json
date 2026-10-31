@@ -1,0 +1,67 @@
+{
+  "character": "Otak",
+  "topic": "tubuh manusia",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#F48FB1",
+    "rim": "#D96A92",
+    "shine": "#FFC7DA",
+    "limb": "#B24572",
+    "ink": "#4A1530",
+    "tongue": "#FFC1D5"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      360,
+      590
+    ],
+    "leg_right": [
+      440,
+      590
+    ],
+    "arm_left": [
+      176,
+      450
+    ],
+    "arm_right": [
+      624,
+      450
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 410,
+    "eyeGap": 74,
+    "eyeRx": 40,
+    "eyeRy": 48,
+    "style": "sclera",
+    "mouthY": 505,
+    "mouthScale": 0.9,
+    "ball": "#FFFFFF",
+    "pupil": "#4A1530",
+    "lid": "#F48FB1",
+    "ink": "#4A1530",
+    "accent": "#FFC1D5"
+  },
+  "marks": {
+    "x": 450,
+    "y": 360,
+    "scale": 1
+  }
+}

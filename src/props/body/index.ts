@@ -1,0 +1,10 @@
+export { CoronaryVessels } from "./CoronaryVessels";
+export { EkgLine } from "./EkgLine";
+export { Mitochondria, MitochondriaShape } from "./Mitochondria";
+export { MuscleCell } from "./MuscleCell";
+export { Stopwatch } from "./Stopwatch";
+export { JantungAnatomi } from "./JantungAnatomi";
+export { Otot } from "./Otot";
+export { ParuParu } from "./ParuParu";
+export { SelDarahMerah } from "./SelDarahMerah";
+export { TetesDarah } from "./TetesDarah";

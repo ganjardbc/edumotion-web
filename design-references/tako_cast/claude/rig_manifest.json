@@ -1,0 +1,67 @@
+{
+  "character": "Claude",
+  "topic": "teknologi (AI)",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#D97757",
+    "rim": "#B85C41",
+    "shine": "#E8937A",
+    "limb": "#C96A4B",
+    "ink": "#1B1715",
+    "tongue": "#E8937A"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      274,
+      612
+    ],
+    "leg_right": [
+      526,
+      612
+    ],
+    "arm_left": [
+      190,
+      510
+    ],
+    "arm_right": [
+      610,
+      510
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 440,
+    "eyeGap": 126,
+    "eyeRx": 20,
+    "eyeRy": 38,
+    "style": "dot",
+    "mouthY": 520,
+    "mouthScale": 0.8,
+    "ball": "#1B1715",
+    "pupil": "#1B1715",
+    "lid": "#D97757",
+    "ink": "#1B1715",
+    "accent": "#E8937A"
+  },
+  "marks": {
+    "x": 440,
+    "y": 400,
+    "scale": 1
+  }
+}

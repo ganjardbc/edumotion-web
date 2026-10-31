@@ -1,0 +1,73 @@
+{
+  "character": "Jantung",
+  "topic": "tubuh manusia",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#EF5350",
+    "rim": "#D63B3E",
+    "shine": "#FF9A92",
+    "limb": "#A82A2E",
+    "stem": "#5A2A2A",
+    "ink": "#3D1416",
+    "tongue": "#FFB3B8"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "topper",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      365,
+      610
+    ],
+    "leg_right": [
+      435,
+      610
+    ],
+    "topper": [
+      400,
+      280
+    ],
+    "arm_left": [
+      152,
+      395
+    ],
+    "arm_right": [
+      648,
+      395
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 345,
+    "eyeGap": 80,
+    "eyeRx": 46,
+    "eyeRy": 54,
+    "style": "sclera",
+    "mouthY": 450,
+    "mouthScale": 0.92,
+    "ball": "#FFFFFF",
+    "pupil": "#3D1416",
+    "lid": "#EF5350",
+    "ink": "#3D1416",
+    "accent": "#FFB3B8"
+  },
+  "marks": {
+    "x": 440,
+    "y": 320,
+    "scale": 1
+  }
+}

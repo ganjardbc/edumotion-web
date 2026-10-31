@@ -1,0 +1,65 @@
+{
+  "character": "Tako",
+  "version": "0.1-concept",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "palette": {
+    "primary": "#4CAF50",
+    "secondary": "#A7E17A",
+    "dark": "#0F3D2E",
+    "limb_shadow": "#2E8B42",
+    "mouth_accent": "#FF6B7D"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body_head",
+    "antenna",
+    "arm_left",
+    "arm_right",
+    "eye_left",
+    "eye_right",
+    "brow_left",
+    "brow_right",
+    "mouth"
+  ],
+  "suggested_pivots": {
+    "antenna": [
+      405,
+      165
+    ],
+    "arm_left": [
+      286,
+      500
+    ],
+    "arm_right": [
+      510,
+      500
+    ],
+    "leg_left": [
+      350,
+      600
+    ],
+    "leg_right": [
+      420,
+      600
+    ],
+    "eye_left": [
+      337,
+      350
+    ],
+    "eye_right": [
+      478,
+      326
+    ]
+  },
+  "notes": [
+    "All groups use the same 800x800 coordinate system for easy overlay.",
+    "Eye pupils are separate IDs in the master SVG and can be split further for gaze animation.",
+    "For production, create alternate mouth and eyebrow SVG groups for expression switching.",
+    "This is a clean vector starter, not a fully production-tested character rig."
+  ]
+}

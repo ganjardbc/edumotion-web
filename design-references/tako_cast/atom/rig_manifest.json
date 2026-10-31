@@ -1,0 +1,82 @@
+{
+  "character": "Atom",
+  "topic": "sains dasar",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#26C6DA",
+    "rim": "#0097A7",
+    "shine": "#A6F0F7",
+    "orbit": "#7E57C2",
+    "electron": "#FFD84D",
+    "limb": "#0A7F8C",
+    "ink": "#07404A",
+    "blush": "#FFB3C1",
+    "tongue": "#FF8FA3"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "back",
+    "body",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      365,
+      560
+    ],
+    "leg_right": [
+      435,
+      560
+    ],
+    "back": [
+      400,
+      420
+    ],
+    "arm_left": [
+      254,
+      450
+    ],
+    "arm_right": [
+      546,
+      450
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 410,
+    "eyeGap": 62,
+    "eyeRx": 22,
+    "eyeRy": 30,
+    "style": "dot",
+    "mouthY": 478,
+    "mouthScale": 0.85,
+    "ball": "#07404A",
+    "pupil": "#07404A",
+    "lid": "#26C6DA",
+    "ink": "#07404A",
+    "accent": "#FF8FA3",
+    "blush": {
+      "color": "#FFB3C1",
+      "gap": 106,
+      "y": 474,
+      "rx": 26,
+      "ry": 16
+    }
+  },
+  "marks": {
+    "x": 450,
+    "y": 370,
+    "scale": 1
+  }
+}

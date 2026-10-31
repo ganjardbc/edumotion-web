@@ -1,0 +1,84 @@
+{
+  "character": "Bulan",
+  "topic": "bumi & antariksa",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#EDE7C9",
+    "rim": "#CFC7A2",
+    "shine": "#FFFFFF",
+    "crater": "#D9D2B0",
+    "cap": "#5C6BC0",
+    "capDark": "#3F4C9A",
+    "pom": "#FFFFFF",
+    "limb": "#8C86B0",
+    "ink": "#33305A",
+    "blush": "#F4B6C2",
+    "tongue": "#FF9FB0"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "topper",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      365,
+      590
+    ],
+    "leg_right": [
+      435,
+      590
+    ],
+    "topper": [
+      400,
+      300
+    ],
+    "arm_left": [
+      220,
+      450
+    ],
+    "arm_right": [
+      580,
+      450
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 395,
+    "eyeGap": 70,
+    "eyeRx": 22,
+    "eyeRy": 30,
+    "style": "dot",
+    "mouthY": 462,
+    "mouthScale": 0.85,
+    "ball": "#33305A",
+    "pupil": "#33305A",
+    "lid": "#EDE7C9",
+    "ink": "#33305A",
+    "accent": "#FF9FB0",
+    "blush": {
+      "color": "#F4B6C2",
+      "gap": 122,
+      "y": 458,
+      "rx": 28,
+      "ry": 17
+    }
+  },
+  "marks": {
+    "x": 450,
+    "y": 360,
+    "scale": 1
+  }
+}

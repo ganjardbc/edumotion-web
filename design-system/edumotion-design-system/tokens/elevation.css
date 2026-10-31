@@ -1,0 +1,6 @@
+/* Gaya datar: kedalaman dari bayangan kontak dan rim, bukan bayangan lembut besar. */
+:root {
+  --shadow-contact: rgba(15, 61, 46, 0.14); /* elips di lantai, lihat ContactShadow */
+  --shadow-card: 0 12px 0 rgba(15, 61, 46, 0.10);
+  --shadow-lift: 0 20px 40px rgba(15, 61, 46, 0.18);
+}

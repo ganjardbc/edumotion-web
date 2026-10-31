@@ -1,0 +1,85 @@
+{
+  "character": "Ganjar",
+  "topic": "pembuat (pemilik akun)",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#F2B98C",
+    "rim": "#DC9A6C",
+    "shine": "#FBD3B0",
+    "hair": "#2A1C16",
+    "shirt": "#2C2C32",
+    "shirtRim": "#1F1F25",
+    "pants": "#36363D",
+    "shoe": "#1F1F24",
+    "sole": "#FBFAF6",
+    "ink": "#111114",
+    "blush": "#E68A66",
+    "tongue": "#EE8A6A"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "topper",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      353,
+      612
+    ],
+    "leg_right": [
+      447,
+      612
+    ],
+    "topper": [
+      400,
+      230
+    ],
+    "arm_left": [
+      304,
+      490
+    ],
+    "arm_right": [
+      496,
+      490
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 335,
+    "eyeGap": 66,
+    "eyeRx": 20,
+    "eyeRy": 26,
+    "style": "dot",
+    "mouthY": 410,
+    "mouthScale": 0.8,
+    "ball": "#111114",
+    "pupil": "#111114",
+    "lid": "#F2B98C",
+    "ink": "#2A1C16",
+    "accent": "#EE8A6A",
+    "blush": {
+      "color": "#E68A66",
+      "gap": 106,
+      "y": 385,
+      "rx": 26,
+      "ry": 16
+    }
+  },
+  "marks": {
+    "x": 450,
+    "y": 300,
+    "scale": 1
+  }
+}

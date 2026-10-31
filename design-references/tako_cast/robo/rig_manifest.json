@@ -1,0 +1,75 @@
+{
+  "character": "Robo",
+  "topic": "teknologi",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "shell": "#D5DCE4",
+    "rim": "#AEB9C6",
+    "shine": "#F2F5F8",
+    "dark": "#6F7A87",
+    "screen": "#1E2F52",
+    "iris": "#2E86C1",
+    "glow": "#8FD8FF",
+    "core": "#E8F7FF",
+    "boot": "#C3CCD6"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "topper",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      355,
+      610
+    ],
+    "leg_right": [
+      445,
+      610
+    ],
+    "topper": [
+      400,
+      124
+    ],
+    "arm_left": [
+      302,
+      455
+    ],
+    "arm_right": [
+      498,
+      455
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 252,
+    "eyeGap": 60,
+    "eyeRx": 33,
+    "eyeRy": 40,
+    "style": "sclera",
+    "mouthY": 306,
+    "mouthScale": 0.64,
+    "ball": "#FFFFFF",
+    "pupil": "#2E86C1",
+    "lid": "#1E2F52",
+    "ink": "#8FD8FF",
+    "accent": "#2E86C1"
+  },
+  "marks": {
+    "x": 440,
+    "y": 235,
+    "scale": 1
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "character": "Tetes",
+  "topic": "air & lingkungan",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#64B5F6",
+    "rim": "#3D97E3",
+    "shine": "#C6E7FF",
+    "limb": "#2A7BC8",
+    "ink": "#0F3D5E",
+    "blush": "#B9A6E8",
+    "tongue": "#FF8FA3"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "arm_left",
+    "arm_right",
+    "face",
+    "extras"
+  ],
+  "pivots": {
+    "leg_left": [
+      355,
+      640
+    ],
+    "leg_right": [
+      445,
+      640
+    ],
+    "arm_left": [
+      216,
+      520
+    ],
+    "arm_right": [
+      584,
+      520
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 460,
+    "eyeGap": 74,
+    "eyeRx": 26,
+    "eyeRy": 33,
+    "style": "dot",
+    "mouthY": 520,
+    "mouthScale": 0.82,
+    "ball": "#0F3D5E",
+    "pupil": "#0F3D5E",
+    "lid": "#64B5F6",
+    "ink": "#0F3D5E",
+    "accent": "#FF8FA3",
+    "blush": {
+      "color": "#B9A6E8",
+      "gap": 122,
+      "y": 528,
+      "rx": 32,
+      "ry": 20
+    }
+  },
+  "marks": {
+    "x": 430,
+    "y": 420,
+    "scale": 0.95
+  }
+}

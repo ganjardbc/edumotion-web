@@ -1,0 +1,82 @@
+{
+  "character": "Baterai",
+  "topic": "teknologi (energi)",
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "viewBox": "0 0 800 800"
+  },
+  "ground": [
+    400,
+    730
+  ],
+  "palette": {
+    "body": "#9CCC3B",
+    "rim": "#7BA82A",
+    "shine": "#D7EC8F",
+    "cap": "#B0BEC5",
+    "bolt": "#FFD84D",
+    "limb": "#4F6B1B",
+    "ink": "#27360E",
+    "blush": "#F4A9B8",
+    "tongue": "#FF8FA3"
+  },
+  "layers_back_to_front": [
+    "leg_left",
+    "leg_right",
+    "body",
+    "topper",
+    "arm_left",
+    "arm_right",
+    "face"
+  ],
+  "pivots": {
+    "leg_left": [
+      352,
+      610
+    ],
+    "leg_right": [
+      448,
+      610
+    ],
+    "topper": [
+      400,
+      226
+    ],
+    "arm_left": [
+      282,
+      440
+    ],
+    "arm_right": [
+      518,
+      440
+    ]
+  },
+  "face": {
+    "cx": 400,
+    "eyeY": 345,
+    "eyeGap": 52,
+    "eyeRx": 19,
+    "eyeRy": 27,
+    "style": "dot",
+    "mouthY": 410,
+    "mouthScale": 0.78,
+    "ball": "#27360E",
+    "pupil": "#27360E",
+    "lid": "#9CCC3B",
+    "ink": "#27360E",
+    "accent": "#FF8FA3",
+    "blush": {
+      "color": "#F4A9B8",
+      "gap": 88,
+      "y": 412,
+      "rx": 22,
+      "ry": 14
+    }
+  },
+  "marks": {
+    "x": 440,
+    "y": 330,
+    "scale": 0.9
+  }
+}
