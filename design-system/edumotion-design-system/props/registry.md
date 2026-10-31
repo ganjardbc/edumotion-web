@@ -33,6 +33,10 @@ Claude Code memilih dari daftar ini saat menyusun storyboard; objek yang dibutuh
 | AwanHujan | cuaca | sendu | prop | `progress` (tetes jatuh) | ada |
 | Pelangi | cuaca | senang | prop | `progress` | ada |
 | Termometer | cuaca | netral | prop | `level` | ada |
+| GelombangCahaya | cuaca | netral | prop | `progress` (gelombang), param `wavelength` | ada |
+| MolekulUdara | cuaca | netral | prop | `scatter` (sinar membelok) | ada |
+| LapisanAtmosfer | cuaca | netral | prop | `progress` (sinar menembus) | ada |
+| Mata | tubuh | netral | prop | tidak ada | ada |
 | SiklusAir | air | netral | prop | `progress` | ada |
 | RodaGigi | teknologi | netral | prop | `progress` | ada |
 | Chip | teknologi | netral | prop | `glow` | ada |

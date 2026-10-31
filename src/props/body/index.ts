@@ -8,3 +8,4 @@ export { Otot } from "./Otot";
 export { ParuParu } from "./ParuParu";
 export { SelDarahMerah } from "./SelDarahMerah";
 export { TetesDarah } from "./TetesDarah";
+export { Mata } from "./Mata";
