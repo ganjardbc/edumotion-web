@@ -8,10 +8,11 @@ Kok jantung nggak capek?
 - Struktur folder: lihat "Struktur video" di CLAUDE.md di root proyek
 
 ## Status
-- [ ] Naskah disetujui Ganjar
+- [x] Naskah disetujui Ganjar
 - [ ] Objek (`props`) yang dibutuhkan sudah ada atau dicatat `antre` di design-system/edumotion-design-system/props/registry.md
-- [ ] Scene visual selesai (views/)
-- [ ] Voice over dibuat (`node scripts/vo-generate.mjs --video JantungTidakCapek`, setelah persetujuan Ganjar)
+- [x] Scene visual selesai (views/)
+- [x] Voice over dibuat (Aldo, 8 baris, 614 huruf, disetujui Ganjar 31 Okt 2026) (`node scripts/vo-generate.mjs --video JantungTidakCapek`, setelah persetujuan Ganjar)
+- [x] SFX dipasang (`sfx` di scenes.ts)
 - [ ] Ditinjau di Remotion Studio dengan panduan safe zone
 - [ ] Render akhir
 

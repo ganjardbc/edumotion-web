@@ -1,1 +1,44 @@
-{ "lines": {} }
+{
+  "lines": {
+    "Cta-1": {
+      "hash": "1b7d41a7e651",
+      "file": "voiceover/Cta-1.mp3",
+      "duration": 2.74
+    },
+    "Explain1-1": {
+      "hash": "c01e762d307c",
+      "file": "voiceover/Explain1-1.mp3",
+      "duration": 4.69
+    },
+    "Explain2-1": {
+      "hash": "bfa63b774f43",
+      "file": "voiceover/Explain2-1.mp3",
+      "duration": 7.25
+    },
+    "Explain3-1": {
+      "hash": "35d74f757036",
+      "file": "voiceover/Explain3-1.mp3",
+      "duration": 3.99
+    },
+    "Hook-1": {
+      "hash": "8ab3b725e8e3",
+      "file": "voiceover/Hook-1.mp3",
+      "duration": 3.1
+    },
+    "Payoff-1": {
+      "hash": "4f0ea070d36b",
+      "file": "voiceover/Payoff-1.mp3",
+      "duration": 5.01
+    },
+    "Setup-1": {
+      "hash": "836d825243a9",
+      "file": "voiceover/Setup-1.mp3",
+      "duration": 5.27
+    },
+    "Twist-1": {
+      "hash": "63ed6afa394a",
+      "file": "voiceover/Twist-1.mp3",
+      "duration": 0.88
+    }
+  }
+}
