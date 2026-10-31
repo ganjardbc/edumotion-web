@@ -87,6 +87,7 @@ Lokasi: `design-system/edumotion-design-system/` (baca `readme.md`, `props/STYLE
 - `src/assets/camera/`: kamera virtual 2D (`ShotCamera`, `framing`, layout SplitScreen/PictureInPicture/InsertCard). Baca `README.md`.
 - `src/assets/screens/`: mock layar (BrowserMock, CodeEditor, Terminal, dll.), kebanyakan untuk video coding.
 - `src/themes/`: tema `edumotion` (`edumotion.ts`), `topics.ts` (`TOPIC_COLORS`, `EDU_PLAIN`, `HIGHLIGHT`).
+- `src/assets/sfx/`: pustaka SFX sintetis (`SFX`, `SfxName`), dibuat `python3 scripts/sfx-generate.py` (tanpa kredit). Video memakainya lewat `Scene.sfx` di `scenes.ts` (`{ sfx, at, every?, times?, volume? }`, detik dari awal scene).
 - `src/explainers/`: Caption, HookText, Counter, PhaseBar, GuessCard, EduBack (+ `beat`), SafeZoneGuide, CorrectionCard (Twist Tako), Callout, Cutaway, BarCompare, Timeline, MetaphorSwap, Transition (`swipe`/`iris`/`bars`, belum dipasang di `ShortEdu`), ProgressDots, EndCard, ThumbnailCard. Tinjau semuanya di komposisi `ExplainersDemo` dan `ThumbnailDemo`.
 - `src/props/`: objek SVG berkontrak (`PropFrame`, viewBox 800), tercatat di `props/registry.md` dan dicek `scripts/lint-props.mjs`. Folder: `body/`, `umum/`, `antariksa/`, `cuaca/`, `teknologi/`, `sejarah/`. Lembar peninjauan: Still `PropsSheet`.
 - `src/assets/effects/`: Confetti, Sparkle, SpeedLines, PopBurst, Bubbles (deterministik, `seeded`). Demo: `EffectsDemo`.

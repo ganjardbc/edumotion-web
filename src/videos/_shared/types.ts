@@ -1,4 +1,5 @@
 import type React from "react";
+import type { SfxName } from "../../assets/sfx";
 import type { CastId } from "../../characters/cast/types";
 
 // Satu kalimat voice over. `who` menunjuk kunci di VO_VOICES milik video (mis. "tako", "narator").
@@ -15,6 +16,18 @@ export type Line = {
 // Bagian struktur cerita; urutan baku: hook, setup, twist, explain (boleh lebih dari satu), payoff, cta.
 export type Segment = "hook" | "setup" | "twist" | "explain" | "payoff" | "cta";
 
+// Efek suara yang berbunyi di dalam scene. Waktu dalam detik dari awal scene (bukan dari awal video), jadi tetap
+// sejajar dengan visual saat durasi scene berubah mengikuti audio VO. Dengan `every` dan `times`, bunyinya diulang;
+// pengulangan yang melewati akhir scene terpotong sendiri.
+export type SfxCue = {
+  readonly sfx: SfxName;
+  readonly at: number;
+  readonly every?: number;
+  readonly times?: number;
+  // 0..1, bawaan 0,5 (VO sudah diratakan -16 LUFS; SFX harus jelas tapi di bawah suara).
+  readonly volume?: number;
+};
+
 export type Scene = {
   // PascalCase, unik di dalam video; sama dengan nama berkas di views/<Id>.tsx.
   readonly id: string;
@@ -22,6 +35,8 @@ export type Scene = {
   readonly lines: ReadonlyArray<Line>;
   // Detik hening setelah kalimat terakhir (default 0,3).
   readonly pad?: number;
+  // Efek suara scene ini (opsional).
+  readonly sfx?: ReadonlyArray<SfxCue>;
 };
 
 export type VideoTopic = "tubuh" | "cuaca" | "ilmu" | "planet" | "sejarah" | "teknologi" | "air" | "alam" | "ai";

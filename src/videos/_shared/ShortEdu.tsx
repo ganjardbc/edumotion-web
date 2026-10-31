@@ -2,11 +2,32 @@ import { Audio } from "@remotion/media";
 import type React from "react";
 import { useMemo } from "react";
 import { AbsoluteFill, Sequence } from "remotion";
+import { SFX } from "../../assets/sfx";
 import { Caption, SafeZoneGuide } from "../../explainers";
 import { ThemeProvider, useTheme } from "../../themes";
 import { computeTimings, totalFrames } from "./timing";
 import type { Scene, SceneRenderers } from "./types";
 import type { Voiceover } from "./voiceover";
+
+// Pengali volume semua SFX supaya campuran dengan VO tidak melewati -1 dBFS (diukur: VO + SFX = -13,8 LUFS stereo, puncak -1,0 dBFS).
+const SFX_MASTER = 0.35;
+
+// Memutar cue SFX scene. Dipasang di dalam Sequence scene, jadi waktu cue relatif ke awal scene.
+const SceneSfx: React.FC<{ readonly scene: Scene; readonly frames: number }> = ({ scene, frames }) => (
+  <>
+    {(scene.sfx ?? []).flatMap((cue, ci) =>
+      Array.from({ length: cue.times ?? 1 }, (_, k) => {
+        const from = Math.round((cue.at + k * (cue.every ?? 0)) * SHORT_EDU.fps);
+        if (from >= frames) return null;
+        return (
+          <Sequence key={`${ci}-${k}`} from={from} durationInFrames={frames - from} name={`sfx-${cue.sfx}`} layout="none">
+            <Audio src={SFX[cue.sfx]} volume={(cue.volume ?? 0.5) * SFX_MASTER} />
+          </Sequence>
+        );
+      }),
+    )}
+  </>
+);
 
 export const SHORT_EDU = { width: 1080, height: 1920, fps: 30 } as const;
 
@@ -31,6 +52,7 @@ const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false }) => {
         return (
           <Sequence key={t.scene.id} from={t.from} durationInFrames={t.frames} name={t.scene.id}>
             <SceneView scene={t.scene} frames={t.frames} lineStarts={t.lineStarts} />
+            <SceneSfx scene={t.scene} frames={t.frames} />
             {t.scene.lines.map((line, i) => {
               const audio = vo.audioFor(vo.lineId(t.scene.id, i));
               return (
