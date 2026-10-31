@@ -20,8 +20,8 @@ export const Explain4: React.FC<SceneProps> = ({ frames }) => {
   return (
     <AbsoluteFill>
       <EduBackdrop kind="papanDiagram" topic={META.topic} />
-      <div style={{ position: "absolute", left: 64, top: 240, width: 856, height: 190, borderRadius: t.radius.card, backgroundColor: sky, border: `8px solid ${t.colors.ink}`, boxSizing: "border-box" }} />
-      <div style={{ ...label, left: 64, top: 320, width: 856, textAlign: "center" }}>Langit {dusk > 0.5 ? "senja" : "siang"}</div>
+      <div style={{ position: "absolute", left: 120, top: 240, width: 840, height: 190, borderRadius: t.radius.card, backgroundColor: sky, border: `8px solid ${t.colors.ink}`, boxSizing: "border-box" }} />
+      <div style={{ ...label, left: 0, top: 320, width: 1080, textAlign: "center" }}>Langit {dusk > 0.5 ? "senja" : "siang"}</div>
       <div style={{ position: "absolute", left: 0, top: 440, width: 1080, height: 860, overflow: "hidden" }}>
         <LapisanAtmosfer x={540} y={310} size={760} topic="planet" progress={rays} />
         <div style={{ ...pill, left: 590, top: 230, opacity: rays > 0.9 ? 1 : 0 }}>Siang: pendek</div>

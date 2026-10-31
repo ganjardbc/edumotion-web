@@ -22,9 +22,11 @@ export const Twist: React.FC<SceneProps> = ({ frames, lineStarts }) => {
       <AbsoluteFill style={{ opacity: sea }}>
         <EduBackdrop kind="laut" topic={META.topic} time="siang" />
       </AbsoluteFill>
-      <CorrectionCard top={240} guess="Langit mantulin laut" answer="Warna dari udara" topic="planet" crossAt={Math.round(second * 0.6)} answerAt={second + 20} />
-      <ExclamationMark x={780} y={900} size={260} topic="planet" pop={pop} />
-      <TakoCharacter x={330} y={EDU_FEET_Y} size={520} expression={understood ? "happy" : "surprised"} animation={understood ? "idle" : "surprise"} />
+      <div style={{ position: "absolute", inset: 0, transform: "translateX(48px)" }}>
+        <CorrectionCard top={240} guess="Langit mantulin laut" answer="Warna dari udara" topic="planet" crossAt={Math.round(second * 0.6)} answerAt={second + 20} />
+      </div>
+      <ExclamationMark x={720} y={900} size={260} topic="planet" pop={pop} />
+      <TakoCharacter x={440} y={EDU_FEET_Y} size={520} expression={understood ? "happy" : "surprised"} animation={understood ? "idle" : "surprise"} />
     </AbsoluteFill>
   );
 };

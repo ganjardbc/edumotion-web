@@ -16,9 +16,9 @@ export const Setup: React.FC<SceneProps> = ({ frames }) => {
   return (
     <AbsoluteFill>
       <EduBackdrop kind="laut" topic={META.topic} time="siang" />
-      <CurvedArrow x={560} y={560} size={620} topic="planet" progress={arrow} />
-      <TakoCharacter x={330} y={EDU_FEET_Y} size={560} expression="happy" animation="talk" />
-      <CastCharacter id="awan" x={800} y={420} size={340} facing={-1} expression={shake ? "confused" : "happy"} animation={shake ? "confusion" : "idle"} />
+      <CurvedArrow x={540} y={500} size={560} topic="planet" progress={arrow} />
+      <TakoCharacter x={540} y={EDU_FEET_Y} size={560} expression="happy" animation="talk" />
+      <CastCharacter id="awan" x={780} y={330} size={300} facing={-1} expression={shake ? "confused" : "happy"} animation={shake ? "confusion" : "idle"} />
     </AbsoluteFill>
   );
 };

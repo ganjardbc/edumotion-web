@@ -16,8 +16,8 @@ export const Hook: React.FC<SceneProps> = () => {
     <AbsoluteFill>
       <EduBackdrop kind="langit" topic={META.topic} time="siang" />
       <HookText text="Kenapa langit biru, bukan ungu?" highlight="ungu" size={100} />
-      <QuestionMark x={800} y={880} size={300} topic="ilmu" pop={pop} />
-      <TakoCharacter x={400} y={EDU_FEET_Y} size={620} expression="curious" animation="thinking" />
+      <QuestionMark x={720} y={880} size={300} topic="ilmu" pop={pop} />
+      <TakoCharacter x={440} y={EDU_FEET_Y} size={620} expression="curious" animation="thinking" />
     </AbsoluteFill>
   );
 };

@@ -16,8 +16,8 @@ export const Cta: React.FC<SceneProps> = () => {
     <AbsoluteFill>
       <EduBackdrop kind="laut" topic={META.topic} time="siang" />
       <HookText text="Kenapa laut biru?" highlight="laut" size={104} />
-      <QuestionMark x={800} y={820} size={280} topic="air" pop={pop} />
-      <TakoCharacter x={400} y={EDU_FEET_Y} size={640} expression="curious" animation="thinking" />
+      <QuestionMark x={720} y={820} size={280} topic="air" pop={pop} />
+      <TakoCharacter x={440} y={EDU_FEET_Y} size={640} expression="curious" animation="thinking" />
     </AbsoluteFill>
   );
 };

@@ -9,7 +9,6 @@ import type { SceneProps } from "../../_shared/types";
 
 const VIOLET = TOPIC_COLORS.ilmu;
 const BLUE = TOPIC_COLORS.planet;
-const BAR_X = 120;
 const BAR_W = 640;
 
 // Explain3, tiga tahap bergantian (satu fokus per waktu): (1) ungu terhambur lebih kuat, (2) sinar ungu yang datang tipis,
@@ -26,9 +25,9 @@ export const Explain3: React.FC<SceneProps> = ({ frames }) => {
   const g1 = at(0.06, 0.24);
   const g2 = at(0.44, 0.58);
   const hl = at(0.8, 0.86);
-  const title = { position: "absolute", left: 64, width: 856, textAlign: "center", fontFamily: t.fonts.heading, fontWeight: 800, fontSize: 60, color: t.colors.ink } as const;
-  const bar = (top: number, name: string, color: typeof VIOLET, value: number, progress: number) => (
-    <div style={{ position: "absolute", left: BAR_X, top, height: 90, display: "flex", alignItems: "center", gap: 24 }}>
+  const title = { position: "absolute", left: 0, width: 1080, textAlign: "center", fontFamily: t.fonts.heading, fontWeight: 800, fontSize: 60, color: t.colors.ink } as const;
+  const bar = (top: number, name: string, color: typeof VIOLET, value: number, progress: number, widest: number) => (
+    <div style={{ position: "absolute", left: (1080 - (174 + BAR_W * widest)) / 2, top, height: 90, display: "flex", alignItems: "center", gap: 24 }}>
       <div style={{ width: 150, fontFamily: t.fonts.heading, fontWeight: 800, fontSize: 48, color: color.ink }}>{name}</div>
       <div style={{ width: BAR_W * value * progress, height: 90, backgroundColor: color.main, border: `8px solid ${color.ink}`, borderRadius: 45, boxSizing: "border-box" }} />
     </div>
@@ -38,13 +37,13 @@ export const Explain3: React.FC<SceneProps> = ({ frames }) => {
       <EduBackdrop kind="papanDiagram" topic={META.topic} />
       <div style={{ opacity: p1 }}>
         <div style={{ ...title, top: 300 }}>Dihamburkan udara</div>
-        {bar(480, "Ungu", VIOLET, 1, g1)}
-        {bar(620, "Biru", BLUE, 0.7, g1)}
+        {bar(480, "Ungu", VIOLET, 1, g1, 1)}
+        {bar(620, "Biru", BLUE, 0.7, g1, 1)}
       </div>
       <div style={{ opacity: p2 }}>
         <div style={{ ...title, top: 300 }}>Sinar Matahari yang datang</div>
-        {bar(480, "Ungu", VIOLET, 0.25, g2)}
-        {bar(620, "Biru", BLUE, 0.85, g2)}
+        {bar(480, "Ungu", VIOLET, 0.25, g2, 0.85)}
+        {bar(620, "Biru", BLUE, 0.85, g2, 0.85)}
       </div>
       <div style={{ opacity: p3 }}>
         <Mata x={540} y={600} size={520} topic="tubuh" />
