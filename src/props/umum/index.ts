@@ -5,4 +5,6 @@ export { CurvedArrow } from "./CurvedArrow";
 export { ExclamationMark } from "./ExclamationMark";
 export { LightBulb } from "./LightBulb";
 export { QuestionMark } from "./QuestionMark";
+export { SiluetGajah } from "./SiluetGajah";
 export { Star } from "./Star";
+export { Timbangan } from "./Timbangan";

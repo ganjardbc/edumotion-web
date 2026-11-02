@@ -39,6 +39,9 @@ Claude Code memilih dari daftar ini saat menyusun storyboard; objek yang dibutuh
 | LapisanAtmosfer | cuaca | netral | prop | `progress` (sinar menembus) | ada |
 | Mata | tubuh | netral | prop | tidak ada | ada |
 | SiklusAir | air | netral | prop | `progress` | ada |
+| PanahUdara | cuaca | netral | prop | `progress` (panah naik) | ada |
+| Timbangan | umum | netral | prop | `level` (jarum) | ada |
+| SiluetGajah | umum | netral | prop | tidak ada | ada |
 | RodaGigi | teknologi | netral | prop | `progress` | ada |
 | Chip | teknologi | netral | prop | `glow` | ada |
 | WifiSignal | teknologi | netral | prop | `level` | ada |
