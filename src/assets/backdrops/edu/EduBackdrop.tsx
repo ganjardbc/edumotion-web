@@ -21,11 +21,12 @@ import { Museum } from "./Museum";
 import { eduColors } from "./palette";
 import { PapanDiagram } from "./PapanDiagram";
 import { RuangKelas } from "./RuangKelas";
+import { Warna } from "./Warna";
 
 // Lantai tempat kaki karakter berdiri (di atas blok caption). EDU_FLOOR_Y di explainers memakai nilai ini.
 export const EDU_BACKDROP_FLOOR_Y = 1180;
 
-export const EDU_BACKDROP_KINDS = ["polos", "dalamTubuh", "papanDiagram", "langit", "antariksa", "ruangKelas", "laboratorium", "museum", "alam", "kota", "pedesaan", "kamarTidur", "kantor", "ruangKerja", "gedungSate", "monas", "laut", "dapur", "jalanRaya"] as const;
+export const EDU_BACKDROP_KINDS = ["polos", "dalamTubuh", "papanDiagram", "langit", "antariksa", "ruangKelas", "laboratorium", "museum", "alam", "kota", "pedesaan", "kamarTidur", "kantor", "ruangKerja", "gedungSate", "monas", "laut", "dapur", "jalanRaya", "warna"] as const;
 export type EduBackdropKind = (typeof EDU_BACKDROP_KINDS)[number];
 
 export type EduBackdropProps = {
@@ -82,6 +83,8 @@ export const EduBackdrop: React.FC<EduBackdropProps> = ({ kind = "polos", topic,
       return <Dapur topic={topic} floorY={floorY} />;
     case "jalanRaya":
       return <JalanRaya topic={topic} floorY={floorY} time={time} />;
+    case "warna":
+      return <Warna topic={topic} floorY={floorY} />;
     case "polos": {
       const e = eduColors(topic);
       return <PlainBack anchors={{ floorY, spotX: 540 }} palette={{ wallTop: e.wallTop, wallBottom: e.wallBottom, floor: e.floor, floorEdge: e.floorEdge, spot: "#FFFFFF", spotOpacity: 0.5, shadowOpacity: 0.2 }} />;

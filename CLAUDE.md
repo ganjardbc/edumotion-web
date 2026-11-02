@@ -83,7 +83,7 @@ Lokasi: `design-system/edumotion-design-system/` (baca `readme.md`, `props/STYLE
 ## Peta kode
 - `src/characters/tako/`: rig Tako (`TakoCharacter`, ekspresi, animasi, `assets/palette.ts`).
 - `src/characters/cast/`: 18 karakter (awan, bumi, jantung, raka, buku, robo, tetes, claude, ganjar, hape, komputer, otak, matahari, baterai, bulan, atom, petir, api). Warna topik: `claude` memakai topik `ai` (oranye); tujuh karakter pertama dan karakter baru lain memakai topik yang sudah ada atau belum punya topik sendiri (Hape, Komputer, Otak, Matahari, Baterai, Bulan, Atom, Petir, Api, dan Ganjar belum). `ganjar` adalah karakter manusia (pemilik akun), bukan pilar topik. Satu rig bersama (`CastRig`), tiap karakter berupa `CastDefinition`. Pakai `<CastCharacter id=... />`.
-- `src/assets/backdrops/`: latar (`plain`, `outdoor`, `workspace`, `edu` dengan 19 jenis termasuk `laut`, `dapur`, `jalanRaya`; `sketch` untuk stickman). Waktu hari: siang/sore/malam atau 0..1. Baca `README.md` di folder itu. Blok `block` dinonaktifkan karena preview crash.
+- `src/assets/backdrops/`: latar (`plain`, `outdoor`, `workspace`, `edu` dengan 20 jenis termasuk `laut`, `dapur`, `jalanRaya`, `warna` (latar warna polos untuk Hook dan Cta); `sketch` untuk stickman). Waktu hari: siang/sore/malam atau 0..1. Baca `README.md` di folder itu. Blok `block` dinonaktifkan karena preview crash.
 - `src/assets/camera/`: kamera virtual 2D (`ShotCamera`, `framing`, layout SplitScreen/PictureInPicture/InsertCard). Baca `README.md`.
 - `src/assets/screens/`: mock layar (BrowserMock, CodeEditor, Terminal, dll.), kebanyakan untuk video coding.
 - `src/themes/`: tema `edumotion` (`edumotion.ts`), `topics.ts` (`TOPIC_COLORS`, `EDU_PLAIN`, `HIGHLIGHT`).
