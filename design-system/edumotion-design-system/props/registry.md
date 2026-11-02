@@ -31,6 +31,7 @@ Claude Code memilih dari daftar ini saat menyusun storyboard; objek yang dibutuh
 | Meteor | antariksa | kejut | prop | tidak ada | ada |
 | Orbit | antariksa | netral | prop | `progress` (planet mengorbit) | ada |
 | AwanHujan | cuaca | sendu | prop | `progress` (tetes jatuh) | ada |
+| GunungApi | cuaca | kejut | prop | `progress` (kepul uap naik) | ada |
 | Pelangi | cuaca | senang | prop | `progress` | ada |
 | Termometer | cuaca | netral | prop | `level` | ada |
 | GelombangCahaya | cuaca | netral | prop | `progress` (gelombang), param `wavelength` | ada |

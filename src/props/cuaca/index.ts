@@ -1,5 +1,6 @@
 export { AwanHujan } from "./AwanHujan";
 export { GelombangCahaya } from "./GelombangCahaya";
+export { GunungApi } from "./GunungApi";
 export { LapisanAtmosfer } from "./LapisanAtmosfer";
 export { MolekulUdara } from "./MolekulUdara";
 export { Pelangi } from "./Pelangi";
