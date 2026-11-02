@@ -3,14 +3,17 @@ import type React from "react";
 import { useMemo } from "react";
 import { AbsoluteFill, Sequence } from "remotion";
 import { SFX } from "../../assets/sfx";
-import { Caption, SafeZoneGuide } from "../../explainers";
+import { Caption, SafeZoneGuide, Transition } from "../../explainers";
 import { ThemeProvider, useTheme } from "../../themes";
 import { computeTimings, totalFrames } from "./timing";
-import type { Scene, SceneRenderers } from "./types";
+import type { Scene, SceneRenderers, VideoTopic } from "./types";
 import type { Voiceover } from "./voiceover";
 
 // Pengali volume semua SFX supaya campuran dengan VO tidak melewati -1 dBFS (diukur: VO + SFX = -13,8 LUFS stereo, puncak -1,0 dBFS).
 const SFX_MASTER = 0.35;
+
+// Panjang transisi antar scene; layar tertutup penuh tepat di batas scene.
+const TRANSITION_FRAMES = 18;
 
 // Memutar cue SFX scene. Dipasang di dalam Sequence scene, jadi waktu cue relatif ke awal scene.
 const SceneSfx: React.FC<{ readonly scene: Scene; readonly frames: number }> = ({ scene, frames }) => (
@@ -39,9 +42,11 @@ type Props = {
   readonly vo: Voiceover;
   // Tampilkan panduan safe zone (hanya untuk peninjauan).
   readonly safeZone?: boolean;
+  // Warna transisi antar scene (lihat Scene.enter).
+  readonly topic?: VideoTopic;
 };
 
-const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false }) => {
+const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false, topic }) => {
   const theme = useTheme();
   const timings = useMemo(() => computeTimings(scenes, vo), [scenes, vo]);
   return (
@@ -65,6 +70,13 @@ const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false }) => {
           </Sequence>
         );
       })}
+      {timings.map((t) =>
+        t.scene.enter && t.from > 0 ? (
+          <Sequence key={`tr-${t.scene.id}`} from={Math.max(0, t.from - TRANSITION_FRAMES / 2)} durationInFrames={TRANSITION_FRAMES} name={`transisi-${t.scene.id}`}>
+            <Transition kind={t.scene.enter} topic={topic} />
+          </Sequence>
+        ) : null,
+      )}
       {safeZone ? <SafeZoneGuide /> : null}
     </AbsoluteFill>
   );

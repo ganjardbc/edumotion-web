@@ -37,6 +37,8 @@ export type Scene = {
   readonly pad?: number;
   // Efek suara scene ini (opsional).
   readonly sfx?: ReadonlyArray<SfxCue>;
+  // Transisi masuk ke scene ini (opsional), berpusat di batas dengan scene sebelumnya. Pakai saat latar berganti jauh.
+  readonly enter?: "swipe" | "iris" | "bars";
 };
 
 export type VideoTopic = "tubuh" | "cuaca" | "ilmu" | "planet" | "sejarah" | "teknologi" | "air" | "alam" | "ai";
