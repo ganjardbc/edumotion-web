@@ -2,12 +2,12 @@ import type React from "react";
 import { useTheme } from "../themes";
 
 // Kartu tebakan Tako. `crossed` 0..1 menggambar coretan; setelah penuh muncul label "SALAH".
-export const GuessCard: React.FC<{ readonly top: number; readonly text: string; readonly crossed?: number }> = ({ top, text, crossed = 0 }) => {
+export const GuessCard: React.FC<{ readonly top: number; readonly text: string; readonly crossed?: number; readonly label?: string }> = ({ top, text, crossed = 0, label = "Tebakan Tako" }) => {
   const t = useTheme();
   return (
     <div style={{ position: "absolute", left: 64, right: 160, top, display: "flex", justifyContent: "center" }}>
       <div style={{ position: "relative", backgroundColor: "#FFFFFF", border: `8px solid ${t.colors.ink}`, borderRadius: t.radius.card, padding: "28px 40px", boxShadow: t.shadows.md, textAlign: "center" }}>
-        <div style={{ fontFamily: t.fonts.heading, fontWeight: 700, fontSize: 40, color: t.colors.muted }}>Tebakan Tako</div>
+        <div style={{ fontFamily: t.fonts.heading, fontWeight: 700, fontSize: 40, color: t.colors.muted }}>{label}</div>
         <div style={{ position: "relative" }}>
           <div style={{ fontFamily: t.fonts.heading, fontWeight: 800, fontSize: 66, lineHeight: 1.1, color: t.colors.ink }}>{text}</div>
           <svg width="100%" height="100%" style={{ position: "absolute", inset: 0, overflow: "visible" }}>

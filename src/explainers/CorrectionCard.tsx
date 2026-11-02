@@ -14,7 +14,8 @@ export const CorrectionCard: React.FC<{
   readonly topic?: VideoTopic;
   readonly crossAt?: number;
   readonly answerAt?: number;
-}> = ({ top, guess, answer, topic = "alam", crossAt = 20, answerAt = 44 }) => {
+  readonly guessLabel?: string;
+}> = ({ top, guess, answer, topic = "alam", crossAt = 20, answerAt = 44, guessLabel }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = useTheme();
@@ -23,7 +24,7 @@ export const CorrectionCard: React.FC<{
   const pop = spring({ frame: frame - answerAt, fps, config: { damping: 12, stiffness: 150 } });
   return (
     <>
-      <GuessCard top={top} text={guess} crossed={crossed} />
+      <GuessCard top={top} text={guess} crossed={crossed} label={guessLabel} />
       <div style={{ position: "absolute", left: 64, right: 160, top: top + 300, display: "flex", justifyContent: "center", opacity: Math.min(1, pop * 1.5), transform: `scale(${0.7 + 0.3 * pop})` }}>
         <div style={{ backgroundColor: c.main, border: `8px solid ${c.ink}`, borderRadius: t.radius.card, padding: "28px 40px", boxShadow: t.shadows.md, textAlign: "center" }}>
           <div style={{ fontFamily: t.fonts.heading, fontWeight: 700, fontSize: 40, color: c.ink }}>Yang benar</div>

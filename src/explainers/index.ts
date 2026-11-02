@@ -8,6 +8,7 @@ export { PhaseBar } from "./PhaseBar";
 export { SafeZoneGuide } from "./SafeZoneGuide";
 export { BarCompare, type BarItem } from "./BarCompare";
 export { Callout } from "./Callout";
+export { LabelPill } from "./LabelPill";
 export { CorrectionCard } from "./CorrectionCard";
 export { Cutaway } from "./Cutaway";
 export { EndCard } from "./EndCard";
