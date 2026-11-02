@@ -35,10 +35,16 @@ export type EduBackdropProps = {
   readonly floorY?: number;
   // Dipakai `langit`, `laut`, `jalanRaya`, `alam`, `kota`, `pedesaan`, `kamarTidur`, `kantor`, `gedungSate`, `monas`: siang, sore, malam, atau angka 0..1.
   readonly time?: TimeOfDay | number;
+  // Hanya `antariksa`: keluarga warna planet hiasan di pojok (bawaan = topik). Pakai topik lain bila tokoh utama juga planet berwarna topik.
+  readonly accent?: VideoTopic;
+  // Hanya `antariksa`: geser planet dan bulan hiasan (px) supaya tidak bertabrakan dengan teks di atas.
+  readonly decorShift?: { readonly x: number; readonly y: number };
+  // Hanya `antariksa`: geser bulan terpisah dari planet (bawaan = decorShift).
+  readonly moonShift?: { readonly x: number; readonly y: number };
 };
 
 // Latar video edumotion. Warna selalu dari palet topik, jadi satu latar dipakai ulang di semua pilar.
-export const EduBackdrop: React.FC<EduBackdropProps> = ({ kind = "polos", topic, floorY = EDU_BACKDROP_FLOOR_Y, time = "siang" }) => {
+export const EduBackdrop: React.FC<EduBackdropProps> = ({ kind = "polos", topic, floorY = EDU_BACKDROP_FLOOR_Y, time = "siang", accent, decorShift, moonShift }) => {
   switch (kind) {
     case "dalamTubuh":
       return <DalamTubuh topic={topic} floorY={floorY} />;
@@ -47,7 +53,7 @@ export const EduBackdrop: React.FC<EduBackdropProps> = ({ kind = "polos", topic,
     case "langit":
       return <Langit topic={topic} floorY={floorY} time={time} />;
     case "antariksa":
-      return <Antariksa topic={topic} floorY={floorY} />;
+      return <Antariksa topic={topic} floorY={floorY} accent={accent} decorShift={decorShift} moonShift={moonShift} />;
     case "ruangKelas":
       return <RuangKelas topic={topic} floorY={floorY} />;
     case "laboratorium":
