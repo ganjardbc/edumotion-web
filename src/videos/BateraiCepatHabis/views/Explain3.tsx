@@ -6,8 +6,7 @@ import { Langkah } from "../../../explainers/pola";
 import { META } from "../scenes";
 import type { SceneProps } from "../../_shared/types";
 
-// Explain3 (pola Langkah, dua butir): baterai menua → isinya makin sedikit. Kalimat ketiga ("Panas ...")
-// ditampilkan oleh cutaway layar penuh (lihat scenes.ts), jadi tidak ada butir ketiga.
+// Explain3 (pola Langkah, dua butir): baterai menua → isinya makin sedikit. Kalimat panas menjadi scene Kunci berikutnya.
 export const Explain3: React.FC<SceneProps> = ({ at }) => (
   <AbsoluteFill>
     <EduBackdrop topic={META.topic} />

@@ -20,7 +20,7 @@ Sudah ada: `Caption` (dipecah otomatis, maks 2 baris), `HookText`, `Counter`, `P
 |----------|---------|
 | `CorrectionCard` | Twist Tako: tebakan dicoret lalu kartu "Yang benar"; membungkus `GuessCard`. Jawaban dijaga pendek |
 | `Callout` | Titik berdenyut, garis tumbuh, label; satu per bagian objek |
-| `Cutaway` | Lensa bulat yang memperbesar `children`, dengan penanda sumber opsional. Tidak lewat `ShotCamera` |
+| `Lensa` | Lensa bulat yang memperbesar `children`, dengan penanda sumber opsional. Tidak lewat `ShotCamera` |
 | `BarCompare` | Batang horizontal, angka naik, satu item `highlight` |
 | `Timeline` | Garis waktu mendatar, 2 sampai 4 peristiwa, label bergantian atas-bawah |
 | `MetaphorSwap` | Objek asli berubah ke analoginya, label ikut berganti |

@@ -7,7 +7,7 @@ import { META } from "../scenes";
 import type { SceneProps } from "../../_shared/types";
 
 // Explain2 (pola Sorot): satu partikel udara besar; sinar biru menyebar ke segala arah, merah lurus.
-// Poin intinya diulang di cutaway ("Itu sebabnya ...", lihat scenes.ts).
+// Poin intinya ("Itu sebabnya ...") menjadi scene Kunci berikutnya.
 export const Explain2: React.FC<SceneProps> = ({ at }) => {
   const frame = useCurrentFrame();
   const sebar = interpolate(frame, [at("partikel"), at("segala arah")], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });

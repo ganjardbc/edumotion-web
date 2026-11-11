@@ -9,7 +9,7 @@ Sistem ini diturunkan dari gaya Tako (`design-references/tako_character_sheet.pn
 - `theme.json`: cermin mesin-terbaca dari semua token
 - `tokens/`: colors, typography, spacing (termasuk safe zone), elevation, motion
 - `props/STYLE.md`: kontrak gaya objek; `props/registry.md`: daftar objek bertag (diperiksa `scripts/lint-props.mjs`)
-- `components/README.md`: komponen penjelas (caption, counter, callout, cutaway, dll.) dan statusnya
+- `components/README.md`: komponen penjelas (caption, counter, callout, lensa, dll.) dan statusnya
 - `preview.html`: halaman tinjau palet, aturan 3 nada, dan safe zone
 
 ## Prinsip visual

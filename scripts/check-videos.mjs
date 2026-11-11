@@ -31,7 +31,7 @@ const loadScenes = async (video, file) => {
 };
 const voiceCatalog = Object.fromEntries([...readFileSync(join(videosDir, "_shared/voices.ts"), "utf8").matchAll(/(\w+): \{ id: "(\w+)"/g)].map((m) => [m[1], m[2]]));
 const propStatus = Object.fromEntries([...readFileSync(join(root, "design-system/edumotion-design-system/props/registry.md"), "utf8").matchAll(/^\|\s*([A-Z]\w*)\s*\|.*\|\s*([\w-]+)\s*\|\s*$/gm)].map((m) => [m[1], m[2]]));
-const MAX_CUTAWAY = 2;
+const MAX_KUNCI = 2;
 const voModel = readFileSync(join(videosDir, "_shared/voices.ts"), "utf8").match(/DEFAULT_MODEL = "([^"]+)"/)?.[1];
 
 const walk = (dir) => readdirSync(dir).flatMap((n) => (statSync(join(dir, n)).isDirectory() ? walk(join(dir, n)) : [join(dir, n)]));
@@ -108,18 +108,18 @@ for (const v of videos) {
       }
     }
 
-    // Cutaway: sisipan layar penuh untuk poin penting, hemat dan pendek.
-    const cuts = scenes.filter((sc) => sc.cutaway);
-    if (cuts.length > MAX_CUTAWAY) err(v, `${cuts.length} cutaway (maksimal ${MAX_CUTAWAY} per video)`);
-    for (const sc of cuts) {
-      const cw = sc.cutaway;
-      const lines = sc.lines.map((l) => words(l.text));
-      const inScene = (kata) => { const target = words(kata); return lines.some((ws) => ws.some((_, i) => target.every((t, k) => ws[i + k] === t))); };
-      if (sc.segment === "hook" || sc.segment === "cta") err(v, `scene ${sc.id}: cutaway tidak dipakai di ${sc.segment}`);
-      if (cw.gambar && !propStatus[cw.gambar.prop]) err(v, `scene ${sc.id}: gambar cutaway "${cw.gambar.prop}" tidak ada di props/registry.md`);
-      if (cw.gambar?.param && (cw.gambar.dari === undefined || cw.gambar.ke === undefined)) err(v, `scene ${sc.id}: gambar cutaway berparam "${cw.gambar.param}" butuh dari dan ke`);
-      if (cw.judul.split(/\s+/).length > 6) err(v, `scene ${sc.id}: judul cutaway "${cw.judul}" lebih dari 6 kata`);
-      for (const kata of [cw.at, cw.sampai].filter(Boolean)) if (!inScene(kata)) err(v, `scene ${sc.id}: kata cutaway "${kata}" tidak ada di narasi scene`);
+    // Kunci: scene layar penuh tanpa karakter untuk poin terpenting; hemat, pendek, dan benar-benar tanpa karakter.
+    const kunci = scenes.filter((sc) => /^Kunci\d*$/.test(sc.id));
+    if (kunci.length > MAX_KUNCI) err(v, `${kunci.length} scene Kunci (maksimal ${MAX_KUNCI} per video)`);
+    for (const sc of kunci) {
+      const f = join(dir, `views/${sc.id}.tsx`);
+      if (sc.segment !== "explain") err(v, `scene ${sc.id}: Kunci harus bersegmen explain`);
+      if (!existsSync(f)) continue;
+      const src = readFileSync(f, "utf8");
+      if (!/<KunciPola\b|<Kunci\b/.test(src)) err(v, `views/${sc.id}.tsx: scene Kunci harus memakai pola Kunci dari explainers/pola`);
+      if (/<(Pembawa|CastCharacter|TakoCharacter)\b/.test(src)) err(v, `views/${sc.id}.tsx: scene Kunci layar penuh tanpa karakter (hapus ${src.match(/<(Pembawa|CastCharacter|TakoCharacter)\b/)[1]})`);
+      const judul = src.match(/judul="([^"]+)"/)?.[1];
+      if (judul && judul.split(/\s+/).length > 6) err(v, `views/${sc.id}.tsx: judul Kunci "${judul}" lebih dari 6 kata`);
     }
 
     // Peringatan visual (lihat "Pola penjelas" di CLAUDE.md).

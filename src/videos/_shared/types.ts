@@ -37,16 +37,9 @@ export type Scene = {
   readonly pad?: number;
   // Efek suara scene ini (opsional).
   readonly sfx?: ReadonlyArray<SfxCue>;
-  // Sisipan layar penuh untuk satu poin penting (tanpa karakter). Muncul saat narator mengucapkan `at` dan bertahan
-  // sampai kata `sampai` (atau sampai kalimat itu selesai). `judul` paling banyak 6 kata; paling banyak 2 per video.
-  readonly cutaway?: { readonly at: string; readonly sampai?: string; readonly judul: string; readonly sorot?: string; readonly sub?: string; readonly warna?: VideoTopic; readonly gambar?: CutawayGambar };
   // Transisi masuk ke scene ini (opsional), berpusat di batas dengan scene sebelumnya. Pakai saat latar berganti jauh.
   readonly enter?: "swipe" | "iris" | "bars";
 };
-
-// Gambar prop di cutaway: `prop` = nama ekspor di src/props, `param` = satu parameter yang beranimasi dari `dari` ke `ke`
-// selama `frames` frame (mis. Termometer.level 0,3 → 0,95).
-export type CutawayGambar = { readonly prop: string; readonly topic?: VideoTopic; readonly param?: string; readonly dari?: number; readonly ke?: number; readonly frames?: number };
 
 export type VideoTopic = "tubuh" | "cuaca" | "ilmu" | "planet" | "sejarah" | "teknologi" | "air" | "alam" | "ai";
 

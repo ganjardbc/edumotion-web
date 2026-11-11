@@ -4,7 +4,7 @@ Topik: teknologi · Suara: narator (Aldo) · Karakter di layar: Ganjar (pembawa,
 Status naskah: **disetujui Ganjar (12 Nov 2026)**. Visual draf pertama selesai; storyboard menunggu tinjauan. Video uji pertama format stickman.
 
 Struktur: Hook → Setup (tebakan umum yang keliru) → Twist (koreksi) → Penjelasan ×3 → Payoff → Ajakan.
-Perkiraan 52 detik (119 kata); durasi akhir mengikuti audio.
+Perkiraan 52 detik (119 kata, sudah termasuk scene Kunci); durasi akhir mengikuti audio.
 
 Jawaban dalam satu kalimat: yang paling menguras baterai bukan aplikasi yang terbuka, tetapi layar terang, sinyal lemah, dan baterai yang menua karena panas.
 
@@ -17,7 +17,8 @@ Jawaban dalam satu kalimat: yang paling menguras baterai bukan aplikasi yang ter
 | Twist | "Ternyata itu bukan penyebab utamanya." / "Apple sendiri menyarankan menutup aplikasi hanya kalau aplikasinya macet." | 2.5 + 4.5 | wrong |
 | Explain1 | "Salah satu yang paling boros adalah layar. Makin terang layarnya, makin cepat baterai terkuras." | 6.5 | – |
 | Explain2 | "Sinyal lemah juga boros. HP terus mencari sinyal yang lebih kuat, dan itu butuh tenaga. Wi-Fi lebih hemat daripada data seluler." | 9 | – |
-| Explain3 | "Baterai juga menua. Makin tua, makin sedikit isi yang bisa disimpan. Panas di atas tiga puluh lima derajat bisa merusaknya selamanya." | 9.5 | – |
+| Explain3 | "Baterai juga menua. Makin tua, makin sedikit isi yang bisa disimpan." | 5.5 | – |
+| Kunci | "Panas di atas tiga puluh lima derajat bisa merusaknya selamanya." | 4.5 | – |
 | Payoff | "Jadi yang membuat boros bukan aplikasi terbuka. Tapi layar terang, sinyal lemah, dan baterai yang kepanasan." | 7 | tada |
 | Cta | "Menurutmu, mengisi baterai semalaman itu bahaya atau tidak? Tulis di komentar!" | 4 | – |
 
@@ -32,11 +33,12 @@ Pola: `karakter` (Hook, Twist, Payoff, Cta, dengan pembawa stickman Ganjar) atau
 | Twist | Koreksi + karakter | – | kartu koreksi, pembawa | Aplikasi terbuka itu boros → Bukan penyebab utama | kaget + menyerah → senang + tunjuk | "bukan" → coret; "Apple" → jawaban; "macet" → pembawa paham |
 | Explain1 | Bandingkan (baris) | Layar terang paling **boros** | LayarHp redup vs terang | Redup: hemat; Terang: boros | – | "paling" → kartu redup; "terang" → kartu terang menyala; "terkuras" → sorot |
 | Explain2 | SebabAkibat → Bandingkan (baris) | Sinyal lemah ikut **boros** / Wi-Fi lebih **hemat** | SinyalBar (1 batang) → Hape bingung / WifiSignal vs SinyalBar | HP terus mencari; Wi-Fi hemat; Seluler boros | – | "Sinyal lemah" → sebab; "mencari" → akibat; "Wi-Fi" → fase 2 |
-| Explain3 | Langkah (2 butir) + cutaway | Baterai ikut **menua** | Baterai (cast) mengantuk lalu sedih | 1 Baterai menua; 2 Isinya makin sedikit | – | "menua" → butir 1; "makin sedikit" → butir 2; "Panas" → cutaway (menampilkan kalimat panas, jadi tanpa butir ketiga) |
+| Explain3 | Langkah (2 butir) | Baterai ikut **menua** | Baterai (cast) mengantuk lalu sedih | 1 Baterai menua; 2 Isinya makin sedikit | – | "menua" → butir 1; "makin sedikit" → butir 2 |
+| Kunci | Kunci (frame layar penuh, tanpa karakter) | Panas merusak baterai **selamanya** | Termometer besar naik, latar merah | Jauhkan HP dari suhu di atas 35°C | – | "tiga" → termometer mulai naik; "derajat" → mencapai puncak |
 | Payoff | karakter | Layar, sinyal, **panas** | tiga ikon kecil: LayarHp, SinyalBar, Termometer | – | senang + tunjuk → tertawa + sorak | "layar terang" → ikon 1; "sinyal lemah" → ikon 2; "kepanasan" → ikon 3 |
 | Cta | karakter | Isi semalaman, **bahaya**? | Baterai (cast), tanda tanya | – | mikir + mikir | – |
 
-Cutaway (1): Explain3, mulai "Panas", judul "Panas merusak baterai selamanya" (sorot "Panas"), keterangan "Jauhkan HP dari suhu di atas 35°C".
+Kunci (1 frame layar penuh): scene `Kunci` setelah Explain3, narasi "Panas di atas tiga puluh lima derajat bisa merusaknya selamanya.", judul "Panas merusak baterai selamanya" (sorot "Panas"), keterangan "Jauhkan HP dari suhu di atas 35°C", warna latar merah.
 
 ## Objek
 - Cast: Baterai, Hape (sudah ada). Pembawa: stickman Ganjar.

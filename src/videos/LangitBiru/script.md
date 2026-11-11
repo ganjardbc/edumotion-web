@@ -13,7 +13,8 @@ Semua kalimat dibawakan narator. Tokoh di layar hanya bereaksi, tidak berbicara.
 | Setup | "Banyak orang mengira langit biru karena memantulkan warna laut." | 4.5 | – |
 | Twist | "Ternyata bukan!" / "Tanpa laut pun, langit tetap biru. Warna birunya berasal dari udara." | 1.2 + 4.2 | wrong |
 | Explain1 | "Cahaya Matahari terlihat putih. Padahal isinya campuran semua warna, seperti pelangi. Cahaya biru gelombangnya pendek. Cahaya merah gelombangnya panjang." | 10.5 | – |
-| Explain2 | "Udara berisi partikel yang sangat kecil. Partikel ini menyebarkan cahaya biru ke segala arah. Cahaya merah lewat lurus saja. Itu sebabnya langit terlihat biru." | 10 | – |
+| Explain2 | "Udara berisi partikel yang sangat kecil. Partikel ini menyebarkan cahaya biru ke segala arah. Cahaya merah lewat lurus saja." | 7.5 | – |
+| Kunci | "Itu sebabnya langit terlihat biru." | 2.5 | – |
 | Explain3 | "Cahaya ungu sebenarnya tersebar lebih kuat lagi. Tapi cahaya ungu dari Matahari lebih sedikit, dan mata kita kurang peka pada warna ungu." | 8 | – |
 | Explain4 | "Saat senja, cahaya Matahari harus melewati udara lebih jauh. Cahaya birunya sudah tersebar di jalan. Yang sampai ke mata kita tinggal kuning, jingga, dan merah." | 9.5 | – |
 | Payoff | "Jadi langit biru dan senja merah punya sebab yang sama: cahaya biru yang tersebar oleh udara." | 6 | tada |
@@ -27,18 +28,19 @@ Semua kalimat dibawakan narator. Tokoh di layar hanya bereaksi, tidak berbicara.
 | Setup | SebabAkibat | Langit memantulkan **laut**? | gelombang (laut), tanda tanya | Laut berwarna biru; Langit ikut biru? | "Banyak" → sebab; "memantulkan" → akibat |
 | Twist | Koreksi + karakter | – | kartu koreksi, Ganjar (pembawa) | Langit memantulkan laut → Warna dari udara | "bukan" → coret; "Warna birunya" → jawaban; "udara" → Ganjar (pembawa) paham |
 | Explain1 | SebabAkibat → Bandingkan (kolom) | Cahaya putih itu **campuran** / Panjang **gelombangnya** beda | Matahari, pelangi / dua gelombang | Biru pendek; Merah panjang | "Cahaya Matahari" → sebab; "campuran" → pelangi; "Cahaya biru" → fase 2; "Cahaya merah" → merah |
-| Explain2 | Sorot + cutaway | Udara menyebarkan **biru** | partikel udara (MolekulUdara) | partikel udara; merah: lurus | "partikel" → sinar mulai; "segala arah" → biru menyebar penuh; "Itu sebabnya" → cutaway |
+| Explain2 | Sorot | Udara menyebarkan **biru** | partikel udara (MolekulUdara) | partikel udara; merah: lurus | "partikel" → sinar mulai; "segala arah" → biru menyebar penuh |
+| Kunci | Kunci (frame layar penuh, tanpa karakter) | Udara menyebarkan cahaya **biru** | MolekulUdara besar | Biru datang dari segala arah langit | – | gambar muncul → sinar biru menyebar |
 | Explain3 | Bandingkan (baris) → Langkah | **Ungu** tersebar lebih kuat / Tapi langit tetap **biru** | dua gelombang / Matahari, mata | Ungu lebih kuat; 1 cahaya ungu sedikit; 2 mata kurang peka | "lebih kuat" → sorot Ungu; "Tapi" → fase 2; "mata kita" → butir 2 |
 | Explain4 | Bandingkan (kolom) | Saat senja, jalurnya **panjang** | JalurCahaya siang dan senja | Siang jalur pendek; Senja jalur panjang | "melewati" → panel senja; "Cahaya birunya" → sorot senja |
 | Payoff | karakter | Cahaya biru **tersebar** | JalurCahaya kecil siang dan senja, Ganjar (pembawa) | – | "langit biru" → panel siang; "senja merah" → panel senja |
 | Cta | karakter | Kenapa **laut** biru? | Ganjar (pembawa), tanda tanya | – | – |
 
-Cutaway: Explain2, mulai "Itu sebabnya", judul "Udara menyebarkan cahaya biru", keterangan "Biru datang dari segala arah langit".
+Kunci (1 frame layar penuh): scene `Kunci` setelah Explain2, narasi "Itu sebabnya langit terlihat biru.", judul "Udara menyebarkan cahaya biru", keterangan "Biru datang dari segala arah langit".
 
 ## Objek
 - Cast: Ganjar (pembawa) (Hook, Twist, Payoff, Cta), Matahari (gambar di dalam pola Explain1 dan Explain3). Awan dan Bumi tidak dipakai lagi.
 - Props (semua berstatus `draf`, menunggu tinjauan Ganjar di `PropsSheet`): `GelombangCahaya`, `Pelangi`, `MolekulUdara`, `Mata`, `QuestionMark`, `JalurCahaya` (baru, menggantikan `LapisanAtmosfer` yang sulit dibaca).
-- Pola: `SebabAkibat`, `Koreksi`, `Bandingkan`, `Sorot`, `Langkah`, `Fase`; cutaway lewat `scenes.ts`. Latar: `polos` di semua scene.
+- Pola: `SebabAkibat`, `Koreksi`, `Bandingkan`, `Sorot`, `Langkah`, `Fase`, `Kunci` (frame layar penuh). Latar: `polos` di semua scene.
 
 Baris untuk `props/registry.md` (sudah dicatat):
 

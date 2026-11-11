@@ -10,4 +10,4 @@ export { SebabAkibat, type Simpul } from "./SebabAkibat";
 export { Sorot, type Titik } from "./Sorot";
 export { AngkaBesar } from "./AngkaBesar";
 export { Koreksi } from "./Koreksi";
-export { Cutaway } from "./Cutaway";
+export { Kunci } from "./Kunci";

@@ -66,15 +66,9 @@ export const computeTimings = (scenes: ReadonlyArray<Scene>, vo: Voiceover): Rea
 };
 
 // Frame (dari awal scene) saat `kata` mulai diucapkan. Lihat SceneProps.at.
-export const cueAt = (timing: SceneTiming, kata: string, nth = 0): number => cueFind(timing, kata, nth).frame;
+export const cueAt = (timing: SceneTiming, kata: string, nth = 0): number => cueFind(timing, kata, nth);
 
-// Akhir kalimat tempat `kata` berada (frame scene). Dipakai cutaway yang bertahan sampai kalimatnya selesai.
-export const cueLineEnd = (timing: SceneTiming, kata: string, nth = 0): number => {
-  const { line } = cueFind(timing, kata, nth);
-  return timing.lineStarts[line] + timing.lineFrames[line];
-};
-
-const cueFind = (timing: SceneTiming, kata: string, nth: number): { readonly frame: number; readonly line: number } => {
+const cueFind = (timing: SceneTiming, kata: string, nth: number): number => {
   const target = textWords(kata).map(normWord);
   if (!target.length) throw new Error(`at(): kata kosong di scene ${timing.scene.id}`);
   let seen = 0;
@@ -82,7 +76,7 @@ const cueFind = (timing: SceneTiming, kata: string, nth: number): { readonly fra
     const words = timing.lineWords[li];
     for (let i = 0; i + target.length <= words.length; i++) {
       if (target.every((w, k) => words[i + k].word === w)) {
-        if (seen === nth) return { frame: timing.lineStarts[li] + words[i].from, line: li };
+        if (seen === nth) return timing.lineStarts[li] + words[i].from;
         seen++;
       }
     }
