@@ -59,7 +59,7 @@ rmSync(tmp, { recursive: true, force: true });
 if (process.argv.includes("--pending")) {
   console.log(JSON.stringify(rows.filter((r) => r.status !== "ok"), null, 2));
 } else {
-  for (const r of rows) console.log(`${r.id.padEnd(18)} ${r.who.padEnd(6)} ${r.voice.padEnd(9)} ${String(r.chars).padStart(3)}h ${r.hash} ${r.status.padEnd(7)} slot=${r.slot.toFixed(1)}s ${r.duration ? `audio=${r.duration.toFixed(2)}s` : ""}`);
+  for (const r of rows) console.log(`${r.id.padEnd(18)} ${r.who.padEnd(8)} ${r.voice.padEnd(9)} ${String(r.chars).padStart(3)}h ${r.hash} ${r.status.padEnd(7)} slot=${r.slot.toFixed(1)}s ${r.duration ? `audio=${r.duration.toFixed(2)}s` : ""}`);
   const pend = rows.filter((r) => r.status !== "ok");
   console.log(`\n${rows.length} baris, ${pend.length} perlu generate (${pend.reduce((a, r) => a + r.chars, 0)} huruf ≈ ${pend.reduce((a, r) => a + r.chars, 0)} kredit).`);
 }

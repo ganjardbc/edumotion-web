@@ -4,6 +4,8 @@
 // Daftar baris dari `scripts/vo-lines.mjs --pending`. Sebelum memanggil API, jumlah baris dan huruf (≈ kredit)
 // ditampilkan dan diminta konfirmasi; --yes melewatinya. Tiap klip mentah disimpan di out/vo-raw/<Video>/<id>.mp3,
 // lalu diolah scripts/vo-process.py ke folder video. Butuh ELEVENLABS_API_KEY (environment atau .env.local).
+// Memakai endpoint `with-timestamps`: selain audio, ElevenLabs mengirim waktu tiap huruf. Disimpan sebagai
+// out/vo-raw/<Video>/<id>.align.json, lalu vo-process.py mengubahnya jadi waktu per kata di voiceover.json.
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -63,9 +65,9 @@ mkdirSync(rawDir, { recursive: true });
 let done = 0;
 for (const r of pending) {
   const body = { text: r.text, model_id: r.model, ...(r.speed ? { voice_settings: { speed: r.speed } } : {}) };
-  const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${r.voice_id}?output_format=mp3_44100_128`, {
+  const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${r.voice_id}/with-timestamps?output_format=mp3_44100_128`, {
     method: "POST",
-    headers: { "xi-api-key": key, "Content-Type": "application/json", Accept: "audio/mpeg" },
+    headers: { "xi-api-key": key, "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(body),
   });
   if (!res.ok) {
@@ -73,9 +75,12 @@ for (const r of pending) {
     console.error(`${done} dari ${pending.length} baris selesai; jalankan lagi untuk melanjutkan sisanya.`);
     process.exit(1);
   }
+  const json = await res.json();
   const raw = join(rawDir, `${r.id}.mp3`);
-  writeFileSync(raw, Buffer.from(await res.arrayBuffer()));
-  execFileSync("python3", [join(root, "scripts/vo-process.py"), r.id, raw, "--hash", r.hash, "--video", video], { stdio: "inherit" });
+  const align = join(rawDir, `${r.id}.align.json`);
+  writeFileSync(raw, Buffer.from(json.audio_base64, "base64"));
+  writeFileSync(align, JSON.stringify(json.alignment ?? null));
+  execFileSync("python3", [join(root, "scripts/vo-process.py"), r.id, raw, "--hash", r.hash, "--video", video, "--align", align], { stdio: "inherit" });
   done += 1;
 }
 console.log(`${done} baris selesai. Durasi scene kini mengikuti audio; cek dengan Remotion Studio atau render.`);
