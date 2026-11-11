@@ -29,6 +29,8 @@ const loadScenes = async (video, file) => {
   return (await import(pathToFileURL(out).href)).BASE_SCENES;
 };
 const voiceCatalog = Object.fromEntries([...readFileSync(join(videosDir, "_shared/voices.ts"), "utf8").matchAll(/(\w+): \{ id: "(\w+)"/g)].map((m) => [m[1], m[2]]));
+const propStatus = Object.fromEntries([...readFileSync(join(root, "design-system/edumotion-design-system/props/registry.md"), "utf8").matchAll(/^\|\s*([A-Z]\w*)\s*\|.*\|\s*([\w-]+)\s*\|\s*$/gm)].map((m) => [m[1], m[2]]));
+const MAX_CUTAWAY = 2;
 const voModel = readFileSync(join(videosDir, "_shared/voices.ts"), "utf8").match(/DEFAULT_MODEL = "([^"]+)"/)?.[1];
 
 const walk = (dir) => readdirSync(dir).flatMap((n) => (statSync(join(dir, n)).isDirectory() ? walk(join(dir, n)) : [join(dir, n)]));
@@ -104,6 +106,33 @@ for (const v of videos) {
         if (!found) err(v, `views/${sc.id}.tsx: at("${m[1]}") tidak ada di narasi scene ${sc.id}`);
       }
     }
+
+    // Cutaway: sisipan layar penuh untuk poin penting, hemat dan pendek.
+    const cuts = scenes.filter((sc) => sc.cutaway);
+    if (cuts.length > MAX_CUTAWAY) err(v, `${cuts.length} cutaway (maksimal ${MAX_CUTAWAY} per video)`);
+    for (const sc of cuts) {
+      const cw = sc.cutaway;
+      const lines = sc.lines.map((l) => words(l.text));
+      const inScene = (kata) => { const target = words(kata); return lines.some((ws) => ws.some((_, i) => target.every((t, k) => ws[i + k] === t))); };
+      if (sc.segment === "hook" || sc.segment === "cta") err(v, `scene ${sc.id}: cutaway tidak dipakai di ${sc.segment}`);
+      if (cw.judul.split(/\s+/).length > 6) err(v, `scene ${sc.id}: judul cutaway "${cw.judul}" lebih dari 6 kata`);
+      for (const kata of [cw.at, cw.sampai].filter(Boolean)) if (!inScene(kata)) err(v, `scene ${sc.id}: kata cutaway "${kata}" tidak ada di narasi scene`);
+    }
+
+    // Peringatan visual (lihat "Pola penjelas" di CLAUDE.md).
+    const draf = new Set();
+    for (const sc of scenes) {
+      const f = join(dir, `views/${sc.id}.tsx`);
+      if (!existsSync(f)) continue;
+      const src = readFileSync(f, "utf8");
+      const rel = `views/${sc.id}.tsx`;
+      if ((sc.segment === "explain" || sc.segment === "setup") && /<TakoCharacter\b/.test(src)) warnings.push(`src/videos/${v}: ${rel} memakai Tako di scene ${sc.segment}; Tako hanya di Hook, Twist, Payoff, Cta`);
+      if (sc.segment === "explain" && !/explainers\/pola"/.test(src)) warnings.push(`src/videos/${v}: ${rel} tidak memakai pola penjelas (explainers/pola)`);
+      if (/fontSize\s*:/.test(src)) warnings.push(`src/videos/${v}: ${rel} menulis fontSize sendiri; pakai Judul atau pola (skala TEKS)`);
+      const imp = src.match(/import \{([^}]+)\} from "\.\.\/\.\.\/\.\.\/props"/);
+      for (const name of imp ? imp[1].split(",").map((x) => x.trim()).filter(Boolean) : []) if (propStatus[name] === "draf") draf.add(name);
+    }
+    if (draf.size) warnings.push(`src/videos/${v}: objek berstatus draf (belum disetujui Ganjar di PropsSheet): ${[...draf].sort().join(", ")}`);
   }
 
   // Latar polos saja di video (KISS). Latar lain tetap ada di pustaka, tetapi tidak dipakai video.
