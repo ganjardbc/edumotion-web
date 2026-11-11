@@ -7,3 +7,4 @@ export { PanahUdara } from "./PanahUdara";
 export { Pelangi } from "./Pelangi";
 export { SiklusAir } from "./SiklusAir";
 export { Termometer } from "./Termometer";
+export { JalurCahaya } from "./JalurCahaya";

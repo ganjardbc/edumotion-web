@@ -38,6 +38,9 @@ for (const file of walk(propsDir).filter((f) => f.endsWith(".tsx"))) {
   if (colors.size > 5) warnings.push(`${rel}: ${colors.size} warna unik (maksimal 5): ${[...colors].join(", ")}`);
 }
 
+// Status di registry hanya antre, draf, atau disetujui.
+for (const m of registry.matchAll(/^\|\s*([A-Z]\w*)\s*\|.*\|\s*([\w-]+)\s*\|\s*$/gm)) if (!["antre", "draf", "disetujui"].includes(m[2])) errors.push(`registry.md: ${m[1]} berstatus "${m[2]}" (pakai antre, draf, atau disetujui)`);
+
 for (const w of warnings) console.warn(`peringatan: ${w}`);
 if (errors.length > 0) {
   console.error(`lint-props: ${errors.length} galat`);
