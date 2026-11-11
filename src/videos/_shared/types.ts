@@ -59,6 +59,10 @@ export type SceneProps = {
   readonly frames: number;
   // Frame awal tiap kalimat di dalam scene, panjangnya sama dengan scene.lines.
   readonly lineStarts: ReadonlyArray<number>;
+  // Frame (dari awal scene) saat narator mulai mengucapkan `kata` (boleh beberapa kata, tanpa peka huruf besar
+  // dan tanda baca). `nth` memilih kemunculan ke-n (mulai 0). Dari stempel waktu audio bila ada, selain itu
+  // diperkirakan dari porsi huruf. Melempar galat bila kata tidak ada di narasi scene, supaya salah ketik ketahuan.
+  readonly at: (kata: string, nth?: number) => number;
 };
 
 export type SceneRenderers = Readonly<Record<string, React.ComponentType<SceneProps>>>;

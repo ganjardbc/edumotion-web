@@ -46,12 +46,27 @@ export const splitCaption = (text: string, max = CAPTION_MAX_CHARS): ReadonlyArr
   return merged;
 };
 
-export const Caption: React.FC<{ readonly text: string }> = ({ text }) => {
+// Bila `words` (stempel waktu per kata, detik) ada dan jumlahnya sama dengan kata di `text`, potongan dan kata yang
+// disorot mengikuti suara asli; selain itu dibagi menurut porsi huruf.
+export const Caption: React.FC<{ readonly text: string; readonly words?: ReadonlyArray<{ readonly s: number }> | null }> = ({ text, words: timed }) => {
   const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
-  const t = useTheme();
+  const { durationInFrames, fps } = useVideoConfig();
   if (!text) return null;
   const chunks = splitCaption(text);
+  if (timed) {
+    // Token tiap potongan; token tanpa huruf/angka (mis. "–") tidak punya stempel waktu.
+    const tokens = chunks.flatMap((c, ci) => c.split(" ").map((w, wi) => ({ ci, wi, real: /[\p{L}\p{N}]/u.test(w) })));
+    const real = tokens.filter((x) => x.real);
+    if (real.length === timed.length) {
+      const now = frame / fps;
+      let k = 0;
+      for (let i = 0; i < timed.length; i++) if (timed[i].s <= now) k = i;
+      const { ci, wi } = real[k];
+      const firstOfChunk = real.findIndex((x) => x.ci === ci);
+      const local = frame - timed[firstOfChunk].s * fps;
+      return <CaptionText text={chunks[ci]} active={wi} enter={interpolate(local, [0, 5], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) })} />;
+    }
+  }
   const total = chunks.reduce((n, c) => n + c.length, 0);
   let acc = 0;
   let index = chunks.length - 1;
@@ -83,6 +98,12 @@ export const Caption: React.FC<{ readonly text: string }> = ({ text }) => {
       break;
     }
   }
+  return <CaptionText text={chunks[index]} active={active} enter={enter} />;
+};
+
+const CaptionText: React.FC<{ readonly text: string; readonly active: number; readonly enter: number }> = ({ text, active, enter }) => {
+  const t = useTheme();
+  const words = text.split(" ");
   return (
     <div style={{ position: "absolute", left: SIDE_MARGIN, right: SIDE_MARGIN, bottom: CAPTION_BOTTOM, display: "flex", justifyContent: "center", alignItems: "flex-end", opacity: enter, transform: `translateY(${(1 - enter) * 20}px)` }}>
       <div

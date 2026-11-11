@@ -5,7 +5,8 @@ import { AbsoluteFill, Sequence } from "remotion";
 import { SFX } from "../../assets/sfx";
 import { Caption, SafeZoneGuide, Transition } from "../../explainers";
 import { ThemeProvider, useTheme } from "../../themes";
-import { computeTimings, totalFrames } from "./timing";
+import { Animatic } from "./Animatic";
+import { computeTimings, cueAt, totalFrames } from "./timing";
 import type { Scene, SceneRenderers, VideoTopic } from "./types";
 import type { Voiceover } from "./voiceover";
 
@@ -36,34 +37,44 @@ export const SHORT_EDU = { width: 1080, height: 1920, fps: 30 } as const;
 
 export const durationOf = (scenes: ReadonlyArray<Scene>, vo: Voiceover): number => totalFrames(computeTimings(scenes, vo));
 
-type Props = {
+// Props komposisi tiap video; bisa diubah di panel props Remotion Studio.
+export type VideoProps = {
+  // Tampilkan panduan safe zone (hanya untuk peninjauan).
+  readonly safeZone?: boolean;
+  // Mode animatik: ganti visual scene dengan kartu kasar (bagian, nomor scene, narasi, kata kunci) untuk menguji
+  // tempo naskah dan VO sebelum views/ ditulis. Audio, caption, dan SFX tetap jalan.
+  readonly animatic?: boolean;
+};
+
+export const VIDEO_DEFAULT_PROPS: Required<VideoProps> = { safeZone: false, animatic: false };
+
+type Props = VideoProps & {
   readonly scenes: ReadonlyArray<Scene>;
   readonly renderers: SceneRenderers;
   readonly vo: Voiceover;
-  // Tampilkan panduan safe zone (hanya untuk peninjauan).
-  readonly safeZone?: boolean;
   // Warna transisi antar scene (lihat Scene.enter).
   readonly topic?: VideoTopic;
 };
 
-const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false, topic }) => {
+const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false, animatic = false, topic }) => {
   const theme = useTheme();
   const timings = useMemo(() => computeTimings(scenes, vo), [scenes, vo]);
   return (
     <AbsoluteFill style={{ backgroundColor: theme.colors.canvas }}>
       {timings.map((t) => {
         const SceneView = renderers[t.scene.id];
-        if (!SceneView) throw new Error(`Scene ${t.scene.id} tidak punya renderer di views/${t.scene.id}.tsx`);
+        if (!SceneView && !animatic) throw new Error(`Scene ${t.scene.id} tidak punya renderer di views/${t.scene.id}.tsx`);
+        const at = (kata: string, nth?: number) => cueAt(t, kata, nth);
         return (
           <Sequence key={t.scene.id} from={t.from} durationInFrames={t.frames} name={t.scene.id}>
-            <SceneView scene={t.scene} frames={t.frames} lineStarts={t.lineStarts} />
+            {animatic || !SceneView ? <Animatic timing={t} index={timings.indexOf(t)} count={timings.length} topic={topic} /> : <SceneView scene={t.scene} frames={t.frames} lineStarts={t.lineStarts} at={at} />}
             <SceneSfx scene={t.scene} frames={t.frames} />
             {t.scene.lines.map((line, i) => {
               const audio = vo.audioFor(vo.lineId(t.scene.id, i));
               return (
                 <Sequence key={i} from={t.lineStarts[i]} durationInFrames={t.lineFrames[i]} name={`${t.scene.id}-${i + 1}`} layout="none">
                   {audio ? <Audio src={audio.src} /> : null}
-                  <Caption text={line.text} />
+                  <Caption text={line.text} words={t.lineAudioWords[i]} />
                 </Sequence>
               );
             })}
