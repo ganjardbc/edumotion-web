@@ -7,4 +7,4 @@ export { Pembawa } from "./Pembawa";
 export { GANJAR_STICKMAN_PALETTE } from "./palette";
 
 // Metadata untuk demo dan lembar ekspresi (karakter ini tidak memakai CastRig).
-export const GANJAR_META = { id: "ganjar", name: "Ganjar", topic: "pembuat (pemilik akun)", brief: "Stickman gambar tangan: kepala oval, hoodie gelap, celana pendek abu, headphone biru; sama dengan stickman Ganjar di remotion-web." } as const;
+export const GANJAR_META = { id: "ganjar", name: "Ganjar", topic: "pembuat (pemilik akun)", brief: "Stickman gambar tangan: kepala oval, hoodie gelap, celana pendek abu, rambut tiga garis; sama dengan stickman Ganjar di remotion-web." } as const;

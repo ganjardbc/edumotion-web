@@ -8,7 +8,7 @@ export { GESTURES, type ArmPose, type Gesture };
 // Diambil dari remotion-web (src/assets/characters/ganjar/stickman/GanjarStickman.tsx); warna dipindah ke palette.ts.
 // GanjarStickman gaya gambar tangan (acuan: remotion-web/design-references/stickman/hand-drawn-stick-man.jpg):
 // tampak depan, kepala oval besar, badan seperti buah pir, garis tipis,
-// tangan berujung loop dan kaki berujung oval. Headphone, hoodie, dan celana pendek abu jadi ciri khas supaya tidak
+// tangan berujung loop dan kaki berujung oval. Rambut tiga helai, hoodie, dan celana pendek abu jadi ciri khas supaya tidak
 // sekadar meniru referensi. Semua gerak dari frame.
 
 export type GanjarStickmanExpression =
@@ -291,7 +291,7 @@ export type GanjarStickmanProps = {
   readonly style?: React.CSSProperties;
   // Mulut membuka dan menutup (bicara), menimpa bentuk mulut ekspresi.
   readonly talking?: boolean;
-  // Pakai headphone atau tidak.
+  // Pakai headphone atau tidak. Bawaan false: ciri khas Ganjar di edumotion adalah rambut tiga garis.
   readonly headphones?: boolean;
   // Hoodie dan celana pendek. `false` = stickman polos, hanya garis.
   readonly outfit?: boolean;
@@ -324,9 +324,9 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
   wave = false,
   gesture,
   talking = false,
-  headphones = true,
+  headphones = false,
   outfit = true,
-  hair = false,
+  hair = true,
   color = P.ink,
   strokeWidth = 5,
   style,
