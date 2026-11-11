@@ -35,11 +35,19 @@ Aturan konsep ada di `CLAUDE.md` bagian "Format video"; skill ini menjelaskan ca
 - Subjek diulang, jangan bergantung pada kata ganti yang jauh ("Cahaya biru …" bukan "Ia …" tiga kalimat kemudian).
 - Tanpa lelucon yang memutus penjelasan, tanpa kalimat pengisi ("Nah, jadi begini ya").
 
-## Visual dan suara pendukung
-- Latar polos di semua scene. Konteks (laut, langit, tubuh) ditunjukkan lewat objek dan label, bukan latar.
-- Satu objek penjelas besar dan satu sorotan per scene. Objek dipilih dari `design-system/edumotion-design-system/props/registry.md`; yang belum ada ditulis `antre`.
-- Teks layar mendukung narasi dengan kata kunci (2–5 kata), bukan menyalin kalimat narasi.
-- SFX paling banyak satu per scene dan empat per video; isi kolom SFX hanya di Hook, Twist, Payoff, atau satu momen tematik.
+## Brief visual (wajib, disetujui bersama naskah)
+Visual yang tidak nyambung biasanya berasal dari brief yang kabur. Isi tabel "Brief visual" di `script.md` per scene:
+- **Pola:** `karakter` untuk Hook, Twist, Payoff, Cta; untuk Setup dan Explain pilih satu pola per gagasan:
+  `Bandingkan` (dua hal, A vs B), `Langkah` (urutan atau daftar alasan, 2–4 butir), `SebabAkibat` (satu sebab, satu akibat),
+  `Sorot` (satu objek, bagian-bagiannya ditunjuk), `AngkaBesar` (satu angka mengejutkan). Paling banyak dua pola (dua fase) per scene.
+- **Judul:** paling banyak 6 kata, menyatakan inti scene (bukan topik umum), satu kata disorot.
+- **Objek utama:** dari registry. Bila belum ada, tulis `antre` dan sebutkan acuan gambar (tautan atau berkas). Pilih objek yang
+  terbaca di ukuran kecil; konsep abstrak lebih baik dijelaskan dengan `Bandingkan` atau `Langkah` daripada digambar rumit.
+- **Label:** paling banyak 3, tiap label paling banyak 3 kata. Label menamai, bukan mengulang kalimat narasi.
+- **Kata kunci → aksi:** kata di narasi yang memicu tiap kemunculan ("lebih kuat → sorot Ungu"). Tiap objek muncul tepat saat disebut.
+- **Uji nyambung:** baca narasi scene sambil membayangkan layar. Bila ada kalimat tanpa visual, atau visual tanpa kalimat, ubah salah satunya.
+- **Cutaway:** pilih paling banyak 2 poin terpenting video untuk sisipan layar penuh (tanpa karakter), biasanya kalimat "Itu sebabnya …" atau inti Payoff.
+- Latar polos; SFX paling banyak satu per scene dan empat per video, hanya di Hook, Twist, Payoff, atau satu momen tematik.
 
 ## Daftar periksa sebelum minta persetujuan
 - [ ] Jawaban video bisa diucapkan dalam satu kalimat.
@@ -49,5 +57,7 @@ Aturan konsep ada di `CLAUDE.md` bagian "Format video"; skill ini menjelaskan ca
 - [ ] Tiap klaim punya sumber, atau ditandai belum terverifikasi.
 - [ ] Narasi tidak mengklaim lebih dari yang didukung sumber ("sebagian", "kira-kira" bila memang begitu).
 - [ ] Cta tidak membocorkan jawaban video berikutnya.
+- [ ] Tiap scene punya brief visual lengkap; tiap kata kunci ada di narasi scene-nya.
+- [ ] Tidak ada kalimat narasi tanpa visual, dan tidak ada visual tanpa kalimat.
 
 Untuk ejaan dan tata bahasa, pakai skill `bahasa-indonesia` bila tersedia.

@@ -23,6 +23,15 @@ Remotion 4 (rspack), React 19, TypeScript, ElevenLabs untuk voice over.
 - **Latar sederhana (KISS):** semua scene memakai latar polos, `<EduBackdrop topic={META.topic} />`. Tanpa dekor dunia (laut, antariksa, papan diagram, dan lain-lain). Konteks ditunjukkan lewat objek dan label, bukan latar.
 - **SFX hemat:** paling banyak satu cue per scene dan empat per video, pengulangan (`times`) paling banyak empat. Pakai hanya di momen penting (Hook, Twist, Payoff). Tanpa `whoosh` di tiap pergantian scene.
 
+## Visual penjelas (disepakati Ganjar, 12 Nov 2026)
+Masalah yang dihindari: gambar jelek, tata letak berantakan, visual tidak nyambung dengan narasi.
+- **Brief visual dulu.** Tiap scene di `script.md` punya kolom Pola, Objek utama, Label (paling banyak 3, tiap label paling banyak 3 kata), dan "kata kunci → aksi". Brief disetujui Ganjar bersama naskah, sebelum ada kode.
+- **Pola penjelas wajib untuk scene Setup dan Explain** (`src/explainers/pola`): `Bandingkan` (A vs B, baris atau kolom), `Langkah` (2–4 butir bernomor), `SebabAkibat`, `Sorot` (satu objek besar + paling banyak 3 penanda), `AngkaBesar`, dan `Koreksi` untuk Twist. Satu pola per fase (`Fase`), paling banyak dua fase per scene. Pola sudah menetapkan zona (judul y 250, panggung y 460–1240, lebar 160–920) dan skala huruf (`TEKS`); views tidak menulis `fontSize` atau posisi bebas sendiri.
+- **Karakter:** Tako dan cast tampil penuh hanya di Hook, Twist, Payoff, Cta. Di Setup/Explain tidak ada Tako (cast boleh sebagai gambar di dalam pola, mis. Matahari).
+- **Cutaway:** sisipan layar penuh tanpa karakter untuk poin terpenting, ditulis di `scenes.ts` (`cutaway: { at, sampai?, judul, sorot?, sub? }`), paling banyak 2 per video, judul paling banyak 6 kata, tidak di Hook/Cta. Tampil dari kata `at` sampai kalimatnya selesai.
+- **Objek (props):** status di registry `antre` → `draf` → `disetujui`. Konsep sulit digambar dari acuan (`design-references/props/<id>.*`). Hanya Ganjar yang mengubah status ke `disetujui`.
+- **Gerbang storyboard:** setelah `views/` ditulis, render `<Nama>-Storyboard`, lihat gambarnya, perbaiki, lalu minta Ganjar menyetujui sebelum menganggap visual selesai. `npm run lint` memberi peringatan untuk Tako di Setup/Explain, Explain tanpa pola, `fontSize` di views, dan objek `draf`.
+
 ## Audiens dan posisi akun (disepakati Ganjar, 31 Okt 2026)
 - **Audiens:** orang Indonesia usia 15–25 yang penasaran (SMA sampai awal kuliah); materi tetap bisa dipahami anak SMP. Belum menargetkan anak SD (nada dan aturan platform berbeda; perlu dicek dulu).
 - **Posisi:** "Sains 60 detik yang bikin kamu bilang 'oh iya ya!'", dibawakan narator dengan Tako sebagai maskot di layar.
@@ -94,7 +103,8 @@ Lokasi: `design-system/edumotion-design-system/` (baca `readme.md`, `props/STYLE
 - `src/assets/screens/`: mock layar (BrowserMock, CodeEditor, Terminal, dll.), kebanyakan untuk video coding.
 - `src/themes/`: tema `edumotion` (`edumotion.ts`), `topics.ts` (`TOPIC_COLORS`, `EDU_PLAIN`, `HIGHLIGHT`).
 - `src/assets/sfx/`: pustaka SFX sintetis (`SFX`, `SfxName`), dibuat `python3 scripts/sfx-generate.py` (tanpa kredit). Video memakainya lewat `Scene.sfx` di `scenes.ts` (`{ sfx, at, every?, times?, volume? }`, detik dari awal scene).
-- `src/explainers/`: Caption, HookText, Counter, PhaseBar, GuessCard, EduBack (+ `beat`), SafeZoneGuide, CorrectionCard (Twist: tebakan umum dikoreksi), Callout, Cutaway, BarCompare, Timeline, MetaphorSwap, Transition (`swipe`/`iris`/`bars`, belum dipasang di `ShortEdu`), ProgressDots, EndCard, ThumbnailCard. Tinjau semuanya di komposisi `ExplainersDemo` dan `ThumbnailDemo`.
+- `src/explainers/pola/`: pola penjelas (Judul, Fase, Muncul, Kartu, Bandingkan, Langkah, SebabAkibat, Sorot, AngkaBesar, Koreksi, Cutaway) dan tata letak bersama (`AREA`, `TEKS`). Contoh pemakaian lengkap: `src/videos/LangitBiru/views/`.
+- `src/explainers/`: Caption, HookText, Counter, PhaseBar, GuessCard, EduBack (+ `beat`), SafeZoneGuide, CorrectionCard (Twist: tebakan umum dikoreksi), Callout, Lensa (kaca pembesar; dulu bernama Cutaway), BarCompare, Timeline, MetaphorSwap, Transition (`swipe`/`iris`/`bars`, belum dipasang di `ShortEdu`), ProgressDots, EndCard, ThumbnailCard. Tinjau semuanya di komposisi `ExplainersDemo` dan `ThumbnailDemo`.
 - `src/props/`: objek SVG berkontrak (`PropFrame`, viewBox 800), tercatat di `props/registry.md` dan dicek `scripts/lint-props.mjs`. Folder: `body/`, `umum/`, `antariksa/`, `cuaca/`, `teknologi/`, `sejarah/`. Lembar peninjauan: Still `PropsSheet`.
 - `src/assets/effects/`: Confetti, Sparkle, SpeedLines, PopBurst, Bubbles (deterministik, `seeded`). Demo: `EffectsDemo`.
 - `src/videos/`: video edukasi, lihat "Struktur video".
