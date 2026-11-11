@@ -3,6 +3,8 @@
 Proyek Remotion untuk akun animasi 2D edukasi di Instagram dan TikTok (video pendek 30–120 detik, vertikal).
 Pemilik: Ganjar (Coderium). Konsep utama: **video narator berformat stickman** (satu suara narator menjelaskan; pembawa di layar adalah stickman Ganjar di atas kertas berpetak, tidak berbicara). Tako dan 18 karakter cast tetap ada di kode; Tako tidak tampil lagi di video. Proyek masih lokal.
 
+Ringkasan untuk agent lain (Codex, Pi, Antigravity, dll.): [AGENTS.md](AGENTS.md). Skill proyek ada di `.agents/skills/`; `.claude/skills/` hanya symlink ke sana.
+
 ## Stack dan perintah
 Remotion 4 (rspack), React 19, TypeScript, ElevenLabs untuk voice over.
 - `npm run dev`: Remotion Studio
@@ -127,7 +129,7 @@ Lokasi: `design-system/edumotion-design-system/` (baca `readme.md`, `props/STYLE
 - Klaim jalur darah sendiri (arteri koroner) di video jantung belum bersumber; verifikasi sebelum publikasi.
 
 ## Voice over (ElevenLabs) dan keamanan
-- Skill proyek (`.claude/skills/`): `edumotion-video` (pintu masuk membuat atau mengubah video), `edumotion-naskah` (menulis `script.md`), `edumotion-vo` (alur voice over berbayar). Skill Remotion yang dipertahankan: best-practices, markup, captions, create, docs, render, studio, upgrade. Folder `.agents/` dihapus (duplikat; proyek ini hanya memakai Claude Code).
+- Skill proyek (sumber di `.agents/skills/`, dibaca agent mana pun; `.claude/skills/` berisi symlink ke sana): `edumotion-video` (pintu masuk membuat atau mengubah video), `edumotion-naskah` (menulis `script.md`), `edumotion-vo` (alur voice over berbayar). Skill Remotion yang dipertahankan: best-practices, markup, captions, create, docs, render, studio, upgrade. Edit skill hanya di `.agents/skills/`.
 - `scripts/vo-generate.mjs --video <Nama>` memakai kredit ElevenLabs berbayar. **Tampilkan jumlah baris dan huruf, lalu minta persetujuan Ganjar sebelum menjalankan**; jangan memakai `--yes` tanpa izin.
 - `.env.local` berisi API key. Jangan dibaca, dicetak, di-commit, atau disalin ke tempat lain.
 - `scripts/vo-lines.mjs --video <Nama>` (daftar baris dan status, tanpa kredit), `vo-generate.mjs --video <Nama>` (memakai kredit, endpoint `with-timestamps`), `vo-process.py` (olah audio, simpan waktu per kata sebagai `words` di manifest); keluaran mentah (mp3 + `.align.json`) ada di `out/vo-raw/`. Audio lama tanpa `words` tetap jalan dengan perkiraan. Kontraknya: `scenes.ts` mengekspor `BASE_SCENES`, `voiceover.ts` mengekspor `VO_VOICES`, `VO_MODEL`, `VO_SPEED`, `VO_MANIFEST`, `lineId`, `ttsText`.

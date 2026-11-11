@@ -20,11 +20,12 @@ npx remotion render         # render video
 |---|---|
 | `src/characters/tako/`, `src/characters/cast/` | Tako dan 18 karakter cast (`<CastCharacter id=... />`; 17 memakai rig bersama, Ganjar memakai stickman di `src/characters/ganjar/`) |
 | `src/props/` | Objek SVG berkontrak: `body`, `umum`, `antariksa`, `cuaca`, `teknologi`, `sejarah` (katalog: `design-system/.../props/registry.md`) |
-| `src/explainers/` | Komponen penjelas: Caption, HookText, CorrectionCard, Callout, Lensa, BarCompare, Timeline, MetaphorSwap, Transition, ProgressDots, EndCard, ThumbnailCard, dan lainnya |
+| `src/explainers/` | Komponen penjelas dan pola (`pola/`): Caption, HookText, CorrectionCard, Callout, Lensa, BarCompare, Timeline, MetaphorSwap, Transition, ProgressDots, EndCard, ThumbnailCard, dan lainnya |
 | `src/assets/backdrops/` | Latar. Video hanya memakai `EduBackdrop` bawaan (`kertas`); jenis lain tetap ada di pustaka |
 | `src/assets/effects/` | Efek deterministik: Confetti, Sparkle, SpeedLines, PopBurst, Bubbles |
 | `src/themes/` | Tema `edumotion` dan palet topik (`TOPIC_COLORS`) |
 | `src/videos/` | Video edukasi, satu folder per video; dibuat lewat `video:new` |
+| `AGENTS.md`, `.agents/skills/` | Konteks dan skill untuk agent AI (Claude Code, Codex, Pi, Antigravity, dll.); `.claude/skills/` hanya symlink |
 | `scripts/` | `new-short`, `check-videos`, `lint-props`, `export-cast-pack`, skrip voice over |
 
 ## Meninjau di Studio

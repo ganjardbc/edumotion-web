@@ -1,6 +1,6 @@
 ---
 name: edumotion-video
-description: Wajib dipakai untuk membuat atau mengubah video edukasi di proyek edumotion-web, termasuk saat diminta "buat video baru" atau lewat /remotion-create. Menjamin struktur src/videos/<Nama> sama untuk semua video.
+description: Wajib dipakai untuk membuat atau mengubah video edukasi di proyek edumotion-web, termasuk saat diminta "buat video baru" atau saat skill remotion-create dipanggil. Menjamin struktur src/videos/<Nama> sama untuk semua video.
 version: 1.0.0
 ---
 

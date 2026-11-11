@@ -10,7 +10,7 @@ Voice over memakai kredit ElevenLabs berbayar (kira-kira satu kredit per huruf).
 - Jangan membaca, mencetak, menyalin, atau meng-commit `.env.local`.
 - Jangan memakai `--yes` kecuali Ganjar sudah menyetujui jumlah baris dan huruf yang persis sama.
 - Jangan menulis voice id di luar `src/videos/_shared/voices.ts`.
-- Jangan memakai connector ElevenLabs (MCP) untuk VO video; pakai skrip proyek supaya manifest dan hash tetap benar.
+- Jangan memakai connector atau alat ElevenLabs lain (MCP, CLI, dasbor web) untuk VO video; pakai skrip proyek supaya manifest dan hash tetap benar.
 - Jangan mengulang generate untuk "mencoba lagi" tanpa izin; tiap percobaan memakai kredit.
 
 ## Alur
