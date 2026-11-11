@@ -65,3 +65,5 @@ Status:
 - `ada` (tambahan): `jantung-anatomi` (`JantungAnatomi`), `sel-darah-merah` (`SelDarahMerah`), `paru-paru` (`ParuParu`), `otot` (`Otot`), `tetes-darah` (`TetesDarah`), `tanda-tanya-besar` (`QuestionMark`).
 - `antre`: `bilik-atrium`, `pembuluh-arteri`, `pembuluh-vena`, `pompa-air`.
 | JalurCahaya | cuaca | netral | prop | `progress` (sinar), param `waktu` siang/senja | draf |
+| LayarHp | teknologi | netral | prop | param `terang` 0..1 (layar makin bercahaya) | antre |
+| SinyalBar | teknologi | netral | prop | param `level` 0..4 (batang sinyal) | antre |
