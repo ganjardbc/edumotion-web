@@ -1,42 +1,49 @@
 # Kenapa langit biru, bukan ungu?
 
 Topik: cuaca · Suara: narator (Aldo) · Karakter di layar: Tako, Awan, Matahari, Bumi
-Status naskah: **ditulis ulang untuk konsep narator (11 Nov 2026), menunggu persetujuan Ganjar.** Versi sebelumnya (Tako/Bumi berbicara sendiri) ada di riwayat git.
+Status naskah: **ditulis ulang untuk konsep narator (11 Nov 2026), menunggu persetujuan Ganjar.** Visual dibangun ulang dengan pola penjelas (12 Nov 2026); storyboard menunggu persetujuan. Versi sebelumnya (Tako/Bumi berbicara sendiri) ada di riwayat git.
 
 Struktur: Hook → Setup (tebakan umum yang keliru) → Twist (koreksi) → Penjelasan → Payoff → Ajakan. Perkiraan 59 detik; durasi akhir mengikuti audio.
 
 Semua kalimat dibawakan narator. Tokoh di layar hanya bereaksi, tidak berbicara. Latar polos di semua scene.
 
-| Scene | Narasi (narator) | Dur (dtk) | Visual dan aksi | SFX |
-|---|---|---|---|---|
-| Hook | "Kenapa langit biru, bukan ungu?" | 1.85 | Latar polos. Teks layar: **Kenapa langit biru, bukan ungu?** Tako dengan tanda tanya. | pop |
-| Setup | "Banyak orang mengira langit biru karena memantulkan warna laut." | 4.5 | Label "laut" dan "langit" dihubungkan panah melengkung. Tako berpikir, Awan menggeleng menjelang akhir. | – |
-| Twist | "Ternyata bukan!" / "Tanpa laut pun, langit tetap biru. Warna birunya berasal dari udara." | 1.2 + 4.2 | Kartu koreksi: "Langit memantulkan laut" dicoret, jawaban "Warna dari udara". Tako kaget lalu paham. | wrong |
-| Explain1 | "Cahaya Matahari terlihat putih. Padahal isinya campuran semua warna, seperti pelangi. Cahaya biru gelombangnya pendek. Cahaya merah gelombangnya panjang." | 10.5 | Sinar putih Matahari terurai jadi pelangi, lalu dua gelombang: biru pendek, merah panjang. | – |
-| Explain2 | "Udara berisi partikel yang sangat kecil. Partikel ini menyebarkan cahaya biru ke segala arah. Cahaya merah lewat lurus saja. Itu sebabnya langit terlihat biru." | 10 | Sinar menembus partikel udara: merah lurus, biru menyebar ke segala arah. | – |
-| Explain3 | "Cahaya ungu sebenarnya tersebar lebih kuat lagi. Tapi cahaya ungu dari Matahari lebih sedikit, dan mata kita kurang peka pada warna ungu." | 8 | Batang ungu dan biru (ilustrasi), lalu mata dengan sorotan "kurang peka". | – |
-| Explain4 | "Saat senja, cahaya Matahari harus melewati udara lebih jauh. Cahaya birunya sudah tersebar di jalan. Yang sampai ke mata kita tinggal kuning, jingga, dan merah." | 9.5 | Bumi dengan lapisan udara: jalur siang pendek, jalur senja panjang. Panel langit berganti ke jingga-merah. | – |
-| Payoff | "Jadi langit biru dan senja merah punya sebab yang sama: cahaya biru yang tersebar oleh udara." | 6 | Panel langit biru dan senja merah dengan satu panah. Teks layar (sorotan): **Cahaya biru tersebar**. | tada |
-| Cta | "Lalu, kenapa laut berwarna biru? Tulis tebakanmu di komentar!" | 3.5 | Teks layar: **Kenapa laut biru?** Tako dengan tanda tanya. | – |
+| Scene | Narasi (narator) | Dur (dtk) | SFX |
+|---|---|---|---|
+| Hook | "Kenapa langit biru, bukan ungu?" | 1.85 | pop |
+| Setup | "Banyak orang mengira langit biru karena memantulkan warna laut." | 4.5 | – |
+| Twist | "Ternyata bukan!" / "Tanpa laut pun, langit tetap biru. Warna birunya berasal dari udara." | 1.2 + 4.2 | wrong |
+| Explain1 | "Cahaya Matahari terlihat putih. Padahal isinya campuran semua warna, seperti pelangi. Cahaya biru gelombangnya pendek. Cahaya merah gelombangnya panjang." | 10.5 | – |
+| Explain2 | "Udara berisi partikel yang sangat kecil. Partikel ini menyebarkan cahaya biru ke segala arah. Cahaya merah lewat lurus saja. Itu sebabnya langit terlihat biru." | 10 | – |
+| Explain3 | "Cahaya ungu sebenarnya tersebar lebih kuat lagi. Tapi cahaya ungu dari Matahari lebih sedikit, dan mata kita kurang peka pada warna ungu." | 8 | – |
+| Explain4 | "Saat senja, cahaya Matahari harus melewati udara lebih jauh. Cahaya birunya sudah tersebar di jalan. Yang sampai ke mata kita tinggal kuning, jingga, dan merah." | 9.5 | – |
+| Payoff | "Jadi langit biru dan senja merah punya sebab yang sama: cahaya biru yang tersebar oleh udara." | 6 | tada |
+| Cta | "Lalu, kenapa laut berwarna biru? Tulis tebakanmu di komentar!" | 3.5 | – |
+
+## Brief visual
+
+| Scene | Pola | Judul | Objek utama | Label | Kata kunci → aksi |
+|---|---|---|---|---|---|
+| Hook | karakter | Kenapa langit biru, bukan **ungu**? | Tako, tanda tanya | – | – |
+| Setup | SebabAkibat | Langit memantulkan **laut**? | gelombang (laut), tanda tanya | Laut berwarna biru; Langit ikut biru? | "Banyak" → sebab; "memantulkan" → akibat |
+| Twist | Koreksi + karakter | – | kartu koreksi, Tako | Langit memantulkan laut → Warna dari udara | "bukan" → coret; "Warna birunya" → jawaban; "udara" → Tako paham |
+| Explain1 | SebabAkibat → Bandingkan (kolom) | Cahaya putih itu **campuran** / Panjang **gelombangnya** beda | Matahari, pelangi / dua gelombang | Biru pendek; Merah panjang | "Cahaya Matahari" → sebab; "campuran" → pelangi; "Cahaya biru" → fase 2; "Cahaya merah" → merah |
+| Explain2 | Sorot + cutaway | Udara menyebarkan **biru** | partikel udara (MolekulUdara) | partikel udara; merah: lurus | "partikel" → sinar mulai; "segala arah" → biru menyebar penuh; "Itu sebabnya" → cutaway |
+| Explain3 | Bandingkan (baris) → Langkah | **Ungu** tersebar lebih kuat / Tapi langit tetap **biru** | dua gelombang / Matahari, mata | Ungu lebih kuat; 1 cahaya ungu sedikit; 2 mata kurang peka | "lebih kuat" → sorot Ungu; "Tapi" → fase 2; "mata kita" → butir 2 |
+| Explain4 | Bandingkan (kolom) | Saat senja, jalurnya **panjang** | JalurCahaya siang dan senja | Siang jalur pendek; Senja jalur panjang | "melewati" → panel senja; "Cahaya birunya" → sorot senja |
+| Payoff | karakter | Cahaya biru **tersebar** | JalurCahaya kecil siang dan senja, Tako | – | "langit biru" → panel siang; "senja merah" → panel senja |
+| Cta | karakter | Kenapa **laut** biru? | Tako, tanda tanya | – | – |
+
+Cutaway: Explain2, mulai "Itu sebabnya", judul "Udara menyebarkan cahaya biru", keterangan "Biru datang dari segala arah langit".
 
 ## Objek
-- Ada (cast): Tako, Awan, Matahari, Bumi.
-- Ada (props): `Pelangi`, `QuestionMark`, `ExclamationMark`, `CurvedArrow`, `CrossMark`, `CheckMark`, `Star`.
-- Antre (belum ada, perlu dibuat di `src/props/`):
-  - `GelombangCahaya` (cuaca, netral, prop, `progress` = gelombang bergerak, parameter `wavelength`): dipakai Explain1.
-  - `MolekulUdara` (cuaca, netral, prop, `scatter` = sinar membelok): dipakai Explain2.
-  - `Mata` (tubuh, netral, prop, tidak ada gerak): dipakai Explain3.
-  - `LapisanAtmosfer` (cuaca, netral, prop, `progress` = sinar menembus): dipakai Explain4.
-- Komponen: `HookText`, `Caption`, `PhaseBar`, `GuessCard`, `CorrectionCard`, `Callout`, `ProgressDots`. Latar: `polos` di semua scene.
-- Catatan: ungu mungkin tidak ada di palet topik cuaca. Cek `TOPIC_COLORS` dan prop `Pelangi` sebelum membuat warna; jangan menulis hex baru.
+- Cast: Tako (Hook, Twist, Payoff, Cta), Matahari (gambar di dalam pola Explain1 dan Explain3). Awan dan Bumi tidak dipakai lagi.
+- Props (semua berstatus `draf`, menunggu tinjauan Ganjar di `PropsSheet`): `GelombangCahaya`, `Pelangi`, `MolekulUdara`, `Mata`, `QuestionMark`, `JalurCahaya` (baru, menggantikan `LapisanAtmosfer` yang sulit dibaca).
+- Pola: `SebabAkibat`, `Koreksi`, `Bandingkan`, `Sorot`, `Langkah`, `Fase`; cutaway lewat `scenes.ts`. Latar: `polos` di semua scene.
 
-Baris untuk `props/registry.md`:
+Baris untuk `props/registry.md` (sudah dicatat):
 
 ```
-| GelombangCahaya | cuaca | netral | prop | `progress` (gelombang), param `wavelength` | antre |
-| MolekulUdara | cuaca | netral | prop | `scatter` (sinar membelok) | antre |
-| Mata | tubuh | netral | prop | tidak ada | antre |
-| LapisanAtmosfer | cuaca | netral | prop | `progress` (sinar menembus) | antre |
+| JalurCahaya | cuaca | netral | prop | `progress` (sinar), param `waktu` siang/senja | draf |
 ```
 
 ## Fakta dan sumber
