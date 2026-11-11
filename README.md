@@ -18,7 +18,7 @@ npx remotion render         # render video
 
 | Folder | Isi |
 |---|---|
-| `src/characters/tako/`, `src/characters/cast/` | Tako dan 18 karakter cast (satu rig bersama, `<CastCharacter id=... />`) |
+| `src/characters/tako/`, `src/characters/cast/` | Tako dan 18 karakter cast (`<CastCharacter id=... />`; 17 memakai rig bersama, Ganjar memakai stickman di `src/characters/ganjar/`) |
 | `src/props/` | Objek SVG berkontrak: `body`, `umum`, `antariksa`, `cuaca`, `teknologi`, `sejarah` (katalog: `design-system/.../props/registry.md`) |
 | `src/explainers/` | Komponen penjelas: Caption, HookText, CorrectionCard, Callout, Cutaway, BarCompare, Timeline, MetaphorSwap, Transition, ProgressDots, EndCard, ThumbnailCard, dan lainnya |
 | `src/assets/backdrops/` | Latar. Video hanya memakai `EduBackdrop` polos; jenis lain tetap ada di pustaka |

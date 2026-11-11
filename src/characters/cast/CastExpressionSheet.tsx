@@ -5,7 +5,7 @@ import { TAKO_PALETTE } from "../tako/assets/palette";
 import { EXPRESSION_LABEL } from "../tako/expressions/index";
 import { EXPRESSION_NAMES } from "../tako/types";
 import { CastCharacter } from "./CastCharacter";
-import { CAST_BY_ID } from "./characters";
+import { CAST_META_BY_ID } from "./characters";
 import type { CastId } from "./types";
 
 const { fontFamily } = loadFont("normal", { weights: ["800"] });
@@ -18,7 +18,7 @@ const SIZE = 300;
 
 // Lembar ekspresi satu karakter, diekspor ke design-references/tako_cast/<id>/expressions.png.
 export const CastExpressionSheet: React.FC<{ readonly id: CastId }> = ({ id }) => {
-  const def = CAST_BY_ID[id];
+  const def = CAST_META_BY_ID[id];
   return (
     <AbsoluteFill style={{ backgroundColor: "#F6F1E8", fontFamily, fontWeight: 800, color: TAKO_PALETTE.dark }}>
       <div style={{ position: "absolute", left: 40, top: 24, display: "flex", alignItems: "baseline", gap: 24 }}>

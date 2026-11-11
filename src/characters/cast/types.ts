@@ -3,6 +3,9 @@ import type { Point } from "../tako/rig/pivots";
 
 export type CastId = "awan" | "bumi" | "jantung" | "raka" | "buku" | "robo" | "tetes" | "claude" | "ganjar" | "hape" | "komputer" | "otak" | "matahari" | "baterai" | "bulan" | "atom" | "petir" | "api";
 
+// Karakter yang digambar dengan CastRig. "ganjar" digambar sebagai stickman (src/characters/ganjar).
+export type RigCastId = Exclude<CastId, "ganjar">;
+
 export type JointPart = { readonly part: React.FC; readonly pivot: Point };
 
 // Bagian yang ikut goyang antena; `swing` = pengali pose.antennaRotate.
@@ -32,7 +35,7 @@ export type FaceSpec = {
 };
 
 export type CastDefinition = {
-  readonly id: CastId;
+  readonly id: RigCastId;
   readonly name: string;
   readonly topic: string;
   readonly brief: string;

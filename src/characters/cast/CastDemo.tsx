@@ -6,8 +6,7 @@ import { TAKO_PALETTE } from "../tako/assets/palette";
 import { TakoCharacter } from "../tako/TakoCharacter";
 import type { AnimationName, ExpressionName } from "../tako/types";
 import { CastCharacter } from "./CastCharacter";
-import { CAST } from "./characters";
-import type { CastDefinition } from "./types";
+import { CAST_META as CAST, type CastMeta } from "./characters";
 
 const { fontFamily } = loadFont("normal", { weights: ["800"] });
 
@@ -40,7 +39,7 @@ const Shadow: React.FC<{ readonly x: number; readonly y: number; readonly width:
   <div style={{ position: "absolute", left: x - width / 2, top: y - width * 0.04, width, height: width * 0.14, borderRadius: "50%", backgroundColor: TAKO_PALETTE.dark, opacity: 0.14 }} />
 );
 
-const CharacterScene: React.FC<{ readonly def: CastDefinition }> = ({ def }) => {
+const CharacterScene: React.FC<{ readonly def: CastMeta }> = ({ def }) => {
   let from = 0;
   return (
     <>
