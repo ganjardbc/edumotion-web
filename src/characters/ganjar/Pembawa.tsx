@@ -1,9 +1,17 @@
 import type React from "react";
+import { mixHex } from "../../assets/backdrops";
 import { TOPIC_COLORS } from "../../themes/topics";
 import type { VideoTopic } from "../../videos/_shared/types";
 import type { Gesture } from "./gestures";
 import { GANJAR_STICKMAN_PALETTE as P } from "./palette";
 import { GanjarStickman, type GanjarStickmanExpression, VIEWBOX } from "./GanjarStickman";
+
+// Warna pembawa dari topik: hoodie = tinta topik yang sedikit dicerahkan (tetap gelap supaya garis dan wajah terbaca),
+// celana = warna utama topik, tali dan kantong = kilau topik.
+const aksenTopik = (topic: VideoTopic) => {
+  const c = TOPIC_COLORS[topic];
+  return { hoodie: mixHex(c.ink, c.rim, 0.45), celana: c.main, tali: c.shine };
+};
 
 // Letak bawah telapak kaki di viewBox stickman (400x410).
 const FOOT_Y = 380;
@@ -31,7 +39,7 @@ export const Pembawa: React.FC<{
     <div style={{ position: "absolute", left: x - w / 2, top, width: w, height: tinggi, opacity }}>
       <div style={{ position: "absolute", left: w * 0.22, width: w * 0.56, top: tinggi * (FOOT_Y / VIEWBOX.h) - 14, height: 28, borderRadius: "50%", backgroundColor: P.ink, opacity: 0.12 }} />
       <div style={{ position: "absolute", inset: 0, transform: hadap === -1 ? "scaleX(-1)" : undefined }}>
-        <GanjarStickman height={tinggi} expression={ekspresi} gesture={gestur} walk={jalan} talking={bicara} strokeWidth={6} aksen={topic ? TOPIC_COLORS[topic].main : undefined} />
+        <GanjarStickman height={tinggi} expression={ekspresi} gesture={gestur} walk={jalan} talking={bicara} strokeWidth={6} aksen={topic ? aksenTopik(topic) : undefined} />
       </div>
     </div>
   );

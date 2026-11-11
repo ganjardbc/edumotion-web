@@ -297,8 +297,8 @@ export type GanjarStickmanProps = {
   readonly outfit?: boolean;
   // Rambut: tiga helai garis hitam di atas kepala.
   readonly hair?: boolean;
-  // Satu aksen warna (hex) untuk celana pendek dan tali/kantong hoodie; bawaan abu-abu. Pembawa mengisinya dari warna topik video.
-  readonly aksen?: string;
+  // Warna (hex) hoodie, celana pendek, dan tali/kantong hoodie; bawaan gelap dan abu-abu. Pembawa mengisinya dari warna topik video.
+  readonly aksen?: { readonly hoodie: string; readonly celana: string; readonly tali: string };
   readonly color?: string;
   // Tebal garis dalam unit viewBox (400 lebar).
   readonly strokeWidth?: number;
@@ -354,15 +354,16 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
         {/* tangan digambar lebih dulu: masuk ke lengan hoodie, hanya separuh bawah telapak yang tampak */}
         {outfit && <ellipse cx={c.x} cy={c.y} rx={HAND.rx} ry={HAND.ry} transform={`rotate(${-side * dir} ${c.x} ${c.y})`} {...stroke} />}
         <path d={`M${from.x} ${from.y} Q${elbow.x} ${elbow.y} ${hand.x} ${hand.y}`} {...open} strokeWidth={outfit ? SLEEVE_W + strokeWidth * 2 : strokeWidth} />
-        {outfit && <path d={`M${from.x} ${from.y} Q${elbow.x} ${elbow.y} ${hand.x} ${hand.y}`} fill="none" stroke={HOODIE} strokeWidth={SLEEVE_W} strokeLinecap="round" />}
+        {outfit && <path d={`M${from.x} ${from.y} Q${elbow.x} ${elbow.y} ${hand.x} ${hand.y}`} fill="none" stroke={hoodie} strokeWidth={SLEEVE_W} strokeLinecap="round" />}
         {/* polos: loop tangan utuh di ujung garis lengan */}
         {!outfit && <ellipse cx={c.x} cy={c.y} rx={HAND.rx} ry={HAND.ry} transform={`rotate(${-side * dir} ${c.x} ${c.y})`} {...stroke} />}
       </g>
     );
   };
 
-  const shortsFill = aksen ?? SHORTS.fill;
-  const trim = aksen ? P.white : TRIM;
+  const shortsFill = aksen?.celana ?? SHORTS.fill;
+  const trim = aksen?.tali ?? TRIM;
+  const hoodie = aksen?.hoodie ?? HOODIE;
   const shorts = (hip: Pt, foot: Pt): string => {
     const dx = foot.x - hip.x;
     const dy = foot.y - hip.y;
@@ -405,14 +406,14 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
           {/* lengan di belakang badan: pangkalnya tertutup isi putih badan */}
           {arm(-1, pose.arms[0], false)}
           {arm(1, pose.arms[1], false)}
-          <path d={TORSO} {...stroke} fill={outfit ? HOODIE : P.white} />
+          <path d={TORSO} {...stroke} fill={outfit ? hoodie : P.white} />
           {outfit && (
             <>
               {/* kantong kanguru dan tali hoodie */}
               <path d={POCKET} fill="none" stroke={trim} strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round" />
               <path d="M189 180 L187 208 M211 180 L213 208" fill="none" stroke={trim} strokeWidth={3.5} strokeLinecap="round" />
               {/* tudung menumpuk di leher, sebagian tertutup kepala */}
-              <ellipse cx={NECK.x} cy={NECK.y + 4} rx={52} ry={17} {...stroke} fill={HOODIE} />
+              <ellipse cx={NECK.x} cy={NECK.y + 4} rx={52} ry={17} {...stroke} fill={hoodie} />
             </>
           )}
           <g transform={`rotate(${pose.headTilt} ${NECK.x} ${NECK.y})`}>
