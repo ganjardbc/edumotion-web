@@ -7,7 +7,7 @@ import { ThemeProvider, useTheme } from "../themes";
 import { BarCompare } from "./BarCompare";
 import { Callout } from "./Callout";
 import { CorrectionCard } from "./CorrectionCard";
-import { Cutaway } from "./Cutaway";
+import { Lensa } from "./Lensa";
 import { EDU_FEET_Y, EduBack } from "./EduBack";
 import { EndCard } from "./EndCard";
 import { MetaphorSwap } from "./MetaphorSwap";
@@ -55,13 +55,13 @@ const SCENES: ReadonlyArray<{ readonly title: string; readonly view: React.React
     ),
   },
   {
-    title: "Cutaway",
+    title: "Lensa",
     view: (
       <>
         <CastCharacter id="jantung" x={400} y={EDU_FEET_Y} size={520} animation="idle" />
-        <Cutaway x={640} y={620} size={420} label="Sel otot" topic="tubuh" at={8} source={{ x: 470, y: 930, r: 50 }}>
+        <Lensa x={640} y={620} size={420} label="Sel otot" topic="tubuh" at={8} source={{ x: 470, y: 930, r: 50 }}>
           <Stopwatch x={0} y={0} size={240} progress={0.4} />
-        </Cutaway>
+        </Lensa>
       </>
     ),
   },

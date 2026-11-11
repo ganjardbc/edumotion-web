@@ -10,7 +10,7 @@ export { BarCompare, type BarItem } from "./BarCompare";
 export { Callout } from "./Callout";
 export { LabelPill } from "./LabelPill";
 export { CorrectionCard } from "./CorrectionCard";
-export { Cutaway } from "./Cutaway";
+export { Lensa } from "./Lensa";
 export { EndCard } from "./EndCard";
 export { MetaphorSwap } from "./MetaphorSwap";
 export { ProgressDots } from "./ProgressDots";

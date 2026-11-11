@@ -6,7 +6,8 @@ import { SFX } from "../../assets/sfx";
 import { Caption, SafeZoneGuide, Transition } from "../../explainers";
 import { ThemeProvider, useTheme } from "../../themes";
 import { Animatic } from "./Animatic";
-import { computeTimings, cueAt, totalFrames } from "./timing";
+import { Cutaway } from "../../explainers/pola";
+import { computeTimings, cueAt, cueLineEnd, totalFrames } from "./timing";
 import type { Scene, SceneRenderers, VideoTopic } from "./types";
 import type { Voiceover } from "./voiceover";
 
@@ -37,12 +38,21 @@ export const SHORT_EDU = { width: 1080, height: 1920, fps: 30 } as const;
 
 export const durationOf = (scenes: ReadonlyArray<Scene>, vo: Voiceover): number => totalFrames(computeTimings(scenes, vo));
 
-// Satu frame kunci per scene untuk lembar storyboard: sesaat sebelum kalimat terakhir selesai, saat semua objek
-// sudah muncul dan caption masih tampil.
+// Frame kunci lembar storyboard: tiap scene dua kali (a: 30% durasi, untuk fase pertama; b: dan sesaat sebelum selesai, saat
+// semua objek sudah muncul dan caption masih tampil), ditambah satu frame cutaway bila ada. Akhir scene yang
+// tertutup cutaway diambil sesaat sebelum cutaway muncul.
 export const storyboardOf = (scenes: ReadonlyArray<Scene>, vo: Voiceover): ReadonlyArray<{ readonly id: string; readonly frame: number }> =>
-  computeTimings(scenes, vo).map((t) => {
+  computeTimings(scenes, vo).flatMap((t) => {
     const last = t.lineStarts.length - 1;
-    return { id: t.scene.id, frame: t.from + Math.max(0, t.lineStarts[last] + t.lineFrames[last] - 6) };
+    const akhir = t.lineStarts[last] + t.lineFrames[last] - 6;
+    const cut = t.scene.cutaway ? cueAt(t, t.scene.cutaway.at) : null;
+    const ujung = cut === null ? akhir : Math.max(0, cut - 4);
+    const out = [
+      { id: `${t.scene.id} a`, frame: t.from + Math.round(ujung * 0.3) },
+      { id: `${t.scene.id} b`, frame: t.from + Math.max(0, ujung) },
+    ];
+    if (cut !== null) out.push({ id: `${t.scene.id} cut`, frame: t.from + cut + 20 });
+    return out;
   });
 
 // Props komposisi tiap video; bisa diubah di panel props Remotion Studio.
@@ -76,6 +86,16 @@ const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false, animat
         return (
           <Sequence key={t.scene.id} from={t.from} durationInFrames={t.frames} name={t.scene.id}>
             {animatic || !SceneView ? <Animatic timing={t} index={timings.indexOf(t)} count={timings.length} topic={topic} /> : <SceneView scene={t.scene} frames={t.frames} lineStarts={t.lineStarts} at={at} />}
+            {t.scene.cutaway ? (
+              <Cutaway
+                dari={cueAt(t, t.scene.cutaway.at)}
+                sampai={t.scene.cutaway.sampai ? cueAt(t, t.scene.cutaway.sampai) : cueLineEnd(t, t.scene.cutaway.at)}
+                judul={t.scene.cutaway.judul}
+                sorot={t.scene.cutaway.sorot}
+                sub={t.scene.cutaway.sub}
+                topic={topic ?? "ilmu"}
+              />
+            ) : null}
             <SceneSfx scene={t.scene} frames={t.frames} />
             {t.scene.lines.map((line, i) => {
               const audio = vo.audioFor(vo.lineId(t.scene.id, i));

@@ -37,6 +37,9 @@ export type Scene = {
   readonly pad?: number;
   // Efek suara scene ini (opsional).
   readonly sfx?: ReadonlyArray<SfxCue>;
+  // Sisipan layar penuh untuk satu poin penting (tanpa karakter). Muncul saat narator mengucapkan `at` dan bertahan
+  // sampai kata `sampai` (atau sampai kalimat itu selesai). `judul` paling banyak 6 kata; paling banyak 2 per video.
+  readonly cutaway?: { readonly at: string; readonly sampai?: string; readonly judul: string; readonly sorot?: string; readonly sub?: string };
   // Transisi masuk ke scene ini (opsional), berpusat di batas dengan scene sebelumnya. Pakai saat latar berganti jauh.
   readonly enter?: "swipe" | "iris" | "bars";
 };

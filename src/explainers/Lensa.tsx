@@ -6,7 +6,7 @@ import type { VideoTopic } from "../videos/_shared/types";
 
 // Lensa bulat yang memperbesar bagian dalam objek. `children` digambar di pusat lensa (koordinat lokal, pusat = 0,0);
 // `zoom` memperbesarnya. `source` (opsional) menandai bagian asal di objek utama dengan cincin dan garis putus ke lensa.
-export const Cutaway: React.FC<{
+export const Lensa: React.FC<{
   readonly x: number;
   readonly y: number;
   readonly size: number;
