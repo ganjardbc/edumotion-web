@@ -21,7 +21,7 @@ export const Hook: React.FC<SceneProps> = () => {
         <div style={{ textAlign: "center", fontFamily: t.fonts.heading, fontWeight: 700, fontSize: 44, color: t.colors.muted }}>detak per hari</div>
       </div>
       <CastCharacter id="jantung" x={340} y={EDU_FEET_Y} size={500 * (1 + 0.05 * beat(frame))} expression="happy" />
-      <Pembawa x={760} y={EDU_FEET_Y} tinggi={380} ekspresi="mikir" gestur="mikir" hadap={-1} />
+      <Pembawa topic={META.topic} x={760} y={EDU_FEET_Y} tinggi={380} ekspresi="mikir" gestur="mikir" hadap={-1} />
     </AbsoluteFill>
   );
 };

@@ -297,6 +297,8 @@ export type GanjarStickmanProps = {
   readonly outfit?: boolean;
   // Rambut: tiga helai garis hitam di atas kepala.
   readonly hair?: boolean;
+  // Satu aksen warna (hex) untuk celana pendek dan tali/kantong hoodie; bawaan abu-abu. Pembawa mengisinya dari warna topik video.
+  readonly aksen?: string;
   readonly color?: string;
   // Tebal garis dalam unit viewBox (400 lebar).
   readonly strokeWidth?: number;
@@ -327,6 +329,7 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
   headphones = false,
   outfit = true,
   hair = true,
+  aksen,
   color = P.ink,
   strokeWidth = 5,
   style,
@@ -358,6 +361,8 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
     );
   };
 
+  const shortsFill = aksen ?? SHORTS.fill;
+  const trim = aksen ? P.white : TRIM;
   const shorts = (hip: Pt, foot: Pt): string => {
     const dx = foot.x - hip.x;
     const dy = foot.y - hip.y;
@@ -380,7 +385,7 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
       <g key={side}>
         <path d={`M${hip.x} ${hip.y} Q${knee.x} ${knee.y} ${foot.x} ${foot.y}`} {...open} />
         {/* celana pendek kotak: trapesium dengan ujung rata tegak lurus kaki */}
-        {outfit && <path d={shorts(hip, foot)} {...stroke} fill={SHORTS.fill} strokeLinejoin="miter" />}
+        {outfit && <path d={shorts(hip, foot)} {...stroke} fill={shortsFill} strokeLinejoin="miter" />}
         <ellipse cx={foot.x + side * 11} cy={foot.y + 1} rx={17} ry={6.5} transform={`rotate(${side * -6} ${foot.x} ${foot.y})`} {...stroke} />
       </g>
     );
@@ -404,8 +409,8 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
           {outfit && (
             <>
               {/* kantong kanguru dan tali hoodie */}
-              <path d={POCKET} fill="none" stroke={TRIM} strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M189 180 L187 208 M211 180 L213 208" fill="none" stroke={TRIM} strokeWidth={3.5} strokeLinecap="round" />
+              <path d={POCKET} fill="none" stroke={trim} strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M189 180 L187 208 M211 180 L213 208" fill="none" stroke={trim} strokeWidth={3.5} strokeLinecap="round" />
               {/* tudung menumpuk di leher, sebagian tertutup kepala */}
               <ellipse cx={NECK.x} cy={NECK.y + 4} rx={52} ry={17} {...stroke} fill={HOODIE} />
             </>

@@ -26,7 +26,7 @@ export const Payoff: React.FC<SceneProps> = ({ at }) => {
       <Muncul at={panas}>
         <Termometer x={810} y={640} size={250} topic="tubuh" level={0.9} />
       </Muncul>
-      <Pembawa x={540} y={EDU_FEET_Y} tinggi={440} ekspresi={akhir ? "tertawa" : "senang"} gestur={akhir ? "sorak" : "tunjuk"} />
+      <Pembawa topic={META.topic} x={540} y={EDU_FEET_Y} tinggi={440} ekspresi={akhir ? "tertawa" : "senang"} gestur={akhir ? "sorak" : "tunjuk"} />
     </AbsoluteFill>
   );
 };

@@ -20,7 +20,7 @@ export const Twist: React.FC<SceneProps> = ({ frames, at }) => {
       <CorrectionCard top={250} guess="Ringan seperti kapas" answer="Berat ±500 ton" topic="air" crossAt={at("keliru")} answerAt={berat} />
       <Timbangan x={760} y={1010} size={380} level={level} />
       <LabelPill x={760} y={820} text="berat awan" topic={META.topic} at={berat + 16} size={34} />
-      <Pembawa x={300} y={EDU_FEET_Y} tinggi={494} ekspresi="kaget" gestur="menyerah" />
+      <Pembawa topic={META.topic} x={300} y={EDU_FEET_Y} tinggi={494} ekspresi="kaget" gestur="menyerah" />
     </AbsoluteFill>
   );
 };

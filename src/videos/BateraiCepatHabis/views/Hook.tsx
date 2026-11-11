@@ -15,7 +15,7 @@ export const Hook: React.FC<SceneProps> = ({ at }) => {
     <AbsoluteFill>
       <EduBackdrop topic={META.topic} />
       <HookText text="Kenapa baterai HP cepat habis?" highlight="habis" size={100} />
-      <Pembawa x={330} y={EDU_FEET_Y} tinggi={560} ekspresi="kaget" gestur="garukKepala" />
+      <Pembawa topic={META.topic} x={330} y={EDU_FEET_Y} tinggi={560} ekspresi="kaget" gestur="garukKepala" />
       <CastCharacter id="baterai" x={770} y={EDU_FEET_Y} size={440} facing={-1} expression={sore ? "sad" : "happy"} animation="idle" />
     </AbsoluteFill>
   );

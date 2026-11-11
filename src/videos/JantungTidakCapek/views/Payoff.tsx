@@ -14,7 +14,7 @@ export const Payoff: React.FC<SceneProps> = () => {
     <AbsoluteFill>
       <EduBackdrop topic={META.topic} />
       <HookText text="Jantung jago istirahat" highlight="istirahat" size={104} />
-      <Pembawa x={320} y={EDU_FEET_Y} tinggi={513} ekspresi="tertawa" gestur="sorak" />
+      <Pembawa topic={META.topic} x={320} y={EDU_FEET_Y} tinggi={513} ekspresi="tertawa" gestur="sorak" />
       <CastCharacter id="jantung" x={760} y={EDU_FEET_Y} size={500 * (1 + 0.04 * beat(frame))} facing={-1} expression="happy" />
     </AbsoluteFill>
   );

@@ -19,6 +19,6 @@ export const Payoff: React.FC<SceneProps> = ({ at }) => (
     <Muncul at={at("senja merah")}>
       <JalurCahaya x={730} y={640} size={300} waktu="senja" />
     </Muncul>
-    <Pembawa x={540} y={EDU_FEET_Y} tinggi={418} ekspresi="tertawa" gestur="sorak" />
+    <Pembawa topic={META.topic} x={540} y={EDU_FEET_Y} tinggi={418} ekspresi="tertawa" gestur="sorak" />
   </AbsoluteFill>
 );

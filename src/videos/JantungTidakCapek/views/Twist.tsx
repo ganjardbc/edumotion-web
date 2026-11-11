@@ -14,7 +14,7 @@ export const Twist: React.FC<SceneProps> = ({ frames }) => {
   return (
     <AbsoluteFill style={{ transform: `scale(${zoom})`, transformOrigin: "50% 70%" }}>
       <EduBackdrop topic={META.topic} />
-      <Pembawa x={350} y={EDU_FEET_Y} tinggi={570} ekspresi="kaget" gestur="menyerah" />
+      <Pembawa topic={META.topic} x={350} y={EDU_FEET_Y} tinggi={570} ekspresi="kaget" gestur="menyerah" />
       <CastCharacter id="jantung" x={800} y={EDU_FEET_Y} size={440} facing={-1} expression="happy" animation="wave" />
     </AbsoluteFill>
   );

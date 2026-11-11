@@ -22,7 +22,7 @@ Remotion 4 (rspack), React 19, TypeScript, ElevenLabs untuk voice over.
 - **Twist:** narator menyebut tebakan umum yang keliru ("Banyak orang mengira …") di Setup, lalu mengoreksinya di Twist; ini ciri khas akun.
 - **Format stickman (diputuskan Ganjar 12 Nov 2026, untuk semua video):**
   - **Latar kertas berpetak (KISS):** semua scene memakai `<EduBackdrop topic={META.topic} />` (bawaan `kertas`: putih hangat, petak tipis tinta topik, tanpa dekor dan tanpa gerak). Konteks ditunjukkan lewat objek dan label, bukan latar.
-  - **Pembawa:** `<Pembawa />` dari `src/characters/ganjar` (stickman Ganjar). `TakoCharacter` ditolak lint di video.
+  - **Pembawa:** `<Pembawa topic={META.topic} />` dari `src/characters/ganjar` (stickman Ganjar berambut tiga garis; celana pendek dan tali hoodie memakai warna topik video sebagai satu-satunya aksen). `TakoCharacter` ditolak lint di video.
   - **Akting satu badan penuh** (dipinjam dari panduan B1 stickman-video-director, gagasan saja): tiap momen pembawa punya `ekspresi` dan `gestur` yang sesuai makna kalimat (kaget + menyerah, mikir + tangan di dagu, senang + tunjuk ke jawaban, tertawa + sorak). Ekspresi dibuat jelas dan bervariasi; jangan satu wajah sepanjang video.
   - **Teks besar dan pendek di dalam adegan** (Judul pola, paling banyak 6 kata) jadi fokus; caption lebih tenang di bawah.
   - **Gambar terus maju:** gambar utama berganti atau bertambah paling lambat tiap sekitar 2,5 detik, dengan jeda tenang setelah aksi.

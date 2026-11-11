@@ -14,7 +14,7 @@ export const Setup: React.FC<SceneProps> = ({ at }) => {
   return (
     <AbsoluteFill>
       <EduBackdrop topic={META.topic} />
-      <Pembawa x={350} y={EDU_FEET_Y} tinggi={570} ekspresi="mikir" gestur="mikir" />
+      <Pembawa topic={META.topic} x={350} y={EDU_FEET_Y} tinggi={570} ekspresi="mikir" gestur="mikir" />
       <CastCharacter id="jantung" x={800} y={EDU_FEET_Y} size={440} facing={-1} expression={shake ? "confused" : "happy"} animation={shake ? "confusion" : "idle"} />
     </AbsoluteFill>
   );

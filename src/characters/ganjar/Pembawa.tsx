@@ -1,4 +1,6 @@
 import type React from "react";
+import { TOPIC_COLORS } from "../../themes/topics";
+import type { VideoTopic } from "../../videos/_shared/types";
 import type { Gesture } from "./gestures";
 import { GANJAR_STICKMAN_PALETTE as P } from "./palette";
 import { GanjarStickman, type GanjarStickmanExpression, VIEWBOX } from "./GanjarStickman";
@@ -20,14 +22,16 @@ export const Pembawa: React.FC<{
   // 1 = menghadap depan apa adanya, -1 = dicerminkan (gestur tangan kanan pindah ke kiri).
   readonly hadap?: 1 | -1;
   readonly opacity?: number;
-}> = ({ x = 540, y, tinggi = 620, ekspresi = "senyum", gestur = "netral", jalan = false, bicara = false, hadap = 1, opacity = 1 }) => {
+  // Topik video: warna celana pendek dan tali hoodie mengikuti warna topik (satu aksen, jadi tiap video punya identitas).
+  readonly topic?: VideoTopic;
+}> = ({ x = 540, y, tinggi = 620, ekspresi = "senyum", gestur = "netral", jalan = false, bicara = false, hadap = 1, opacity = 1, topic }) => {
   const w = (tinggi * VIEWBOX.w) / VIEWBOX.h;
   const top = y - (tinggi * FOOT_Y) / VIEWBOX.h;
   return (
     <div style={{ position: "absolute", left: x - w / 2, top, width: w, height: tinggi, opacity }}>
       <div style={{ position: "absolute", left: w * 0.22, width: w * 0.56, top: tinggi * (FOOT_Y / VIEWBOX.h) - 14, height: 28, borderRadius: "50%", backgroundColor: P.ink, opacity: 0.12 }} />
       <div style={{ position: "absolute", inset: 0, transform: hadap === -1 ? "scaleX(-1)" : undefined }}>
-        <GanjarStickman height={tinggi} expression={ekspresi} gesture={gestur} walk={jalan} talking={bicara} strokeWidth={6} />
+        <GanjarStickman height={tinggi} expression={ekspresi} gesture={gestur} walk={jalan} talking={bicara} strokeWidth={6} aksen={topic ? TOPIC_COLORS[topic].main : undefined} />
       </div>
     </div>
   );

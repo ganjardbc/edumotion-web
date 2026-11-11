@@ -18,7 +18,7 @@ export const Cta: React.FC<SceneProps> = () => {
       <EduBackdrop topic={META.topic} />
       <HookText text="Isi semalaman, bahaya?" highlight="bahaya" size={96} />
       <QuestionMark x={540} y={760} size={240} topic="teknologi" pop={pop} />
-      <Pembawa x={320} y={EDU_FEET_Y} tinggi={540} ekspresi="mikir" gestur="mikir" />
+      <Pembawa topic={META.topic} x={320} y={EDU_FEET_Y} tinggi={540} ekspresi="mikir" gestur="mikir" />
       <CastCharacter id="baterai" x={780} y={EDU_FEET_Y} size={420} facing={-1} expression="curious" animation="thinking" />
     </AbsoluteFill>
   );

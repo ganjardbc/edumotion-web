@@ -11,6 +11,6 @@ export const Cta: React.FC<SceneProps> = () => (
   <AbsoluteFill>
     <EduBackdrop topic={META.topic} />
     <HookText text="Bagian tubuh mana lagi?" highlight="mana" size={96} />
-    <Pembawa x={540} y={EDU_FEET_Y} tinggi={646} ekspresi="mikir" gestur="mikir" />
+    <Pembawa topic={META.topic} x={540} y={EDU_FEET_Y} tinggi={646} ekspresi="mikir" gestur="mikir" />
   </AbsoluteFill>
 );

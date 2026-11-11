@@ -15,7 +15,7 @@ export const Twist: React.FC<SceneProps> = ({ at }) => {
     <AbsoluteFill>
       <EduBackdrop topic={META.topic} />
       <Koreksi tebakan="Aplikasi terbuka itu boros" jawaban="Bukan penyebab utama" coretAt={at("bukan")} jawabAt={at("Apple")} topic="teknologi" />
-      <Pembawa x={540} y={EDU_FEET_Y} tinggi={480} ekspresi={paham ? "senang" : "kaget"} gestur={paham ? "tunjuk" : "menyerah"} />
+      <Pembawa topic={META.topic} x={540} y={EDU_FEET_Y} tinggi={480} ekspresi={paham ? "senang" : "kaget"} gestur={paham ? "tunjuk" : "menyerah"} />
     </AbsoluteFill>
   );
 };

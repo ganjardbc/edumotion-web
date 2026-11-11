@@ -20,7 +20,7 @@ export const Hook: React.FC<SceneProps> = () => {
         <div style={{ textAlign: "center", fontFamily: t.fonts.heading, fontWeight: 700, fontSize: 44, color: t.colors.muted }}>gajah</div>
       </div>
       <CastCharacter id="awan" x={310} y={EDU_FEET_Y} size={520} expression="happy" animation="idle" />
-      <Pembawa x={770} y={EDU_FEET_Y} tinggi={380} ekspresi="mikir" gestur="mikir" hadap={-1} />
+      <Pembawa topic={META.topic} x={770} y={EDU_FEET_Y} tinggi={380} ekspresi="mikir" gestur="mikir" hadap={-1} />
     </AbsoluteFill>
   );
 };
