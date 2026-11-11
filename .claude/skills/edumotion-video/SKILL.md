@@ -13,4 +13,5 @@ Baca bagian "Struktur video (wajib, tanpa pengecualian)" dan "Audiens dan posisi
 4. Di `views/`, picu gerak dengan `at("kata kunci")` (dari `SceneProps`) supaya objek muncul saat narator menyebutnya; jangan memakai pecahan durasi (`frames * 0.5`).
 5. Untuk teknik Remotion (animasi, urutan, audio), ikuti `remotion-best-practices`; untuk visual, ikuti design system edumotion.
 6. Konsep wajib: semua kalimat dibawakan **narator** (`who: "narator"`), tokoh di layar tidak berbicara; latar selalu polos (`<EduBackdrop topic={META.topic} />`); bahasa Indonesia sederhana (kalimat pendek, satu gagasan per kalimat, istilah langsung dijelaskan); SFX paling banyak satu per scene dan empat per video.
-7. Jalankan `npm run lint` (menjalankan pemeriksa struktur), tinjau di Remotion Studio dengan `safeZone`, dan jangan menjalankan `vo-generate` tanpa persetujuan Ganjar; untuk voice over, pakai skill `edumotion-vo`.
+7. Render lembar storyboard (`npx remotion still src/index.ts <Nama>-Storyboard out/<Nama>-storyboard.png`), lihat gambarnya, dan perbaiki scene yang tidak terbaca sebelum melapor.
+8. Jalankan `npm run lint` (menjalankan pemeriksa struktur), tinjau di Remotion Studio dengan `safeZone`, dan jangan menjalankan `vo-generate` tanpa persetujuan Ganjar; untuk voice over, pakai skill `edumotion-vo`.

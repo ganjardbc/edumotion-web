@@ -37,6 +37,14 @@ export const SHORT_EDU = { width: 1080, height: 1920, fps: 30 } as const;
 
 export const durationOf = (scenes: ReadonlyArray<Scene>, vo: Voiceover): number => totalFrames(computeTimings(scenes, vo));
 
+// Satu frame kunci per scene untuk lembar storyboard: sesaat sebelum kalimat terakhir selesai, saat semua objek
+// sudah muncul dan caption masih tampil.
+export const storyboardOf = (scenes: ReadonlyArray<Scene>, vo: Voiceover): ReadonlyArray<{ readonly id: string; readonly frame: number }> =>
+  computeTimings(scenes, vo).map((t) => {
+    const last = t.lineStarts.length - 1;
+    return { id: t.scene.id, frame: t.from + Math.max(0, t.lineStarts[last] + t.lineFrames[last] - 6) };
+  });
+
 // Props komposisi tiap video; bisa diubah di panel props Remotion Studio.
 export type VideoProps = {
   // Tampilkan panduan safe zone (hanya untuk peninjauan).
