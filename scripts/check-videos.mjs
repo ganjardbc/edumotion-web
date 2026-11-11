@@ -116,6 +116,8 @@ for (const v of videos) {
       const lines = sc.lines.map((l) => words(l.text));
       const inScene = (kata) => { const target = words(kata); return lines.some((ws) => ws.some((_, i) => target.every((t, k) => ws[i + k] === t))); };
       if (sc.segment === "hook" || sc.segment === "cta") err(v, `scene ${sc.id}: cutaway tidak dipakai di ${sc.segment}`);
+      if (cw.gambar && !propStatus[cw.gambar.prop]) err(v, `scene ${sc.id}: gambar cutaway "${cw.gambar.prop}" tidak ada di props/registry.md`);
+      if (cw.gambar?.param && (cw.gambar.dari === undefined || cw.gambar.ke === undefined)) err(v, `scene ${sc.id}: gambar cutaway berparam "${cw.gambar.param}" butuh dari dan ke`);
       if (cw.judul.split(/\s+/).length > 6) err(v, `scene ${sc.id}: judul cutaway "${cw.judul}" lebih dari 6 kata`);
       for (const kata of [cw.at, cw.sampai].filter(Boolean)) if (!inScene(kata)) err(v, `scene ${sc.id}: kata cutaway "${kata}" tidak ada di narasi scene`);
     }

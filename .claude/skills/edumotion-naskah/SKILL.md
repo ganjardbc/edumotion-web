@@ -46,7 +46,7 @@ Visual yang tidak nyambung biasanya berasal dari brief yang kabur. Isi tabel "Br
 - **Label:** paling banyak 3, tiap label paling banyak 3 kata. Label menamai, bukan mengulang kalimat narasi.
 - **Kata kunci → aksi:** kata di narasi yang memicu tiap kemunculan ("lebih kuat → sorot Ungu"). Tiap objek muncul tepat saat disebut.
 - **Uji nyambung:** baca narasi scene sambil membayangkan layar. Bila ada kalimat tanpa visual, atau visual tanpa kalimat, ubah salah satunya.
-- **Cutaway:** pilih paling banyak 2 poin terpenting video untuk sisipan layar penuh (tanpa karakter), biasanya kalimat "Itu sebabnya …" atau inti Payoff.
+- **Cutaway:** pilih paling banyak 2 poin terpenting video untuk sisipan layar penuh (tanpa karakter), biasanya kalimat "Itu sebabnya …" atau inti Payoff. Tulis juga gambar propnya (nama prop + parameter yang beranimasi, mis. Termometer.level naik) dan warna keluarga bila perlu (mis. merah untuk panas).
 - **Pembawa:** untuk scene `karakter`, tulis ekspresi + gestur stickman yang sesuai makna kalimat (mis. kaget + menyerah di Twist, senang + tunjuk saat jawaban muncul). Variasikan antar scene.
 - Latar kertas berpetak; SFX paling banyak satu per scene dan empat per video, hanya di Hook, Twist, Payoff, atau satu momen tematik.
 

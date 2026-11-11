@@ -20,7 +20,7 @@ export const BASE_SCENES: ReadonlyArray<Scene> = [
     id: "Explain2",
     segment: "explain",
     lines: [{ who: "narator", text: "Udara berisi partikel yang sangat kecil. Partikel ini menyebarkan cahaya biru ke segala arah. Cahaya merah lewat lurus saja. Itu sebabnya langit terlihat biru.", dur: 10 }],
-    cutaway: { at: "Itu sebabnya", judul: "Udara menyebarkan cahaya biru", sorot: "biru", sub: "Biru datang dari segala arah langit" },
+    cutaway: { at: "Itu sebabnya", judul: "Udara menyebarkan cahaya biru", sorot: "biru", sub: "Biru datang dari segala arah langit", gambar: { prop: "MolekulUdara", topic: "cuaca", param: "scatter", dari: 0, ke: 1, frames: 50 } },
   },
   { id: "Explain3", segment: "explain", lines: [{ who: "narator", text: "Cahaya ungu sebenarnya tersebar lebih kuat lagi. Tapi cahaya ungu dari Matahari lebih sedikit, dan mata kita kurang peka pada warna ungu.", dur: 8 }] },
   { id: "Explain4", segment: "explain", lines: [{ who: "narator", text: "Saat senja, cahaya Matahari harus melewati udara lebih jauh. Cahaya birunya sudah tersebar di jalan. Yang sampai ke mata kita tinggal kuning, jingga, dan merah.", dur: 9.5 }] },

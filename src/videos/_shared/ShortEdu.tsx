@@ -93,6 +93,8 @@ const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false, animat
                 judul={t.scene.cutaway.judul}
                 sorot={t.scene.cutaway.sorot}
                 sub={t.scene.cutaway.sub}
+                warna={t.scene.cutaway.warna}
+                gambar={t.scene.cutaway.gambar}
                 topic={topic ?? "ilmu"}
               />
             ) : null}

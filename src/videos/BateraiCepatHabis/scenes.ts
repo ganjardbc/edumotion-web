@@ -29,7 +29,7 @@ export const BASE_SCENES: ReadonlyArray<Scene> = [
     id: "Explain3",
     segment: "explain",
     lines: [{ who: "narator", text: "Baterai juga menua. Makin tua, makin sedikit isi yang bisa disimpan. Panas di atas tiga puluh lima derajat bisa merusaknya selamanya.", dur: 9.5 }],
-    cutaway: { at: "Panas", judul: "Panas merusak baterai selamanya", sorot: "Panas", sub: "Jauhkan HP dari suhu di atas 35°C" },
+    cutaway: { at: "Panas", judul: "Panas merusak baterai selamanya", sorot: "Panas", sub: "Jauhkan HP dari suhu di atas 35°C", warna: "tubuh", gambar: { prop: "Termometer", param: "level", dari: 0.3, ke: 0.95 } },
   },
   { id: "Payoff", segment: "payoff", lines: [{ who: "narator", text: "Jadi yang membuat boros bukan aplikasi terbuka. Tapi layar terang, sinyal lemah, dan baterai yang kepanasan.", dur: 7 }], sfx: [{ sfx: "tada", at: 0.1, volume: 0.45 }] },
   { id: "Cta", segment: "cta", lines: [{ who: "narator", text: "Menurutmu, mengisi baterai semalaman itu bahaya atau tidak? Tulis di komentar!", dur: 4 }] },
