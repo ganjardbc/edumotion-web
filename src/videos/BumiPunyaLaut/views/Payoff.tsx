@@ -23,7 +23,7 @@ export const Payoff: React.FC<SceneProps> = () => {
 
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="laut" topic={META.topic} time="siang" />
+      <EduBackdrop topic={META.topic} />
       <HookText text="Laut = luar + dalam!" highlight="luar" size={80} />
 
       <Meteor x={200} y={640 + bob} size={320} topic="planet" opacity={Math.min(1, left * 1.5)} />
@@ -32,7 +32,7 @@ export const Payoff: React.FC<SceneProps> = () => {
       <div style={{ position: "absolute", left: 540, top: 640, transform: `translate(-50%, -50%) scale(${0.4 + 0.6 * plus})`, opacity: Math.min(1, plus * 1.8), fontFamily: t.fonts.heading, fontWeight: 800, fontSize: 120, color: t.colors.ink }}>+</div>
 
       <GunungApi x={880} y={650} size={340} progress={frame / 70} opacity={Math.min(1, right * 1.5)} />
-      <LabelPill x={880} y={820} text="dari dalam aku" topic="ai" at={34} size={34} />
+      <LabelPill x={880} y={820} text="dari dalam Bumi" topic="ai" at={34} size={34} />
 
       <CastCharacter id="bumi" x={540} y={EDU_FEET_Y + floatY} size={500} expression="laughing" animation="excitement" />
     </AbsoluteFill>

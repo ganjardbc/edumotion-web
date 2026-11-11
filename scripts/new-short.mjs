@@ -47,7 +47,7 @@ const dst = join(root, "src/videos", name);
 if (existsSync(dst)) fail(`sudah ada: src/videos/${name}`);
 const tpl = join(root, "scripts/templates/short-edu");
 const fill = (s, extra = {}) => {
-  const vars = { __NAME__: name, __TITLE__: title, __TOPIC__: topic, __CAST__: cast.length ? cast.join(", ") : "(hanya Tako)", __CASTLIST__: cast.map((c) => `"${c}"`).join(", "), __VOICE__: voice, ...extra };
+  const vars = { __NAME__: name, __TITLE__: title, __TOPIC__: topic, __CAST__: cast.length ? cast.join(", ") : "(tanpa cast)", __CASTLIST__: cast.map((c) => `"${c}"`).join(", "), __VOICE__: voice, ...extra };
   return Object.entries(vars).reduce((acc, [k, v]) => acc.replaceAll(k, v), s);
 };
 const read = (f) => readFileSync(join(tpl, f), "utf8");
@@ -56,7 +56,7 @@ const write = (f, s) => writeFileSync(join(dst, f), s);
 mkdirSync(join(dst, "views"), { recursive: true });
 write("README.md", fill(read("README.md.tmpl")));
 write("script.md", fill(read("script.md.tmpl")));
-write("scenes.ts", fill(read("scenes.ts.tmpl"), { __SCENES__: scenes.map((s) => `  { id: "${s}", segment: "${segmentOf(s)}", lines: [{ who: "tako", text: "", dur: 3 }] },`).join("\n") }));
+write("scenes.ts", fill(read("scenes.ts.tmpl"), { __SCENES__: scenes.map((s) => `  { id: "${s}", segment: "${segmentOf(s)}", lines: [{ who: "narator", text: "", dur: 3 }] },`).join("\n") }));
 write(`${name}.tsx`, fill(read("Video.tsx.tmpl")));
 write("index.ts", fill(read("index.ts.tmpl")));
 write("voiceover.ts", fill(read("voiceover.ts.tmpl")));

@@ -14,7 +14,7 @@ export const Explain3: React.FC<SceneProps> = () => {
   const t = useTheme();
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="dalamTubuh" topic={META.topic} />
+      <EduBackdrop topic={META.topic} />
       <div style={{ position: "absolute", left: 160, right: 160, top: 250, textAlign: "center", fontFamily: t.fonts.heading, fontWeight: 800, fontSize: 64, color: t.colors.ink }}>Jalur darah sendiri</div>
       <CoronaryVessels x={540} y={690} size={720} flow={frame} />
       <TakoCharacter x={150} y={EDU_FEET_Y} size={280} expression="curious" animation="thinking" />

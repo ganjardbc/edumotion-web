@@ -2,21 +2,22 @@ import type { Scene, VideoMeta } from "../_shared/types";
 
 export const META: VideoMeta = {
   id: "JantungTidakCapek",
-  title: "Kok jantung nggak capek?",
+  title: "Kok jantung tidak capek?",
   topic: "tubuh",
   cast: ["jantung"],
   fps: 30,
 };
 
 // Urutan scene = urutan tayang. `dur` adalah perkiraan detik dari naskah sampai audio asli dibuat.
-// who: kunci suara di voiceover.ts ("tako" untuk Tako).
+// who: kunci suara di voiceover.ts ("narator"). Tokoh di layar tidak berbicara; semua kalimat dibawakan narator.
+// SFX hemat: paling banyak satu cue per scene dan empat per video (dicek scripts/check-videos.mjs).
 export const BASE_SCENES: ReadonlyArray<Scene> = [
-  { id: "Hook", segment: "hook", lines: [{ who: "tako", text: "Jantungmu berdetak seratus ribu kali sehari. Kok nggak capek?", dur: 3.8 }], sfx: [{ sfx: "pop", at: 0, volume: 0.4 }, { sfx: "rise", at: 0, volume: 0.25 }, { sfx: "heartbeat", at: 0, every: 25 / 30, times: 6, volume: 0.55 }] },
-  { id: "Setup", segment: "setup", lines: [{ who: "tako", text: "Aku tahu! Soalnya jantung itu super kuat, dan nggak pernah istirahat. Kayak mesin yang nyala terus!", dur: 7 }], sfx: [{ sfx: "whoosh", at: 0, volume: 0.25 }, { sfx: "hmm", at: 0.3, volume: 0.4 }] },
-  { id: "Twist", segment: "twist", lines: [{ who: "tako", text: "Hah? Salah?!", dur: 1.6 }], sfx: [{ sfx: "boing", at: 0, volume: 0.5 }, { sfx: "wrong", at: 0.1, volume: 0.4 }] },
-  { id: "Explain1", segment: "explain", lines: [{ who: "tako", text: "Satu detak cuma sekitar satu detik. Kerjanya sebentar, istirahatnya malah lebih lama.", dur: 5.5 }], sfx: [{ sfx: "whoosh", at: 0, volume: 0.25 }, { sfx: "heartbeat", at: 0, every: 1, times: 8, volume: 0.4 }] },
-  { id: "Explain2", segment: "explain", lines: [{ who: "tako", text: "Dan otot jantung punya banyak mitokondria, pabrik energi kecil. Sepertiga isi selnya! Otot lengan jauh lebih sedikit.", dur: 8.5 }], sfx: [{ sfx: "whoosh", at: 0, volume: 0.25 }, { sfx: "blip", at: 1, every: 0.25, times: 12, volume: 0.3 }] },
-  { id: "Explain3", segment: "explain", lines: [{ who: "tako", text: "Dia juga punya jalur darah sendiri, jadi bahan bakarnya nggak pernah habis.", dur: 5 }], sfx: [{ sfx: "whoosh", at: 0, volume: 0.25 }, { sfx: "heartbeat", at: 0.3, every: 25 / 30, times: 8, volume: 0.35 }] },
-  { id: "Payoff", segment: "payoff", lines: [{ who: "tako", text: "Jadi jantung nggak capek bukan karena nggak pernah istirahat, tapi karena jago istirahat di sela tiap detak!", dur: 7 }], sfx: [{ sfx: "pop", at: 0, volume: 0.4 }, { sfx: "tada", at: 0.1, volume: 0.45 }, { sfx: "heartbeat", at: 0.9, every: 25 / 30, times: 8, volume: 0.3 }] },
-  { id: "Cta", segment: "cta", lines: [{ who: "tako", text: "Bagian tubuh mana lagi yang menurutmu nggak pernah capek?", dur: 4 }], sfx: [{ sfx: "pop", at: 0, volume: 0.4 }, { sfx: "ding", at: 0.3, volume: 0.35 }] },
+  { id: "Hook", segment: "hook", lines: [{ who: "narator", text: "Jantungmu berdetak seratus ribu kali sehari. Kok tidak capek?", dur: 3.8 }], sfx: [{ sfx: "heartbeat", at: 0, every: 25 / 30, times: 4, volume: 0.5 }] },
+  { id: "Setup", segment: "setup", lines: [{ who: "narator", text: "Banyak orang mengira jantung itu sangat kuat dan tidak pernah istirahat. Seperti mesin yang menyala terus.", dur: 7 }] },
+  { id: "Twist", segment: "twist", lines: [{ who: "narator", text: "Ternyata itu keliru!", dur: 1.6 }], sfx: [{ sfx: "wrong", at: 0.1, volume: 0.4 }] },
+  { id: "Explain1", segment: "explain", lines: [{ who: "narator", text: "Satu detak lamanya sekitar satu detik. Jantung bekerja sebentar, lalu istirahat lebih lama.", dur: 5.5 }] },
+  { id: "Explain2", segment: "explain", lines: [{ who: "narator", text: "Otot jantung juga punya banyak mitokondria, yaitu pabrik energi kecil di dalam sel. Jumlahnya jauh lebih banyak daripada di otot lengan.", dur: 8.5 }] },
+  { id: "Explain3", segment: "explain", lines: [{ who: "narator", text: "Jantung juga punya pembuluh darah sendiri. Jadi makanan dan oksigennya terus dikirim.", dur: 5 }] },
+  { id: "Payoff", segment: "payoff", lines: [{ who: "narator", text: "Jadi jantung tidak capek karena pintar istirahat. Ia beristirahat sebentar di antara tiap detak.", dur: 7 }], sfx: [{ sfx: "tada", at: 0.1, volume: 0.45 }] },
+  { id: "Cta", segment: "cta", lines: [{ who: "narator", text: "Menurutmu, bagian tubuh mana lagi yang tidak pernah capek?", dur: 4 }] },
 ];

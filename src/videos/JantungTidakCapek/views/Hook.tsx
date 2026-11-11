@@ -14,8 +14,8 @@ export const Hook: React.FC<SceneProps> = () => {
   const t = useTheme();
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="dalamTubuh" topic={META.topic} />
-      <HookText text="Kok jantung nggak capek?" highlight="capek" size={104} />
+      <EduBackdrop topic={META.topic} />
+      <HookText text="Kok jantung tidak capek?" highlight="capek" size={104} />
       <div style={{ position: "absolute", left: 160, right: 160, top: 560 }}>
         <Counter to={100000} frames={60} size={160} />
         <div style={{ textAlign: "center", fontFamily: t.fonts.heading, fontWeight: 700, fontSize: 44, color: t.colors.muted }}>detak per hari</div>

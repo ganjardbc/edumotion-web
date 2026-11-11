@@ -14,7 +14,7 @@ export const Hook: React.FC<SceneProps> = () => {
   const pop = spring({ frame: frame - 14, fps, config: { damping: 10, stiffness: 140 } });
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="langit" topic={META.topic} time="siang" />
+      <EduBackdrop topic={META.topic} />
       <HookText text="Kenapa langit biru, bukan ungu?" highlight="ungu" size={100} />
       <QuestionMark x={720} y={880} size={300} topic="ilmu" pop={pop} />
       <TakoCharacter x={440} y={EDU_FEET_Y} size={620} expression="curious" animation="thinking" />

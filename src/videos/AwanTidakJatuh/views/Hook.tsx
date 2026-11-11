@@ -13,7 +13,7 @@ export const Hook: React.FC<SceneProps> = () => {
   const t = useTheme();
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="warna" topic={META.topic} />
+      <EduBackdrop topic={META.topic} />
       <HookText text="Awan seberat 100 gajah?" highlight="gajah" size={104} />
       <div style={{ position: "absolute", left: 160, right: 160, top: 600 }}>
         <Counter to={100} frames={60} size={170} />

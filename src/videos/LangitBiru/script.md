@@ -1,22 +1,23 @@
 # Kenapa langit biru, bukan ungu?
 
-Topik: cuaca · Pemandu: Tako (suara Aldo, dipilih Ganjar) · Karakter: Awan (+ Matahari dan Bumi di Explain4)
-Status naskah: **disetujui Ganjar (31 Okt 2026)**
-Target tayang (kalender awal): Sel 10 Nov 2026, versi A (Tako bersuara sendiri)
+Topik: cuaca · Suara: narator (Aldo) · Karakter di layar: Tako, Awan, Matahari, Bumi
+Status naskah: **ditulis ulang untuk konsep narator (11 Nov 2026), menunggu persetujuan Ganjar.** Versi sebelumnya (Tako/Bumi berbicara sendiri) ada di riwayat git.
 
-Struktur: Hook → Setup (tebakan Tako) → Twist → Penjelasan ×4 → Payoff → Ajakan. Perkiraan durasi sekitar 52 detik (estimasi); durasi akhir mengikuti audio.
+Struktur: Hook → Setup (tebakan umum yang keliru) → Twist (koreksi) → Penjelasan → Payoff → Ajakan. Perkiraan 59 detik; durasi akhir mengikuti audio.
 
-| Waktu (estimasi) | Scene | Narasi (Tako) | Visual dan aksi |
-|---|---|---|---|
-| 0–2 dtk | Hook | "Kenapa langit biru, bukan ungu?" | Teks layar besar: **Kenapa langit biru, bukan ungu?** Langit siang cerah, Tako menengadah dengan tanda tanya. |
-| 2–7 dtk | Setup | "Aku tahu! Laut kan biru dan luas banget. Jadi langit tinggal mantulin warna laut!" | Tako percaya diri, menunjuk laut lalu langit. Panah melengkung dari laut ke langit (CurvedArrow). Awan menggeleng pelan. |
-| 7–12 dtk | Twist | "Hah? Salah?! Kalau lautnya hilang pun, langit tetap biru. Warnanya datang dari udara!" | CorrectionCard. Laut menghilang dari layar, langit tetap biru. Tanda seru, Tako kaget lalu paham. Zoom ke udara. |
-| 12–20 dtk | Explain1 | "Cahaya Matahari kelihatan putih. Padahal isinya campuran semua warna, kayak pelangi. Tiap warna punya panjang gelombang beda. Biru pendek, merah panjang." | Matahari memancarkan sinar putih, terurai jadi pelangi. Dua gelombang berdampingan: biru rapat/pendek, merah renggang/panjang. |
-| 20–29 dtk | Explain2 | "Udara penuh molekul mungil. Mereka membelokkan cahaya biru jauh lebih kuat daripada merah, ke segala arah. Jadi biru kelihatan dari mana-mana!" | Sinar putih menembus kumpulan molekul. Cahaya merah lurus terus, cahaya biru memantul ke segala arah. Kamera mundur: langit penuh biru. |
-| 29–36 dtk | Explain3 | "Ungu sebenarnya dihamburkan lebih kuat lagi. Tapi Matahari memancarkan ungu lebih sedikit, dan mata kita kurang peka pada ungu." | Bar "ungu" dan "biru" di spektrum; ungu terhambur kuat tapi sinar ungu yang datang tipis. Mata muncul, meredup saat melihat ungu. Sorotan pada "kurang peka". |
-| 36–44 dtk | Explain4 | "Pas senja, cahaya menempuh jalur udara yang jauh lebih panjang. Birunya sudah terhambur duluan, tersisa kuning, jingga, dan merah." | Bumi dengan lapisan udara. Dua jalur sinar: siang (pendek), senja (panjang). Langit berganti sore, biru memudar jadi jingga-merah. |
-| 44–49 dtk | Payoff | "Jadi langit biru dan senja merah itu satu sebab yang sama: cahaya biru yang terhambur!" | Langit siang dan senja berdampingan, satu panah penghubung. Teks layar (sorotan): **cahaya biru terhambur**. Tako dan Awan senang. |
-| 49–52 dtk | Cta | "Lalu kenapa laut biru? Tebak di komentar!" | Tako menunjuk laut, tanda tanya. Mengundang komentar. Mengantar ke video berikutnya. |
+Semua kalimat dibawakan narator. Tokoh di layar hanya bereaksi, tidak berbicara. Latar polos di semua scene.
+
+| Scene | Narasi (narator) | Dur (dtk) | Visual dan aksi | SFX |
+|---|---|---|---|---|
+| Hook | "Kenapa langit biru, bukan ungu?" | 1.85 | Latar polos. Teks layar: **Kenapa langit biru, bukan ungu?** Tako dengan tanda tanya. | pop |
+| Setup | "Banyak orang mengira langit biru karena memantulkan warna laut." | 4.5 | Label "laut" dan "langit" dihubungkan panah melengkung. Tako berpikir, Awan menggeleng menjelang akhir. | – |
+| Twist | "Ternyata bukan!" / "Tanpa laut pun, langit tetap biru. Warna birunya berasal dari udara." | 1.2 + 4.2 | Kartu koreksi: "Langit memantulkan laut" dicoret, jawaban "Warna dari udara". Tako kaget lalu paham. | wrong |
+| Explain1 | "Cahaya Matahari terlihat putih. Padahal isinya campuran semua warna, seperti pelangi. Cahaya biru gelombangnya pendek. Cahaya merah gelombangnya panjang." | 10.5 | Sinar putih Matahari terurai jadi pelangi, lalu dua gelombang: biru pendek, merah panjang. | – |
+| Explain2 | "Udara berisi partikel yang sangat kecil. Partikel ini menyebarkan cahaya biru ke segala arah. Cahaya merah lewat lurus saja. Itu sebabnya langit terlihat biru." | 10 | Sinar menembus partikel udara: merah lurus, biru menyebar ke segala arah. | – |
+| Explain3 | "Cahaya ungu sebenarnya tersebar lebih kuat lagi. Tapi cahaya ungu dari Matahari lebih sedikit, dan mata kita kurang peka pada warna ungu." | 8 | Batang ungu dan biru (ilustrasi), lalu mata dengan sorotan "kurang peka". | – |
+| Explain4 | "Saat senja, cahaya Matahari harus melewati udara lebih jauh. Cahaya birunya sudah tersebar di jalan. Yang sampai ke mata kita tinggal kuning, jingga, dan merah." | 9.5 | Bumi dengan lapisan udara: jalur siang pendek, jalur senja panjang. Panel langit berganti ke jingga-merah. | – |
+| Payoff | "Jadi langit biru dan senja merah punya sebab yang sama: cahaya biru yang tersebar oleh udara." | 6 | Panel langit biru dan senja merah dengan satu panah. Teks layar (sorotan): **Cahaya biru tersebar**. | tada |
+| Cta | "Lalu, kenapa laut berwarna biru? Tulis tebakanmu di komentar!" | 3.5 | Teks layar: **Kenapa laut biru?** Tako dengan tanda tanya. | – |
 
 ## Objek
 - Ada (cast): Tako, Awan, Matahari, Bumi.
@@ -26,7 +27,7 @@ Struktur: Hook → Setup (tebakan Tako) → Twist → Penjelasan ×4 → Payoff 
   - `MolekulUdara` (cuaca, netral, prop, `scatter` = sinar membelok): dipakai Explain2.
   - `Mata` (tubuh, netral, prop, tidak ada gerak): dipakai Explain3.
   - `LapisanAtmosfer` (cuaca, netral, prop, `progress` = sinar menembus): dipakai Explain4.
-- Komponen: `HookText`, `Caption`, `PhaseBar`, `GuessCard`, `CorrectionCard`, `Callout`, `ProgressDots`. Latar: `outdoor` atau `edu`, waktu hari siang ke sore.
+- Komponen: `HookText`, `Caption`, `PhaseBar`, `GuessCard`, `CorrectionCard`, `Callout`, `ProgressDots`. Latar: `polos` di semua scene.
 - Catatan: ungu mungkin tidak ada di palet topik cuaca. Cek `TOPIC_COLORS` dan prop `Pelangi` sebelum membuat warna; jangan menulis hex baru.
 
 Baris untuk `props/registry.md`:

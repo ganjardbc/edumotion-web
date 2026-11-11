@@ -8,10 +8,10 @@ Kenapa langit biru, bukan ungu?
 - Struktur folder: lihat "Struktur video" di CLAUDE.md di root proyek
 
 ## Status
-- [x] Naskah disetujui Ganjar
+- [ ] Naskah disetujui Ganjar (ditulis ulang untuk narator 11 Nov 2026)
 - [x] Objek (`props`) yang dibutuhkan sudah ada atau dicatat `antre` di design-system/edumotion-design-system/props/registry.md
 - [x] Scene visual selesai (views/)
-- [x] Voice over dibuat (`node scripts/vo-generate.mjs --video LangitBiru`, setelah persetujuan Ganjar)
+- [ ] Voice over dibuat (hanya Hook-1 yang masih cocok; sisanya perlu dibuat ulang) (`node scripts/vo-generate.mjs --video LangitBiru`, setelah persetujuan Ganjar)
 - [ ] Ditinjau di Remotion Studio dengan panduan safe zone
 - [ ] Render akhir
 

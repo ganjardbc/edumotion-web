@@ -5,7 +5,7 @@ import { TOPIC_COLORS } from "../themes/topics";
 import type { VideoTopic } from "../videos/_shared/types";
 import { GuessCard } from "./GuessCard";
 
-// Twist khas Tako: tebakan keliru dicoret, lalu jawaban benar muncul di bawahnya.
+// Twist khas akun: tebakan umum yang keliru dicoret, lalu jawaban benar muncul di bawahnya.
 // Pasang di dalam Sequence; `crossAt` dan `answerAt` dalam frame relatif terhadap awal Sequence.
 export const CorrectionCard: React.FC<{
   readonly top: number;

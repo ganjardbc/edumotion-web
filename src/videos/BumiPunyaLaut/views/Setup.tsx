@@ -8,23 +8,24 @@ import { META } from "../scenes";
 import type { SceneProps } from "../../_shared/types";
 
 // Setup: Bumi baru lahir, panas membara dan tanpa air. Label kecil muncul bertahap, semburat panas memudar, lalu Bumi mulai ragu.
-export const Setup: React.FC<SceneProps> = ({ frames }) => {
+export const Setup: React.FC<SceneProps> = ({ at }) => {
   const frame = useCurrentFrame();
 
   const floatY = Math.sin(frame / 38) * 10;
-  const bumiConfused = frame > frames * 0.72;
-  const heat = interpolate(frame, [0, frames * 0.6, frames * 0.8], [1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const kering = at("Tidak ada");
+  const bumiConfused = frame > kering + 15;
+  const heat = interpolate(frame, [0, kering, kering + 20], [1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="antariksa" topic={META.topic} floorY={1920} accent="ilmu" decorShift={{ x: 250, y: 760 }} moonShift={{ x: -70, y: 560 }} />
+      <EduBackdrop topic={META.topic} floorY={1920} />
 
       {/* Pijar panas: semburat oranye berdenyut, memudar saat Bumi mulai ragu */}
       <AbsoluteFill style={{ backgroundColor: TOPIC_COLORS.ai.main, opacity: heat * (0.22 + 0.08 * Math.sin(frame / 6)), pointerEvents: "none" }} />
 
-      <LabelPill x={540} y={300} text="Dulu, waktu aku baru lahir" topic="planet" at={6} size={46} />
-      <LabelPill x={540} y={420} text="panas membara" topic="ai" at={Math.round(frames * 0.25)} size={52} />
-      <LabelPill x={540} y={540} text="tanpa setetes air" topic="air" at={Math.round(frames * 0.5)} size={52} />
+      <LabelPill x={540} y={300} text="Dulu, waktu Bumi baru lahir" topic="planet" at={6} size={46} />
+      <LabelPill x={540} y={420} text="panas membara" topic="ai" at={at("panas")} size={52} />
+      <LabelPill x={540} y={540} text="tanpa setetes air" topic="air" at={kering} size={52} />
 
       {/* Halo panas di sekitar Bumi, ikut memudar saat mendingin */}
       <div style={{ position: "absolute", left: 540 - 400, top: 960 - 400, width: 800, height: 800, borderRadius: "50%", background: `radial-gradient(circle, ${TOPIC_COLORS.ai.main} 0%, ${TOPIC_COLORS.ai.shine} 35%, transparent 68%)`, opacity: heat * (0.55 + 0.15 * Math.sin(frame / 5)) }} />

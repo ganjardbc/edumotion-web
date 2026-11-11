@@ -1,20 +1,22 @@
-# Kok jantung nggak capek?
+# Kok jantung tidak capek?
 
-Topik: tubuh · Pemandu: Tako (suara Aldo/Zulfa) · Karakter: Jantung
-Status naskah: **disetujui Ganjar (31 Okt 2026)**
+Topik: tubuh · Suara: narator (Aldo) · Karakter di layar: Tako, Jantung
+Status naskah: **ditulis ulang untuk konsep narator (11 Nov 2026), menunggu persetujuan Ganjar.** Versi sebelumnya (Tako/Bumi berbicara sendiri) ada di riwayat git.
 
-Struktur: Hook → Setup (tebakan Tako) → Twist → Penjelasan ×3 → Payoff → Ajakan. Perkiraan 45–50 detik; durasi akhir mengikuti audio.
+Struktur: Hook → Setup (tebakan umum yang keliru) → Twist (koreksi) → Penjelasan → Payoff → Ajakan. Perkiraan 42 detik; durasi akhir mengikuti audio.
 
-| Waktu | Scene | Narasi (Tako) | Visual dan aksi |
-|---|---|---|---|
-| 0–4 dtk | Hook | "Jantungmu berdetak seratus ribu kali sehari. Kok nggak capek?" | Counter 100.000 naik cepat. Teks layar: **Kok jantung nggak capek?** Jantung berdetak di tengah, Tako menatap heran. |
-| 4–12 dtk | Setup | "Aku tahu! Soalnya jantung itu super kuat, dan nggak pernah istirahat. Kayak mesin yang nyala terus!" | Tako percaya diri, menunjuk. Jantung menoleh dan mengangkat tangan (isyarat "stop"). |
-| 12–16 dtk | Twist | "Hah? Salah?!" | Tako kaget lalu bingung, tanda tanya muncul. Zoom cepat ke jantung. |
-| 16–24 dtk | Explain1 | "Satu detak cuma sekitar satu detik. Kerjanya sebentar, istirahatnya malah lebih lama." | Garis EKG dan stopwatch. Dalam satu detak, bar "kerja" pendek dan bar "istirahat" lebih panjang. Jantung bersantai (Zz). |
-| 24–34 dtk | Explain2 | "Dan otot jantung punya banyak mitokondria, pabrik energi kecil. Sepertiga isi selnya! Otot lengan jauh lebih sedikit." | Perbandingan dua sel: otot jantung penuh pabrik kecil, otot lengan hanya sedikit. |
-| 34–40 dtk | Explain3 | "Dia juga punya jalur darah sendiri, jadi bahan bakarnya nggak pernah habis." | Pembuluh koroner membungkus jantung, darah mengalir. |
-| 40–46 dtk | Payoff | "Jadi jantung nggak capek bukan karena nggak pernah istirahat, tapi karena jago istirahat di sela tiap detak!" | Tako dan Jantung berdampingan. Teks layar (sorotan): **jago istirahat**. |
-| 46–50 dtk | Cta | "Bagian tubuh mana lagi yang menurutmu nggak pernah capek?" | Tako mengangkat tangan, tanda tanya. Mengundang komentar. |
+Semua kalimat dibawakan narator. Tokoh di layar hanya bereaksi, tidak berbicara. Latar polos di semua scene.
+
+| Scene | Narasi (narator) | Dur (dtk) | Visual dan aksi | SFX |
+|---|---|---|---|---|
+| Hook | "Jantungmu berdetak seratus ribu kali sehari. Kok tidak capek?" | 3.8 | Latar polos. Teks layar: **Kok jantung tidak capek?** Counter 100.000 naik. Jantung berdetak, Tako menatap heran. | heartbeat |
+| Setup | "Banyak orang mengira jantung itu sangat kuat dan tidak pernah istirahat. Seperti mesin yang menyala terus." | 7 | Tako berpikir (tidak berbicara). Jantung menggeleng pelan menjelang akhir. | – |
+| Twist | "Ternyata itu keliru!" | 1.6 | Tako kaget, Jantung melambai. Kamera mendekat sedikit. | wrong |
+| Explain1 | "Satu detak lamanya sekitar satu detik. Jantung bekerja sebentar, lalu istirahat lebih lama." | 5.5 | Bar "Kerja" pendek dan "Istirahat" lebih panjang, stopwatch, garis EKG. Jantung bersantai. | – |
+| Explain2 | "Otot jantung juga punya banyak mitokondria, yaitu pabrik energi kecil di dalam sel. Jumlahnya jauh lebih banyak daripada di otot lengan." | 8.5 | Dua sel otot: jantung penuh pabrik energi, lengan hanya sedikit. | – |
+| Explain3 | "Jantung juga punya pembuluh darah sendiri. Jadi makanan dan oksigennya terus dikirim." | 5 | Pembuluh darah membungkus jantung, darah mengalir. | – |
+| Payoff | "Jadi jantung tidak capek karena pintar istirahat. Ia beristirahat sebentar di antara tiap detak." | 7 | Tako dan Jantung berdampingan. Teks layar (sorotan): **jago istirahat**. | tada |
+| Cta | "Menurutmu, bagian tubuh mana lagi yang tidak pernah capek?" | 4 | Teks layar: **Bagian tubuh mana lagi?** Tako berpikir. | – |
 
 ## Objek
 - Ada: Tako, Jantung (cast).

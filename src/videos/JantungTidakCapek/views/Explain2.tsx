@@ -17,7 +17,7 @@ export const Explain2: React.FC<SceneProps> = () => {
   const sub = { position: "absolute", left: 160, right: 160, textAlign: "center", fontFamily: t.fonts.heading, fontWeight: 700, fontSize: 40, color: t.colors.muted } as const;
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="papanDiagram" topic={META.topic} />
+      <EduBackdrop topic={META.topic} />
       <div style={{ ...label, top: 245 }}>Otot jantung</div>
       <div style={{ ...sub, top: 310 }}>sepertiga isi sel = pabrik energi</div>
       <MuscleCell x={540} y={530} size={560} count={12} reveal={reveal} />

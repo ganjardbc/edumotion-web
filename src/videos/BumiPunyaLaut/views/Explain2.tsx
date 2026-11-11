@@ -10,18 +10,18 @@ import type { SceneProps } from "../../_shared/types";
 
 // Explain2: dua fase di papan diagram. (1) bandingkan kadar air batu biasa vs asteroid karbon,
 // (2) asteroid menabrak Bumi, airnya terlepas menjadi Tetes.
-export const Explain2: React.FC<SceneProps> = ({ frames }) => {
+export const Explain2: React.FC<SceneProps> = ({ at }) => {
   const frame = useCurrentFrame();
   const t = useTheme();
   const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
-  const switchAt = Math.round(frames * 0.5);
+  const switchAt = at("Saat batu");
   const phase2 = interpolate(frame, [switchAt, switchAt + 14], [0, 1], clamp);
   const floatY = Math.sin(frame / 34) * 8;
   const title = { position: "absolute", left: 64, right: 160, textAlign: "center", fontFamily: t.fonts.heading, fontWeight: 800, fontSize: 56, color: t.colors.ink } as const;
 
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="papanDiagram" topic={META.topic} />
+      <EduBackdrop topic={META.topic} />
 
       <div style={{ opacity: 1 - phase2 }}>
         <div style={{ ...title, top: 250 }}>Kandungan air</div>
@@ -30,7 +30,7 @@ export const Explain2: React.FC<SceneProps> = ({ frames }) => {
         <LabelPill x={800} y={760} text="batu + mineral berair" topic="planet" at={50} size={34} />
       </div>
       <div style={{ opacity: phase2 }}>
-        <div style={{ ...title, top: 300 }}>Nabrak aku → air terlepas!</div>
+        <div style={{ ...title, top: 300 }}>Menabrak Bumi → air keluar!</div>
         <CastCharacter id="tetes" x={800} y={EDU_FEET_Y} size={320} expression="happy" animation="excitement" />
       </div>
 

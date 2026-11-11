@@ -10,14 +10,15 @@ import type { SceneProps } from "../../_shared/types";
 
 // Twist: dua babak tanpa kartu besar. Babak salah: tebakan penonton dicoret + lencana silang merah.
 // Babak benar: tebakan memudar, meteor melesat ke Bumi, lencana centang + label jawaban.
-export const Twist: React.FC<SceneProps> = ({ frames, lineStarts }) => {
+export const Twist: React.FC<SceneProps> = ({ at }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
-  const second = lineStarts[1] ?? Math.round(frames * 0.4);
+  const second = at("Ternyata");
+  const keliru = at("muncul sendiri");
 
-  const strike = interpolate(frame, [10, 26], [0, 1], clamp);
-  const cross = spring({ frame: frame - 24, fps, config: { damping: 10, stiffness: 150 } });
+  const strike = interpolate(frame, [keliru, keliru + 16], [0, 1], clamp);
+  const cross = spring({ frame: frame - (keliru + 14), fps, config: { damping: 10, stiffness: 150 } });
   const check = spring({ frame: frame - (second + 20), fps, config: { damping: 10, stiffness: 150 } });
   const wrongOut = interpolate(frame, [second, second + 12], [1, 0], clamp);
   const guessDim = interpolate(frame, [second, second + 12], [1, 0.4], clamp);
@@ -29,7 +30,7 @@ export const Twist: React.FC<SceneProps> = ({ frames, lineStarts }) => {
 
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="antariksa" topic={META.topic} floorY={1920} accent="ilmu" decorShift={{ x: 250, y: 760 }} moonShift={{ x: -70, y: 560 }} />
+      <EduBackdrop topic={META.topic} floorY={1920} />
 
       {/* Meteor di belakang label */}
       <Meteor x={meteorX} y={meteorY} size={300} topic="planet" opacity={fly > 0 ? 1 - Math.max(0, fly - 0.9) * 10 : 0} />

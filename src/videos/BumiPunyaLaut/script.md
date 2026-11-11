@@ -1,42 +1,26 @@
-# BumiPunyaLaut — Script
+# Kenapa Bumi punya laut?
 
-**Topik:** Kenapa bumi punya laut?
-**Pilar:** planet & tata surya
-**Karakter:** Bumi (narator, bicara orang pertama "aku" kepada penonton "kamu"), Tetes (cast)
-**Suara:** Aldo (pilihan akhir Ganjar)
-**Durasi estimasi:** ±44 detik
+Topik: planet · Suara: narator (Aldo) · Karakter di layar: Bumi, Tetes
+Status naskah: **ditulis ulang untuk konsep narator (11 Nov 2026), menunggu persetujuan Ganjar.** Versi sebelumnya (Tako/Bumi berbicara sendiri) ada di riwayat git.
 
----
+Struktur: Hook → Setup (tebakan umum yang keliru) → Twist (koreksi) → Penjelasan → Payoff → Ajakan. Perkiraan 46 detik; durasi akhir mengikuti audio.
 
-## Struktur cerita
+Semua kalimat dibawakan narator. Tokoh di layar hanya bereaksi, tidak berbicara. Latar polos di semua scene.
 
-Hook → Setup → Twist → Explain1 → Explain2 → Explain3 → Payoff → Cta
-
----
-
-## Naskah + tabel shot
-
-Bumi menjelaskan sendiri kepada penonton; tidak ada lawan bicara. Twist = tebakan *penonton* ("kamu kira...") yang dikoreksi Bumi.
-Acuan tata visual: JantungTidakCapek (satu objek penjelas besar per scene, backdrop polos/papan diagram, angka naik di Hook, `beat()`).
-
-| Scene    | Segment | Siapa | Teks VO | Dur (s) | Visual / Latar |
-|----------|---------|-------|---------|---------|----------------|
-| Hook     | hook    | bumi  | Laut menutupi tujuh puluh satu persen tubuhku. Kenapa bisa? | 4.0 | Antariksa, judul "Kenapa aku punya laut?", angka 71% naik, Bumi berdenyut, penanda "laut" |
-| Setup    | setup   | bumi  | Dulu aku panas membara, penuh lava. Tidak ada setetes air pun. | 5.0 | Antariksa, semburat panas, tiga label bertahap |
-| Twist    | twist   | bumi  | Kamu kira airku muncul sendiri? / Ternyata sebagian datang dari luar angkasa! | 2.0 + 3.0 | Tebakan dicoret + silang merah; meteor melesat, centang + jawaban |
-| Explain1 | explain | bumi  | Miliaran tahun lalu, asteroid dan meteor menghujaniku. Banyak yang membawa air. | 6.0 | Papan diagram, `Timeline` (lahir, hujan batu, laut), meteor menghujani Bumi |
-| Explain2 | explain | bumi  | Batu-batu itu menyimpan air di dalam mineralnya. Saat menabrakku, airnya terlepas. | 6.5 | Papan diagram, `BarCompare` kadar air (batu biasa vs asteroid karbon), lalu Tetes muncul |
-| Explain3 | explain | bumi  | Dari dalam, gunung berapi menyemburkan uap. Uap jadi awan, turun sebagai hujan, lalu mengisi cekungan jadi laut. | 8.5 | Papan diagram, jalur 4 langkah (gunung, uap, awan, hujan), permukaan laut naik |
-| Payoff   | payoff  | bumi  | Jadi lautku campuran: kiriman dari luar angkasa, dan uap dari dalam diriku! | 5.5 | Laut sore, meteor + gunung api bertemu di Bumi |
-| Cta      | cta     | bumi  | Menurutmu, planet lain punya laut juga? Tulis di komentar! | 3.5 | Antariksa, Bumi melambai |
-
-Total estimasi: ±44 detik (sebelumnya ±56).
-
----
+| Scene | Narasi (narator) | Dur (dtk) | Visual dan aksi | SFX |
+|---|---|---|---|---|
+| Hook | "Laut menutupi tujuh puluh satu persen permukaan Bumi. Dari mana semua air itu?" | 4.8 | Latar polos. Teks layar: **Kenapa Bumi punya laut?** Angka 71% naik, Bumi berdenyut, penanda "laut". | pop |
+| Setup | "Dulu, Bumi sangat panas dan penuh lava. Tidak ada air setetes pun." | 5 | Bumi dengan pijar panas. Tiga label bertahap: baru lahir, panas membara, tanpa setetes air. | – |
+| Twist | "Banyak yang mengira air Bumi muncul sendiri." / "Ternyata, sebagian datang dari luar angkasa!" | 2.8 + 3 | Tebakan "Muncul sendiri dari dalam" dicoret + silang. Meteor melesat, centang + "Sebagian dari luar angkasa!". | wrong |
+| Explain1 | "Miliaran tahun lalu, banyak asteroid dan meteor jatuh ke Bumi. Sebagian membawa air." | 6 | `Timeline` (lahir, hujan batu, laut). Meteor menghujani Bumi. | – |
+| Explain2 | "Air itu tersimpan di dalam batunya. Saat batu itu menabrak Bumi, airnya keluar." | 6 | `BarCompare` kadar air (batu biasa vs asteroid karbon), lalu Tetes muncul. | – |
+| Explain3 | "Gunung berapi juga mengeluarkan uap air dari dalam Bumi. Uap itu menjadi awan, lalu turun sebagai hujan. Air hujan terkumpul dan menjadi laut." | 9.5 | Empat langkah bernomor: gunung menyembur, uap naik, awan, hujan. Permukaan laut naik. | – |
+| Payoff | "Jadi air laut punya dua asal: dari luar angkasa, dan dari dalam Bumi sendiri." | 5.5 | Meteor + gunung api bertemu di Bumi. Teks layar: **Laut = luar + dalam!** | tada |
+| Cta | "Menurutmu, apakah planet lain juga punya laut? Tulis di komentar!" | 3.8 | Teks layar: **Planet lain punya laut?** Bumi melambai, kartu ajakan komentar. | – |
 
 ## Objek & aset yang dipakai
 
-- **Latar:** `antariksa`, `laut`, `papanDiagram`
+- **Latar:** `polos` di semua scene
 - **Karakter:** `CastCharacter` (bumi, tetes)
 - **Props:** `Meteor`, `GunungApi`, `AwanHujan`, `CheckMark`, `CrossMark`
 - **Explainers:** `HookText`, `Counter`, `Callout`, `Timeline`, `BarCompare`, `LabelPill`, `beat`
@@ -56,8 +40,8 @@ Total estimasi: ±44 detik (sebelumnya ±56).
 ## Status
 
 - [ ] Naskah disetujui Ganjar
-- [ ] scenes.ts diisi
-- [ ] views/ ditulis
+- [x] scenes.ts diisi
+- [x] views/ ditulis
 - [ ] Ditinjau di Studio
 - [ ] VO dibuat (tunggu persetujuan Ganjar)
 - [ ] Render

@@ -14,7 +14,7 @@ export const Cta: React.FC<SceneProps> = () => {
   const pop = spring({ frame: frame - 10, fps, config: { damping: 10, stiffness: 140 } });
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="laut" topic={META.topic} time="siang" />
+      <EduBackdrop topic={META.topic} />
       <HookText text="Kenapa laut biru?" highlight="laut" size={104} />
       <QuestionMark x={720} y={820} size={280} topic="air" pop={pop} />
       <TakoCharacter x={440} y={EDU_FEET_Y} size={640} expression="curious" animation="thinking" />

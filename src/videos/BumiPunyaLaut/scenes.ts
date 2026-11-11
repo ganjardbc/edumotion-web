@@ -2,98 +2,22 @@ import type { Scene, VideoMeta } from "../_shared/types";
 
 export const META: VideoMeta = {
   id: "BumiPunyaLaut",
-  title: "Kenapa bumi punya laut?",
+  title: "Kenapa Bumi punya laut?",
   topic: "planet",
   cast: ["bumi"],
   fps: 30,
 };
 
 // Urutan scene = urutan tayang. `dur` adalah perkiraan detik dari naskah sampai audio asli dibuat.
-// who: kunci suara di voiceover.ts ("bumi" = Bumi bercerita dengan "aku" kepada penonton).
+// who: kunci suara di voiceover.ts ("narator"). Tokoh di layar tidak berbicara; semua kalimat dibawakan narator.
+// SFX hemat: paling banyak satu cue per scene dan empat per video (dicek scripts/check-videos.mjs).
 export const BASE_SCENES: ReadonlyArray<Scene> = [
-  {
-    id: "Hook",
-    segment: "hook",
-    lines: [{ who: "bumi", text: "Laut menutupi tujuh puluh satu persen tubuhku. Kenapa bisa?", dur: 4.0 }],
-    sfx: [
-      { sfx: "pop", at: 0, volume: 0.4 },
-      { sfx: "rise", at: 0, volume: 0.25 },
-      { sfx: "hmm", at: 2.6, volume: 0.35 },
-    ],
-  },
-  {
-    id: "Setup",
-    segment: "setup",
-    lines: [{ who: "bumi", text: "Dulu aku panas membara, penuh lava. Tidak ada setetes air pun.", dur: 5.0 }],
-    sfx: [
-      { sfx: "whoosh", at: 0, volume: 0.25 },
-      { sfx: "hmm", at: 2.4, volume: 0.35 },
-    ],
-  },
-  {
-    id: "Twist",
-    segment: "twist",
-    lines: [
-      { who: "bumi", text: "Kamu kira airku muncul sendiri?", dur: 2.0 },
-      { who: "bumi", text: "Ternyata sebagian datang dari luar angkasa!", dur: 3.0 },
-    ],
-    sfx: [
-      { sfx: "boing", at: 0, volume: 0.5 },
-      { sfx: "wrong", at: 1.4, volume: 0.4 },
-      { sfx: "whoosh", at: 2.1, volume: 0.3 },
-      { sfx: "ding", at: 3.2, volume: 0.3 },
-    ],
-  },
-  {
-    id: "Explain1",
-    segment: "explain",
-    enter: "iris",
-    lines: [{ who: "bumi", text: "Miliaran tahun lalu, asteroid dan meteor menghujaniku. Banyak yang membawa air.", dur: 6.0 }],
-    sfx: [
-      { sfx: "whoosh", at: 0, volume: 0.25 },
-      { sfx: "pop", at: 1.2, volume: 0.35 },
-      { sfx: "boing", at: 3.5, volume: 0.3 },
-      { sfx: "boing", at: 4.8, volume: 0.3 },
-    ],
-  },
-  {
-    id: "Explain2",
-    segment: "explain",
-    lines: [{ who: "bumi", text: "Batu-batu itu menyimpan air di dalam mineralnya. Saat menabrakku, airnya terlepas.", dur: 6.5 }],
-    sfx: [
-      { sfx: "whoosh", at: 0, volume: 0.25 },
-      { sfx: "blip", at: 1.5, every: 0.3, times: 5, volume: 0.25 },
-      { sfx: "pop", at: 4.4, volume: 0.4 },
-    ],
-  },
-  {
-    id: "Explain3",
-    segment: "explain",
-    lines: [{ who: "bumi", text: "Dari dalam, gunung berapi menyemburkan uap. Uap jadi awan, turun sebagai hujan, lalu mengisi cekungan jadi laut.", dur: 8.5 }],
-    sfx: [
-      { sfx: "whoosh", at: 0, volume: 0.25 },
-      { sfx: "rise", at: 1.5, volume: 0.3 },
-      { sfx: "blip", at: 5.0, every: 0.35, times: 6, volume: 0.25 },
-    ],
-  },
-  {
-    id: "Payoff",
-    segment: "payoff",
-    enter: "swipe",
-    lines: [{ who: "bumi", text: "Jadi lautku campuran: kiriman dari luar angkasa, dan uap dari dalam diriku!", dur: 5.5 }],
-    sfx: [
-      { sfx: "pop", at: 0, volume: 0.4 },
-      { sfx: "tada", at: 0.2, volume: 0.45 },
-    ],
-  },
-  {
-    id: "Cta",
-    segment: "cta",
-    enter: "swipe",
-    lines: [{ who: "bumi", text: "Menurutmu, planet lain punya laut juga? Tulis di komentar!", dur: 3.5 }],
-    sfx: [
-      { sfx: "pop", at: 0, volume: 0.4 },
-      { sfx: "ding", at: 1.0, volume: 0.35 },
-    ],
-  },
+  { id: "Hook", segment: "hook", lines: [{ who: "narator", text: "Laut menutupi tujuh puluh satu persen permukaan Bumi. Dari mana semua air itu?", dur: 4.8 }], sfx: [{ sfx: "pop", at: 0, volume: 0.4 }] },
+  { id: "Setup", segment: "setup", lines: [{ who: "narator", text: "Dulu, Bumi sangat panas dan penuh lava. Tidak ada air setetes pun.", dur: 5 }] },
+  { id: "Twist", segment: "twist", lines: [{ who: "narator", text: "Banyak yang mengira air Bumi muncul sendiri.", dur: 2.8 }, { who: "narator", text: "Ternyata, sebagian datang dari luar angkasa!", dur: 3 }], sfx: [{ sfx: "wrong", at: 0.8, volume: 0.4 }] },
+  { id: "Explain1", segment: "explain", lines: [{ who: "narator", text: "Miliaran tahun lalu, banyak asteroid dan meteor jatuh ke Bumi. Sebagian membawa air.", dur: 6 }] },
+  { id: "Explain2", segment: "explain", lines: [{ who: "narator", text: "Air itu tersimpan di dalam batunya. Saat batu itu menabrak Bumi, airnya keluar.", dur: 6 }] },
+  { id: "Explain3", segment: "explain", lines: [{ who: "narator", text: "Gunung berapi juga mengeluarkan uap air dari dalam Bumi. Uap itu menjadi awan, lalu turun sebagai hujan. Air hujan terkumpul dan menjadi laut.", dur: 9.5 }] },
+  { id: "Payoff", segment: "payoff", lines: [{ who: "narator", text: "Jadi air laut punya dua asal: dari luar angkasa, dan dari dalam Bumi sendiri.", dur: 5.5 }], sfx: [{ sfx: "tada", at: 0.2, volume: 0.45 }] },
+  { id: "Cta", segment: "cta", lines: [{ who: "narator", text: "Menurutmu, apakah planet lain juga punya laut? Tulis di komentar!", dur: 3.8 }] },
 ];

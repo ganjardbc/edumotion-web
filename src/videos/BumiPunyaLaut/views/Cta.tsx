@@ -22,8 +22,8 @@ export const Cta: React.FC<SceneProps> = () => {
 
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="antariksa" topic={META.topic} floorY={1920} accent="ilmu" decorShift={{ x: 250, y: 760 }} moonShift={{ x: -70, y: 560 }} />
-      <HookText text="Planet lain punya laut?" highlight="laut" size={88} color={t.colors.surface} shadow={`0 6px 0 ${t.colors.ink}`} />
+      <EduBackdrop topic={META.topic} floorY={1920} />
+      <HookText text="Planet lain punya laut?" highlight="laut" size={88} />
 
       {/* Card ajakan */}
       <div

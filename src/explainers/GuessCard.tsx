@@ -1,8 +1,8 @@
 import type React from "react";
 import { useTheme } from "../themes";
 
-// Kartu tebakan Tako. `crossed` 0..1 menggambar coretan; setelah penuh muncul label "SALAH".
-export const GuessCard: React.FC<{ readonly top: number; readonly text: string; readonly crossed?: number; readonly label?: string }> = ({ top, text, crossed = 0, label = "Tebakan Tako" }) => {
+// Kartu tebakan umum yang keliru (disebut narator). `crossed` 0..1 menggambar coretan; setelah penuh muncul label "SALAH".
+export const GuessCard: React.FC<{ readonly top: number; readonly text: string; readonly crossed?: number; readonly label?: string }> = ({ top, text, crossed = 0, label = "Banyak yang mengira" }) => {
   const t = useTheme();
   return (
     <div style={{ position: "absolute", left: 64, right: 160, top, display: "flex", justifyContent: "center" }}>

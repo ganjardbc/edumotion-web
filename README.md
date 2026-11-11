@@ -1,6 +1,6 @@
 # Edumotion Web
 
-Proyek Remotion untuk akun animasi 2D edukasi di Instagram dan TikTok: video pendek vertikal (1080×1920, 30 fps, 30–120 detik) yang dijelaskan Tako dan 18 karakter cast. Aturan lengkap, keputusan akun, dan struktur video ada di [CLAUDE.md](CLAUDE.md); design system di [design-system/edumotion-design-system/](design-system/edumotion-design-system/readme.md).
+Proyek Remotion untuk akun animasi 2D edukasi di Instagram dan TikTok: video pendek vertikal (1080×1920, 30 fps, 30–120 detik) yang dibawakan narator, dengan Tako dan 18 karakter cast sebagai tokoh di layar (tidak berbicara). Aturan lengkap, keputusan akun, dan struktur video ada di [CLAUDE.md](CLAUDE.md); design system di [design-system/edumotion-design-system/](design-system/edumotion-design-system/readme.md).
 
 ## Perintah
 
@@ -21,7 +21,7 @@ npx remotion render         # render video
 | `src/characters/tako/`, `src/characters/cast/` | Tako dan 18 karakter cast (satu rig bersama, `<CastCharacter id=... />`) |
 | `src/props/` | Objek SVG berkontrak: `body`, `umum`, `antariksa`, `cuaca`, `teknologi`, `sejarah` (katalog: `design-system/.../props/registry.md`) |
 | `src/explainers/` | Komponen penjelas: Caption, HookText, CorrectionCard, Callout, Cutaway, BarCompare, Timeline, MetaphorSwap, Transition, ProgressDots, EndCard, ThumbnailCard, dan lainnya |
-| `src/assets/backdrops/` | Latar, termasuk 19 jenis `EduBackdrop` berwarna topik |
+| `src/assets/backdrops/` | Latar. Video hanya memakai `EduBackdrop` polos; jenis lain tetap ada di pustaka |
 | `src/assets/effects/` | Efek deterministik: Confetti, Sparkle, SpeedLines, PopBurst, Bubbles |
 | `src/themes/` | Tema `edumotion` dan palet topik (`TOPIC_COLORS`) |
 | `src/videos/` | Video edukasi, satu folder per video; dibuat lewat `video:new` |

@@ -1,14 +1,35 @@
 #!/usr/bin/env node
 // Memeriksa struktur folder src/videos terhadap aturan baku edumotion (lihat "Struktur video" di CLAUDE.md).
 //   node scripts/check-videos.mjs        (dijalankan oleh `npm run lint`)
-import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
+import { transform } from "esbuild";
+import { createHash } from "node:crypto";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const videosDir = join(root, "src/videos");
 const errors = [];
+const warnings = [];
 const err = (video, msg) => errors.push(`src/videos/${video}: ${msg}`);
+
+// Aturan konsep (lihat "Format video" di CLAUDE.md): narator sebagai satu-satunya suara, SFX hemat, latar polos.
+const NARRATOR = "narator";
+const MAX_SFX_PER_SCENE = 1;
+const MAX_SFX_PER_VIDEO = 4;
+const MAX_SFX_REPEAT = 4;
+const ALLOWED_BACKDROPS = ["polos"];
+
+// scenes.ts hanya mengimpor tipe, jadi cukup ditranspilasi lalu diimpor untuk membaca BASE_SCENES apa adanya.
+const tmp = join(root, "node_modules", ".check-videos-tmp");
+const loadScenes = async (video, file) => {
+  mkdirSync(tmp, { recursive: true });
+  const out = join(tmp, `${video}.mjs`);
+  writeFileSync(out, (await transform(readFileSync(file, "utf8"), { loader: "ts", format: "esm" })).code);
+  return (await import(pathToFileURL(out).href)).BASE_SCENES;
+};
+const voiceCatalog = Object.fromEntries([...readFileSync(join(videosDir, "_shared/voices.ts"), "utf8").matchAll(/(\w+): \{ id: "(\w+)"/g)].map((m) => [m[1], m[2]]));
+const voModel = readFileSync(join(videosDir, "_shared/voices.ts"), "utf8").match(/DEFAULT_MODEL = "([^"]+)"/)?.[1];
 
 const walk = (dir) => readdirSync(dir).flatMap((n) => (statSync(join(dir, n)).isDirectory() ? walk(join(dir, n)) : [join(dir, n)]));
 const registry = readFileSync(join(videosDir, "index.ts"), "utf8");
@@ -43,6 +64,56 @@ for (const v of videos) {
     }
   }
 
+  if (existsSync(scenesFile) && /export const BASE_SCENES/.test(readFileSync(scenesFile, "utf8"))) {
+    const scenes = await loadScenes(v, scenesFile);
+    let cues = 0;
+    for (const sc of scenes) {
+      for (const l of sc.lines) if (l.who !== NARRATOR) err(v, `scene ${sc.id}: who "${l.who}" tidak boleh; semua kalimat dibawakan "${NARRATOR}"`);
+      const sfx = sc.sfx ?? [];
+      cues += sfx.length;
+      if (sfx.length > MAX_SFX_PER_SCENE) err(v, `scene ${sc.id}: ${sfx.length} cue SFX (maksimal ${MAX_SFX_PER_SCENE} per scene)`);
+      for (const c of sfx) if ((c.times ?? 1) > MAX_SFX_REPEAT) err(v, `scene ${sc.id}: SFX ${c.sfx} diulang ${c.times} kali (maksimal ${MAX_SFX_REPEAT})`);
+    }
+    if (cues > MAX_SFX_PER_VIDEO) err(v, `${cues} cue SFX (maksimal ${MAX_SFX_PER_VIDEO} per video)`);
+
+    // Audio yang teksnya sudah berubah akan tetap terputar dengan caption baru; beri peringatan supaya dibuat ulang.
+    const voSrc = existsSync(join(dir, "voiceover.ts")) ? readFileSync(join(dir, "voiceover.ts"), "utf8") : "";
+    const voiceId = voiceCatalog[voSrc.match(/narator: VOICES\.(\w+)/)?.[1]];
+    const manifest = existsSync(join(dir, "voiceover.json")) ? JSON.parse(readFileSync(join(dir, "voiceover.json"), "utf8")).lines : {};
+    if (voiceId && voModel)
+      for (const sc of scenes)
+        sc.lines.forEach((l, i) => {
+          const entry = manifest[`${sc.id}-${i + 1}`];
+          const hash = createHash("sha1").update(`${voiceId}|${voModel}|${l.tts ?? l.text}`).digest("hex").slice(0, 12);
+          if (entry && entry.hash !== hash) warnings.push(`src/videos/${v}: audio ${sc.id}-${i + 1} usang (teks atau suara berubah); buat ulang VO atau hapus dari voiceover.json`);
+        });
+  }
+
+  // Kata kunci at("...") di views harus ada di narasi scene-nya; tanpa ini salah ketik baru ketahuan saat Studio galat.
+  if (existsSync(scenesFile) && /export const BASE_SCENES/.test(readFileSync(scenesFile, "utf8"))) {
+    const scenes = await loadScenes(v, scenesFile);
+    const norm = (w) => w.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
+    const words = (t) => t.split(/\s+/).map(norm).filter(Boolean);
+    for (const sc of scenes) {
+      const f = join(dir, `views/${sc.id}.tsx`);
+      if (!existsSync(f)) continue;
+      const lines = sc.lines.map((l) => words(l.text));
+      for (const m of readFileSync(f, "utf8").matchAll(/\bat\(\s*"([^"]+)"/g)) {
+        const target = words(m[1]);
+        const found = lines.some((ws) => ws.some((_, i) => target.every((t, k) => ws[i + k] === t)));
+        if (!found) err(v, `views/${sc.id}.tsx: at("${m[1]}") tidak ada di narasi scene ${sc.id}`);
+      }
+    }
+  }
+
+  // Latar polos saja di video (KISS). Latar lain tetap ada di pustaka, tetapi tidak dipakai video.
+  for (const f of existsSync(join(dir, "views")) ? walk(join(dir, "views")).filter((p) => p.endsWith(".tsx")) : []) {
+    const src = readFileSync(f, "utf8");
+    for (const m of src.matchAll(/<EduBackdrop\b[^>]*\bkind=(?:"(\w+)"|\{)/g)) if (!ALLOWED_BACKDROPS.includes(m[1])) err(v, `${relative(dir, f)} memakai latar ${m[1] ?? "dinamis"}; video hanya memakai latar polos (<EduBackdrop topic={META.topic} />)`);
+    const other = src.match(/<(PlainBack|OutdoorBack|RoomBack|SketchBack|BlockBack)\b/);
+    if (other) err(v, `${relative(dir, f)} memakai ${other[1]}; pakai <EduBackdrop topic={META.topic} />`);
+  }
+
   const reg = new RegExp(`import \\{ VIDEO as ${v} \\} from "\\./${v}"`);
   if (!reg.test(registry)) err(v, "belum terdaftar di src/videos/index.ts (jalankan lewat scripts/new-short.mjs)");
 
@@ -56,6 +127,8 @@ for (const v of videos) {
 // Registry tidak boleh menunjuk video yang tidak ada.
 for (const m of registry.matchAll(/import \{ VIDEO as (\w+) \} from "\.\/(\w+)"/g)) if (!videos.includes(m[2])) errors.push(`src/videos/index.ts: mengimpor ${m[2]} yang tidak ada`);
 
+rmSync(tmp, { recursive: true, force: true });
+if (warnings.length) console.warn(`Peringatan (${warnings.length}):\n- ${warnings.join("\n- ")}`);
 if (errors.length) {
   console.error(`Struktur video tidak sesuai aturan (${errors.length} masalah):\n- ${errors.join("\n- ")}`);
   process.exit(1);

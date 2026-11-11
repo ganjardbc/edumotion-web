@@ -1,5 +1,7 @@
 # Latar belakang
 
+> **Aturan video edumotion (KISS):** video di `src/videos/` hanya memakai latar polos, `<EduBackdrop topic={META.topic} />`. Jenis latar lain di bawah ini tetap ada di pustaka sebagai referensi, tetapi `scripts/check-videos.mjs` menolaknya di dalam video.
+
 Latar berjangkar untuk karakter. Impor dari `src/assets/backdrops` (barrel), bukan dari file di dalam subfolder.
 
 | Latar | Isi | Jangkar |

@@ -12,17 +12,17 @@ const ROWS = 3;
 const COLS = 3;
 
 // Explain1: dua fase di papan diagram. (1) tetes awan jauh lebih tipis dari rambut, (2) jutaan tetes berkumpul jadi berat.
-export const Explain1: React.FC<SceneProps> = ({ frames }) => {
+export const Explain1: React.FC<SceneProps> = ({ at }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = useTheme();
   const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
-  const switchAt = Math.round(frames * 0.48);
+  const switchAt = at("Tapi jumlahnya");
   const phase2 = interpolate(frame, [switchAt, switchAt + 14], [0, 1], clamp);
   const title = { position: "absolute", left: 64, right: 160, textAlign: "center", fontFamily: t.fonts.heading, fontWeight: 800, fontSize: 56, color: t.colors.ink } as const;
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="papanDiagram" topic={META.topic} />
+      <EduBackdrop topic={META.topic} />
 
       <div style={{ opacity: 1 - phase2 }}>
         <div style={{ ...title, top: 250 }}>Lebar (diameter)</div>

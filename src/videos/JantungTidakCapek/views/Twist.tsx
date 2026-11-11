@@ -13,7 +13,7 @@ export const Twist: React.FC<SceneProps> = ({ frames }) => {
   const zoom = interpolate(frame, [0, frames], [1, 1.06], { extrapolateRight: "clamp" });
   return (
     <AbsoluteFill style={{ transform: `scale(${zoom})`, transformOrigin: "50% 70%" }}>
-      <EduBackdrop kind="polos" topic={META.topic} />
+      <EduBackdrop topic={META.topic} />
       <TakoCharacter x={350} y={EDU_FEET_Y} size={600} expression="surprised" animation="surprise" />
       <CastCharacter id="jantung" x={800} y={EDU_FEET_Y} size={440} facing={-1} expression="happy" animation="wave" />
     </AbsoluteFill>

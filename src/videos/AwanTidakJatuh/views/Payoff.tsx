@@ -12,7 +12,7 @@ export const Payoff: React.FC<SceneProps> = () => {
   const frame = useCurrentFrame();
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="langit" topic={META.topic} />
+      <EduBackdrop topic={META.topic} />
       <HookText text="Terlalu kecil untuk jatuh" highlight="kecil" size={104} />
       <TakoCharacter x={320} y={EDU_FEET_Y} size={540} expression="laughing" animation="excitement" />
       <CastCharacter id="awan" x={760} y={EDU_FEET_Y} size={480 * (1 + 0.04 * beat(frame, 30))} facing={-1} expression="happy" />

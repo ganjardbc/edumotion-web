@@ -16,7 +16,7 @@ export const Explain1: React.FC<SceneProps> = () => {
   const resting = cycle > 0.35;
   return (
     <AbsoluteFill>
-      <EduBackdrop kind="papanDiagram" topic={META.topic} />
+      <EduBackdrop topic={META.topic} />
       <div style={{ position: "absolute", left: 160, right: 160, top: 250, textAlign: "center", fontFamily: t.fonts.heading, fontWeight: 800, fontSize: 64, color: t.colors.ink }}>Satu detak = 1 detik</div>
       <PhaseBar top={380} left={160} width={760} progress={cycle} split={0.35} labels={["Kerja", "Istirahat"]} />
       <Stopwatch x={300} y={760} size={320} progress={cycle} />
