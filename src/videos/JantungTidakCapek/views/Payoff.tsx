@@ -2,7 +2,7 @@ import type React from "react";
 import { EduBackdrop } from "../../../assets/backdrops";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { CastCharacter } from "../../../characters/cast";
-import { TakoCharacter } from "../../../characters/tako";
+import { Pembawa } from "../../../characters/ganjar";
 import { beat, EDU_FEET_Y, HookText } from "../../../explainers";
 import { META } from "../scenes";
 import type { SceneProps } from "../../_shared/types";
@@ -14,7 +14,7 @@ export const Payoff: React.FC<SceneProps> = () => {
     <AbsoluteFill>
       <EduBackdrop topic={META.topic} />
       <HookText text="Jantung jago istirahat" highlight="istirahat" size={104} />
-      <TakoCharacter x={320} y={EDU_FEET_Y} size={540} expression="laughing" animation="excitement" />
+      <Pembawa x={320} y={EDU_FEET_Y} tinggi={513} ekspresi="tertawa" gestur="sorak" />
       <CastCharacter id="jantung" x={760} y={EDU_FEET_Y} size={500 * (1 + 0.04 * beat(frame))} facing={-1} expression="happy" />
     </AbsoluteFill>
   );

@@ -2,8 +2,7 @@ import type React from "react";
 import { AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { EduBackdrop } from "../../../assets/backdrops";
 import { CastCharacter } from "../../../characters/cast";
-import { TakoCharacter } from "../../../characters/tako";
-import { EDU_FEET_Y, LabelPill } from "../../../explainers";
+import { LabelPill } from "../../../explainers";
 import { AwanHujan } from "../../../props";
 import { useTheme } from "../../../themes";
 import { META } from "../scenes";
@@ -46,8 +45,6 @@ export const Explain3: React.FC<SceneProps> = ({ at }) => {
         <AwanHujan x={540} y={720} size={700} progress={(Math.max(0, frame - switchAt) % 45) / 45} />
         <LabelPill x={540} y={1130} text="jatuh jadi hujan" topic={META.topic} at={at("jatuh")} number={2} size={40} />
       </div>
-
-      <TakoCharacter x={910} y={EDU_FEET_Y} size={220} facing={-1} expression="curious" animation="thinking" />
     </AbsoluteFill>
   );
 };

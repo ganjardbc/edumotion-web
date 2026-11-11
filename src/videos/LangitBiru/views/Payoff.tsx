@@ -1,7 +1,7 @@
 import type React from "react";
 import { AbsoluteFill } from "remotion";
 import { EduBackdrop } from "../../../assets/backdrops";
-import { TakoCharacter } from "../../../characters/tako";
+import { Pembawa } from "../../../characters/ganjar";
 import { EDU_FEET_Y, HookText } from "../../../explainers";
 import { Muncul } from "../../../explainers/pola";
 import { JalurCahaya } from "../../../props";
@@ -19,6 +19,6 @@ export const Payoff: React.FC<SceneProps> = ({ at }) => (
     <Muncul at={at("senja merah")}>
       <JalurCahaya x={730} y={640} size={300} waktu="senja" />
     </Muncul>
-    <TakoCharacter x={540} y={EDU_FEET_Y} size={440} expression="laughing" animation="excitement" />
+    <Pembawa x={540} y={EDU_FEET_Y} tinggi={418} ekspresi="tertawa" gestur="sorak" />
   </AbsoluteFill>
 );

@@ -2,8 +2,7 @@ import type React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { EduBackdrop } from "../../../assets/backdrops";
 import { CastCharacter } from "../../../characters/cast";
-import { TakoCharacter } from "../../../characters/tako";
-import { EDU_FEET_Y, LabelPill } from "../../../explainers";
+import { LabelPill } from "../../../explainers";
 import { PanahUdara } from "../../../props";
 import { useTheme } from "../../../themes";
 import { META } from "../scenes";
@@ -23,7 +22,6 @@ export const Explain2: React.FC<SceneProps> = ({ at }) => {
       <CastCharacter id="tetes" x={540} y={1000 + bob} size={200} expression="surprised" animation="idle" />
       <LabelPill x={300} y={1170} text="udara hangat" topic={META.topic} at={at("Udara hangat")} size={38} />
       <LabelPill x={300} y={760} text="melayang" topic={META.topic} at={at("melayang")} size={38} />
-      <TakoCharacter x={910} y={EDU_FEET_Y} size={220} facing={-1} expression="curious" animation="thinking" />
     </AbsoluteFill>
   );
 };

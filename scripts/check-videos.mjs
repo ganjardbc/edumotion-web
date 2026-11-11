@@ -13,12 +13,13 @@ const errors = [];
 const warnings = [];
 const err = (video, msg) => errors.push(`src/videos/${video}: ${msg}`);
 
-// Aturan konsep (lihat "Format video" di CLAUDE.md): narator sebagai satu-satunya suara, SFX hemat, latar polos.
+// Aturan konsep (lihat "Format video" di CLAUDE.md): narator sebagai satu-satunya suara, SFX hemat, format stickman
+// (latar kertas berpetak, pembawa Ganjar stickman, tanpa Tako).
 const NARRATOR = "narator";
 const MAX_SFX_PER_SCENE = 1;
 const MAX_SFX_PER_VIDEO = 4;
 const MAX_SFX_REPEAT = 4;
-const ALLOWED_BACKDROPS = ["polos"];
+const ALLOWED_BACKDROPS = ["kertas"];
 
 // scenes.ts hanya mengimpor tipe, jadi cukup ditranspilasi lalu diimpor untuk membaca BASE_SCENES apa adanya.
 const tmp = join(root, "node_modules", ".check-videos-tmp");
@@ -126,7 +127,7 @@ for (const v of videos) {
       if (!existsSync(f)) continue;
       const src = readFileSync(f, "utf8");
       const rel = `views/${sc.id}.tsx`;
-      if ((sc.segment === "explain" || sc.segment === "setup") && /<TakoCharacter\b/.test(src)) warnings.push(`src/videos/${v}: ${rel} memakai Tako di scene ${sc.segment}; Tako hanya di Hook, Twist, Payoff, Cta`);
+      if ((sc.segment === "explain" || sc.segment === "setup") && /<Pembawa\b/.test(src)) warnings.push(`src/videos/${v}: ${rel} memakai Pembawa di scene ${sc.segment}; pembawa hanya di Hook, Twist, Payoff, Cta (Setup/Explain memakai pola)`);
       if (sc.segment === "explain" && !/explainers\/pola"/.test(src)) warnings.push(`src/videos/${v}: ${rel} tidak memakai pola penjelas (explainers/pola)`);
       if (/fontSize\s*:/.test(src)) warnings.push(`src/videos/${v}: ${rel} menulis fontSize sendiri; pakai Judul atau pola (skala TEKS)`);
       const imp = src.match(/import \{([^}]+)\} from "\.\.\/\.\.\/\.\.\/props"/);
@@ -135,10 +136,12 @@ for (const v of videos) {
     if (draf.size) warnings.push(`src/videos/${v}: objek berstatus draf (belum disetujui Ganjar di PropsSheet): ${[...draf].sort().join(", ")}`);
   }
 
-  // Latar polos saja di video (KISS). Latar lain tetap ada di pustaka, tetapi tidak dipakai video.
+  // Format stickman: latar kertas berpetak saja (KISS) dan pembawa Ganjar stickman; Tako tidak tampil di video.
+  // Latar lain tetap ada di pustaka, tetapi tidak dipakai video.
   for (const f of existsSync(join(dir, "views")) ? walk(join(dir, "views")).filter((p) => p.endsWith(".tsx")) : []) {
     const src = readFileSync(f, "utf8");
-    for (const m of src.matchAll(/<EduBackdrop\b[^>]*\bkind=(?:"(\w+)"|\{)/g)) if (!ALLOWED_BACKDROPS.includes(m[1])) err(v, `${relative(dir, f)} memakai latar ${m[1] ?? "dinamis"}; video hanya memakai latar polos (<EduBackdrop topic={META.topic} />)`);
+    for (const m of src.matchAll(/<EduBackdrop\b[^>]*\bkind=(?:"(\w+)"|\{)/g)) if (!ALLOWED_BACKDROPS.includes(m[1])) err(v, `${relative(dir, f)} memakai latar ${m[1] ?? "dinamis"}; video hanya memakai latar kertas (<EduBackdrop topic={META.topic} />)`);
+    if (/<TakoCharacter\b/.test(src)) err(v, `${relative(dir, f)} memakai TakoCharacter; format video memakai pembawa stickman (<Pembawa /> dari characters/ganjar)`);
     const other = src.match(/<(PlainBack|OutdoorBack|RoomBack|SketchBack|BlockBack)\b/);
     if (other) err(v, `${relative(dir, f)} memakai ${other[1]}; pakai <EduBackdrop topic={META.topic} />`);
   }

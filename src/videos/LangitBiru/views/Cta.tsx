@@ -1,7 +1,7 @@
 import type React from "react";
 import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { EduBackdrop } from "../../../assets/backdrops";
-import { TakoCharacter } from "../../../characters/tako";
+import { Pembawa } from "../../../characters/ganjar";
 import { EDU_FEET_Y, HookText } from "../../../explainers";
 import { QuestionMark } from "../../../props";
 import { META } from "../scenes";
@@ -17,7 +17,7 @@ export const Cta: React.FC<SceneProps> = () => {
       <EduBackdrop topic={META.topic} />
       <HookText text="Kenapa laut biru?" highlight="laut" size={104} />
       <QuestionMark x={720} y={820} size={280} topic="air" pop={pop} />
-      <TakoCharacter x={440} y={EDU_FEET_Y} size={640} expression="curious" animation="thinking" />
+      <Pembawa x={440} y={EDU_FEET_Y} tinggi={608} ekspresi="mikir" gestur="mikir" />
     </AbsoluteFill>
   );
 };

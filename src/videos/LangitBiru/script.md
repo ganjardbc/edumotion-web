@@ -1,6 +1,6 @@
 # Kenapa langit biru, bukan ungu?
 
-Topik: cuaca · Suara: narator (Aldo) · Karakter di layar: Tako, Awan, Matahari, Bumi
+Topik: cuaca · Suara: narator (Aldo) · Karakter di layar: Ganjar (pembawa), Awan, Matahari, Bumi
 Status naskah: **ditulis ulang untuk konsep narator (11 Nov 2026), menunggu persetujuan Ganjar.** Visual dibangun ulang dengan pola penjelas (12 Nov 2026); storyboard menunggu persetujuan. Versi sebelumnya (Tako/Bumi berbicara sendiri) ada di riwayat git.
 
 Struktur: Hook → Setup (tebakan umum yang keliru) → Twist (koreksi) → Penjelasan → Payoff → Ajakan. Perkiraan 59 detik; durasi akhir mengikuti audio.
@@ -23,20 +23,20 @@ Semua kalimat dibawakan narator. Tokoh di layar hanya bereaksi, tidak berbicara.
 
 | Scene | Pola | Judul | Objek utama | Label | Kata kunci → aksi |
 |---|---|---|---|---|---|
-| Hook | karakter | Kenapa langit biru, bukan **ungu**? | Tako, tanda tanya | – | – |
+| Hook | karakter | Kenapa langit biru, bukan **ungu**? | Ganjar (pembawa), tanda tanya | – | – |
 | Setup | SebabAkibat | Langit memantulkan **laut**? | gelombang (laut), tanda tanya | Laut berwarna biru; Langit ikut biru? | "Banyak" → sebab; "memantulkan" → akibat |
-| Twist | Koreksi + karakter | – | kartu koreksi, Tako | Langit memantulkan laut → Warna dari udara | "bukan" → coret; "Warna birunya" → jawaban; "udara" → Tako paham |
+| Twist | Koreksi + karakter | – | kartu koreksi, Ganjar (pembawa) | Langit memantulkan laut → Warna dari udara | "bukan" → coret; "Warna birunya" → jawaban; "udara" → Ganjar (pembawa) paham |
 | Explain1 | SebabAkibat → Bandingkan (kolom) | Cahaya putih itu **campuran** / Panjang **gelombangnya** beda | Matahari, pelangi / dua gelombang | Biru pendek; Merah panjang | "Cahaya Matahari" → sebab; "campuran" → pelangi; "Cahaya biru" → fase 2; "Cahaya merah" → merah |
 | Explain2 | Sorot + cutaway | Udara menyebarkan **biru** | partikel udara (MolekulUdara) | partikel udara; merah: lurus | "partikel" → sinar mulai; "segala arah" → biru menyebar penuh; "Itu sebabnya" → cutaway |
 | Explain3 | Bandingkan (baris) → Langkah | **Ungu** tersebar lebih kuat / Tapi langit tetap **biru** | dua gelombang / Matahari, mata | Ungu lebih kuat; 1 cahaya ungu sedikit; 2 mata kurang peka | "lebih kuat" → sorot Ungu; "Tapi" → fase 2; "mata kita" → butir 2 |
 | Explain4 | Bandingkan (kolom) | Saat senja, jalurnya **panjang** | JalurCahaya siang dan senja | Siang jalur pendek; Senja jalur panjang | "melewati" → panel senja; "Cahaya birunya" → sorot senja |
-| Payoff | karakter | Cahaya biru **tersebar** | JalurCahaya kecil siang dan senja, Tako | – | "langit biru" → panel siang; "senja merah" → panel senja |
-| Cta | karakter | Kenapa **laut** biru? | Tako, tanda tanya | – | – |
+| Payoff | karakter | Cahaya biru **tersebar** | JalurCahaya kecil siang dan senja, Ganjar (pembawa) | – | "langit biru" → panel siang; "senja merah" → panel senja |
+| Cta | karakter | Kenapa **laut** biru? | Ganjar (pembawa), tanda tanya | – | – |
 
 Cutaway: Explain2, mulai "Itu sebabnya", judul "Udara menyebarkan cahaya biru", keterangan "Biru datang dari segala arah langit".
 
 ## Objek
-- Cast: Tako (Hook, Twist, Payoff, Cta), Matahari (gambar di dalam pola Explain1 dan Explain3). Awan dan Bumi tidak dipakai lagi.
+- Cast: Ganjar (pembawa) (Hook, Twist, Payoff, Cta), Matahari (gambar di dalam pola Explain1 dan Explain3). Awan dan Bumi tidak dipakai lagi.
 - Props (semua berstatus `draf`, menunggu tinjauan Ganjar di `PropsSheet`): `GelombangCahaya`, `Pelangi`, `MolekulUdara`, `Mata`, `QuestionMark`, `JalurCahaya` (baru, menggantikan `LapisanAtmosfer` yang sulit dibaca).
 - Pola: `SebabAkibat`, `Koreksi`, `Bandingkan`, `Sorot`, `Langkah`, `Fase`; cutaway lewat `scenes.ts`. Latar: `polos` di semua scene.
 

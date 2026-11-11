@@ -25,7 +25,7 @@ Aturan konsep ada di `CLAUDE.md` bagian "Format video"; skill ini menjelaskan ca
 | Cta | Satu pertanyaan lanjutan untuk komentar. Tidak menyatakan fakta baru. | 3–4 dtk |
 
 ## Suara dan bahasa
-- Semua kalimat dibawakan **narator**. Tokoh di layar (Tako, cast) tidak berbicara; reaksinya ditulis di kolom Visual.
+- Semua kalimat dibawakan **narator**. Tokoh di layar (pembawa stickman Ganjar, cast) tidak berbicara; reaksinya ditulis di brief visual.
 - Narator menyapa penonton dengan "kamu". Tidak memakai "aku", "gue", "lo".
 - Kalimat pendek: sekitar 12 kata, paling banyak 15. Satu gagasan per kalimat.
 - Kata sehari-hari yang baku tetapi tidak kaku: "tidak" (bukan "nggak"), "seperti" (bukan "kayak"), "kok" dan "ternyata" boleh.
@@ -47,7 +47,8 @@ Visual yang tidak nyambung biasanya berasal dari brief yang kabur. Isi tabel "Br
 - **Kata kunci → aksi:** kata di narasi yang memicu tiap kemunculan ("lebih kuat → sorot Ungu"). Tiap objek muncul tepat saat disebut.
 - **Uji nyambung:** baca narasi scene sambil membayangkan layar. Bila ada kalimat tanpa visual, atau visual tanpa kalimat, ubah salah satunya.
 - **Cutaway:** pilih paling banyak 2 poin terpenting video untuk sisipan layar penuh (tanpa karakter), biasanya kalimat "Itu sebabnya …" atau inti Payoff.
-- Latar polos; SFX paling banyak satu per scene dan empat per video, hanya di Hook, Twist, Payoff, atau satu momen tematik.
+- **Pembawa:** untuk scene `karakter`, tulis ekspresi + gestur stickman yang sesuai makna kalimat (mis. kaget + menyerah di Twist, senang + tunjuk saat jawaban muncul). Variasikan antar scene.
+- Latar kertas berpetak; SFX paling banyak satu per scene dan empat per video, hanya di Hook, Twist, Payoff, atau satu momen tematik.
 
 ## Daftar periksa sebelum minta persetujuan
 - [ ] Jawaban video bisa diucapkan dalam satu kalimat.

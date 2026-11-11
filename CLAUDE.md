@@ -1,7 +1,7 @@
 # edumotion-web
 
 Proyek Remotion untuk akun animasi 2D edukasi di Instagram dan TikTok (video pendek 30–120 detik, vertikal).
-Pemilik: Ganjar (Coderium). Konsep utama: **video narator** (satu suara narator menjelaskan; tokoh di layar tidak berbicara). Maskot: **Tako**, ditemani 18 karakter cast. Proyek masih lokal.
+Pemilik: Ganjar (Coderium). Konsep utama: **video narator berformat stickman** (satu suara narator menjelaskan; pembawa di layar adalah stickman Ganjar di atas kertas berpetak, tidak berbicara). Tako dan 18 karakter cast tetap ada di kode; Tako tidak tampil lagi di video. Proyek masih lokal.
 
 ## Stack dan perintah
 Remotion 4 (rspack), React 19, TypeScript, ElevenLabs untuk voice over.
@@ -17,24 +17,29 @@ Remotion 4 (rspack), React 19, TypeScript, ElevenLabs untuk voice over.
 - Hook maksimal 6 kata dan harus muncul di 3 detik pertama.
 - Lima faktor tonton yang dijaga: rasa penasaran (curiosity gap), keterhubungan (relatable), kejutan visual, alur cerita bergerak, payoff yang memuaskan.
 - Caption tersinkron dengan VO, maksimal 2 baris. Teks penting di dalam safe zone: atas 220, bawah 480, kiri 64, kanan 160 px.
-- **Narator (konsep utama, diputuskan Ganjar 11 Nov 2026):** semua kalimat dibawakan satu narator (`who: "narator"`). Tako dan cast tampil sebagai tokoh di layar yang bereaksi (berpikir, kaget, senang), tidak berbicara dan tidak memakai animasi `talk`.
+- **Narator (konsep utama, diputuskan Ganjar 11 Nov 2026):** semua kalimat dibawakan satu narator (`who: "narator"`). Pembawa (stickman Ganjar) dan cast tampil sebagai tokoh di layar yang bereaksi (berpikir, kaget, senang), tidak berbicara.
 - **Bahasa:** Indonesia yang mudah dipahami. Kalimat pendek (sekitar 12 kata), satu gagasan per kalimat, kata sehari-hari, menyapa penonton "kamu". Istilah ilmiah hanya bila perlu dan langsung dijelaskan ("mitokondria, yaitu pabrik energi kecil di dalam sel"). Hindari kata serapan yang berat ("dihamburkan" → "disebarkan"). Fokus pada penjelasan, bukan lelucon.
 - **Twist:** narator menyebut tebakan umum yang keliru ("Banyak orang mengira …") di Setup, lalu mengoreksinya di Twist; ini ciri khas akun.
-- **Latar sederhana (KISS):** semua scene memakai latar polos, `<EduBackdrop topic={META.topic} />`. Tanpa dekor dunia (laut, antariksa, papan diagram, dan lain-lain). Konteks ditunjukkan lewat objek dan label, bukan latar.
+- **Format stickman (diputuskan Ganjar 12 Nov 2026, untuk semua video):**
+  - **Latar kertas berpetak (KISS):** semua scene memakai `<EduBackdrop topic={META.topic} />` (bawaan `kertas`: putih hangat, petak tipis tinta topik, tanpa dekor dan tanpa gerak). Konteks ditunjukkan lewat objek dan label, bukan latar.
+  - **Pembawa:** `<Pembawa />` dari `src/characters/ganjar` (stickman Ganjar). `TakoCharacter` ditolak lint di video.
+  - **Akting satu badan penuh** (dipinjam dari panduan B1 stickman-video-director, gagasan saja): tiap momen pembawa punya `ekspresi` dan `gestur` yang sesuai makna kalimat (kaget + menyerah, mikir + tangan di dagu, senang + tunjuk ke jawaban, tertawa + sorak). Ekspresi dibuat jelas dan bervariasi; jangan satu wajah sepanjang video.
+  - **Teks besar dan pendek di dalam adegan** (Judul pola, paling banyak 6 kata) jadi fokus; caption lebih tenang di bawah.
+  - **Gambar terus maju:** gambar utama berganti atau bertambah paling lambat tiap sekitar 2,5 detik, dengan jeda tenang setelah aksi.
 - **SFX hemat:** paling banyak satu cue per scene dan empat per video, pengulangan (`times`) paling banyak empat. Pakai hanya di momen penting (Hook, Twist, Payoff). Tanpa `whoosh` di tiap pergantian scene.
 
 ## Visual penjelas (disepakati Ganjar, 12 Nov 2026)
 Masalah yang dihindari: gambar jelek, tata letak berantakan, visual tidak nyambung dengan narasi.
 - **Brief visual dulu.** Tiap scene di `script.md` punya kolom Pola, Objek utama, Label (paling banyak 3, tiap label paling banyak 3 kata), dan "kata kunci → aksi". Brief disetujui Ganjar bersama naskah, sebelum ada kode.
 - **Pola penjelas wajib untuk scene Setup dan Explain** (`src/explainers/pola`): `Bandingkan` (A vs B, baris atau kolom), `Langkah` (2–4 butir bernomor), `SebabAkibat`, `Sorot` (satu objek besar + paling banyak 3 penanda), `AngkaBesar`, dan `Koreksi` untuk Twist. Satu pola per fase (`Fase`), paling banyak dua fase per scene. Pola sudah menetapkan zona (judul y 250, panggung y 460–1240, lebar 160–920) dan skala huruf (`TEKS`); views tidak menulis `fontSize` atau posisi bebas sendiri.
-- **Karakter:** Tako dan cast tampil penuh hanya di Hook, Twist, Payoff, Cta. Di Setup/Explain tidak ada Tako (cast boleh sebagai gambar di dalam pola, mis. Matahari).
+- **Karakter:** pembawa tampil penuh hanya di Hook, Twist, Payoff, Cta. Di Setup/Explain tidak ada pembawa (cast boleh sebagai gambar di dalam pola, mis. Matahari).
 - **Cutaway:** sisipan layar penuh tanpa karakter untuk poin terpenting, ditulis di `scenes.ts` (`cutaway: { at, sampai?, judul, sorot?, sub? }`), paling banyak 2 per video, judul paling banyak 6 kata, tidak di Hook/Cta. Tampil dari kata `at` sampai kalimatnya selesai.
 - **Objek (props):** status di registry `antre` → `draf` → `disetujui`. Konsep sulit digambar dari acuan (`design-references/props/<id>.*`). Hanya Ganjar yang mengubah status ke `disetujui`.
-- **Gerbang storyboard:** setelah `views/` ditulis, render `<Nama>-Storyboard`, lihat gambarnya, perbaiki, lalu minta Ganjar menyetujui sebelum menganggap visual selesai. `npm run lint` memberi peringatan untuk Tako di Setup/Explain, Explain tanpa pola, `fontSize` di views, dan objek `draf`.
+- **Gerbang storyboard:** setelah `views/` ditulis, render `<Nama>-Storyboard`, lihat gambarnya, perbaiki, lalu minta Ganjar menyetujui sebelum menganggap visual selesai. `npm run lint` memberi peringatan untuk pembawa di Setup/Explain, Explain tanpa pola, `fontSize` di views, dan objek `draf`.
 
 ## Audiens dan posisi akun (disepakati Ganjar, 31 Okt 2026)
 - **Audiens:** orang Indonesia usia 15–25 yang penasaran (SMA sampai awal kuliah); materi tetap bisa dipahami anak SMP. Belum menargetkan anak SD (nada dan aturan platform berbeda; perlu dicek dulu).
-- **Posisi:** "Sains 60 detik yang bikin kamu bilang 'oh iya ya!'", dibawakan narator dengan Tako sebagai maskot di layar.
+- **Posisi:** "Sains 60 detik yang bikin kamu bilang 'oh iya ya!'", dibawakan narator dengan stickman Ganjar sebagai pembawa di layar.
 - **Pembeda:** (1) format pendek vertikal, satu pertanyaan sehari-hari per video; (2) narator menyebut tebakan umum yang keliru lalu mengoreksinya, itu jadi bagian *Twist*; (3) satu karakter cast per pilar topik.
 - **Pilar konten (karakter):** Tubuh manusia (Jantung), Bumi & antariksa (Bumi), Cuaca & air (Awan, Tetes), Teknologi (Robo), Sejarah (Raka), Fakta umum (Buku).
 - **Komposisi awal:** IPA sekitar 70%, sisanya sejarah dan teknologi. Ini hipotesis kerja dari riset kecil (satu akun pembanding, sampel kecil, label dibuat sendiri); data video nyata yang menentukan, jangan diperlakukan sebagai fakta.
@@ -83,7 +88,7 @@ Aturan:
 - **Mode animatik:** set prop `animatic: true` di panel props Studio. Visual scene diganti kartu (bagian, scene, narasi, bilah waktu); audio, caption, dan SFX tetap. Pakai untuk menyetujui tempo naskah/VO sebelum `views/` ditulis. Scene tanpa view juga otomatis tampil sebagai kartu animatik.
 - **Lembar storyboard:** tiap video punya komposisi `<Nama>-Storyboard` (folder Storyboard di Studio): semua scene dalam satu gambar, dibekukan sesaat sebelum kalimat terakhirnya selesai, dengan caption. Render: `npx remotion still src/index.ts <Nama>-Storyboard out/<Nama>-storyboard.png`. Lihat lembar ini setiap kali mengubah `views/` dan sebelum menyatakan visual selesai.
 - Caption otomatis dari `lines[].text` (dipecah maksimal 2 baris); jangan menggambar subtitle sendiri.
-- `npm run lint` menjalankan eslint, tsc, dan `scripts/check-videos.mjs` (menolak struktur video yang menyimpang, `who` selain `narator`, SFX melebihi batas, dan latar selain polos; memberi peringatan bila audio VO usang terhadap teks) dan `scripts/lint-props.mjs` (menolak props dengan hex di luar palet, keacakan, tanpa `PropFrame`, atau belum tercatat di registry). Jalankan sebelum menyatakan selesai.
+- `npm run lint` menjalankan eslint, tsc, dan `scripts/check-videos.mjs` (menolak struktur video yang menyimpang, `who` selain `narator`, SFX melebihi batas, latar selain kertas, dan `TakoCharacter`; memberi peringatan bila audio VO usang terhadap teks) dan `scripts/lint-props.mjs` (menolak props dengan hex di luar palet, keacakan, tanpa `PropFrame`, atau belum tercatat di registry). Jalankan sebelum menyatakan selesai.
 - Skrip lama `new-video.mjs` dan `from-draft.mjs` sudah dipensiunkan; jangan dipakai.
 
 ## Design system (wajib diikuti)
@@ -98,7 +103,7 @@ Lokasi: `design-system/edumotion-design-system/` (baca `readme.md`, `props/STYLE
 ## Peta kode
 - `src/characters/tako/`: rig Tako (`TakoCharacter`, ekspresi, animasi, `assets/palette.ts`).
 - `src/characters/cast/`: 18 karakter (awan, bumi, jantung, raka, buku, robo, tetes, claude, ganjar, hape, komputer, otak, matahari, baterai, bulan, atom, petir, api). 17 digambar dengan `CastRig`; **`ganjar` digambar sebagai stickman** (`src/characters/ganjar/`, diambil dari remotion-web, diputuskan Ganjar 12 Nov 2026) tetapi tetap dipakai lewat `<CastCharacter id="ganjar" />` dengan ekspresi dan animasi yang sama (dipetakan di `GanjarCast.tsx`). Untuk 14 ekspresi dan 13 gestur stickman yang lengkap, pakai `GanjarStickman` langsung. `npm run cast:export` tidak mengekspor Ganjar. Warna topik: `claude` memakai topik `ai` (oranye); tujuh karakter pertama dan karakter baru lain memakai topik yang sudah ada atau belum punya topik sendiri (Hape, Komputer, Otak, Matahari, Baterai, Bulan, Atom, Petir, Api, dan Ganjar belum). `ganjar` adalah karakter manusia (pemilik akun), bukan pilar topik. Rig bersama (`CastRig`) untuk 17 karakter, tiap karakter berupa `CastDefinition`; Ganjar memakai stickman. Pakai `<CastCharacter id=... />`.
-- `src/assets/backdrops/`: latar (`plain`, `outdoor`, `workspace`, `edu` dengan 20 jenis termasuk `laut`, `dapur`, `jalanRaya`, `warna` (latar warna polos untuk Hook dan Cta); `sketch` untuk stickman). Waktu hari: siang/sore/malam atau 0..1. Baca `README.md` di folder itu. Blok `block` dinonaktifkan karena preview crash.
+- `src/assets/backdrops/`: latar (`plain`, `outdoor`, `workspace`, `edu` dengan 20 jenis termasuk `laut`, `dapur`, `jalanRaya`, `warna` (latar warna polos untuk Hook dan Cta), dan `kertas` (bawaan, satu-satunya yang dipakai video); `sketch` untuk stickman lama). Waktu hari: siang/sore/malam atau 0..1. Baca `README.md` di folder itu. Blok `block` dinonaktifkan karena preview crash.
 - `src/assets/camera/`: kamera virtual 2D (`ShotCamera`, `framing`, layout SplitScreen/PictureInPicture/InsertCard). Baca `README.md`.
 - `src/assets/screens/`: mock layar (BrowserMock, CodeEditor, Terminal, dll.), kebanyakan untuk video coding.
 - `src/themes/`: tema `edumotion` (`edumotion.ts`), `topics.ts` (`TOPIC_COLORS`, `EDU_PLAIN`, `HIGHLIGHT`).
@@ -111,7 +116,7 @@ Lokasi: `design-system/edumotion-design-system/` (baca `readme.md`, `props/STYLE
 - `src/Root.tsx`: mendaftarkan demo (`TakoCastDemo`, `ExplainersDemo`, `EffectsDemo`, Still `PropsSheet`, `ThumbnailDemo`, `EduBackdrops`, `TakoCastExpressions`) dan semua video dari `VIDEOS`; jangan menambah komposisi video langsung di sini.
 
 ## Kondisi saat ini dan celah
-- Empat video (`JantungTidakCapek`, `LangitBiru`, `BumiPunyaLaut`, `AwanTidakJatuh`) ditulis ulang ke konsep narator pada 11 Nov 2026: naskah sederhana, latar polos, SFX 3 cue per video. **Naskah baru menunggu persetujuan Ganjar** dan belum ditinjau di Studio.
+- Empat video (`JantungTidakCapek`, `LangitBiru`, `BumiPunyaLaut`, `AwanTidakJatuh`) ditulis ulang ke konsep narator pada 11 Nov 2026: naskah sederhana, latar polos, SFX 3 cue per video. Pada 12 Nov 2026 keempatnya dipindah ke format stickman (latar kertas, Tako diganti `Pembawa`); hanya LangitBiru yang sudah memakai pola penjelas. **Naskah baru menunggu persetujuan Ganjar** dan belum ditinjau di Studio.
 - VO: audio Aldo lama untuk `JantungTidakCapek` dan `LangitBiru` tidak cocok lagi dengan naskah baru, jadi dilepas dari manifest (mp3 lama masih ada di folder `voiceover/` dan di riwayat git). Hanya `LangitBiru` Hook-1 yang masih dipakai. Durasi memakai estimasi naskah sampai VO dibuat ulang (dengan persetujuan Ganjar).
 - Suara narator: **Aldo** (diputuskan Ganjar 11 Nov 2026). VO ulang keempat video **ditahan dulu** atas permintaan Ganjar; jangan diusulkan lagi sampai Ganjar memintanya.
 - Pratinjau visual dirender di lingkungan tanpa akses Google Fonts, jadi tipografi Nunito belum terlihat; periksa di Studio.

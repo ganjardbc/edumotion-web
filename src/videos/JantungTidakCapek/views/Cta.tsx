@@ -1,7 +1,7 @@
 import type React from "react";
 import { EduBackdrop } from "../../../assets/backdrops";
 import { AbsoluteFill } from "remotion";
-import { TakoCharacter } from "../../../characters/tako";
+import { Pembawa } from "../../../characters/ganjar";
 import { EDU_FEET_Y, HookText } from "../../../explainers";
 import { META } from "../scenes";
 import type { SceneProps } from "../../_shared/types";
@@ -11,6 +11,6 @@ export const Cta: React.FC<SceneProps> = () => (
   <AbsoluteFill>
     <EduBackdrop topic={META.topic} />
     <HookText text="Bagian tubuh mana lagi?" highlight="mana" size={96} />
-    <TakoCharacter x={540} y={EDU_FEET_Y} size={680} expression="curious" animation="thinking" />
+    <Pembawa x={540} y={EDU_FEET_Y} tinggi={646} ekspresi="mikir" gestur="mikir" />
   </AbsoluteFill>
 );

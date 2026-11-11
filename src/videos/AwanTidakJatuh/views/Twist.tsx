@@ -1,7 +1,7 @@
 import type React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { EduBackdrop } from "../../../assets/backdrops";
-import { TakoCharacter } from "../../../characters/tako";
+import { Pembawa } from "../../../characters/ganjar";
 import { CorrectionCard, EDU_FEET_Y, LabelPill } from "../../../explainers";
 import { Timbangan } from "../../../props";
 import { META } from "../scenes";
@@ -20,7 +20,7 @@ export const Twist: React.FC<SceneProps> = ({ frames, at }) => {
       <CorrectionCard top={250} guess="Ringan seperti kapas" answer="Berat ±500 ton" topic="air" crossAt={at("keliru")} answerAt={berat} />
       <Timbangan x={760} y={1010} size={380} level={level} />
       <LabelPill x={760} y={820} text="berat awan" topic={META.topic} at={berat + 16} size={34} />
-      <TakoCharacter x={300} y={EDU_FEET_Y} size={520} expression="surprised" animation="surprise" />
+      <Pembawa x={300} y={EDU_FEET_Y} tinggi={494} ekspresi="kaget" gestur="menyerah" />
     </AbsoluteFill>
   );
 };

@@ -1,7 +1,7 @@
 import type React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { EduBackdrop } from "../../../assets/backdrops";
-import { TakoCharacter } from "../../../characters/tako";
+import { Pembawa } from "../../../characters/ganjar";
 import { EDU_FEET_Y } from "../../../explainers";
 import { Koreksi } from "../../../explainers/pola";
 import { META } from "../scenes";
@@ -15,7 +15,7 @@ export const Twist: React.FC<SceneProps> = ({ at }) => {
     <AbsoluteFill>
       <EduBackdrop topic={META.topic} />
       <Koreksi tebakan="Langit memantulkan laut" jawaban="Warna dari udara" coretAt={at("bukan")} jawabAt={at("Warna birunya")} topic="planet" />
-      <TakoCharacter x={540} y={EDU_FEET_Y} size={500} expression={paham ? "happy" : "surprised"} animation={paham ? "idle" : "surprise"} />
+      <Pembawa x={540} y={EDU_FEET_Y} tinggi={480} ekspresi={paham ? "senang" : "kaget"} gestur={paham ? "tunjuk" : "menyerah"} />
     </AbsoluteFill>
   );
 };

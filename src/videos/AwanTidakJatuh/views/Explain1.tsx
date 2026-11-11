@@ -2,8 +2,7 @@ import type React from "react";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { EduBackdrop } from "../../../assets/backdrops";
 import { CastCharacter } from "../../../characters/cast";
-import { TakoCharacter } from "../../../characters/tako";
-import { BarCompare, EDU_FEET_Y } from "../../../explainers";
+import { BarCompare } from "../../../explainers";
 import { useTheme } from "../../../themes";
 import { META } from "../scenes";
 import type { SceneProps } from "../../_shared/types";
@@ -40,8 +39,6 @@ export const Explain1: React.FC<SceneProps> = ({ at }) => {
           return <CastCharacter key={i} id="tetes" x={260 + col * 280} y={560 + row * 220 + bob} size={190 * Math.max(0, pop)} expression="happy" />;
         })}
       </div>
-
-      <TakoCharacter x={900} y={EDU_FEET_Y} size={220} facing={-1} expression="curious" animation="thinking" />
     </AbsoluteFill>
   );
 };

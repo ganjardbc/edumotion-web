@@ -1,8 +1,6 @@
 import type React from "react";
 import { EduBackdrop } from "../../../assets/backdrops";
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
-import { TakoCharacter } from "../../../characters/tako";
-import { EDU_FEET_Y } from "../../../explainers";
 import { MuscleCell } from "../../../props";
 import { useTheme } from "../../../themes";
 import { META } from "../scenes";
@@ -24,7 +22,6 @@ export const Explain2: React.FC<SceneProps> = () => {
       <div style={{ ...label, top: 700 }}>Otot lengan</div>
       <div style={{ ...sub, top: 765 }}>pabrik energinya jauh lebih sedikit</div>
       <MuscleCell x={540} y={990} size={560} count={2} reveal={reveal} topic="teknologi" />
-      <TakoCharacter x={900} y={EDU_FEET_Y} size={220} facing={-1} expression="curious" animation="thinking" />
     </AbsoluteFill>
   );
 };

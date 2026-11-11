@@ -8,6 +8,7 @@ import { Dapur } from "./Dapur";
 import { DalamTubuh } from "./DalamTubuh";
 import { GedungSate } from "./GedungSate";
 import { KamarTidur } from "./KamarTidur";
+import { Kertas } from "./Kertas";
 import { JalanRaya } from "./JalanRaya";
 import { Kantor } from "./Kantor";
 import { Monas } from "./Monas";
@@ -26,7 +27,7 @@ import { Warna } from "./Warna";
 // Lantai tempat kaki karakter berdiri (di atas blok caption). EDU_FLOOR_Y di explainers memakai nilai ini.
 export const EDU_BACKDROP_FLOOR_Y = 1180;
 
-export const EDU_BACKDROP_KINDS = ["polos", "dalamTubuh", "papanDiagram", "langit", "antariksa", "ruangKelas", "laboratorium", "museum", "alam", "kota", "pedesaan", "kamarTidur", "kantor", "ruangKerja", "gedungSate", "monas", "laut", "dapur", "jalanRaya", "warna"] as const;
+export const EDU_BACKDROP_KINDS = ["kertas", "polos", "dalamTubuh", "papanDiagram", "langit", "antariksa", "ruangKelas", "laboratorium", "museum", "alam", "kota", "pedesaan", "kamarTidur", "kantor", "ruangKerja", "gedungSate", "monas", "laut", "dapur", "jalanRaya", "warna"] as const;
 export type EduBackdropKind = (typeof EDU_BACKDROP_KINDS)[number];
 
 export type EduBackdropProps = {
@@ -45,7 +46,8 @@ export type EduBackdropProps = {
 };
 
 // Latar video edumotion. Warna selalu dari palet topik, jadi satu latar dipakai ulang di semua pilar.
-export const EduBackdrop: React.FC<EduBackdropProps> = ({ kind = "polos", topic, floorY = EDU_BACKDROP_FLOOR_Y, time = "siang", accent, decorShift, moonShift }) => {
+// Bawaan `kertas` (format stickman, satu-satunya latar yang boleh dipakai video); jenis lain tetap ada sebagai pustaka.
+export const EduBackdrop: React.FC<EduBackdropProps> = ({ kind = "kertas", topic, floorY = EDU_BACKDROP_FLOOR_Y, time = "siang", accent, decorShift, moonShift }) => {
   switch (kind) {
     case "dalamTubuh":
       return <DalamTubuh topic={topic} floorY={floorY} />;
@@ -83,6 +85,8 @@ export const EduBackdrop: React.FC<EduBackdropProps> = ({ kind = "polos", topic,
       return <Dapur topic={topic} floorY={floorY} />;
     case "jalanRaya":
       return <JalanRaya topic={topic} floorY={floorY} time={time} />;
+    case "kertas":
+      return <Kertas topic={topic} />;
     case "warna":
       return <Warna topic={topic} floorY={floorY} />;
     case "polos": {

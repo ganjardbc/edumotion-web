@@ -3,6 +3,7 @@
 export { GanjarStickman, GANJAR_STICKMAN_EXPRESSIONS, type GanjarStickmanExpression, type GanjarStickmanProps } from "./GanjarStickman";
 export { GESTURES, type Gesture } from "./gestures";
 export { GanjarCast, GANJAR_EXPRESSION } from "./GanjarCast";
+export { Pembawa } from "./Pembawa";
 export { GANJAR_STICKMAN_PALETTE } from "./palette";
 
 // Metadata untuk demo dan lembar ekspresi (karakter ini tidak memakai CastRig).
