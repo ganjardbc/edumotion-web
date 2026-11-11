@@ -1,7 +1,7 @@
 # Kenapa baterai HP cepat habis?
 
 Topik: teknologi · Suara: narator (Aldo) · Karakter di layar: Ganjar (pembawa, stickman), Baterai, Hape
-Status naskah: **draf, menunggu persetujuan Ganjar** (12 Nov 2026). Video uji pertama format stickman.
+Status naskah: **disetujui Ganjar (12 Nov 2026)**. Visual draf pertama selesai; storyboard menunggu tinjauan. Video uji pertama format stickman.
 
 Struktur: Hook → Setup (tebakan umum yang keliru) → Twist (koreksi) → Penjelasan ×3 → Payoff → Ajakan.
 Perkiraan 52 detik (119 kata); durasi akhir mengikuti audio.
@@ -29,10 +29,10 @@ Pola: `karakter` (Hook, Twist, Payoff, Cta, dengan pembawa stickman Ganjar) atau
 |---|---|---|---|---|---|---|
 | Hook | karakter | Kenapa baterai HP cepat **habis**? | Baterai (cast) di samping pembawa | – | kaget + garukKepala | "Pagi" → Baterai senang; "merah" → Baterai sedih |
 | Setup | SebabAkibat | Gara-gara **aplikasi** terbuka? | Hape (cast) → tanda tanya | Banyak aplikasi terbuka; Tutup semua? | – | "aplikasi" → sebab; "ditutup" → akibat |
-| Twist | Koreksi + karakter | – | kartu koreksi, pembawa | Aplikasi terbuka bikin boros → Bukan penyebab utama | kaget + menyerah → senang + tunjuk | "bukan" → coret; "Apple" → jawaban; "macet" → pembawa paham |
-| Explain1 | Bandingkan (baris) | Layar terang paling **boros** | LayarHp redup vs terang | Redup: lebih hemat; Terang: lebih boros | – | "layar" → kartu redup; "terang" → kartu terang + sorot |
+| Twist | Koreksi + karakter | – | kartu koreksi, pembawa | Aplikasi terbuka itu boros → Bukan penyebab utama | kaget + menyerah → senang + tunjuk | "bukan" → coret; "Apple" → jawaban; "macet" → pembawa paham |
+| Explain1 | Bandingkan (baris) | Layar terang paling **boros** | LayarHp redup vs terang | Redup: hemat; Terang: boros | – | "paling" → kartu redup; "terang" → kartu terang menyala; "terkuras" → sorot |
 | Explain2 | SebabAkibat → Bandingkan (baris) | Sinyal lemah ikut **boros** / Wi-Fi lebih **hemat** | SinyalBar (1 batang) → Hape bingung / WifiSignal vs SinyalBar | HP terus mencari; Wi-Fi hemat; Seluler boros | – | "Sinyal lemah" → sebab; "mencari" → akibat; "Wi-Fi" → fase 2 |
-| Explain3 | Langkah + cutaway | Baterai ikut **menua** | Baterai (cast) lelah, Baterai sedih, Termometer | 1 Baterai menua; 2 Isinya makin sedikit; 3 Panas merusak | – | "menua" → butir 1; "makin sedikit" → butir 2; "Panas" → butir 3, lalu cutaway |
+| Explain3 | Langkah (2 butir) + cutaway | Baterai ikut **menua** | Baterai (cast) mengantuk lalu sedih | 1 Baterai menua; 2 Isinya makin sedikit | – | "menua" → butir 1; "makin sedikit" → butir 2; "Panas" → cutaway (menampilkan kalimat panas, jadi tanpa butir ketiga) |
 | Payoff | karakter | Layar, sinyal, **panas** | tiga ikon kecil: LayarHp, SinyalBar, Termometer | – | senang + tunjuk → tertawa + sorak | "layar terang" → ikon 1; "sinyal lemah" → ikon 2; "kepanasan" → ikon 3 |
 | Cta | karakter | Isi semalaman, **bahaya**? | Baterai (cast), tanda tanya | – | mikir + mikir | – |
 
@@ -40,8 +40,8 @@ Cutaway (1): Explain3, mulai "Panas", judul "Panas merusak baterai selamanya" (s
 
 ## Objek
 - Cast: Baterai, Hape (sudah ada). Pembawa: stickman Ganjar.
-- Props ada (berstatus `draf`): `Termometer`, `WifiSignal`, `QuestionMark`, `CrossMark`.
-- Antre (perlu dibuat, sederhana, acuan ikon umum ponsel dan batang sinyal):
+- Props ada (berstatus `draf`): `Termometer` (Payoff), `WifiSignal`, `QuestionMark`.
+- Baru dibuat 12 Nov 2026, berstatus `draf` (acuan ikon umum ponsel dan batang sinyal):
   - `LayarHp` (teknologi, prop, param `terang` 0..1: layar ponsel yang makin putih bercahaya). Acuan: ikon ponsel Lucide "smartphone".
   - `SinyalBar` (teknologi, prop, param `level` 0..4: empat batang sinyal seluler). Acuan: ikon Lucide "signal".
 

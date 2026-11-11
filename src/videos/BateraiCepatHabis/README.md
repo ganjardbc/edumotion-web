@@ -8,9 +8,9 @@ Kenapa baterai HP cepat habis?
 - Struktur folder: lihat "Struktur video" di CLAUDE.md di root proyek
 
 ## Status
-- [ ] Naskah disetujui Ganjar (draf ditulis 12 Nov 2026)
-- [ ] Objek (`props`) yang dibutuhkan sudah ada atau dicatat `antre` di design-system/edumotion-design-system/props/registry.md
-- [ ] Scene visual selesai (views/)
+- [x] Naskah disetujui Ganjar (12 Nov 2026)
+- [x] Objek (`props`) yang dibutuhkan sudah ada atau dicatat `antre` di design-system/edumotion-design-system/props/registry.md
+- [x] Scene visual selesai (views/), draf pertama; storyboard menunggu tinjauan Ganjar
 - [ ] Voice over dibuat (`node scripts/vo-generate.mjs --video BateraiCepatHabis`, setelah persetujuan Ganjar)
 - [ ] Ditinjau di Remotion Studio dengan panduan safe zone
 - [ ] Render akhir

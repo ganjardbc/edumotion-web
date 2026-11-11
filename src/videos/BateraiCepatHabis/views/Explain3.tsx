@@ -1,15 +1,24 @@
 import type React from "react";
 import { AbsoluteFill } from "remotion";
 import { EduBackdrop } from "../../../assets/backdrops";
+import { CastCharacter } from "../../../characters/cast";
+import { Langkah } from "../../../explainers/pola";
 import { META } from "../scenes";
 import type { SceneProps } from "../../_shared/types";
 
-// Scene Explain3 (explain). Hanya bergantung pada useCurrentFrame(); warna dari tema atau TOPIC_COLORS.
-// Latar kertas berpetak (bawaan EduBackdrop). Hook/Twist/Payoff/Cta: <Pembawa /> dari characters/ganjar.
-// Setup/Explain: satu pola dari explainers/pola, tanpa pembawa.
-// Picu gerak dengan at(kata) dari props (frame saat narator mengucapkan kata itu), bukan pecahan durasi.
-export const Explain3: React.FC<SceneProps> = () => (
+// Explain3 (pola Langkah, dua butir): baterai menua → isinya makin sedikit. Kalimat ketiga ("Panas ...")
+// ditampilkan oleh cutaway layar penuh (lihat scenes.ts), jadi tidak ada butir ketiga.
+export const Explain3: React.FC<SceneProps> = ({ at }) => (
   <AbsoluteFill>
     <EduBackdrop topic={META.topic} />
+    <Langkah
+      judul="Baterai ikut menua"
+      sorotJudul="menua"
+      topic="teknologi"
+      butir={[
+        { teks: "Baterai menua", at: at("menua"), gambar: (k) => <CastCharacter id="baterai" x={k.x} y={k.y + k.size * 0.45} size={k.size * 1.8} expression="sleepy" animation="idle" /> },
+        { teks: "Isinya makin sedikit", at: at("makin sedikit"), gambar: (k) => <CastCharacter id="baterai" x={k.x} y={k.y + k.size * 0.45} size={k.size * 1.8} expression="sad" animation="idle" /> },
+      ]}
+    />
   </AbsoluteFill>
 );

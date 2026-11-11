@@ -1,15 +1,28 @@
 import type React from "react";
-import { AbsoluteFill } from "remotion";
+import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { EduBackdrop } from "../../../assets/backdrops";
+import { Bandingkan } from "../../../explainers/pola";
+import { LayarHp } from "../../../props";
 import { META } from "../scenes";
 import type { SceneProps } from "../../_shared/types";
 
-// Scene Explain1 (explain). Hanya bergantung pada useCurrentFrame(); warna dari tema atau TOPIC_COLORS.
-// Latar kertas berpetak (bawaan EduBackdrop). Hook/Twist/Payoff/Cta: <Pembawa /> dari characters/ganjar.
-// Setup/Explain: satu pola dari explainers/pola, tanpa pembawa.
-// Picu gerak dengan at(kata) dari props (frame saat narator mengucapkan kata itu), bukan pecahan durasi.
-export const Explain1: React.FC<SceneProps> = () => (
-  <AbsoluteFill>
-    <EduBackdrop topic={META.topic} />
-  </AbsoluteFill>
-);
+// Explain1 (pola Bandingkan, baris): layar redup lebih hemat, layar terang lebih boros.
+export const Explain1: React.FC<SceneProps> = ({ at }) => {
+  const frame = useCurrentFrame();
+  const terang = at("terang");
+  const nyala = interpolate(frame, [terang, terang + 20], [0.15, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill>
+      <EduBackdrop topic={META.topic} />
+      <Bandingkan
+        judul="Layar terang paling boros"
+        sorotJudul="boros"
+        topic="teknologi"
+        pemenang="b"
+        sorotAt={at("terkuras")}
+        a={{ label: "Redup", nilai: "hemat", at: at("paling"), gambar: (k) => <LayarHp {...k} terang={0.1} /> }}
+        b={{ label: "Terang", nilai: "boros", at: terang, gambar: (k) => <LayarHp {...k} terang={nyala} /> }}
+      />
+    </AbsoluteFill>
+  );
+};

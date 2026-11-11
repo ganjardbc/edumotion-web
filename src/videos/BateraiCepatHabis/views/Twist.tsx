@@ -1,15 +1,21 @@
 import type React from "react";
-import { AbsoluteFill } from "remotion";
+import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { EduBackdrop } from "../../../assets/backdrops";
+import { Pembawa } from "../../../characters/ganjar";
+import { EDU_FEET_Y } from "../../../explainers";
+import { Koreksi } from "../../../explainers/pola";
 import { META } from "../scenes";
 import type { SceneProps } from "../../_shared/types";
 
-// Scene Twist (twist). Hanya bergantung pada useCurrentFrame(); warna dari tema atau TOPIC_COLORS.
-// Latar kertas berpetak (bawaan EduBackdrop). Hook/Twist/Payoff/Cta: <Pembawa /> dari characters/ganjar.
-// Setup/Explain: satu pola dari explainers/pola, tanpa pembawa.
-// Picu gerak dengan at(kata) dari props (frame saat narator mengucapkan kata itu), bukan pecahan durasi.
-export const Twist: React.FC<SceneProps> = () => (
-  <AbsoluteFill>
-    <EduBackdrop topic={META.topic} />
-  </AbsoluteFill>
-);
+// Twist (pola Koreksi): tebakan dicoret di "bukan", jawaban muncul di "Apple". Pembawa kaget lalu paham di "macet".
+export const Twist: React.FC<SceneProps> = ({ at }) => {
+  const frame = useCurrentFrame();
+  const paham = frame >= at("macet");
+  return (
+    <AbsoluteFill>
+      <EduBackdrop topic={META.topic} />
+      <Koreksi tebakan="Aplikasi terbuka itu boros" jawaban="Bukan penyebab utama" coretAt={at("bukan")} jawabAt={at("Apple")} topic="teknologi" />
+      <Pembawa x={540} y={EDU_FEET_Y} tinggi={480} ekspresi={paham ? "senang" : "kaget"} gestur={paham ? "tunjuk" : "menyerah"} />
+    </AbsoluteFill>
+  );
+};
