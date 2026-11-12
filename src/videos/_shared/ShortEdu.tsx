@@ -3,6 +3,8 @@ import type React from "react";
 import { useMemo } from "react";
 import { AbsoluteFill, Sequence } from "remotion";
 import { SFX } from "../../assets/sfx";
+import { Kapur, KapurFilter } from "../../dark-chalk/Kapur";
+import { PapanBackdrop } from "../../dark-chalk/PapanBackdrop";
 import { Caption, SafeZoneGuide, Transition } from "../../explainers";
 import { ThemeProvider, useTheme } from "../../themes";
 import { Animatic } from "./Animatic";
@@ -66,20 +68,39 @@ type Props = VideoProps & {
   readonly vo: Voiceover;
   // Warna transisi antar scene (lihat Scene.enter).
   readonly topic?: VideoTopic;
+  // Tema visual: "kertas" (stickman, bawaan) atau "dark-chalk" (papan tulis hijau + garis kapur; lihat src/dark-chalk/README.md).
+  // Pada dark-chalk, cangkang menggambar papan di belakang dan membungkus tiap scene dengan filter kapur, jadi view scene
+  // hanya menggambar isi (tanpa EduBackdrop).
+  readonly tema?: "kertas" | "dark-chalk";
 };
 
-const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false, animatic = false, topic }) => {
+const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false, animatic = false, topic, tema = "kertas" }) => {
+  const kapur = tema === "dark-chalk";
   const theme = useTheme();
   const timings = useMemo(() => computeTimings(scenes, vo), [scenes, vo]);
   return (
     <AbsoluteFill style={{ backgroundColor: theme.colors.canvas }}>
+      {kapur ? (
+        <>
+          <KapurFilter />
+          <PapanBackdrop varian="hijau" />
+        </>
+      ) : null}
       {timings.map((t) => {
         const SceneView = renderers[t.scene.id];
         if (!SceneView && !animatic) throw new Error(`Scene ${t.scene.id} tidak punya renderer di views/${t.scene.id}.tsx`);
         const at = (kata: string, nth?: number) => cueAt(t, kata, nth);
         return (
           <Sequence key={t.scene.id} from={t.from} durationInFrames={t.frames} name={t.scene.id}>
-            {animatic || !SceneView ? <Animatic timing={t} index={timings.indexOf(t)} count={timings.length} topic={topic} /> : <SceneView scene={t.scene} frames={t.frames} lineStarts={t.lineStarts} at={at} />}
+            {animatic || !SceneView ? (
+              <Animatic timing={t} index={timings.indexOf(t)} count={timings.length} topic={topic} />
+            ) : kapur ? (
+              <Kapur>
+                <SceneView scene={t.scene} frames={t.frames} lineStarts={t.lineStarts} at={at} />
+              </Kapur>
+            ) : (
+              <SceneView scene={t.scene} frames={t.frames} lineStarts={t.lineStarts} at={at} />
+            )}
             <SceneSfx scene={t.scene} frames={t.frames} />
             {t.scene.lines.map((line, i) => {
               const audio = vo.audioFor(vo.lineId(t.scene.id, i));
@@ -107,7 +128,7 @@ const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false, animat
 
 // Cangkang semua video edumotion (1080x1920, 30 fps): tema, urutan scene, audio VO, dan caption.
 export const ShortEdu: React.FC<Props> = (props) => (
-  <ThemeProvider name="edumotion">
+  <ThemeProvider name={props.tema === "dark-chalk" ? "dark-chalk" : "edumotion"}>
     <Body {...props} />
   </ThemeProvider>
 );

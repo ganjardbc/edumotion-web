@@ -130,7 +130,7 @@ for (const v of videos) {
       const src = readFileSync(f, "utf8");
       const rel = `views/${sc.id}.tsx`;
       if ((sc.segment === "explain" || sc.segment === "setup") && /<Pembawa\b/.test(src)) warnings.push(`src/videos/${v}: ${rel} memakai Pembawa di scene ${sc.segment}; pembawa hanya di Hook, Twist, Payoff, Cta (Setup/Explain memakai pola)`);
-      if (sc.segment === "explain" && !/explainers\/pola"/.test(src)) warnings.push(`src/videos/${v}: ${rel} tidak memakai pola penjelas (explainers/pola)`);
+      if (sc.segment === "explain" && !/explainers\/pola"|dark-chalk\/pola"/.test(src)) warnings.push(`src/videos/${v}: ${rel} tidak memakai pola penjelas (explainers/pola)`);
       if (/fontSize\s*:/.test(src)) warnings.push(`src/videos/${v}: ${rel} menulis fontSize sendiri; pakai Judul atau pola (skala TEKS)`);
       const imp = src.match(/import \{([^}]+)\} from "\.\.\/\.\.\/\.\.\/props"/);
       for (const name of imp ? imp[1].split(",").map((x) => x.trim()).filter(Boolean) : []) if (propStatus[name] === "draf") draf.add(name);

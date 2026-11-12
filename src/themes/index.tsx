@@ -1,11 +1,12 @@
 import { createContext, useContext } from "react";
 import type React from "react";
+import { darkChalk } from "./dark-chalk";
 import { edumotion } from "./edumotion";
 import type { Theme, ThemeName } from "./types";
 
 export type { Theme, ThemeName };
 
-const themes: Record<ThemeName, Theme> = { edumotion };
+const themes: Record<ThemeName, Theme> = { edumotion, "dark-chalk": darkChalk };
 
 const ThemeContext = createContext<Theme>(edumotion);
 

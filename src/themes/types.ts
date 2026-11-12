@@ -1,4 +1,4 @@
-export type ThemeName = "edumotion";
+export type ThemeName = "edumotion" | "dark-chalk";
 
 type Bezier = readonly [number, number, number, number];
 
