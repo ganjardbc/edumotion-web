@@ -29,7 +29,7 @@ export const Langkah: React.FC<{ readonly judul: string; readonly sorotJudul?: s
       {butir.map((b, i) => (
         <div key={i}>
           <Label teks={String(i + 1)} x={224} y={y0 + i * jarak} at={b.at + 6} size={50} warna={KAPUR.gold} lebar={72} />
-          <Label teks={b.teks} x={720} y={y0 + i * jarak} at={b.at + 8} size={44} lebar={410} />
+          <Label teks={b.teks} x={735} y={y0 + i * jarak} at={b.at + 8} size={52} lebar={380} />
         </div>
       ))}
     </>

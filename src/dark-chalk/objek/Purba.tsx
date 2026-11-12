@@ -1,5 +1,6 @@
 import type React from "react";
 import { Garis } from "../Garis";
+import { Arsir } from "../Arsir";
 import { KAPUR } from "../palette";
 
 // Objek kapur untuk video DinosaurusPunah. Semua berpusat di (cx, cy); `size` = lebar kira-kira.
@@ -27,6 +28,7 @@ export const Asteroid: React.FC<{ readonly cx: number; readonly cy: number; read
   const s = size / 110;
   // Path digambar di titik asal lalu digeser lewat transform, supaya goresan kasar (seed dari isi path) tidak berubah saat asteroid bergerak.
   const p = (a: number, b: number) => `${(a * s).toFixed(1)} ${(b * s).toFixed(1)}`;
+  const BADAN = `M${p(-50, 8)} L${p(-34, -32)} L${p(0, -48)} L${p(40, -34)} L${p(54, 6)} L${p(30, 40)} L${p(-20, 44)} Z`;
   return (
     <g transform={`translate(${cx} ${cy})`}>
       {api ? (
@@ -36,7 +38,8 @@ export const Asteroid: React.FC<{ readonly cx: number; readonly cy: number; read
           <Garis kasar={1} d={`M${p(-52, -10)} L${p(-125, -62)}`} mulai={mulai + 4} lama={10} warna={KAPUR.orange} tebal={7} />
         </>
       ) : null}
-      <Garis d={`M${p(-50, 8)} L${p(-34, -32)} L${p(0, -48)} L${p(40, -34)} L${p(54, 6)} L${p(30, 40)} L${p(-20, 44)} Z`} mulai={mulai} lama={16} isi={KAPUR.abu} tebal={7} kasar={1.2} />
+      <Garis d={BADAN} mulai={mulai} lama={16} isi={KAPUR.abu} tebal={7} kasar={1.2} />
+      <Arsir d={BADAN} jarak={11} warna={KAPUR.chalk} tebal={3} mulai={mulai + 14} lama={20} opacity={0.55} />
       <circle cx={-12 * s} cy={-8 * s} r={9 * s} fill="none" stroke={KAPUR.chalk} strokeWidth={4} opacity={0.8} />
       <circle cx={20 * s} cy={16 * s} r={6 * s} fill="none" stroke={KAPUR.chalk} strokeWidth={4} opacity={0.8} />
     </g>
@@ -44,13 +47,17 @@ export const Asteroid: React.FC<{ readonly cx: number; readonly cy: number; read
 };
 
 // Bumi bulat dengan dua benua.
-export const Bumi: React.FC<{ readonly cx: number; readonly cy: number; readonly r?: number; readonly mulai?: number }> = ({ cx, cy, r = 140, mulai = 0 }) => (
+export const Bumi: React.FC<{ readonly cx: number; readonly cy: number; readonly r?: number; readonly mulai?: number }> = ({ cx, cy, r = 140, mulai = 0 }) => {
+  const LINGKAR = `M${cx - r} ${cy} a${r} ${r} 0 1 0 ${2 * r} 0 a${r} ${r} 0 1 0 ${-2 * r} 0`;
+  return (
   <g>
-    <Garis kasar={1} d={`M${cx - r} ${cy} a${r} ${r} 0 1 0 ${2 * r} 0 a${r} ${r} 0 1 0 ${-2 * r} 0`} mulai={mulai} lama={26} isi="rgba(90, 120, 196, 0.35)" tebal={8} />
+    <Garis kasar={1} d={LINGKAR} mulai={mulai} lama={26} isi="rgba(90, 120, 196, 0.35)" tebal={8} />
+    <Arsir d={LINGKAR} jarak={13} warna={KAPUR.biruTerang} tebal={3} mulai={mulai + 20} lama={26} opacity={0.65} />
     <Garis kasar={1} d={`M${cx - r * 0.55} ${cy - r * 0.2} q${r * 0.2} ${-r * 0.35} ${r * 0.5} ${-r * 0.1} q${r * 0.1} ${r * 0.3} ${-r * 0.2} ${r * 0.45} q${-r * 0.3} ${r * 0.05} ${-r * 0.3} ${-r * 0.35} Z`} mulai={mulai + 18} lama={14} warna={KAPUR.daun} isi={KAPUR.daunIsi} tebal={5} />
     <Garis kasar={1} d={`M${cx + r * 0.2} ${cy + r * 0.25} q${r * 0.3} ${-r * 0.1} ${r * 0.4} ${r * 0.15} q${-r * 0.1} ${r * 0.3} ${-r * 0.35} ${r * 0.25} Z`} mulai={mulai + 22} lama={12} warna={KAPUR.daun} isi={KAPUR.daunIsi} tebal={5} />
   </g>
-);
+  );
+};
 
 // Awan debu: gugusan lingkaran abu. `buram` 0..1.
 export const Debu: React.FC<{ readonly cx: number; readonly cy: number; readonly size?: number; readonly buram?: number }> = ({ cx, cy, size = 200, buram = 1 }) => {
