@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Membuat video edukasi vertikal baru (1080x1920, 30 fps) dengan struktur folder baku edumotion.
-//   node scripts/new-short.mjs <NamaPascalCase> "<Judul>" --topic <topik> [--cast jantung,bumi] [--voice aldo]
+//   node scripts/new-short.mjs <NamaPascalCase> "<Judul>" --topic <topik> --tema <kertas|dark-chalk> [--cast jantung,bumi] [--voice aldo]
 //                              [--scenes Hook,Setup,Twist,Explain1,Explain2,Payoff,Cta] [--no-register]
 // Struktur hasil (jangan diubah per video; aturannya ada di CLAUDE.md dan ditegakkan scripts/check-videos.mjs):
 //   src/videos/<Nama>/{README.md, script.md, scenes.ts, <Nama>.tsx, index.ts, voiceover.ts, voiceover.json,
@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const argv = process.argv.slice(2);
-const VALUED = ["--topic", "--cast", "--voice", "--scenes"];
+const VALUED = ["--topic", "--tema", "--cast", "--voice", "--scenes"];
 const opt = (name, fallback) => {
   const i = argv.indexOf(name);
   return i >= 0 && argv[i + 1] !== undefined ? argv[i + 1] : fallback;
@@ -20,6 +20,7 @@ const opt = (name, fallback) => {
 const args = argv.filter((a, i) => !a.startsWith("--") && !VALUED.includes(argv[i - 1]));
 const [name, title] = args;
 
+const TEMAS = ["kertas", "dark-chalk"];
 const TOPICS = ["tubuh", "cuaca", "ilmu", "planet", "sejarah", "teknologi", "air", "alam", "ai"];
 const CAST = ["awan", "bumi", "jantung", "raka", "buku", "robo", "tetes", "claude", "ganjar", "hape", "komputer", "otak", "matahari", "baterai", "bulan", "atom", "petir", "api"];
 const VOICES = ["aldo", "zulfa", "jefri", "nilasari"];
@@ -30,12 +31,14 @@ const fail = (msg) => {
 };
 
 const topic = opt("--topic");
+const tema = opt("--tema");
 const cast = opt("--cast", "").split(",").filter(Boolean);
 const voice = opt("--voice", "aldo");
 const scenes = opt("--scenes", "Hook,Setup,Twist,Explain1,Explain2,Payoff,Cta").split(",");
 
-if (!name || !title || !/^[A-Z][A-Za-z0-9]*$/.test(name)) fail('Pakai: node scripts/new-short.mjs <NamaPascalCase> "<Judul>" --topic <topik> [--cast jantung] [--voice aldo] [--scenes ...] [--no-register]');
+if (!name || !title || !/^[A-Z][A-Za-z0-9]*$/.test(name)) fail('Pakai: node scripts/new-short.mjs <NamaPascalCase> "<Judul>" --topic <topik> --tema <kertas|dark-chalk> [--cast jantung] [--voice aldo] [--scenes ...] [--no-register]');
 if (name.startsWith("_")) fail("Nama tidak boleh diawali garis bawah.");
+if (!TEMAS.includes(tema)) fail(`--tema wajib dipilih: ${TEMAS.join(" atau ")}. Tidak ada bawaan; bila belum jelas, tanyakan ke Ganjar dulu.`);
 if (!TOPICS.includes(topic)) fail(`--topic wajib salah satu dari: ${TOPICS.join(", ")}`);
 for (const c of cast) if (!CAST.includes(c)) fail(`Karakter tidak dikenal: ${c}. Pilihan: ${CAST.join(", ")}`);
 if (!VOICES.includes(voice)) fail(`--voice wajib salah satu dari: ${VOICES.join(", ")}`);
@@ -47,7 +50,7 @@ const dst = join(root, "src/videos", name);
 if (existsSync(dst)) fail(`sudah ada: src/videos/${name}`);
 const tpl = join(root, "scripts/templates/short-edu");
 const fill = (s, extra = {}) => {
-  const vars = { __NAME__: name, __TITLE__: title, __TOPIC__: topic, __CAST__: cast.length ? cast.join(", ") : "(tanpa cast)", __CASTLIST__: cast.map((c) => `"${c}"`).join(", "), __VOICE__: voice, ...extra };
+  const vars = { __NAME__: name, __TITLE__: title, __TOPIC__: topic, __CAST__: cast.length ? cast.join(", ") : "(tanpa cast)", __CASTLIST__: cast.map((c) => `"${c}"`).join(", "), __VOICE__: voice, __TEMA__: tema, ...extra };
   return Object.entries(vars).reduce((acc, [k, v]) => acc.replaceAll(k, v), s);
 };
 const read = (f) => readFileSync(join(tpl, f), "utf8");
@@ -62,7 +65,7 @@ write("index.ts", fill(read("index.ts.tmpl")));
 write("voiceover.ts", fill(read("voiceover.ts.tmpl")));
 write("voiceover.json", '{ "lines": {} }\n');
 write("voiceover-files.ts", '// Dibuat otomatis oleh scripts/vo-process.py. Jangan diubah tangan.\n\nexport const VO_FILES: Readonly<Record<string, string>> = {};\n');
-for (const s of scenes) write(`views/${s}.tsx`, fill(read("scene.tsx.tmpl"), { __SCENE__: s, __SEGMENT__: segmentOf(s) }));
+for (const s of scenes) write(`views/${s}.tsx`, fill(read(tema === "dark-chalk" ? "scene-dark-chalk.tsx.tmpl" : "scene.tsx.tmpl"), { __SCENE__: s, __SEGMENT__: segmentOf(s) }));
 write(
   "views/index.ts",
   [
