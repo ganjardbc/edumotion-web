@@ -1,7 +1,8 @@
 import type React from "react";
 import { useCurrentFrame } from "remotion";
 
-// Filter SVG gaya kapur: garis bergetar pelan (seed berganti tiap 4 frame, deterministik) dan butiran kapur (lubang kecil).
+// Filter SVG gaya kapur: garis bergetar pelan (seed berganti tiap 4 frame, deterministik), butiran kapur (lubang kecil),
+// dan halo debu tipis di sekeliling garis (teknik dipelajari dari deenukhan/animation-styles, MIT; kode ditulis sendiri).
 // Pasang <KapurFilter /> sekali di komposisi, lalu bungkus gambar dengan <Kapur>.
 export const KapurFilter: React.FC = () => {
   const frame = useCurrentFrame();
@@ -14,7 +15,10 @@ export const KapurFilter: React.FC = () => {
           <feDisplacementMap in="SourceGraphic" in2="wobble" scale={7} xChannelSelector="R" yChannelSelector="G" result="bent" />
           <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves={2} seed={9} result="grain" />
           <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  3.4 0 0 0 -0.75" result="mask" />
-          <feComposite in="bent" in2="mask" operator="in" />
+          <feComposite in="bent" in2="mask" operator="in" result="garis" />
+          <feGaussianBlur in="bent" stdDeviation={7} result="kabur" />
+          <feComponentTransfer in="kabur" result="debu"><feFuncA type="linear" slope={0.3} /></feComponentTransfer>
+          <feMerge><feMergeNode in="debu" /><feMergeNode in="garis" /></feMerge>
         </filter>
       </defs>
     </svg>

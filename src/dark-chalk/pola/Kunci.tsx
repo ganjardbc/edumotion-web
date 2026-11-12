@@ -11,7 +11,7 @@ export const Kunci: React.FC<{ readonly judul: string; readonly sorotJudul?: str
   <>
     <Judul teks={judul} sorot={sorotJudul} size={96} />
     <Kanvas>
-      <Garis d="M300 520 Q540 536 780 516" mulai={8} lama={16} warna={KAPUR.gold} tebal={10} />
+      <Garis kasar={1} d="M300 520 Q540 536 780 516" mulai={8} lama={16} warna={KAPUR.gold} tebal={10} />
       {gambar}
     </Kanvas>
     <Label teks={keterangan} x={540} y={1215} at={keteranganAt} size={58} warna={KAPUR.gold} lebar={760} />

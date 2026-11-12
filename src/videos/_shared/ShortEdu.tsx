@@ -3,6 +3,7 @@ import type React from "react";
 import { useMemo } from "react";
 import { AbsoluteFill, Sequence } from "remotion";
 import { SFX } from "../../assets/sfx";
+import { DebuMelayang } from "../../dark-chalk/DebuMelayang";
 import { Kapur, KapurFilter } from "../../dark-chalk/Kapur";
 import { PapanBackdrop } from "../../dark-chalk/PapanBackdrop";
 import { Caption, SafeZoneGuide, Transition } from "../../explainers";
@@ -84,6 +85,7 @@ const Body: React.FC<Props> = ({ scenes, renderers, vo, safeZone = false, animat
         <>
           <KapurFilter />
           <PapanBackdrop varian="hijau" />
+          <DebuMelayang />
         </>
       ) : null}
       {timings.map((t) => {

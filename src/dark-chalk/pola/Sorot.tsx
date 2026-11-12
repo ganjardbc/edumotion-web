@@ -20,7 +20,7 @@ export const Sorot: React.FC<{
     <>
       <Judul teks={judul} sorot={sorotJudul} />
       <Kanvas>
-        <Garis d={`M${cx - R} ${cy} a${R} ${R} 0 1 0 ${2 * R} 0 a${R} ${R} 0 1 0 ${-2 * R} 0`} mulai={lensaAt} lama={30} tebal={9} isi="rgba(158, 216, 240, 0.12)" />
+        <Garis kasar={1} d={`M${cx - R} ${cy} a${R} ${R} 0 1 0 ${2 * R} 0 a${R} ${R} 0 1 0 ${-2 * R} 0`} mulai={lensaAt} lama={30} tebal={9} isi="rgba(158, 216, 240, 0.12)" />
         {gambar({ x: cx, y: cy, r: R })}
         {penanda ? (
           <Pop at={penanda.at}>

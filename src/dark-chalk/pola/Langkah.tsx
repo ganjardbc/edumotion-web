@@ -20,16 +20,16 @@ export const Langkah: React.FC<{ readonly judul: string; readonly sorotJudul?: s
           const y = y0 + i * jarak;
           return (
             <g key={i}>
-              <Garis d={`M200 ${y} a36 36 0 1 0 72 0 a36 36 0 1 0 -72 0`} mulai={b.at} lama={14} warna={KAPUR.gold} tebal={7} />
-              <Pop at={b.at + 8}>{b.gambar({ x: 420, y, size: 170 })}</Pop>
+              <Garis kasar={1} d={`M188 ${y} a36 36 0 1 0 72 0 a36 36 0 1 0 -72 0`} mulai={b.at} lama={14} warna={KAPUR.gold} tebal={7} />
+              <Pop at={b.at + 8}>{b.gambar({ x: 414, y, size: 170 })}</Pop>
             </g>
           );
         })}
       </Kanvas>
       {butir.map((b, i) => (
         <div key={i}>
-          <Label teks={String(i + 1)} x={236} y={y0 + i * jarak} at={b.at + 6} size={50} warna={KAPUR.gold} lebar={72} />
-          <Label teks={b.teks} x={740} y={y0 + i * jarak} at={b.at + 8} size={52} lebar={380} />
+          <Label teks={String(i + 1)} x={224} y={y0 + i * jarak} at={b.at + 6} size={50} warna={KAPUR.gold} lebar={72} />
+          <Label teks={b.teks} x={720} y={y0 + i * jarak} at={b.at + 8} size={44} lebar={410} />
         </div>
       ))}
     </>

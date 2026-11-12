@@ -17,7 +17,7 @@ export const Koreksi: React.FC<{
     <Judul teks={judul} warna={KAPUR.orange} />
     <Label teks={salah} x={540} y={600} size={58} lebar={800} />
     <Kanvas>
-      <Garis d="M170 604 Q540 586 910 612" mulai={coretAt} lama={12} warna={KAPUR.orange} tebal={14} />
+      <Garis kasar={1} d="M170 604 Q540 586 910 612" mulai={coretAt} lama={12} warna={KAPUR.orange} tebal={14} />
       {benar.gambar({ x: 540, y: 960, size: 420 })}
     </Kanvas>
     <Label teks={benar.teks} x={540} y={1215} at={benar.at} size={52} warna={KAPUR.gold} lebar={800} />
