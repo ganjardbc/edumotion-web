@@ -10,11 +10,11 @@ export const Kanvas: React.FC<{ readonly children: React.ReactNode }> = ({ child
 
 const CLAMP = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
-// Muncul (pudar masuk 10 frame) mulai frame `at`; sebelum itu tidak tampil. Untuk elemen SVG di dalam <Kanvas>.
-export const Pop: React.FC<{ readonly at: number; readonly children: React.ReactNode }> = ({ at, children }) => {
+// Muncul (pudar masuk 10 frame, atau sesuai `durasi`) mulai frame `at`; sebelum itu tidak tampil.
+export const Pop: React.FC<{ readonly at: number; readonly children: React.ReactNode; readonly durasi?: number }> = ({ at, children, durasi = 10 }) => {
   const frame = useCurrentFrame();
   if (frame < at) return null;
-  return <g opacity={interpolate(frame, [at, at + 10], [0, 1], CLAMP)}>{children}</g>;
+  return <g opacity={interpolate(frame, [at, at + durasi], [0, 1], CLAMP)}>{children}</g>;
 };
 
 // Nilai 0..1 yang naik linear dari frame `dari` selama `lama` frame.
