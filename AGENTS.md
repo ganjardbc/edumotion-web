@@ -7,6 +7,8 @@ Konteks project untuk agent AI apa pun (Claude Code, Codex, Pi, Antigravity, Cur
 
 Format video: **satu narator** menjelaskan, **stickman Ganjar** sebagai pembawa di layar (tidak berbicara), di atas **kertas berpetak**, dengan bahasa Indonesia yang mudah dipahami. Alur cerita: Hook → Setup → Twist → Penjelasan → Payoff → Ajakan.
 
+Tema alternatif yang sedang dicoba: **Dark Chalk Storytelling** (papan tulis hijau berbingkai kayu, garis kapur, aksen emas), diaktifkan dengan `tema="dark-chalk"` pada `ShortEdu`; video pertama `EsBatuMengapung` tanpa tokoh. Rinciannya di bagian "Tema alternatif" `CLAUDE.md` dan `src/dark-chalk/README.md`.
+
 - Jangan dicampur dengan `remotion-web` (akun personal branding, proyek terpisah).
 - Bahasa pengantar kerja dengan pemilik: Indonesia, gunakan "aku" dan "kamu". Komentar kode dan teks UI dalam Bahasa Indonesia.
 
@@ -17,6 +19,7 @@ Format video: **satu narator** menjelaskan, **stickman Ganjar** sebagai pembawa 
 | Cara mengerjakan tugas tertentu | Skill di `.agents/skills/` (tabel di bawah) |
 | Warna, huruf, objek (props), kontrak gaya, daftar objek dan statusnya | `design-system/edumotion-design-system/` (`readme.md`, `props/STYLE.md`, `props/registry.md`) |
 | Pola penjelas dan contoh pemakaian | `src/explainers/pola/`, contoh lengkap di `src/videos/LangitBiru/views/` dan `src/videos/BateraiCepatHabis/views/` |
+| Tema Dark Chalk (papan, kapur, objek, pola kapur) | `src/dark-chalk/README.md`, contoh `src/videos/EsBatuMengapung/views/` |
 | Latar, kamera | `src/assets/backdrops/README.md`, `src/assets/camera/README.md` |
 | Perintah dan struktur folder | [README.md](README.md) |
 
