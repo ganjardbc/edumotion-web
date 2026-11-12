@@ -126,7 +126,7 @@ Lokasi: `design-system/edumotion-design-system/` (baca `readme.md`, `props/STYLE
 - `src/props/`: objek SVG berkontrak (`PropFrame`, viewBox 800), tercatat di `props/registry.md` dan dicek `scripts/lint-props.mjs`. Folder: `body/`, `umum/`, `antariksa/`, `cuaca/`, `teknologi/`, `sejarah/`. Lembar peninjauan: Still `PropsSheet`.
 - `src/assets/effects/`: Confetti, Sparkle, SpeedLines, PopBurst, Bubbles (deterministik, `seeded`). Demo: `EffectsDemo`.
 - `src/videos/`: video edukasi, lihat "Struktur video".
-- `src/Root.tsx`: mendaftarkan demo (`TakoCastDemo`, `ExplainersDemo`, `EffectsDemo`, Still `PropsSheet`, `ThumbnailDemo`, `EduBackdrops`, `TakoCastExpressions`) dan semua video dari `VIDEOS`; jangan menambah komposisi video langsung di sini.
+- `src/Root.tsx`: menu Remotion Studio, dikelompokkan per Folder: **Video** (semua video dari `VIDEOS`), **Storyboard**, **Dark-Chalk** (demo dan lembar tinjauan tema), **Demo** (`TakoCastDemo`, `ExplainersDemo`, `EffectsDemo`, dkk.), **Lembar** (Still `PropsSheet`, `ThumbnailDemo`, `EduBackdrops`, `TakoCastExpressions`). Id komposisi tidak berubah oleh folder. Jangan menambah komposisi video langsung di sini.
 
 ## Kondisi saat ini dan celah
 - `EsBatuMengapung` (12 Nov 2026): video pertama bertema Dark Chalk, tanpa tokoh. Naskah disetujui; storyboard menunggu persetujuan Ganjar; VO belum dibuat (durasi estimasi ~55 dtk). Fakta yang ditandai belum terverifikasi di `script.md` perlu dicek sebelum tayang.
