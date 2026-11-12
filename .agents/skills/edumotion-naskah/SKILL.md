@@ -8,6 +8,7 @@ Naskah adalah sumber kebenaran video. Kode (`scenes.ts`, `views/`) mengikuti nas
 Aturan konsep ada di `CLAUDE.md` bagian "Format video"; skill ini menjelaskan cara menulisnya.
 
 ## Urutan kerja
+0. **Tema dan karakter.** Tema (kertas berpetak atau Dark Chalk) dipilih Ganjar per video tanpa bawaan; bila permintaan belum menyebutnya, tanyakan dulu. Karakter di layar bukan bawaan: tulis brief tanpa tokoh kecuali Ganjar memintanya.
 1. **Satu pertanyaan sehari-hari.** Tulis dulu satu kalimat jawaban (calon Payoff). Bila jawabannya butuh lebih dari satu kalimat pendek, topiknya terlalu lebar; persempit.
 2. **Kumpulkan fakta dan sumber dulu**, baru menulis. Tiap klaim angka atau sebab-akibat harus punya sumber di bagian "Fakta dan sumber". Yang belum bersumber ditandai "belum terverifikasi", jangan disamarkan.
 3. **Tulis `script.md`** mengikuti templat (tabel: Scene, Narasi, Dur, Visual dan aksi, SFX).
@@ -25,7 +26,7 @@ Aturan konsep ada di `CLAUDE.md` bagian "Format video"; skill ini menjelaskan ca
 | Cta | Satu pertanyaan lanjutan untuk komentar. Tidak menyatakan fakta baru. | 3–4 dtk |
 
 ## Suara dan bahasa
-- Semua kalimat dibawakan **narator**. Tokoh di layar (pembawa stickman Ganjar, cast) tidak berbicara; reaksinya ditulis di brief visual.
+- Semua kalimat dibawakan **narator**. Tokoh di layar tidak ditambahkan kecuali diminta; bila ada (pembawa stickman Ganjar, cast), mereka tidak berbicara dan reaksinya ditulis di brief visual.
 - Narator menyapa penonton dengan "kamu". Tidak memakai "aku", "gue", "lo".
 - Kalimat pendek: sekitar 12 kata, paling banyak 15. Satu gagasan per kalimat.
 - Kata sehari-hari yang baku tetapi tidak kaku: "tidak" (bukan "nggak"), "seperti" (bukan "kayak"), "kok" dan "ternyata" boleh.
@@ -37,7 +38,7 @@ Aturan konsep ada di `CLAUDE.md` bagian "Format video"; skill ini menjelaskan ca
 
 ## Brief visual (wajib, disetujui bersama naskah)
 Visual yang tidak nyambung biasanya berasal dari brief yang kabur. Isi tabel "Brief visual" di `script.md` per scene:
-- **Pola:** `karakter` untuk Hook, Twist, Payoff, Cta; untuk Setup dan Explain pilih satu pola per gagasan:
+- **Pola:** `visual` (gambar atau objek beranimasi, bawaan) untuk Hook, Twist, Payoff, Cta; `karakter` hanya bila Ganjar meminta tokoh; untuk Setup dan Explain pilih satu pola per gagasan:
   `Bandingkan` (dua hal, A vs B), `Langkah` (urutan atau daftar alasan, 2–4 butir), `SebabAkibat` (satu sebab, satu akibat),
   `Sorot` (satu objek, bagian-bagiannya ditunjuk), `AngkaBesar` (satu angka mengejutkan). Paling banyak dua pola (dua fase) per scene.
 - **Tema Dark Chalk:** pola yang sama berlaku (varian kapur di `src/dark-chalk/pola`: `SebabAkibat`, `Koreksi`, `Sorot`, `Bandingkan`, `Langkah`, `Kunci`). Video boleh tanpa tokoh sama sekali; Hook, Twist, Payoff, dan Cta lalu ditulis sebagai gambar (objek, perbandingan, kartu koreksi), bukan reaksi pembawa. Brief tetap memakai kolom Pola, Objek utama, Label, dan Kata kunci → aksi.
@@ -48,7 +49,7 @@ Visual yang tidak nyambung biasanya berasal dari brief yang kabur. Isi tabel "Br
 - **Kata kunci → aksi:** kata di narasi yang memicu tiap kemunculan ("lebih kuat → sorot Ungu"). Tiap objek muncul tepat saat disebut.
 - **Uji nyambung:** baca narasi scene sambil membayangkan layar. Bila ada kalimat tanpa visual, atau visual tanpa kalimat, ubah salah satunya.
 - **Kunci:** pilih paling banyak 2 poin terpenting video untuk frame layar penuh tanpa karakter (scene `Kunci` tersendiri), biasanya kalimat "Itu sebabnya …" atau inti Payoff. Pisahkan kalimat kuncinya menjadi baris tersendiri di naskah, lalu tulis judul (≤6 kata, satu kata disorot), gambar besar (nama prop + apa yang beranimasi, mis. Termometer naik), keterangan pendek, dan warna latar bila perlu (mis. merah untuk panas).
-- **Pembawa:** untuk scene `karakter`, tulis ekspresi + gestur stickman yang sesuai makna kalimat (mis. kaget + menyerah di Twist, senang + tunjuk saat jawaban muncul). Variasikan antar scene.
+- **Pembawa (hanya bila Ganjar meminta tokoh):** untuk scene `karakter`, tulis ekspresi + gestur stickman yang sesuai makna kalimat (mis. kaget + menyerah di Twist, senang + tunjuk saat jawaban muncul). Variasikan antar scene.
 - Latar kertas berpetak; SFX paling banyak satu per scene dan empat per video, hanya di Hook, Twist, Payoff, atau satu momen tematik.
 
 ## Daftar periksa sebelum minta persetujuan

@@ -5,7 +5,7 @@ Konteks project untuk agent AI apa pun (Claude Code, Codex, Pi, Antigravity, Cur
 ## Apa project ini
 `edumotion-web` adalah generator video animasi 2D edukasi untuk akun Instagram dan TikTok milik Ganjar (Coderium): video pendek vertikal 30–120 detik, 1080×1920, 30 fps. Remotion 4 (rspack), React 19, TypeScript, ElevenLabs untuk voice over.
 
-Format video: **satu narator** menjelaskan, **stickman Ganjar** sebagai pembawa di layar (tidak berbicara), di atas **kertas berpetak**, dengan bahasa Indonesia yang mudah dipahami. Alur cerita: Hook → Setup → Twist → Penjelasan → Payoff → Ajakan.
+Format video: **satu narator** menjelaskan dengan bahasa Indonesia yang mudah dipahami. **Tema visual dipilih per video** (kertas berpetak atau Dark Chalk) dan tidak punya bawaan: **bila permintaan belum menyebut tema, tanyakan ke Ganjar dulu**. **Karakter di layar bukan bawaan**: tambahkan pembawa (stickman Ganjar) atau cast hanya bila diminta. Alur cerita: Hook → Setup → Twist → Penjelasan → Payoff → Ajakan.
 
 Tema alternatif yang sedang dicoba: **Dark Chalk Storytelling** (papan tulis hijau berbingkai kayu, garis kapur, aksen emas), diaktifkan dengan `tema="dark-chalk"` pada `ShortEdu`; video pertama `EsBatuMengapung` tanpa tokoh. Rinciannya di bagian "Tema alternatif" `CLAUDE.md` dan `src/dark-chalk/README.md`.
 
@@ -34,10 +34,10 @@ Sumber utama ada di `.agents/skills/` (`.claude/skills/` hanya symlink ke sana).
 | `remotion-best-practices`, `remotion-markup`, `remotion-captions`, `remotion-render`, `remotion-studio`, `remotion-docs`, `remotion-upgrade`, `remotion-create` | Teknik Remotion (animasi, urutan, audio, render). `remotion-create` jangan dipakai untuk membuat proyek baru; proyek ini sudah ada |
 
 ## Aturan yang paling sering dilanggar
-1. **Video baru hanya lewat** `npm run video:new -- <NamaPascalCase> "<Judul>" --topic <topik> --cast <id,id> --voice aldo`. Jangan menulis komposisi di `Root.tsx` dan jangan menyalin video lain dengan tangan.
+1. **Video baru hanya lewat** `npm run video:new -- <NamaPascalCase> "<Judul>" --topic <topik> --tema <kertas|dark-chalk> [--cast <id,id>] --voice aldo` (`--tema` wajib; tanyakan ke Ganjar bila belum jelas). Jangan menulis komposisi di `Root.tsx` dan jangan menyalin video lain dengan tangan.
 2. **Gerbang persetujuan.** Urutan: `script.md` (naskah + brief visual) → persetujuan Ganjar → `scenes.ts` → `views/` → lembar storyboard → persetujuan Ganjar → voice over (persetujuan lagi) → render. Berhenti dan laporkan di tiap gerbang; jangan melompat sendiri.
 3. Semua kalimat `who: "narator"`. Tokoh di layar tidak berbicara.
-4. Latar hanya `<EduBackdrop topic={META.topic} />` (kertas berpetak). Pembawa `<Pembawa topic={META.topic} />` hanya di Hook, Twist, Payoff, Cta. Tako tidak tampil di video.
+4. Tema kertas: latar `<EduBackdrop topic={META.topic} />`; tema Dark Chalk: papan digambar `ShortEdu`, view hanya menggambar isi. Tanpa karakter kecuali diminta; bila diminta, `<Pembawa topic={META.topic} />` hanya di Hook, Twist, Payoff, Cta. Tako tidak tampil di video.
 5. Scene Setup dan Explain memakai **pola** dari `src/explainers/pola` (Bandingkan, Langkah, SebabAkibat, Sorot, AngkaBesar, Koreksi). Poin terpenting video = scene `Kunci` (layar penuh tanpa karakter, paling banyak 2).
 6. Gerak dipicu kata narator lewat `at("kata")` (dari `SceneProps`), bukan pecahan durasi atau angka frame tetap. Animasi hanya dari `useCurrentFrame()`; tanpa `setTimeout`, CSS animation, atau `Math.random()` tanpa seed. Durasi scene mengikuti audio.
 7. Tanpa warna heksadesimal di `src/videos/<Nama>/`; pakai `useTheme()` atau `TOPIC_COLORS`.
