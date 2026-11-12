@@ -4,12 +4,12 @@ export const META: VideoMeta = {
   id: "BateraiCepatHabis",
   title: "Kenapa baterai HP cepat habis?",
   topic: "teknologi",
-  cast: ["baterai", "hape"],
+  cast: [],
   fps: 30,
 };
 
 // Urutan scene = urutan tayang. `dur` adalah perkiraan detik dari naskah sampai audio asli dibuat.
-// who: kunci suara di voiceover.ts ("narator"). Tokoh di layar tidak berbicara; semua kalimat dibawakan narator.
+// who: kunci suara di voiceover.ts ("narator"). Tema Dark Chalk, tanpa tokoh di layar: semua visual berupa gambar kapur beranimasi.
 // SFX hemat: paling banyak satu cue per scene dan empat per video (dicek scripts/check-videos.mjs).
 export const BASE_SCENES: ReadonlyArray<Scene> = [
   { id: "Hook", segment: "hook", lines: [{ who: "narator", text: "Pagi penuh, sore sudah merah. Kenapa baterai HP cepat habis?", dur: 4.5 }], sfx: [{ sfx: "pop", at: 0, volume: 0.4 }] },

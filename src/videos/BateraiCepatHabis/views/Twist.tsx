@@ -1,21 +1,29 @@
 import type React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
-import { EduBackdrop } from "../../../assets/backdrops";
-import { Pembawa } from "../../../characters/ganjar";
-import { EDU_FEET_Y } from "../../../explainers";
-import { Koreksi } from "../../../explainers/pola";
-import { META } from "../scenes";
+import { Garis } from "../../../dark-chalk/Garis";
+import { Pop } from "../../../dark-chalk/Kanvas";
+import { Hape } from "../../../dark-chalk/objek/Gawai";
+import { KAPUR } from "../../../dark-chalk/palette";
+import { Koreksi } from "../../../dark-chalk/pola";
 import type { SceneProps } from "../../_shared/types";
 
-// Twist (pola Koreksi): tebakan dicoret di "bukan", jawaban muncul di "Apple". Pembawa kaget lalu paham di "macet".
+// Twist: "aplikasi terbuka boros" dicoret di "bukan"; hape dengan tanda centang muncul saat Apple menyarankan.
 export const Twist: React.FC<SceneProps> = ({ at }) => {
-  const frame = useCurrentFrame();
-  const paham = frame >= at("macet");
+  const apple = at("Apple");
   return (
-    <AbsoluteFill>
-      <EduBackdrop topic={META.topic} />
-      <Koreksi tebakan="Aplikasi terbuka itu boros" jawaban="Bukan penyebab utama" coretAt={at("bukan")} jawabAt={at("Apple")} topic="teknologi" />
-      <Pembawa topic={META.topic} x={540} y={EDU_FEET_Y} tinggi={480} ekspresi={paham ? "senang" : "kaget"} gestur={paham ? "tunjuk" : "menyerah"} />
-    </AbsoluteFill>
+    <Koreksi
+      judul="Ternyata keliru!"
+      salah="aplikasi terbuka itu boros"
+      coretAt={at("bukan")}
+      benar={{
+        teks: "tutup hanya bila macet",
+        at: apple,
+        gambar: (k) => (
+          <Pop at={apple}>
+            <Hape cx={k.x - 40} cy={k.y} tinggi={k.size * 0.95} aplikasi terang={0.3} mulai={apple} />
+            <Garis kasar={1} d={`M${k.x + 90} ${k.y + 20} L${k.x + 140} ${k.y + 80} L${k.x + 240} ${k.y - 60}`} mulai={at("macet")} lama={14} warna={KAPUR.daun} tebal={16} />
+          </Pop>
+        ),
+      }}
+    />
   );
 };

@@ -1,25 +1,25 @@
 import type React from "react";
-import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { EduBackdrop } from "../../../assets/backdrops";
-import { CastCharacter } from "../../../characters/cast";
-import { Pembawa } from "../../../characters/ganjar";
-import { EDU_FEET_Y, HookText } from "../../../explainers";
-import { QuestionMark } from "../../../props";
-import { META } from "../scenes";
+import { useCurrentFrame } from "remotion";
+import { Ikon } from "../../../dark-chalk/ikon/Ikon";
+import { Kanvas, maju } from "../../../dark-chalk/Kanvas";
+import { Label } from "../../../dark-chalk/Label";
+import { Baterai } from "../../../dark-chalk/objek/Gawai";
+import { KAPUR } from "../../../dark-chalk/palette";
+import { Teks } from "../../../dark-chalk/Teks";
 import type { SceneProps } from "../../_shared/types";
 
-// Cta (karakter): pembawa berpikir, Baterai menunggu jawaban, tanda tanya muncul.
-export const Cta: React.FC<SceneProps> = () => {
+// Cta: bulan dan baterai yang terisi pelan semalaman; tanda tanya emas saat "bahaya".
+export const Cta: React.FC<SceneProps> = ({ at }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const pop = spring({ frame: frame - 12, fps, config: { damping: 10, stiffness: 140 } });
   return (
-    <AbsoluteFill>
-      <EduBackdrop topic={META.topic} />
-      <HookText text="Isi semalaman, bahaya?" highlight="bahaya" size={96} />
-      <QuestionMark x={540} y={760} size={240} topic="teknologi" pop={pop} />
-      <Pembawa topic={META.topic} x={320} y={EDU_FEET_Y} tinggi={540} ekspresi="mikir" gestur="mikir" />
-      <CastCharacter id="baterai" x={780} y={EDU_FEET_Y} size={420} facing={-1} expression="curious" animation="thinking" />
-    </AbsoluteFill>
+    <>
+      <Teks text="Isi semalaman, bahaya?" sorot="bahaya" size={96} top={250} />
+      <Kanvas>
+        <Ikon nama="moon-stars" cx={250} cy={780} size={220} mulai={8} warna={KAPUR.es} tebal={7} />
+        <Baterai cx={700} cy={780} lebar={420} level={0.15 + 0.85 * maju(frame, 20, 70)} mulai={12} />
+        <Ikon nama="bolt" cx={700} cy={780} size={110} mulai={30} warna={KAPUR.gold} tebal={7} />
+      </Kanvas>
+      <Label teks="?" x={540} y={1120} at={at("bahaya")} size={260} warna={KAPUR.gold} lebar={300} />
+    </>
   );
 };

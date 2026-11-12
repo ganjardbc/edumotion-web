@@ -1,32 +1,29 @@
 import type React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
-import { EduBackdrop } from "../../../assets/backdrops";
-import { Pembawa } from "../../../characters/ganjar";
-import { EDU_FEET_Y, HookText } from "../../../explainers";
-import { Muncul } from "../../../explainers/pola";
-import { LayarHp, SinyalBar, Termometer } from "../../../props";
-import { META } from "../scenes";
+import { Kanvas } from "../../../dark-chalk/Kanvas";
+import { Label } from "../../../dark-chalk/Label";
+import { Pop } from "../../../dark-chalk/Kanvas";
+import { Hape, SinyalBar } from "../../../dark-chalk/objek/Gawai";
+import { KAPUR } from "../../../dark-chalk/palette";
+import { Termometer } from "../../../dark-chalk/objek/Purba";
+import { Teks } from "../../../dark-chalk/Teks";
 import type { SceneProps } from "../../_shared/types";
 
-// Payoff (karakter): tiga penyebab muncul saat disebut (layar, sinyal, panas); pembawa menunjuk lalu bersorak.
+// Payoff: tiga penyebab muncul saat disebut (layar, sinyal, panas). Tanpa tokoh.
 export const Payoff: React.FC<SceneProps> = ({ at }) => {
-  const frame = useCurrentFrame();
+  const layar = Math.max(8, at("layar"));
+  const sinyal = at("sinyal");
   const panas = at("kepanasan");
-  const akhir = frame >= panas;
   return (
-    <AbsoluteFill>
-      <EduBackdrop topic={META.topic} />
-      <HookText text="Layar, sinyal, panas" highlight="panas" size={96} />
-      <Muncul at={at("layar terang")}>
-        <LayarHp x={270} y={640} size={250} terang={1} />
-      </Muncul>
-      <Muncul at={at("sinyal lemah")}>
-        <SinyalBar x={540} y={640} size={250} level={1} />
-      </Muncul>
-      <Muncul at={panas}>
-        <Termometer x={810} y={640} size={250} topic="tubuh" level={0.9} />
-      </Muncul>
-      <Pembawa topic={META.topic} x={540} y={EDU_FEET_Y} tinggi={440} ekspresi={akhir ? "tertawa" : "senang"} gestur={akhir ? "sorak" : "tunjuk"} />
-    </AbsoluteFill>
+    <>
+      <Teks text="Layar, sinyal, panas" sorot="panas" size={96} top={250} />
+      <Kanvas>
+        <Pop at={layar}><Hape cx={250} cy={800} tinggi={330} terang={1} mulai={layar} /></Pop>
+        <Pop at={sinyal}><SinyalBar cx={540} cy={800} size={230} level={1} /></Pop>
+        <Pop at={panas}><Termometer cx={830} cy={800} tinggi={380} level={0.9} warna={KAPUR.orange} mulai={panas} /></Pop>
+      </Kanvas>
+      <Label teks="layar terang" x={250} y={1050} at={layar} size={46} lebar={280} />
+      <Label teks="sinyal lemah" x={540} y={1050} at={sinyal} size={46} lebar={280} />
+      <Label teks="kepanasan" x={830} y={1050} at={panas} size={46} lebar={280} warna={KAPUR.gold} />
+    </>
   );
 };

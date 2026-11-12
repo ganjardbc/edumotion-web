@@ -1,6 +1,6 @@
 # Kenapa baterai HP cepat habis?
 
-Topik: teknologi · Suara: narator (Aldo) · Karakter di layar: Ganjar (pembawa, stickman), Baterai, Hape
+Topik: teknologi · Suara: narator (Aldo) · Tema: Dark Chalk, tanpa karakter di layar (visual 13 Nov 2026 diganti gambar kapur: Hape, Baterai, SinyalBar, Wifi di `src/dark-chalk/objek/Gawai.tsx`). Kolom Pembawa/Objek di brief bawah merujuk visual stickman lama
 Status naskah: **disetujui Ganjar (12 Nov 2026)**. Visual draf pertama selesai; storyboard menunggu tinjauan. Video uji pertama format stickman.
 
 Struktur: Hook → Setup (tebakan umum yang keliru) → Twist (koreksi) → Penjelasan ×3 → Payoff → Ajakan.

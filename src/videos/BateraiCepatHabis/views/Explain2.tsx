@@ -1,40 +1,34 @@
 import type React from "react";
-import { AbsoluteFill } from "remotion";
-import { EduBackdrop } from "../../../assets/backdrops";
-import { CastCharacter } from "../../../characters/cast";
-import { Bandingkan, Fase, SebabAkibat } from "../../../explainers/pola";
-import { SinyalBar, WifiSignal } from "../../../props";
-import { META } from "../scenes";
+import { useCurrentFrame } from "remotion";
+import { Fase } from "../../../explainers/pola";
+import { maju } from "../../../dark-chalk/Kanvas";
+import { Baterai, SinyalBar, Wifi } from "../../../dark-chalk/objek/Gawai";
+import { Bandingkan, SebabAkibat } from "../../../dark-chalk/pola";
 import type { SceneProps } from "../../_shared/types";
 
-// Explain2, dua fase: (1) SebabAkibat: sinyal lemah → HP terus mencari; (2) Bandingkan: Wi-Fi hemat, seluler boros.
+// Explain2, dua fase: (1) sinyal lemah → butuh tenaga (baterai turun); (2) Wi-Fi hemat vs seluler boros.
 export const Explain2: React.FC<SceneProps> = ({ at }) => {
+  const frame = useCurrentFrame();
   const wifi = at("Wi-Fi");
-  const seluler = at("seluler");
+  const butuh = at("butuh");
   return (
-    <AbsoluteFill>
-      <EduBackdrop topic={META.topic} />
+    <>
       <Fase sampai={wifi}>
         <SebabAkibat
           judul="Sinyal lemah ikut boros"
           sorotJudul="boros"
-          topic="teknologi"
-          sebab={{ teks: "Sinyal lemah", at: at("Sinyal"), gambar: (k) => <SinyalBar {...k} level={1} /> }}
-          akibat={{ teks: "Terus mencari sinyal", at: at("mencari"), gambar: (k) => <CastCharacter id="hape" x={k.x} y={k.y + k.size * 0.45} size={k.size * 1.7} expression="confused" animation="confusion" /> }}
+          sebab={{ teks: "sinyal lemah", at: Math.max(8, at("Sinyal")), gambar: (k) => <SinyalBar cx={k.x} cy={k.y} size={k.size * 0.8} level={1} /> }}
+          akibat={{ teks: "butuh tenaga", at: butuh, gambar: (k) => <Baterai cx={k.x} cy={k.y} lebar={k.size * 1.3} level={0.8 - 0.5 * maju(frame, butuh, 40)} mulai={butuh} /> }}
         />
       </Fase>
       <Fase dari={wifi}>
         <Bandingkan
           judul="Wi-Fi lebih hemat"
           sorotJudul="hemat"
-          judulAt={wifi}
-          topic="teknologi"
-          pemenang="a"
-          sorotAt={seluler + 15}
-          a={{ label: "Wi-Fi", nilai: "hemat", at: wifi, gambar: (k) => <WifiSignal {...k} level={3} /> }}
-          b={{ label: "Seluler", nilai: "boros", at: seluler, gambar: (k) => <SinyalBar {...k} level={2} /> }}
+          kiri={{ teks: "Wi-Fi", at: wifi + 8, gambar: (p) => (<><Wifi cx={p.x} cy={p.y - 90} size={230} mulai={wifi + 8} /><Baterai cx={p.x} cy={p.y + 200} lebar={190} level={0.85} mulai={wifi + 14} /></>) }}
+          kanan={{ teks: "seluler", at: at("seluler"), gambar: (p) => (<><SinyalBar cx={p.x} cy={p.y - 90} size={230} level={3} /><Baterai cx={p.x} cy={p.y + 200} lebar={190} level={0.4} mulai={at("seluler") + 6} /></>) }}
         />
       </Fase>
-    </AbsoluteFill>
+    </>
   );
 };

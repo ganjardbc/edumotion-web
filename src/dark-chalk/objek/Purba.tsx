@@ -115,7 +115,7 @@ export const Tumbuhan: React.FC<{ readonly cx: number; readonly cy: number; read
 };
 
 // Termometer: tabung dengan cairan setinggi `level` 0..1.
-export const Termometer: React.FC<{ readonly cx: number; readonly cy: number; readonly tinggi?: number; readonly level?: number; readonly mulai?: number }> = ({ cx, cy, tinggi = 300, level = 0.8, mulai = 0 }) => {
+export const Termometer: React.FC<{ readonly cx: number; readonly cy: number; readonly tinggi?: number; readonly level?: number; readonly mulai?: number; readonly warna?: string }> = ({ cx, cy, tinggi = 300, level = 0.8, mulai = 0, warna = KAPUR.es }) => {
   const atas = cy - tinggi / 2;
   const dasar = cy + tinggi / 2 - 30;
   const isiTinggi = (dasar - atas - 20) * level;
@@ -123,8 +123,8 @@ export const Termometer: React.FC<{ readonly cx: number; readonly cy: number; re
     <g>
       <Garis kasar={1} d={`M${cx - 20} ${dasar} L${cx - 20} ${atas + 20} Q${cx - 20} ${atas} ${cx} ${atas} Q${cx + 20} ${atas} ${cx + 20} ${atas + 20} L${cx + 20} ${dasar}`} mulai={mulai} lama={16} tebal={7} />
       <Garis kasar={1} d={`M${cx - 20} ${dasar} a42 42 0 1 0 40 0`} mulai={mulai + 10} lama={14} tebal={7} />
-      <rect x={cx - 8} y={dasar - isiTinggi} width={16} height={isiTinggi + 20} rx={6} fill={KAPUR.es} />
-      <circle cx={cx} cy={dasar + 20} r={24} fill={KAPUR.es} />
+      <rect x={cx - 8} y={dasar - isiTinggi} width={16} height={isiTinggi + 20} rx={6} fill={warna} />
+      <circle cx={cx} cy={dasar + 20} r={24} fill={warna} />
     </g>
   );
 };

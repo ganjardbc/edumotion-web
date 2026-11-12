@@ -1,23 +1,16 @@
 import type React from "react";
-import { AbsoluteFill } from "remotion";
-import { EduBackdrop } from "../../../assets/backdrops";
-import { CastCharacter } from "../../../characters/cast";
-import { Langkah } from "../../../explainers/pola";
-import { META } from "../scenes";
+import { Baterai } from "../../../dark-chalk/objek/Gawai";
+import { Langkah } from "../../../dark-chalk/pola";
 import type { SceneProps } from "../../_shared/types";
 
-// Explain3 (pola Langkah, dua butir): baterai menua → isinya makin sedikit. Kalimat panas menjadi scene Kunci berikutnya.
+// Explain3: baterai menua (butir 1) → ruang isinya menyusut, bagian kosong putus-putus (butir 2).
 export const Explain3: React.FC<SceneProps> = ({ at }) => (
-  <AbsoluteFill>
-    <EduBackdrop topic={META.topic} />
-    <Langkah
-      judul="Baterai ikut menua"
-      sorotJudul="menua"
-      topic="teknologi"
-      butir={[
-        { teks: "Baterai menua", at: at("menua"), gambar: (k) => <CastCharacter id="baterai" x={k.x} y={k.y + k.size * 0.45} size={k.size * 1.8} expression="sleepy" animation="idle" /> },
-        { teks: "Isinya makin sedikit", at: at("makin sedikit"), gambar: (k) => <CastCharacter id="baterai" x={k.x} y={k.y + k.size * 0.45} size={k.size * 1.8} expression="sad" animation="idle" /> },
-      ]}
-    />
-  </AbsoluteFill>
+  <Langkah
+    judul="Baterai ikut menua"
+    sorotJudul="menua"
+    butir={[
+      { teks: "baterai menua", at: Math.max(8, at("menua")), gambar: ({ x, y, size }) => <Baterai cx={x} cy={y} lebar={size * 1.1} level={1} mulai={at("menua")} /> },
+      { teks: "isinya makin sedikit", at: at("makin sedikit"), gambar: ({ x, y, size }) => <Baterai cx={x} cy={y} lebar={size * 1.1} level={1} kapasitas={0.45} mulai={at("makin sedikit")} /> },
+    ]}
+  />
 );
