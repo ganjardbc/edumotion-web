@@ -1,7 +1,7 @@
 # Kenapa dinosaurus punah?
 
 Topik: alam · Suara: narator (Aldo) · Tokoh di layar: tidak ada (semua visual gambar kapur beranimasi)
-Tema visual: **Dark Chalk Storytelling** (papan hijau, garis kapur, aksen emas). Status: naskah disetujui Ganjar (12 Nov 2026); views ditulis, storyboard menunggu persetujuan. VO belum dibuat.
+Tema visual: **Dark Chalk Storytelling** (papan hijau, garis kapur, aksen emas). Status: naskah disetujui Ganjar (12 Nov 2026); views ditulis, storyboard menunggu persetujuan Ganjar (sudah dirender dan diperiksa 13 Nov 2026). Fakta sudah dicek. VO belum dibuat.
 
 Jawaban satu kalimat (calon Payoff): Dinosaurus punah karena batu raksasa dari luar angkasa menabrak Bumi dan membuat makanan habis.
 
@@ -36,16 +36,19 @@ Latar: papan hijau Dark Chalk (digambar cangkang ShortEdu, `tema="dark-chalk"`).
 ## Objek (objek kapur baru, di `src/dark-chalk/objek/`, menunggu tinjauan Ganjar)
 `Dinosaurus` (siluet), `Asteroid`, `Matahari` + awan debu, `Tumbuhan` (segar/layu), `Termometer`, `Salju`.
 
-## Fakta dan sumber (verifikasi sebelum tayang)
-**Perlu dicek sebelum tayang** (belum ada sumber terpasang; dari pengetahuan umum):
-- Dampak asteroid Chicxulub sekitar 66 juta tahun lalu penyebab utama kepunahan massal akhir Kapur (sekitar 66 juta tahun, lebar sekitar 10 km).
-- Debu dan aerosol menghalangi sinar matahari, fotosintesis terhenti, rantai makanan runtuh.
-- Sekitar tiga perempat spesies punah.
-- Zaman es bukan penyebab kepunahan dinosaurus.
+## Fakta dan sumber (diverifikasi 13 Nov 2026 lewat pencarian web)
+| Klaim di narasi | Hasil cek | Sumber |
+|---|---|---|
+| 66 juta tahun lalu | Sesuai (Chicxulub, akhir Kapur) | [Live Science](https://livescience.com/dinosaur-killing-asteroid-struck-earth), [Space.com](https://www.space.com/dinosaur-killing-asteroid-struck-earth) |
+| Lebar asteroid "sekitar sepuluh kilometer" | Sesuai: estimasi sekitar 10 sampai 12 km. Kata "sekitar" dipertahankan | Live Science, Space.com |
+| Debu menutup matahari "berbulan-bulan" | Aman: literatur menyebut bulan sampai tahun (ulasan 2022 *Nature Reviews Earth & Environment*). Angka tepat tidak pasti | [Ulasan 2022](https://ui.adsabs.harvard.edu/abs/2022NRvEE...3..338M) |
+| Fotosintesis terhenti, makanan habis | Sesuai: dasar rantai makanan darat dan laut runtuh | Space.com |
+| Zaman es bukan penyebab | Sesuai dengan konsensus dampak asteroid | Ulasan 2022 |
+| ±75% spesies punah (tidak diucapkan di narasi; hanya jika dipakai di caption atau deskripsi) | Angka paling umum, sumber lain menyebut sekitar 80% | Live Science |
 
-Sumber yang disarankan: Natural History Museum (London), Smithsonian NMNH, USGS.
+Catatan: semua klaim dicek dari hasil pencarian satu kali, belum dari makalah primer. Bila ingin lebih kuat, cek Natural History Museum, Smithsonian NMNH, atau USGS sebelum tayang.
 
 ## Catatan
-- "Selama berbulan-bulan" untuk lamanya debu menutup matahari: perkiraan; cek ulang, atau ganti "cukup lama".
+- "Selama berbulan-bulan": sudah dicek, aman (literatur: bulan sampai tahun).
 - Narasi sengaja tidak menyebut gunung berapi (Deccan Traps) sebagai faktor tambahan; ilmuwan masih membahasnya.
 - Burung adalah keturunan dinosaurus yang selamat; sengaja tidak dibocorkan, bisa jadi video lanjutan lewat Cta.
