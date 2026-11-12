@@ -10,8 +10,8 @@ Kenapa es batu mengapung?
 ## Status
 - [x] Naskah disetujui Ganjar (12 Nov 2026, tanpa karakter pendukung)
 - [x] Objek kapur ada di `src/dark-chalk/objek/` (menunggu tinjauan Ganjar)
-- [x] Scene visual ditulis (views/); storyboard menunggu persetujuan Ganjar
-- [ ] Voice over dibuat (`node scripts/vo-generate.mjs --video EsBatuMengapung`, setelah persetujuan Ganjar)
+- [x] Scene visual ditulis (views/); storyboard disetujui Ganjar (12 Nov 2026)
+- [ ] Voice over dibuat (`node scripts/vo-generate.mjs --video EsBatuMengapung`, setelah persetujuan Ganjar). **Ditahan atas permintaan Ganjar (12 Nov 2026)**; jangan diusulkan lagi sampai Ganjar memintanya.
 - [ ] Ditinjau di Remotion Studio dengan panduan safe zone
 - [ ] Render akhir
 

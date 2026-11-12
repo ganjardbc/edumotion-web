@@ -1,7 +1,7 @@
 # Kenapa es batu mengapung?
 
 Topik: air · Suara: narator (Aldo) · Tokoh di layar: tidak ada (semua visual gambar kapur beranimasi)
-Tema visual: **Dark Chalk Storytelling** (papan hijau, garis kapur, aksen emas). Status: naskah disetujui Ganjar (12 Nov 2026) dengan perubahan: tanpa karakter pendukung, Hook/Twist/Payoff/Cta juga murni visual. Storyboard menunggu persetujuan.
+Tema visual: **Dark Chalk Storytelling** (papan hijau, garis kapur, aksen emas). Status: naskah disetujui Ganjar (12 Nov 2026) dengan perubahan: tanpa karakter pendukung, Hook/Twist/Payoff/Cta juga murni visual. Storyboard disetujui Ganjar (12 Nov 2026). VO ditahan dulu atas permintaan Ganjar.
 
 Jawaban satu kalimat (calon Payoff): Es mengapung karena saat membeku, air menjadi lebih renggang dan lebih ringan.
 
