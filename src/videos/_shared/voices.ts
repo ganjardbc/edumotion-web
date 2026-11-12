@@ -13,5 +13,5 @@ export const VOICES = {
 export type VoiceKey = keyof typeof VOICES;
 
 // Model TTS dan kecepatan bawaan untuk semua video edumotion.
-export const DEFAULT_MODEL = "eleven_multilingual_v2";
+export const DEFAULT_MODEL = "eleven_v4";
 export const DEFAULT_SPEED: number | undefined = undefined;

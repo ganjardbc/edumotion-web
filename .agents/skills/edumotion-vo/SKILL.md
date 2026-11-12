@@ -23,6 +23,7 @@ Voice over memakai kredit ElevenLabs berbayar (kira-kira satu kredit per huruf).
 7. **Laporkan:** jumlah baris dan huruf yang benar-benar dibuat, durasi total video yang baru, dan baris yang gagal bila ada.
 
 ## Mengubah teks setelah VO ada
+- Model bawaan `eleven_v4` (`DEFAULT_MODEL` di `src/videos/_shared/voices.ts`). Jangan menimpa model per video tanpa alasan.
 - Hash tiap baris = suara + model + teks. Mengubah satu kata membuat baris itu `berubah` dan audionya usang; `npm run lint` memberi peringatan.
 - Audio usang tetap terputar dengan caption baru. Jadi setelah mengubah teks: buat ulang baris itu (dengan izin), atau hapus entrinya dari `voiceover.json` dan `voiceover-files.ts` supaya durasi kembali memakai estimasi naskah.
 - Perbaikan pelafalan dilakukan lewat `tts` pada baris di `scenes.ts` (ejaan untuk TTS), bukan dengan mengubah `text` yang tampil sebagai caption.
