@@ -9,6 +9,7 @@ import { VIDEO as EsBatuMengapung } from "./EsBatuMengapung";
 import { VIDEO as DinosaurusPunah } from "./DinosaurusPunah";
 import { VIDEO as SuaraRekaman } from "./SuaraRekaman";
 import { VIDEO as NabiAdamTinggi } from "./NabiAdamTinggi";
+import { VIDEO as PenemuNol } from "./PenemuNol";
 // @videos:imports
 
 import type { VideoEntry } from "./_shared/video";
@@ -24,5 +25,6 @@ export const VIDEOS: ReadonlyArray<VideoEntry> = [
   DinosaurusPunah,
   SuaraRekaman,
   NabiAdamTinggi,
+  PenemuNol,
   // @videos:list
 ];
