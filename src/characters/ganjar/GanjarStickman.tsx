@@ -300,6 +300,17 @@ export type GanjarStickmanProps = {
   // Warna (hex) hoodie, celana pendek, dan tali/kantong hoodie; bawaan gelap dan abu-abu. Pembawa mengisinya dari warna topik video.
   readonly aksen?: { readonly hoodie: string; readonly celana: string; readonly tali: string };
   readonly color?: string;
+  // Isi kepala dan badan polos (bawaan putih). Tema Dark Chalk memakai warna latar supaya hanya garis yang terlihat.
+  readonly fill?: string;
+  // Topi newsboy cap dengan warna isi ini (hex); rambut disembunyikan bila topi dipakai.
+  readonly topi?: string;
+  // Mantel detektif (Inverness ala Sherlock Holmes) dipakai di atas stickman polos (`outfit` false):
+  // `badan` = mantel panjang dan lengan, `jubah` = jubah pendek di bahu.
+  readonly mantel?: { readonly badan: string; readonly jubah: string };
+  // Gaya topi: "newsboy" (bawaan) atau "detektif" (deerstalker ala Sherlock Holmes: kubah tinggi, pita di puncak, lipatan penutup telinga).
+  readonly topiGaya?: "newsboy" | "detektif";
+  // Warna rambut (bawaan hitam).
+  readonly hairColor?: string;
   // Tebal garis dalam unit viewBox (400 lebar).
   readonly strokeWidth?: number;
 };
@@ -315,6 +326,9 @@ const SHORTS = { fill: P.shorts, top: 34, bottom: 37, len: 0.42 } as const;
 const TRIM = P.trim;
 const SLEEVE_W = 13;
 const POCKET = "M171 232 L229 232 L238 266 Q200 276 162 266 Z";
+// Mantel detektif: badan memanjang dan melebar sampai lutut; jubah pendek menutupi bahu.
+const COAT = "M174 158 C168 200 152 250 150 324 Q200 334 250 324 C248 250 232 200 226 158 Z";
+const CAPE = "M170 160 C146 172 130 204 132 232 Q166 246 200 240 Q234 246 268 232 C270 204 254 172 230 160 Z";
 export const TORSO =
   "M174 158 C169 195 153 235 159 262 C163 280 180 284 200 284 C220 284 237 280 241 262 C247 235 231 195 226 158";
 
@@ -331,6 +345,11 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
   hair = true,
   aksen,
   color = P.ink,
+  fill = P.white,
+  topi,
+  mantel,
+  topiGaya = "newsboy",
+  hairColor = DARK,
   strokeWidth = 5,
   style,
 }) => {
@@ -338,7 +357,7 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
   const { fps } = useVideoConfig();
   const expression = expressionAt(face, expressionProp, frame, fps);
   const pose = poseAt(frame / fps, walk, wave, gesture);
-  const stroke = { fill: P.white, stroke: color, strokeWidth, strokeLinecap: "round", strokeLinejoin: "round" } as const;
+  const stroke = { fill, stroke: color, strokeWidth, strokeLinecap: "round", strokeLinejoin: "round" } as const;
   const open = { ...stroke, fill: "none" } as const;
 
   const arm = (side: 1 | -1, a: ArmPose, front: boolean): React.ReactNode => {
@@ -355,12 +374,16 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
         {outfit && <ellipse cx={c.x} cy={c.y} rx={HAND.rx} ry={HAND.ry} transform={`rotate(${-side * dir} ${c.x} ${c.y})`} {...stroke} />}
         <path d={`M${from.x} ${from.y} Q${elbow.x} ${elbow.y} ${hand.x} ${hand.y}`} {...open} strokeWidth={outfit ? SLEEVE_W + strokeWidth * 2 : strokeWidth} />
         {outfit && <path d={`M${from.x} ${from.y} Q${elbow.x} ${elbow.y} ${hand.x} ${hand.y}`} fill="none" stroke={hoodie} strokeWidth={SLEEVE_W} strokeLinecap="round" />}
+        {/* mantel: lengan tebal warna mantel, berhenti sebelum tangan */}
+        {!outfit && mantel && <path d={`M${from.x} ${from.y} Q${elbow.x} ${elbow.y} ${lerpPt(elbow, hand, 0.7).x} ${lerpPt(elbow, hand, 0.7).y}`} fill="none" stroke={color} strokeWidth={SLEEVE_W + strokeWidth * 2} strokeLinecap="round" />}
+        {!outfit && mantel && <path d={`M${from.x} ${from.y} Q${elbow.x} ${elbow.y} ${lerpPt(elbow, hand, 0.7).x} ${lerpPt(elbow, hand, 0.7).y}`} fill="none" stroke={mantel.badan} strokeWidth={SLEEVE_W} strokeLinecap="round" />}
         {/* polos: loop tangan utuh di ujung garis lengan */}
         {!outfit && <ellipse cx={c.x} cy={c.y} rx={HAND.rx} ry={HAND.ry} transform={`rotate(${-side * dir} ${c.x} ${c.y})`} {...stroke} />}
       </g>
     );
   };
 
+  const lerpPt = (a: Pt, b: Pt, t: number): Pt => ({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t });
   const shortsFill = aksen?.celana ?? SHORTS.fill;
   const trim = aksen?.tali ?? TRIM;
   const hoodie = aksen?.hoodie ?? HOODIE;
@@ -406,7 +429,20 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
           {/* lengan di belakang badan: pangkalnya tertutup isi putih badan */}
           {arm(-1, pose.arms[0], false)}
           {arm(1, pose.arms[1], false)}
-          <path d={TORSO} {...stroke} fill={outfit ? hoodie : P.white} />
+          {!outfit && mantel ? (
+            <>
+              {/* mantel panjang sampai lutut, belahan depan dan kancing */}
+              <path d={COAT} {...stroke} fill={mantel.badan} />
+              <path d="M200 192 L200 326" fill="none" stroke={color} strokeWidth={strokeWidth * 0.5} strokeLinecap="round" />
+              <path d="M172 214 L228 214 M168 262 L232 262 M162 300 L238 300" fill="none" stroke={color} strokeWidth={strokeWidth * 0.3} opacity={0.6} />
+              {[214, 240, 266].map((cy) => <circle key={cy} cx={208} cy={cy} r={3.2} fill={color} />)}
+              {/* jubah pendek Inverness di bahu */}
+              <path d={CAPE} {...stroke} fill={mantel.jubah} />
+              <path d="M184 164 L200 194 L216 164" fill="none" stroke={color} strokeWidth={strokeWidth * 0.7} strokeLinecap="round" strokeLinejoin="round" />
+            </>
+          ) : (
+            <path d={TORSO} {...stroke} fill={outfit ? hoodie : fill} />
+          )}
           {outfit && (
             <>
               {/* kantong kanguru dan tali hoodie */}
@@ -419,6 +455,29 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
           <g transform={`rotate(${pose.headTilt} ${NECK.x} ${NECK.y})`}>
             <ellipse cx={HEAD.x} cy={HEAD.y} rx={HEAD.rx} ry={HEAD.ry} {...stroke} />
             <Face e={expression} ink={color} w={strokeWidth * 0.8} talk={talking ? talkAmount(frame / fps) : undefined} />
+            {topi && topiGaya === "newsboy" && (
+              <g fill={topi} stroke={color} strokeWidth={strokeWidth * 0.8} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M138 88 C132 44 170 30 200 34 C230 30 268 44 262 88 C236 78 164 78 138 88 Z" />
+                <path d="M146 86 Q200 108 254 86 Q248 98 200 100 Q152 98 146 86 Z" />
+                <path d="M200 36 L200 80 M170 40 Q162 62 158 82 M230 40 Q238 62 242 82" fill="none" strokeWidth={strokeWidth * 0.45} />
+                <circle cx={200} cy={33} r={5} />
+              </g>
+            )}
+            {topi && topiGaya === "detektif" && (
+              // skala 0.9 berporos di tengah bawah pet supaya topi tetap duduk di kepala
+              <g transform="translate(200 100) scale(0.9) translate(-200 -100)" fill={topi} stroke={color} strokeWidth={strokeWidth * 0.8} strokeLinecap="round" strokeLinejoin="round">
+                {/* kubah: duduk di atas kepala (alas y 82), tidak turun ke wajah */}
+                <path d="M132 82 C124 30 164 14 200 14 C236 14 276 30 268 82 Q200 94 132 82 Z" />
+                {/* motif kotak tweed dan lipatan penutup telinga yang diikat di atas */}
+                <path d="M200 16 L200 74 M136 50 Q200 34 264 50 M150 30 Q138 56 140 78 M250 30 Q262 56 260 78" fill="none" strokeWidth={strokeWidth * 0.4} />
+                {/* bibir depan: bulan sabit tebal di tengah, menipis ke samping, sedikit lebih gelap supaya terbaca sebagai pet */}
+                <path d="M134 82 Q200 94 266 82 Q262 102 200 107 Q138 102 134 82 Z" />
+                <path d="M134 82 Q200 94 266 82 Q262 102 200 107 Q138 102 134 82 Z" fill={DARK} stroke="none" opacity={0.28} />
+                {/* pita pengikat di puncak */}
+                <path d="M200 16 C180 -6 156 4 182 20 Z M200 16 C220 -6 244 4 218 20 Z" />
+                <circle cx={200} cy={16} r={6} />
+              </g>
+            )}
             {headphones && (
               <>
                 <path d={BAND} fill="none" stroke={DARK} strokeWidth={9} strokeLinecap="round" />
@@ -431,7 +490,7 @@ export const GanjarStickman: React.FC<GanjarStickmanProps> = ({
               </>
             )}
             {/* rambut di atas pita headphone supaya helainya tidak terpotong */}
-            {hair && <path d={HAIR} fill="none" stroke={DARK} strokeWidth={strokeWidth * 0.9} strokeLinecap="round" />}
+            {hair && !topi && <path d={HAIR} fill="none" stroke={hairColor} strokeWidth={strokeWidth * 0.9} strokeLinecap="round" />}
           </g>
           {/* lengan yang melintas di depan kepala atau badan (facepalm, mikir, tepuk, ...) */}
           {arm(-1, pose.arms[0], true)}

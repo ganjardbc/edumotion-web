@@ -1,0 +1,22 @@
+// Palet tema Dark Chalk Storytelling (acuan: sheet "Billy's Curious Quest"). Belum masuk TOPIC_COLORS.
+export const KAPUR = {
+  navy: "#101D32",
+  hijau: "#3B5A39",
+  hijauTua: "#2C452B",
+  teal: "#203C50",
+  chalk: "#F2F0E8",
+  gold: "#F4B942",
+  orange: "#ED7853",
+  abu: "#A9ADB9",
+  coklat: "#B98A5A",
+  coklatTua: "#7E5A3A",
+  es: "#9ED8F0",
+  esIsi: "rgba(158, 216, 240, 0.32)",
+  airIsi: "rgba(158, 216, 240, 0.26)",
+  esBeku: "rgba(236, 246, 250, 0.5)",
+  kayu: "#7B4F2B",
+  kayuTerang: "#A87444",
+  kayuGelap: "#3F2514",
+  biru: "#2F4B94",
+  biruTerang: "#5A78C4",
+} as const;
