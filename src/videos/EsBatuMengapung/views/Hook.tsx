@@ -1,6 +1,7 @@
 import type React from "react";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { Kanvas, Pop } from "../../../dark-chalk/Kanvas";
+import { Ikon } from "../../../dark-chalk/ikon/Ikon";
 import { Label } from "../../../dark-chalk/Label";
 import { Batu } from "../../../dark-chalk/objek/Batu";
 import { GelasAir, permukaanAir } from "../../../dark-chalk/objek/Gelas";
@@ -26,6 +27,7 @@ export const Hook: React.FC<SceneProps> = ({ at }) => {
     <>
       <Teks text="Es kok mengapung?" sorot="mengapung" size={96} top={250} />
       <Kanvas>
+        <Ikon nama="snowflake" cx={540} cy={880} size={120} mulai={14} warna={KAPUR.es} tebal={6} />
         <GelasAir x={320} y={ALAS} lebar={290} tinggi={TINGGI} isi={ISI} mulai={4} />
         <GelasAir x={760} y={ALAS} lebar={290} tinggi={TINGGI} isi={ISI} mulai={10} />
         <Pop at={Math.max(14, tenggelam - 12)}>

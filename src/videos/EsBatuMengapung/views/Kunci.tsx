@@ -1,6 +1,7 @@
 import type React from "react";
 import { useCurrentFrame } from "remotion";
 import { Garis } from "../../../dark-chalk/Garis";
+import { Ikon } from "../../../dark-chalk/ikon/Ikon";
 import { GelasAir, permukaanAir } from "../../../dark-chalk/objek/Gelas";
 import { KubusEs } from "../../../dark-chalk/objek/KubusEs";
 import { KAPUR } from "../../../dark-chalk/palette";
@@ -21,10 +22,16 @@ export const Kunci: React.FC<SceneProps> = ({ at }) => {
       keterangan="lebih ringan dari air"
       keteranganAt={ringan - 6}
       gambar={
+        <>
+          <Ikon nama="snowflake" cx={150} cy={900} size={120} mulai={20} warna={KAPUR.es} tebal={7} />
+          <Ikon nama="thermometer" cx={930} cy={900} size={120} mulai={30} warna={KAPUR.es} tebal={7} />
+
         <GelasAir x={540} y={ALAS} lebar={500} tinggi={TINGGI} isi={0.7} mulai={4}>
           <KubusEs cx={540} cy={muka + 62 + Math.sin(frame / 16) * 8} size={200} tilt={Math.sin(frame / 20) * 5} mulai={14} />
           <Garis d={`M300 ${muka - 30} L250 ${muka - 70} M780 ${muka - 30} L830 ${muka - 70} M540 ${muka - 120} L540 ${muka - 170}`} mulai={ringan} lama={10} warna={KAPUR.gold} tebal={8} />
         </GelasAir>
+      
+        </>
       }
     />
   );

@@ -1,6 +1,7 @@
 import type React from "react";
 import { Easing, interpolate, useCurrentFrame } from "remotion";
 import { Garis } from "../../../dark-chalk/Garis";
+import { Ikon } from "../../../dark-chalk/ikon/Ikon";
 import { Kanvas, maju, Pop } from "../../../dark-chalk/Kanvas";
 import { Label } from "../../../dark-chalk/Label";
 import { KAPUR } from "../../../dark-chalk/palette";
@@ -28,6 +29,9 @@ export const Cta: React.FC<SceneProps> = ({ at }) => {
     <>
       <Judul teks="Es tenggelam di danau?" sorot="tenggelam" />
       <Kanvas>
+        <Ikon nama="mountain" cx={190} cy={600} size={140} mulai={6} warna={KAPUR.es} tebal={7} />
+        <Ikon nama="cloud" cx={540} cy={580} size={120} mulai={14} warna={KAPUR.abu} tebal={7} />
+        <Ikon nama="trees" cx={890} cy={610} size={140} mulai={22} warna={KAPUR.daun} tebal={7} />
         <Garis d={`M110 ${PERMUKAAN} C100 ${DASAR} 200 ${DASAR + 40} 540 ${DASAR + 40} C880 ${DASAR + 40} 980 ${DASAR} 970 ${PERMUKAAN}`} mulai={4} lama={30} tebal={8} isi={KAPUR.airIsi} />
         <path d={`M120 ${PERMUKAAN} Q200 ${PERMUKAAN - 12} 280 ${PERMUKAAN} T440 ${PERMUKAAN} T600 ${PERMUKAAN} T760 ${PERMUKAAN} T920 ${PERMUKAAN} T980 ${PERMUKAAN}`} fill="none" stroke={KAPUR.es} strokeWidth={5} opacity={maju(frame, 20, 20)} />
         <Pop at={20}>
