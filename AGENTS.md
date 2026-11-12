@@ -7,7 +7,7 @@ Konteks project untuk agent AI apa pun (Claude Code, Codex, Pi, Antigravity, Cur
 
 Format video: **satu narator** menjelaskan dengan bahasa Indonesia yang mudah dipahami. **Tema visual dipilih per video** (kertas berpetak atau Dark Chalk) dan tidak punya bawaan: **bila permintaan belum menyebut tema, tanyakan ke Ganjar dulu**. **Karakter di layar bukan bawaan**: tambahkan pembawa (stickman Ganjar) atau cast hanya bila diminta. Alur cerita: Hook → Setup → Twist → Penjelasan → Payoff → Ajakan.
 
-Tema alternatif yang sedang dicoba: **Dark Chalk Storytelling** (papan tulis hijau berbingkai kayu, garis kapur, aksen emas), diaktifkan dengan `tema="dark-chalk"` pada `ShortEdu`; video pertama `EsBatuMengapung` tanpa tokoh. Rinciannya di bagian "Tema alternatif" `CLAUDE.md` dan `src/dark-chalk/README.md`.
+Tema alternatif yang sedang dicoba: **Dark Chalk Storytelling** (papan tulis hijau berbingkai kayu, garis kapur, aksen emas), diaktifkan dengan `tema="dark-chalk"` pada `ShortEdu`; video `EsBatuMengapung` dan `DinosaurusPunah` tanpa tokoh. Teks kapur memakai font Patrick Hand dan diatur otomatis; ada pustaka ikon `Ikon` (Tabler, `src/dark-chalk/ikon/`). Rinciannya di bagian "Tema alternatif" `CLAUDE.md` dan `src/dark-chalk/README.md`.
 
 - Jangan dicampur dengan `remotion-web` (akun personal branding, proyek terpisah).
 - Bahasa pengantar kerja dengan pemilik: Indonesia, gunakan "aku" dan "kamu". Komentar kode dan teks UI dalam Bahasa Indonesia.
@@ -19,7 +19,7 @@ Tema alternatif yang sedang dicoba: **Dark Chalk Storytelling** (papan tulis hij
 | Cara mengerjakan tugas tertentu | Skill di `.agents/skills/` (tabel di bawah) |
 | Warna, huruf, objek (props), kontrak gaya, daftar objek dan statusnya | `design-system/edumotion-design-system/` (`readme.md`, `props/STYLE.md`, `props/registry.md`) |
 | Pola penjelas dan contoh pemakaian | `src/explainers/pola/`, contoh lengkap di `src/videos/LangitBiru/views/` dan `src/videos/BateraiCepatHabis/views/` |
-| Tema Dark Chalk (papan, kapur, objek, pola kapur) | `src/dark-chalk/README.md`, contoh `src/videos/EsBatuMengapung/views/` |
+| Tema Dark Chalk (papan, kapur, objek, pola kapur) | `src/dark-chalk/README.md`, contoh `src/videos/EsBatuMengapung/views/` dan `src/videos/DinosaurusPunah/views/` |
 | Latar, kamera | `src/assets/backdrops/README.md`, `src/assets/camera/README.md` |
 | Perintah dan struktur folder | [README.md](README.md) |
 

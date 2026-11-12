@@ -16,7 +16,16 @@ Acuan: sheet "Billy's Curious Quest" dan gaya tokoh vektor datar tanpa wajah.
 - `GanjarDatar.tsx`: Ganjar (kepala bulat putih dengan mata titik, rambut tiga helai, kaos polos biru lengan pendek, celana pendek abu). Tampak depan. Pose: berdiri, tunjuk, mikir, kaget, sorak, menyerah. Ekspresi: bentuk mata (biasa, melebar saat kaget, melirik saat mikir, melengkung saat sorak, turun saat menyerah), tanda kecil (garis kejut, tanda tanya, keringat), dan kemiringan kepala. Gambar tokoh dibiarkan bersih, di luar `Kapur`.
 - Demo di Studio: `DarkChalk-Ganjar` (enam pose) dan `DarkChalk-Awan` (naskah AwanTidakJatuh: Hook, Twist, Explain).
 
+## Pustaka tambahan (Nov 2026)
+- `font.ts`: font teks kapur **Patrick Hand** (`FONT_KAPUR`, `SKALA_FONT`); caption tetap Nunito. `tataTeks` dan `ukuranMuat` memakai `@remotion/layout-utils` (`fitText`, `measureText`) untuk menata judul menjadi 1–2 baris seimbang dan mengecilkan huruf bila tidak muat. Font harus siap dulu (`useFontKapur` menahan render); `Teks` dan `Label` sudah memakainya, jadi view tidak mengatur lebar atau ukuran sendiri.
+- `kasar.ts` + prop `kasar` di `Garis`: goresan sketsa tangan (roughjs, deterministik: seed dari isi path). Syarat: path tidak boleh berubah antar frame; benda yang bergerak digambar di titik asal lalu digeser dengan `transform` (lihat `Asteroid` di `objek/Purba.tsx`). Isi (`isi`) digambar dari path mulus, terpisah dari kontur kasar. Bawaan 0 (mulus).
+- `Arsir.tsx`: arsiran kapur diagonal di dalam sebuah path (clipPath, kotak batas dari `@remotion/paths`), pengganti isian warna datar. Dipakai di `Bumi` dan `Asteroid`.
+- `DebuMelayang.tsx`: butiran debu kapur naik pelan di belakang gambar, dipasang `ShortEdu` untuk tema ini. Halo debu di sekeliling garis ada di filter `Kapur.tsx`.
+- `ikon/`: 61 ikon garis dari **Tabler Icons (MIT)**; `<Ikon nama="cat" cx cy size />` menggambarnya bergaya kapur (tiap path digambar berurutan, goresan kasar). Data dihasilkan `node scripts/ikon-build.mjs <icons/outline Tabler>` ke `ikon/data.ts` (jangan diubah tangan; tambah nama di daftar skrip). Lisensi di `ikon/LICENSE-tabler.txt`. Lembar tinjauan: Still `DarkChalk-Ikon`. Tidak ada ikon dinosaurus dan burung.
+- `objek/Purba.tsx`: objek kapur video DinosaurusPunah (`Dinosaurus`, `Asteroid`, `Bumi`, `Debu`, `Matahari`, `Tumbuhan`, `Termometer`, `Salju`).
+- Pola `SebabAkibat` punya mode `renggang` (jarak ikon, label, dan panah lebih lebar untuk gambar kecil).
+- Dicoba lalu dibuang atas keputusan Ganjar: kapur yang bergerak di ujung goresan, dan transisi penghapus papan.
+
 ## Belum
-- Belum lewat `ShortEdu` (tanpa VO, SFX, `at()` per kata). Caption demo sederhana.
 - `check-videos` menolak latar selain `kertas` dan `Pembawa`; perlu dilonggarkan bila tema ini dipakai di `src/videos/`.
 - Belum ada pola penjelas versi kapur, pose samping/3/4, dan `GanjarDatar` di `CastCharacter`.
