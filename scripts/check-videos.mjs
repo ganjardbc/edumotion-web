@@ -83,11 +83,13 @@ for (const v of videos) {
     const voSrc = existsSync(join(dir, "voiceover.ts")) ? readFileSync(join(dir, "voiceover.ts"), "utf8") : "";
     const voiceId = voiceCatalog[voSrc.match(/narator: VOICES\.(\w+)/)?.[1]];
     const manifest = existsSync(join(dir, "voiceover.json")) ? JSON.parse(readFileSync(join(dir, "voiceover.json"), "utf8")).lines : {};
-    if (voiceId && voModel)
+    // Model bisa ditimpa per video lewat `model: "..."` di voiceover.ts; bila tidak, pakai DEFAULT_MODEL.
+    const videoModel = voSrc.match(/\bmodel:\s*"([^"]+)"/)?.[1] ?? voModel;
+    if (voiceId && videoModel)
       for (const sc of scenes)
         sc.lines.forEach((l, i) => {
           const entry = manifest[`${sc.id}-${i + 1}`];
-          const hash = createHash("sha1").update(`${voiceId}|${voModel}|${l.tts ?? l.text}`).digest("hex").slice(0, 12);
+          const hash = createHash("sha1").update(`${voiceId}|${videoModel}|${l.tts ?? l.text}`).digest("hex").slice(0, 12);
           if (entry && entry.hash !== hash) warnings.push(`src/videos/${v}: audio ${sc.id}-${i + 1} usang (teks atau suara berubah); buat ulang VO atau hapus dari voiceover.json`);
         });
   }
