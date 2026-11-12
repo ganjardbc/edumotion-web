@@ -5,6 +5,7 @@ import { EFFECTS_DEMO, EFFECTS_DEMO_DURATION, EffectsDemo } from "./assets/effec
 import { CAST_DEMO, CAST_DEMO_DURATION, CastDemo, CastExpressionSheet, SHEET } from "./characters/cast";
 import { TAKO_DEMO, TAKO_DEMO_DURATION, TakoDemo } from "./characters/tako/TakoDemo";
 import { BINGKAI, BingkaiKayu } from "./dark-chalk/BingkaiKayu";
+import { IKON_SHEET, IkonSheet } from "./dark-chalk/ikon/IkonSheet";
 import { LATAR_SHEET, LatarSheet } from "./dark-chalk/LatarSheet";
 import { PAPAN_AWAN, PapanAwan } from "./dark-chalk/PapanAwan";
 import { DARK_CHALK_GANJAR, PapanGanjar } from "./dark-chalk/PapanGanjar";
@@ -46,6 +47,7 @@ export const RemotionRoot: React.FC = () => (
       <Composition {...spek(DARK_CHALK_GARIS, DARK_CHALK_GARIS.durationInFrames)} component={PapanGanjarGaris} />
       <Still id={LATAR_SHEET.id} component={LatarSheet} width={LATAR_SHEET.width} height={LATAR_SHEET.height} defaultProps={{ varian: "navy" as const }} />
       <Still id="DarkChalk-LatarHijau" component={LatarSheet} width={LATAR_SHEET.width} height={LATAR_SHEET.height} defaultProps={{ varian: "hijau" as const }} />
+      <Still id={IKON_SHEET.id} component={IkonSheet} width={IKON_SHEET.width} height={IKON_SHEET.height} />
       {/* Sumber PNG papan dan bingkai; render ulang bila diubah (perintah di src/dark-chalk/README.md) */}
       <Still id="DarkChalk-Bingkai" component={BingkaiKayu} width={BINGKAI.width} height={BINGKAI.height} />
       <Still id="DarkChalk-TeksturNavy" component={TeksturPapan} width={TEKSTUR.width} height={TEKSTUR.height} defaultProps={{ varian: "navy" as const }} />
