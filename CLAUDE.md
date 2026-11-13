@@ -15,14 +15,14 @@ Remotion 4 (rspack), React 19, TypeScript, ElevenLabs untuk voice over. Tema Dar
 ## Format video (disepakati)
 - Kanvas **1080×1920 (9:16), 30 fps**. Durasi 30–120 detik; durasi adegan mengikuti audio VO.
 - Animasi hanya bergantung pada `useCurrentFrame()`. Tidak ada `setTimeout`, CSS animation, atau `Math.random()` tanpa seed.
-- Satu ide per video. Struktur: **Hook → Setup → Penjelasan → Twist → Payoff**.
+- Satu ide per video. **Format baru (disampaikan Ganjar 13 Nov 2026):** tanpa tebak-tebakan. Struktur: **Hook (satu pertanyaan 5W1H: kenapa/bagaimana/apa/siapa/kapan/di mana) → Penjelasan (langsung menjawab) → Payoff → Cta**. Payoff dan Cta dianggap tetap sampai Ganjar menyatakan lain. Scaffold video baru dengan `--scenes Hook,Explain1,Explain2,Payoff,Cta`. Video lama (`EsBatuMengapung`, `DinosaurusPunah`, dan empat video narator awal) masih memakai Setup dan Twist; ubah hanya bila Ganjar memintanya.
 - Hook maksimal 6 kata dan harus muncul di 3 detik pertama.
 - Lima faktor tonton yang dijaga: rasa penasaran (curiosity gap), keterhubungan (relatable), kejutan visual, alur cerita bergerak, payoff yang memuaskan.
 - Caption tersinkron dengan VO, maksimal 2 baris. Teks penting di dalam safe zone: atas 220, bawah 480, kiri 64, kanan 160 px.
 - **Narator (konsep utama, diputuskan Ganjar 11 Nov 2026):** semua kalimat dibawakan satu narator (`who: "narator"`). Bila Ganjar meminta tokoh, pembawa (stickman Ganjar) atau cast tampil di layar sebagai pemeran yang bereaksi (berpikir, kaget, senang), tidak berbicara.
 - **Pemilihan tema dan karakter (diputuskan Ganjar 12 Nov 2026, wajib):** (1) Tema dipilih per video dan tidak punya bawaan: **tanyakan ke Ganjar bila permintaannya belum menyebut tema** (kertas berpetak atau Dark Chalk). `video:new` menolak berjalan tanpa `--tema`. (2) **Karakter di layar bukan bawaan**: video dibuat tanpa tokoh kecuali Ganjar memintanya; Hook, Twist, Payoff, dan Cta lalu berupa gambar atau objek beranimasi. Bila diminta, ikuti aturan pembawa di bawah.
 - **Bahasa:** Indonesia yang mudah dipahami. Kalimat pendek (sekitar 12 kata), satu gagasan per kalimat, kata sehari-hari, menyapa penonton "kamu". Istilah ilmiah hanya bila perlu dan langsung dijelaskan ("mitokondria, yaitu pabrik energi kecil di dalam sel"). Hindari kata serapan yang berat ("dihamburkan" → "disebarkan"). Fokus pada penjelasan, bukan lelucon.
-- **Twist:** narator menyebut tebakan umum yang keliru ("Banyak orang mengira …") di Setup, lalu mengoreksinya di Twist; ini ciri khas akun.
+- **Twist (format lama, tidak dipakai untuk video baru sejak 13 Nov 2026):** narator menyebut tebakan umum yang keliru di Setup, lalu mengoreksinya di Twist. Video baru langsung menjelaskan setelah Hook.
 - **Format stickman (diputuskan Ganjar 12 Nov 2026; berlaku untuk tema kertas berpetak):**
   - **Latar kertas berpetak (KISS):** semua scene memakai `<EduBackdrop topic={META.topic} />` (bawaan `kertas`: putih hangat, petak tipis tinta topik, tanpa dekor dan tanpa gerak). Konteks ditunjukkan lewat objek dan label, bukan latar.
   - **Pembawa (hanya bila diminta):** `<Pembawa topic={META.topic} />` dari `src/characters/ganjar` (stickman Ganjar berambut tiga garis; hoodie, celana pendek, dan tali hoodie memakai warna topik video). `TakoCharacter` ditolak lint di video.
@@ -52,12 +52,27 @@ Papan tulis hijau (varian navy tersedia) dengan bingkai kayu, garis kapur putih,
 ## Audiens dan posisi akun (disepakati Ganjar, 31 Okt 2026)
 - **Audiens:** orang Indonesia usia 15–25 yang penasaran (SMA sampai awal kuliah); materi tetap bisa dipahami anak SMP. Belum menargetkan anak SD (nada dan aturan platform berbeda; perlu dicek dulu).
 - **Posisi:** "Sains 60 detik yang bikin kamu bilang 'oh iya ya!'", dibawakan narator dengan stickman Ganjar sebagai pembawa di layar.
-- **Pembeda:** (1) format pendek vertikal, satu pertanyaan sehari-hari per video; (2) narator menyebut tebakan umum yang keliru lalu mengoreksinya, itu jadi bagian *Twist*; (3) satu karakter cast per pilar topik.
+- **Pembeda:** (1) format pendek vertikal, satu pertanyaan sehari-hari per video (Hook selalu pertanyaan 5W1H); (2) papan tulis hijau dengan gambar kapur (tema Dark Chalk, bila dipilih per video); (3) satu karakter cast per pilar topik hanya bila diminta. Ciri tebakan keliru + Twist adalah format lama (sebelum 13 Nov 2026).
 - **Pilar konten (karakter):** Tubuh manusia (Jantung), Bumi & antariksa (Bumi), Cuaca & air (Awan, Tetes), Teknologi (Robo), Sejarah (Raka), Fakta umum (Buku).
 - **Komposisi awal:** IPA sekitar 70%, sisanya sejarah dan teknologi. Ini hipotesis kerja dari riset kecil (satu akun pembanding, sampel kecil, label dibuat sendiri); data video nyata yang menentukan, jangan diperlakukan sebagai fakta.
 - **Uji A/B selesai secara keputusan:** versi narator dengan visual sederhana dipilih Ganjar sebagai konsep utama (11 Nov 2026). Versi Tako berbicara sendiri tidak dibuat lagi.
-- Masih terbuka: nama akun/handle, daftar topik uji, kelayakan Creator Rewards di Indonesia (belum diverifikasi), aturan platform untuk konten yang menyasar anak.
+- Masih terbuka: daftar topik uji, kelayakan Creator Rewards di Indonesia (belum diverifikasi), aturan platform untuk konten yang menyasar anak.
 - Ringkasan riset: Claude Doc "Riset Niche IPA vs IPS: Animasi Edukasi" (https://claude.ai/artifact/WrCm3FuaeZGbqGXYJxJivL).
+
+## Identitas akun (diputuskan Ganjar, 13 Nov 2026)
+- **Handle:** `@dipapantulis` (Instagram, TikTok, YouTube). Ganjar sudah mengecek kosong di Instagram dan TikTok; YouTube belum dikonfirmasi.
+- **Nama tampilan:** Instagram `Animasi Edukasi · Fakta Unik`; TikTok `Di Papan Tulis | Animasi`; YouTube `Di Papan Tulis · Animasi Edukasi`.
+- **Bio Instagram:**
+  ```
+  Hai, yang lagi penasaran 👋
+  1 pertanyaan, 1 animasi, tiap Selasa, Kamis & Sabtu. Tubuh, alam, sejarah, teknologi.
+  Follow, cari tahu bareng 👇
+  ```
+  **Bio TikTok:** `Satu pertanyaan, satu animasi, tiap Selasa, Kamis & Sabtu ✏️ Follow 👇`.
+  **Deskripsi YouTube:** `Animasi edukasi di papan tulis hijau. Tiap video menjawab satu pertanyaan: kenapa, bagaimana, apa, siapa, kapan, atau di mana. Video baru Selasa, Kamis & Sabtu. Topik: tubuh, alam, antariksa, sejarah, teknologi.`
+- **Aturan:** akun berdiri sendiri (tanpa tautan atau nama Coderium dan @ganjar_hadiatna, tanpa nama pribadi, tanpa nama karakter di nama akun). Frasa "oh iya ya" tidak lagi dipakai di bio.
+- **Jadwal: 3 video seminggu (Selasa, Kamis, Sabtu).** Siapkan stok 6–9 video sebelum akun dibuka. Bila jadwal berubah, ubah bio di semua platform.
+- **Catatan platform (dicek 13 Nov 2026 dari ringkasan media, bukan teks kebijakan resmi; cek ulang berkala):** TikTok: aktifkan label konten AI untuk video bersuara ElevenLabs. YouTube: konten generik atau berulang berbasis templat berisiko untuk monetisasi, jadi variasikan visual, jenis pertanyaan, dan cara menjelaskan; hindari persona AI yang memberi nasihat medis atau hukum. Instagram: penalti menyasar unggahan ulang konten orang lain, bukan animasi orisinal.
 
 ## Struktur video (wajib, tanpa pengecualian)
 Semua video edukasi memakai struktur folder yang sama supaya video baru tidak berbeda-beda bentuknya.
@@ -91,7 +106,7 @@ src/videos/
 
 Aturan:
 - Nama folder = id komposisi = `META.id` (PascalCase). Id scene PascalCase dan sama dengan nama berkas di `views/`: `Hook`, `Setup`, `Twist`, `Explain`/`Explain1..n`, `Payoff`, `Cta`.
-- Urutan cerita baku: Hook → Setup → Twist → Explain (satu atau lebih) → Payoff → Cta. Ubah `--scenes` hanya bila naskah memang berbeda.
+- Urutan cerita baku (format baru, 13 Nov 2026): Hook (pertanyaan 5W1H) → Explain (satu atau lebih) → Payoff → Cta. Setup dan Twist hanya untuk video lama atau bila Ganjar memintanya. Ubah `--scenes` hanya bila naskah memang berbeda.
 - **Alur kerja:** `script.md` disetujui Ganjar → isi `scenes.ts` dari naskah → tinjau tempo dalam mode animatik → objek yang belum ada dicatat di registry (`antre`) lalu dibuat di `src/props/<domain>/` → tulis `views/` → tinjau di Studio dengan `<ShortEdu safeZone />` → VO (dengan persetujuan Ganjar) → render.
 - Objek yang bisa dipakai ulang masuk `src/props/<domain>/`, komponen penjelas lintas video masuk `src/explainers/`. Folder `props/` di dalam video hanya untuk objek yang tidak akan dipakai ulang.
 - Jangan menulis warna heksadesimal di `src/videos/<Nama>/`; pakai `useTheme()` atau `TOPIC_COLORS` (`src/themes/topics.ts`).

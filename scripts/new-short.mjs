@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 // Membuat video edukasi vertikal baru (1080x1920, 30 fps) dengan struktur folder baku edumotion.
 //   node scripts/new-short.mjs <NamaPascalCase> "<Judul>" --topic <topik> --tema <kertas|dark-chalk> [--cast jantung,bumi] [--voice aldo]
-//                              [--scenes Hook,Setup,Twist,Explain1,Explain2,Payoff,Cta] [--no-register]
+//                              [--scenes Hook,Explain1,Explain2,Payoff,Cta] [--no-register]
+// Format baku sejak 13 Nov 2026: Hook (satu pertanyaan 5W1H) -> Penjelasan -> Payoff -> Cta, tanpa tebak-tebakan.
+// Setup dan Twist tetap valid (video lama, atau bila Ganjar memintanya) lewat --scenes.
 // Struktur hasil (jangan diubah per video; aturannya ada di CLAUDE.md dan ditegakkan scripts/check-videos.mjs):
 //   src/videos/<Nama>/{README.md, script.md, scenes.ts, <Nama>.tsx, index.ts, voiceover.ts, voiceover.json,
 //                      voiceover-files.ts, views/{index.ts, <Scene>.tsx...}}
@@ -34,7 +36,7 @@ const topic = opt("--topic");
 const tema = opt("--tema");
 const cast = opt("--cast", "").split(",").filter(Boolean);
 const voice = opt("--voice", "aldo");
-const scenes = opt("--scenes", "Hook,Setup,Twist,Explain1,Explain2,Payoff,Cta").split(",");
+const scenes = opt("--scenes", "Hook,Explain1,Explain2,Payoff,Cta").split(",");
 
 if (!name || !title || !/^[A-Z][A-Za-z0-9]*$/.test(name)) fail('Pakai: node scripts/new-short.mjs <NamaPascalCase> "<Judul>" --topic <topik> --tema <kertas|dark-chalk> [--cast jantung] [--voice aldo] [--scenes ...] [--no-register]');
 if (name.startsWith("_")) fail("Nama tidak boleh diawali garis bawah.");
