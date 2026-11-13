@@ -1,27 +1,27 @@
 import type React from "react";
-import { EduBackdrop } from "../../../assets/backdrops";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
-import { CastCharacter } from "../../../characters/cast";
-import { EDU_FEET_Y, PhaseBar } from "../../../explainers";
-import { EkgLine, Stopwatch } from "../../../props";
-import { useTheme } from "../../../themes";
-import { META } from "../scenes";
+import { useCurrentFrame } from "remotion";
+import { maju } from "../../../dark-chalk/Kanvas";
+import { KAPUR } from "../../../dark-chalk/palette";
+import { Bandingkan, PANEL } from "../../../dark-chalk/pola";
 import type { SceneProps } from "../../_shared/types";
 
-// Explain1: satu detak = kerja sebentar, istirahat lebih lama. Siklus 30 frame (1 detik).
-export const Explain1: React.FC<SceneProps> = () => {
+// Explain1: batang "kerja" pendek vs batang "istirahat" yang tumbuh panjang. Bagian bawah panel sebagai dasar batang.
+export const Explain1: React.FC<SceneProps> = ({ at }) => {
   const frame = useCurrentFrame();
-  const t = useTheme();
-  const cycle = (frame % 30) / 30;
-  const resting = cycle > 0.35;
+  const kerja = Math.max(8, at("bekerja"));
+  const rehat = at("istirahat");
+  const lama = at("lebih lama");
+  const tumbuh = maju(frame, rehat, Math.max(24, lama - rehat + 20));
+  const dasar = PANEL.atas + PANEL.tinggi - 50;
+  const batang = (cx: number, tinggi: number, warna: string, isi: string) => (
+    <rect x={cx - 70} y={dasar - tinggi} width={140} height={tinggi} rx={14} fill={isi} stroke={warna} strokeWidth={8} strokeLinejoin="round" />
+  );
   return (
-    <AbsoluteFill>
-      <EduBackdrop topic={META.topic} />
-      <div style={{ position: "absolute", left: 160, right: 160, top: 250, textAlign: "center", fontFamily: t.fonts.heading, fontWeight: 800, fontSize: 64, color: t.colors.ink }}>Satu detak = 1 detik</div>
-      <PhaseBar top={380} left={160} width={760} progress={cycle} split={0.35} labels={["Kerja", "Istirahat"]} />
-      <Stopwatch x={300} y={760} size={320} progress={cycle} />
-      <EkgLine x={680} y={760} size={440} progress={Math.min(1, (frame % 60) / 50)} />
-      <CastCharacter id="jantung" x={540} y={EDU_FEET_Y} size={420} expression={resting ? "sleepy" : "surprised"} animation="idle" />
-    </AbsoluteFill>
+    <Bandingkan
+      judul="Istirahat lebih lama"
+      sorotJudul="Istirahat"
+      kiri={{ teks: "kerja", at: kerja, gambar: (p) => batang(p.x, 110, KAPUR.chalk, "rgba(242, 240, 232, 0.2)") }}
+      kanan={{ teks: "istirahat", at: rehat, gambar: (p) => batang(p.x, 40 + 370 * tumbuh, KAPUR.gold, "rgba(244, 185, 66, 0.25)") }}
+    />
   );
 };

@@ -1,30 +1,49 @@
-# Kok jantung tidak capek?
+# Kenapa jantung tidak pernah capek?
 
-Topik: tubuh · Suara: narator (Aldo) · Karakter di layar: Ganjar (pembawa), Jantung
-Status naskah: **ditulis ulang untuk konsep narator (11 Nov 2026), menunggu persetujuan Ganjar.** Versi sebelumnya (Tako/Bumi berbicara sendiri) ada di riwayat git.
+Topik: tubuh · Suara: narator (Aldo) · Tema: Dark Chalk, tanpa tokoh di layar
+Status naskah: **ditulis ulang ke format baru (13 Nov 2026), disetujui Ganjar. VO Aldo (eleven_v4) dibuat 13 Nov 2026; storyboard menunggu tinjauan.** Versi lama (Setup + Twist, stickman, latar kertas) ada di riwayat git.
 
-Struktur: Hook → Setup (tebakan umum yang keliru) → Twist (koreksi) → Penjelasan → Payoff → Ajakan. Perkiraan 42 detik; durasi akhir mengikuti audio.
+Struktur: Hook (pertanyaan 5W1H) → Penjelasan ×3 → Payoff → Cta. Perkiraan 37 detik (±85 kata); durasi akhir mengikuti audio.
 
-Semua kalimat dibawakan narator. Tokoh di layar hanya bereaksi, tidak berbicara. Latar polos di semua scene.
+Jawaban dalam satu kalimat: jantung tidak capek karena ia bekerja sebentar lalu langsung istirahat, punya banyak pabrik energi, dan dialiri darahnya sendiri.
 
-| Scene | Narasi (narator) | Dur (dtk) | Visual dan aksi | SFX |
+## Naskah
+
+| Scene | Narasi (narator) | Dur (dtk) | SFX |
+|---|---|---|---|
+| Hook | "Kenapa jantungmu tidak pernah capek?" | 3 | heartbeat |
+| Explain1 | "Jantung bekerja sebentar, lalu langsung istirahat. Satu detak lamanya sekitar satu detik, dan istirahatnya lebih lama." | 8 | – |
+| Explain2 | "Otot jantung juga punya banyak mitokondria, yaitu pabrik energi kecil di dalam sel. Jumlahnya jauh lebih banyak daripada di otot lengan." | 9 | – |
+| Explain3 | "Jantung punya pembuluh darah sendiri. Jadi makanan dan oksigennya terus dikirim." | 5.5 | – |
+| Payoff | "Jadi jantung tidak capek karena pintar istirahat. Ia beristirahat sebentar di antara tiap detak." | 6.5 | tada |
+| Cta | "Menurutmu, bagian tubuh mana lagi yang tidak pernah capek?" | 4 | – |
+
+## Brief visual
+
+Pola: `visual` (Hook, Payoff, Cta) atau pola kapur (Explain). Tanpa tokoh, tanpa Pembawa. Semua dari `src/dark-chalk`.
+
+| Scene | Pola | Judul (≤6 kata) | Objek utama | Label | Kata kunci → aksi |
 |---|---|---|---|---|
-| Hook | "Jantungmu berdetak seratus ribu kali sehari. Kok tidak capek?" | 3.8 | Latar polos. Teks layar: **Kok jantung tidak capek?** Counter 100.000 naik. Jantung berdetak, Ganjar (pembawa) menatap heran. | heartbeat |
-| Setup | "Banyak orang mengira jantung itu sangat kuat dan tidak pernah istirahat. Seperti mesin yang menyala terus." | 7 | Ganjar (pembawa) berpikir (tidak berbicara). Jantung menggeleng pelan menjelang akhir. | – |
-| Twist | "Ternyata itu keliru!" | 1.6 | Ganjar (pembawa) kaget, Jantung melambai. Kamera mendekat sedikit. | wrong |
-| Explain1 | "Satu detak lamanya sekitar satu detik. Jantung bekerja sebentar, lalu istirahat lebih lama." | 5.5 | Bar "Kerja" pendek dan "Istirahat" lebih panjang, stopwatch, garis EKG. Jantung bersantai. | – |
-| Explain2 | "Otot jantung juga punya banyak mitokondria, yaitu pabrik energi kecil di dalam sel. Jumlahnya jauh lebih banyak daripada di otot lengan." | 8.5 | Dua sel otot: jantung penuh pabrik energi, lengan hanya sedikit. | – |
-| Explain3 | "Jantung juga punya pembuluh darah sendiri. Jadi makanan dan oksigennya terus dikirim." | 5 | Pembuluh darah membungkus jantung, darah mengalir. | – |
-| Payoff | "Jadi jantung tidak capek karena pintar istirahat. Ia beristirahat sebentar di antara tiap detak." | 7 | Ganjar (pembawa) dan Jantung berdampingan. Teks layar (sorotan): **jago istirahat**. | tada |
-| Cta | "Menurutmu, bagian tubuh mana lagi yang tidak pernah capek?" | 4 | Teks layar: **Bagian tubuh mana lagi?** Ganjar (pembawa) berpikir. | – |
+| Hook | visual | Kenapa jantung tidak **capek**? | Ikon `heart` besar berdetak (kapur merah muda), garis EKG kapur di bawahnya | – | "jantungmu" → hati muncul dan mulai berdetak; "capek" → hati berhenti sesaat lalu lanjut |
+| Explain1 | Bandingkan (baris) | **Istirahat** lebih lama | Dua batang kapur: "Kerja" pendek vs "Istirahat" panjang, `Stopwatch`/jam di samping | Kerja; Istirahat | "bekerja" → batang pendek; "istirahat" → batang panjang menyala; "lebih lama" → sorot batang panjang |
+| Explain2 | Bandingkan (kolom) | Otot jantung **penuh** pabrik energi | Sel otot jantung (banyak `Mitochondria`) vs sel otot lengan (sedikit) | Otot jantung; Otot lengan; Mitokondria | "mitokondria" → label dan satu mitokondria disorot; "lebih banyak" → sel jantung penuh, sel lengan hanya sedikit |
+| Explain3 | Sorot | Jantung punya **pembuluh** sendiri | Jantung besar dibungkus `CoronaryVessels`, titik darah mengalir | Pembuluh sendiri; Makanan; Oksigen | "pembuluh darah" → pembuluh digambar; "makanan" → label; "oksigen" → label |
+| Payoff | visual | Jago **istirahat** | Hati kecil berdetak dengan jeda panjang di antara detak (garis EKG datar di sela) | – | "istirahat" → jeda datar disorot; "tiap detak" → detak berikutnya |
+| Cta | visual | Bagian tubuh mana **lagi**? | Ikon `brain`, `eye`, `bone` bergantian muncul, tanda tanya kapur | – | "bagian tubuh" → tiga ikon muncul; "capek" → tanda tanya |
+
+Tidak ada scene `Kunci` (tidak ada satu poin yang jauh lebih penting dari lainnya).
 
 ## Objek
-- Ada: Ganjar (pembawa), Jantung (cast).
-- Dibuat di `src/props/body/`: `Stopwatch`, `EkgLine`, `Mitochondria`, `MuscleCell`, `CoronaryVessels`.
-- Komponen: `Counter`, `HookText`, `PhaseBar`, `Caption`.
+- Ada di `src/dark-chalk/ikon`: `heart`, `brain`, `eye`, `bone`.
+- Ada di `src/props/body/` (gaya edumotion, bukan kapur): `Stopwatch`, `EkgLine`, `Mitochondria`, `MuscleCell`, `CoronaryVessels`. Karena tema kapur, view menggambar ulang versi garis kapur dengan `Garis`/`Ikon`; tidak memakai props berwarna.
+- Komponen: `Teks`, `Label`, `Kanvas`, pola `Bandingkan`/`Sorot`, `Caption`.
 
 ## Fakta dan sumber
-- Otot jantung sekitar 30–35% mitokondria; otot rangka rata-rata 1–2% ([A Moment of Science](https://www.ipm.org/amomentofscience/why-doesnt-your-heart-get-tired/)). Angka otot rangka berbeda antar sumber, karena itu narasi memakai "jauh lebih sedikit".
-- Jantung berdetak 60–80 kali per menit saat istirahat; fase istirahat (diastole) lebih panjang dari fase kerja ([Texas Heart Institute](https://www.texasheart.org/heart-health/heart-information-center/topics/the-heartbeat/)). "Seratus ribu per hari" adalah hitungan dari 60–80 kali per menit (sekitar 86–115 ribu).
-- Belum bersumber: klaim jalur darah sendiri (arteri koroner). Perlu diverifikasi sebelum publikasi.
+- Otot jantung sekitar 30–35% mitokondria; otot rangka rata-rata 1–2% ([A Moment of Science](https://www.ipm.org/amomentofscience/why-doesnt-your-heart-get-tired/)). Angka otot rangka berbeda antar sumber, karena itu narasi memakai "jauh lebih banyak".
+- Jantung berdetak 60–80 kali per menit saat istirahat; fase istirahat (diastole) lebih panjang dari fase kerja ([Texas Heart Institute](https://www.texasheart.org/heart-health/heart-information-center/topics/the-heartbeat/)). Narasi tidak lagi menyebut "seratus ribu kali sehari" (hitungan turunan, bukan inti jawaban).
+- Arteri koroner kiri dan kanan keluar dari aorta, membungkus jantung, dan mengalirkan darah beroksigen ke otot jantung; fungsi utamanya memasok jantung sendiri ([Cleveland Clinic: Coronary Arteries](https://my.clevelandclinic.org/health/body/22973-coronary-arteries)). Diverifikasi 13 Nov 2026 lewat pencarian web (halaman edukasi pasien, bukan pedoman klinis). Narasi dan gambar (dua arteri utama dari aorta, cabang kecil) sesuai. "Makanan" di narasi = nutrisi (mis. glukosa, asam lemak) yang ikut terbawa darah; sumber di atas menekankan oksigen, jadi bila ingin ketat, kata "makanan" bisa diganti "nutrisi" (akan membuat VO baris itu usang).
 - "Istirahatnya lebih lama" berlaku saat tubuh istirahat; saat olahraga jeda memendek.
+
+## Catatan format
+- Hook 5 kata (teks layar 4 kata), pertanyaan "kenapa".
+- Satu gagasan per scene Explain. Kalimat terpanjang 17 kata di Explain2 (kalimat kedua 12 kata; kalimat pertama 15 kata).
