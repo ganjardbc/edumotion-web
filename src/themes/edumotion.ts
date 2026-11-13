@@ -47,5 +47,5 @@ export const edumotion: Theme = {
   type: { headlineTransform: "none", headlineWeight: 800, scale: 1, tracking: -0.02 },
   motion: { enter: [0.4, 0, 0.2, 1], pop: [0.34, 1.3, 0.64, 1] },
   logo: { src: "", width: 0, height: 0, round: true },
-  handle: "@edumotion",
+  handle: "@dipapantulis",
 };

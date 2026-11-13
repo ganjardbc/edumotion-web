@@ -25,5 +25,5 @@ export const darkChalk: Theme = {
     groundTextMuted: "rgba(242, 240, 232, 0.75)",
     groundEmphasis: KAPUR.gold,
   },
-  handle: "@edumotion",
+  handle: "@dipapantulis",
 };

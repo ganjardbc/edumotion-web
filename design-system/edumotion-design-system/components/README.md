@@ -26,7 +26,7 @@ Sudah ada: `Caption` (dipecah otomatis, maks 2 baris), `HookText`, `Counter`, `P
 | `MetaphorSwap` | Objek asli berubah ke analoginya, label ikut berganti |
 | `Transition` | `swipe`, `iris`, `bars`; pasang di Sequence berpusat di batas dua scene. Belum dipasang di `ShortEdu` |
 | `ProgressDots` | "Fakta 2 dari 3" |
-| `EndCard` | Kartu penutup (scene `Cta`): judul, tombol Ikuti dan Simpan, handle dari tema (placeholder `@edumotion`) |
+| `EndCard` | Kartu penutup (scene `Cta`): judul, tombol Ikuti dan Simpan, handle dari tema (`@dipapantulis`) |
 | `ThumbnailCard` | Sampul 9:16: hook maks 6 kata, satu kata disorot, karakter |
 
 Pengganti `Payoff` di daftar rencana: `EndCard` untuk penutup dan `MetaphorSwap` untuk momen "oh iya ya!".
