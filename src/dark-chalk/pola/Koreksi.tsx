@@ -16,7 +16,7 @@ export const Koreksi: React.FC<{
   readonly salahAt?: number;
 }> = ({ judul, salah, coretAt, benar, cepat = false, salahAt = 0 }) => (
   <>
-    <Judul teks={judul} warna={KAPUR.orange} />
+    <Judul teks={judul} />
     <Label teks={salah} x={540} y={600} at={salahAt} size={58} lebar={800} durasi={cepat ? 3 : 10} />
     <Kanvas>
       <Garis kasar={1} d="M170 604 Q540 586 910 612" mulai={coretAt} lama={cepat ? 6 : 12} warna={KAPUR.orange} tebal={14} />

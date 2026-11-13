@@ -78,7 +78,7 @@ const Twist: React.FC = () => {
   return (
     <AbsoluteFill>
       <Kapur>
-        <Teks text="Ternyata keliru!" size={110} top={250} warna={KAPUR.orange} />
+        <Teks text="Ternyata keliru!" size={110} top={250} />
         <div style={{ position: "absolute", left: 100, right: 160, top: 500, textAlign: "center", whiteSpace: "nowrap", fontFamily: t.fonts.heading, fontWeight: 800, fontSize: 72, color: KAPUR.chalk, opacity: kapas }}>Ringan seperti kapas</div>
         <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: "absolute", inset: 0 }}>
           <Garis d="M150 560 Q540 545 900 575" mulai={20} lama={14} warna={KAPUR.orange} tebal={14} />
