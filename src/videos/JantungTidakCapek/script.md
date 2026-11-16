@@ -44,6 +44,29 @@ Tidak ada scene `Kunci` (tidak ada satu poin yang jauh lebih penting dari lainny
 - Arteri koroner kiri dan kanan keluar dari aorta, membungkus jantung, dan mengalirkan darah beroksigen ke otot jantung; fungsi utamanya memasok jantung sendiri ([Cleveland Clinic: Coronary Arteries](https://my.clevelandclinic.org/health/body/22973-coronary-arteries)). Diverifikasi 13 Nov 2026 lewat pencarian web (halaman edukasi pasien, bukan pedoman klinis). Narasi dan gambar (dua arteri utama dari aorta, cabang kecil) sesuai. "Makanan" di narasi = nutrisi (mis. glukosa, asam lemak) yang ikut terbawa darah; sumber di atas menekankan oksigen, jadi bila ingin ketat, kata "makanan" bisa diganti "nutrisi" (akan membuat VO baris itu usang).
 - "Istirahatnya lebih lama" berlaku saat tubuh istirahat; saat olahraga jeda memendek.
 
+## Caption unggahan dan tag
+
+Untuk Instagram, TikTok, dan YouTube Shorts (bukan caption di layar). Handle akun `@dipapantulis`.
+
+**Caption (Instagram dan TikTok)**
+```
+Jantungmu berdetak sekitar 100 ribu kali sehari, tapi tidak pernah capek. Kenapa? 🫀
+
+Jawabannya: jantung pintar istirahat. Di antara tiap detak, ia sempat rehat sebentar. Otot jantung juga penuh pabrik energi, dan punya pembuluh darah sendiri.
+
+Menurutmu, bagian tubuh mana lagi yang tidak pernah capek? Tulis di komentar 👇
+
+Follow @dipapantulis, 1 pertanyaan 1 animasi tiap Selasa, Kamis & Sabtu ✏️
+```
+
+**Tag**
+`#jantung #tubuhmanusia #faktaunik #animasiedukasi #sains #belajarsains #edukasi #tahukahkamu #dipapantulis`
+
+**Judul YouTube Shorts:** Kenapa jantung tidak pernah capek? #shorts
+**Tag YouTube (kolom tag):** jantung, kenapa jantung tidak capek, tubuh manusia, fakta unik, animasi edukasi, sains
+
+Catatan: "100 ribu kali sehari" hanya di caption, bukan di video (hitungan turunan dari 60–80 detak per menit; sekitar 86–115 ribu per hari). TikTok: aktifkan label konten AI (VO ElevenLabs).
+
 ## Catatan format
 - Hook 5 kata (teks layar 4 kata), pertanyaan "kenapa".
 - Satu gagasan per scene Explain. Kalimat terpanjang 17 kata di Explain2 (kalimat kedua 12 kata; kalimat pertama 15 kata).

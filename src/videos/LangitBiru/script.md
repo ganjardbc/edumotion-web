@@ -58,6 +58,29 @@ Pola: kapur dari `src/dark-chalk/pola`. Tanpa tokoh, tanpa Pembawa. Tidak ada sc
 - Gambar Explain4 (lapisan udara sebagai pita datar) disederhanakan; atmosfer sebenarnya melengkung.
 - Cta hanya bertanya ("kenapa laut biru?"), tidak menyatakan fakta tentang laut. Jawabannya jadi bahan video berikutnya ([WHOI](https://www.whoi.edu/ocean-learning-hub/ocean-facts/why-is-the-ocean-blue/)).
 
+## Caption unggahan dan tag
+
+Untuk Instagram, TikTok, dan YouTube Shorts (bukan caption di layar). Handle akun `@dipapantulis`.
+
+**Caption (Instagram dan TikTok)**
+```
+Kenapa langit biru, bukan ungu? 🌤️
+
+Cahaya Matahari itu campuran semua warna. Udara menyebarkan cahaya biru ke segala arah. Ungu sebenarnya tersebar lebih kuat, tapi jumlahnya sedikit dan mata kita kurang peka padanya. Saat senja, biru sudah habis tersebar di jalan, jadi yang sampai tinggal jingga dan merah.
+
+Lalu, kenapa laut berwarna biru? Tulis tebakanmu di komentar 👇
+
+Follow @dipapantulis, 1 pertanyaan 1 animasi tiap Selasa, Kamis & Sabtu ✏️
+```
+
+**Tag**
+`#langitbiru #sains #faktaunik #animasiedukasi #cuaca #senja #belajarsains #edukasi #tahukahkamu #dipapantulis`
+
+**Judul YouTube Shorts:** Kenapa langit biru, bukan ungu? #shorts
+**Tag YouTube (kolom tag):** kenapa langit biru, langit biru bukan ungu, hamburan cahaya, senja merah, fakta unik, animasi edukasi, sains
+
+Catatan: TikTok: aktifkan label konten AI (VO ElevenLabs). Caption hanya mengulang isi narasi; tidak ada klaim baru.
+
 ## Catatan format
 - Hook 5 kata, pertanyaan "kenapa". Teks layar sama dengan narasi.
 - Satu gagasan per scene: Explain1 = cahaya putih itu campuran, Explain2 = udara menyebarkan biru, Explain3 = kenapa bukan ungu, Explain4 = senja.
