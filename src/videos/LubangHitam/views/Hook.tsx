@@ -15,7 +15,7 @@ export const Hook: React.FC<SceneProps> = ({ at }) => {
   const dalamnya = at("dalamnya");
   return (
     <>
-      <Teks text="Apa di lubang hitam?" sorot="lubang hitam" size={96} top={250} />
+      <Teks text="Apa yang terjadi di lubang hitam?" sorot="terjadi" size={92} top={250} />
       <Kanvas>
         <LubangHitam cx={540} cy={860} size={620} mulai={4} />
         <Aliran d="M90 560 C300 560 400 700 470 800" mulai={cahaya} warna={KAPUR.gold} laju={7} />

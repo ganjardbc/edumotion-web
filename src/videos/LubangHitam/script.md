@@ -24,7 +24,7 @@ Struktur: Hook → Explain1–3 → Kunci → Payoff → Cta. Perkiraan 45 detik
 
 | Scene | Pola | Judul (≤6 kata, satu disorot) | Objek utama | Label | Karakter | Kata kunci → aksi |
 |---|---|---|---|---|---|---|
-| Hook | visual | Apa di **lubang hitam**? | Lingkaran hitam besar dengan cincin kapur; garis cahaya melengkung lalu tersedot masuk | cahaya | – | "cahaya" → garis cahaya muncul; "kabur" → garis tertarik masuk; "dalamnya" → tanda tanya di lingkaran |
+| Hook | visual | Apa yang **terjadi** di lubang hitam? | Lingkaran hitam besar dengan cincin kapur; garis cahaya melengkung lalu tersedot masuk | cahaya | – | "cahaya" → garis cahaya muncul; "kabur" → garis tertarik masuk; "dalamnya" → tanda tanya di lingkaran |
 | Explain1 | SebabAkibat | Bintang besar **runtuh** | Bintang besar (sebab) → titik hitam kecil (akibat), panah mengerut | bintang besar; lubang hitam | – | "runtuh" → bintang mengerut; "terpampat" → titik hitam muncul |
 | Explain2 | Sorot | Batas **tanpa kembali** | Lubang hitam besar, lingkaran putus-putus di sekelilingnya, panah masuk lewat batas | cakrawala peristiwa; gravitasi | – | "gravitasi" → panah tarik; "cakrawala peristiwa" → lingkaran putus-putus; "tanpa jalan kembali" → panah balik dicoret |
 | Explain3 | SebabAkibat | Ditarik, lalu **terulur** | Bola kecil mendekati lubang hitam, lalu memanjang seperti mi | tarikan kuat; tarikan lemah | – | "jatuh" → bola mendekat; "lebih keras" → panah dekat tebal, panah jauh tipis; "mi" → bola memanjang |
