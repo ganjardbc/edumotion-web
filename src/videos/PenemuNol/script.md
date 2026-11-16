@@ -51,6 +51,29 @@ Di `src/dark-chalk/objek/Angka.tsx`: `Nol`, `Titik`, `AngkaTeks`, `TandaBeda`, `
 - Klaim Hook, "tanpa nol komputer tidak bisa bekerja": nol dan satu dasar sistem biner; wajar, tetap diperiksa kata-katanya.
 - Penyebutan "angka Arab" untuk 0–9 (istilah lazim, sering disebut angka Hindu-Arab). Cek ejaan istilah sebelum tayang.
 
+## Caption unggahan dan tag
+
+Untuk Instagram, TikTok, dan YouTube Shorts (bukan caption di layar). Handle akun `@dipapantulis`.
+
+**Caption (Instagram dan TikTok)**
+```
+Siapa penemu angka nol? 0️⃣
+
+Bukan orang Arab, walau kita menyebutnya "angka Arab". Nol berkembang di India. Awalnya cuma titik kecil penanda tempat kosong, supaya 1 dan 10 tidak tertukar. Tahun 628, Brahmagupta menulis aturan menghitung dengan nol, dan sejak itu nol jadi angka sendiri. Lalu ilmuwan dan pedagang Arab membawanya sampai ke Eropa.
+
+Menurutmu, angka apa lagi yang lahir di India? Tulis di komentar 👇
+
+Follow @dipapantulis, 1 pertanyaan 1 animasi tiap Selasa, Kamis & Sabtu ✏️
+```
+
+**Tag**
+`#angkanol #nol #matematika #sejarah #faktaunik #animasiedukasi #india #belajarmatematika #tahukahkamu #dipapantulis`
+
+**Judul YouTube Shorts:** Siapa penemu angka nol? #shorts
+**Tag YouTube (kolom tag):** siapa penemu angka nol, sejarah angka nol, brahmagupta, angka nol india, angka arab, fakta unik, animasi edukasi, matematika
+
+Catatan: TikTok: aktifkan label konten AI (VO ElevenLabs). Caption hanya mengulang isi narasi; "titik penanda kosong" mengikuti naskah Bakhshali dan "628 M" mengikuti Brahmagupta (lihat "Fakta dan sumber"). Sengaja tanpa nama penemu tunggal dan tanpa al-Khwarizmi atau Fibonacci, karena jalur ke Arab dan Eropa belum terverifikasi.
+
 ## Catatan
 - "Sekitar seribu tujuh ratus tahun lalu" adalah pembulatan kisaran abad ke-3–4 M; narasi tidak mengklaim satu tahun pasti.
 - Narasi tidak menyebut "penemu tunggal": peneliti masih membahas bagaimana penanda kosong menjadi angka. Judul "Siapa penemu nol?" dijawab dengan "berkembang di India", bukan satu nama.
