@@ -1,14 +1,20 @@
 import type React from "react";
-import { Kanvas } from "../../../dark-chalk/Kanvas";
+import { BintangRuntuh, LubangHitam } from "../../../dark-chalk/objek/LubangHitam";
+import { SebabAkibat } from "../../../dark-chalk/pola";
 import type { SceneProps } from "../../_shared/types";
 
-// Scene Explain1 (explain), tema Dark Chalk. Hanya bergantung pada useCurrentFrame().
-// ShortEdu sudah menggambar papan, bingkai, filter kapur, dan caption: view hanya menggambar isi (tanpa EduBackdrop).
-// Pakai pola dari src/dark-chalk/pola, objek dari src/dark-chalk/objek, warna dari KAPUR (palette.ts), bukan hex baru.
-// Tanpa karakter di layar kecuali Ganjar memintanya (GanjarGaris di dalam <Kapur>). Contoh: src/videos/EsBatuMengapung/views/.
-// Picu gerak dengan at(kata) dari props (frame saat narator mengucapkan kata itu), bukan pecahan durasi.
-export const Explain1: React.FC<SceneProps> = () => (
-  <Kanvas>
-    <g />
-  </Kanvas>
-);
+// Explain1: sebab = bintang besar yang mengerut saat "runtuh"; akibat = lubang hitam kecil muncul saat "terpampat".
+export const Explain1: React.FC<SceneProps> = ({ at }) => {
+  const bintang = at("bintang");
+  const runtuh = at("runtuh");
+  const terpampat = at("terpampat");
+  return (
+    <SebabAkibat
+      renggang
+      judul="Bintang besar runtuh"
+      sorotJudul="runtuh"
+      sebab={{ teks: "bintang besar", at: bintang, gambar: ({ x, y }) => <BintangRuntuh cx={x} cy={y} size={260} mulai={bintang} kerut={runtuh} /> }}
+      akibat={{ teks: "lubang hitam", at: terpampat, gambar: ({ x, y }) => <LubangHitam cx={x} cy={y} size={300} mulai={terpampat} /> }}
+    />
+  );
+};

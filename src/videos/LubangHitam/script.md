@@ -1,7 +1,7 @@
 # Apa yang terjadi di lubang hitam?
 
 Topik: planet · Tema: dark-chalk · Suara: narator (Aldo) · Tokoh di layar: tidak ada (semua visual gambar kapur beranimasi)
-Status naskah: **draf, menunggu persetujuan Ganjar** (16 Nov 2026). Fakta belum dicek ulang lewat pencarian web; lihat tabel fakta.
+Status: naskah dan brief disetujui Ganjar (16 Nov 2026). Fakta dicek 16 Nov 2026 lewat pencarian web (tabel di bawah). Views ditulis; **storyboard menunggu persetujuan Ganjar**. VO belum dibuat.
 
 Pertanyaan Hook (5W1H): **Apa** yang terjadi di lubang hitam?
 Jawaban satu kalimat (calon Payoff): Di dalam lubang hitam, gravitasinya begitu kuat sampai tidak ada yang bisa keluar, bahkan cahaya.
@@ -38,19 +38,19 @@ Kunci (1 dari paling banyak 2): kalimat "Di dalam batas itu, cahaya pun tidak bi
 - Hook satu pertanyaan 5W1H dijawab langsung. Semua kalimat narator. Kalimat paling banyak 15 kata. Satu istilah baru per scene (cakrawala peristiwa dijelaskan di kalimat yang sama).
 
 ## Objek yang dibutuhkan
-Objek kapur baru, status `antre`, dibuat di `src/dark-chalk/objek/` setelah naskah disetujui: `LubangHitam` (lingkaran hitam + cincin), `BintangRuntuh` (bintang yang mengerut), `Spageti` (bola yang memanjang). Panah dan kaca pembesar memakai yang sudah ada (`Panah` di `Terbang.tsx`, `Ikon`). Acuan: gambar skematis NASA tentang lubang hitam.
+Objek kapur baru di `src/dark-chalk/objek/LubangHitam.tsx` (menunggu tinjauan Ganjar): `LubangHitam`, `BintangRuntuh`, `Spageti`, `Silang`. Selain itu memakai `Aliran` (`Terbang.tsx`) dan ikon `telescope`.
 
-## Fakta dan sumber (**belum terverifikasi**; dari pengetahuan umum, perlu dicek sebelum VO dan tayang)
-| Klaim di narasi | Status | Sumber yang perlu dicek |
+## Fakta dan sumber (dicek 16 Nov 2026 lewat pencarian web)
+| Klaim di narasi | Hasil cek | Sumber |
 |---|---|---|
-| Cahaya tidak bisa kabur dari lubang hitam | Umum diterima; belum dicek | NASA Science: "Black Holes" |
-| Bintang yang sangat besar bisa runtuh di akhir hidupnya jadi lubang hitam | Umum diterima (bintang bermassa sangat besar); belum dicek | NASA Science: "Black Holes Overview" |
-| Cakrawala peristiwa = batas tanpa jalan kembali | Umum diterima; belum dicek | NASA Science: "Event Horizon" |
-| Benda terulur seperti mi (spaghettifikasi) karena beda tarikan dekat dan jauh | Berlaku untuk lubang hitam bermassa bintang; untuk yang sangat besar, efek ini baru terjadi jauh di dalam. Narasi sengaja tidak menyebut ukuran. Belum dicek | NASA Science / ESA |
-| Apa yang ada di pusat belum diketahui pasti | Umum diterima (singularitas adalah prediksi teori, bukan hasil pengamatan); belum dicek | NASA Science |
-| Lubang hitam bisa "dilihat" lewat bayangan dan cincin cahaya di sekitarnya (hanya di Cta, tidak dibocorkan) | Foto pertama M87 oleh Event Horizon Telescope, 2019; belum dicek | EHT Collaboration |
+| Cahaya tidak bisa kabur dari lubang hitam | Sesuai: di dalam cakrawala peristiwa, kecepatan lepas melebihi kecepatan cahaya | [NASA: What Are Black Holes?](https://www.nasa.gov/universe/what-are-black-holes/), [NASA Science: Anatomy](https://science.nasa.gov/universe/black-holes/anatomy/) |
+| Bintang yang sangat besar runtuh di akhir hidupnya dan isinya terpampat ke ruang sangat kecil | Sebagian: halaman NASA yang ditemukan menyebut materi runtuh ke satu titik, tapi tidak menjelaskan keruntuhan bintang. Pembentukan lubang hitam dari bintang masif adalah pengetahuan umum astronomi; **cari sumber NASA yang eksplisit sebelum tayang** | [NASA Hubble: Black Holes](https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-black-holes/) |
+| Cakrawala peristiwa = batas tanpa jalan kembali | Sesuai: NASA menyebutnya titik tanpa kembali (permukaan lubang hitam) | NASA Science: Anatomy |
+| Benda terulur seperti mi karena tarikan sisi dekat lebih keras | Sesuai: gaya pasang surut (selisih tarikan sisi dekat dan jauh) meregangkan benda ("spaghettifikasi"). Berlaku jelas untuk lubang hitam kecil; untuk yang sangat besar efeknya baru terasa jauh di dalam. Narasi sengaja tidak menyebut ukuran | [NASA Science: Too Close to a Black Hole](https://science.nasa.gov/universe/what-happens-when-something-gets-too-close-to-a-black-hole/), [NASA Space Math: Tidal Forces](https://spacemath.gsfc.nasa.gov/stars/4Page33.pdf) |
+| Apa yang ada di pusat belum diketahui pasti | **Belum terverifikasi**: pencarian tidak menemukan sumber untuk singularitas. Cek sebelum tayang, atau ganti kalimatnya | – |
+| (Cta, tidak dibocorkan) lubang hitam bisa dilihat lewat cahaya di sekitarnya | Sesuai: foto pertama (M87) dirilis 10 April 2019 oleh Event Horizon Telescope; NASA: cahaya berasal dari materi yang belum jatuh, terutama cakram | [ESO: First Image of a Black Hole](https://eso.org/public/images/eso1907a), NASA Science: Anatomy |
 
-Klaim yang sengaja **tidak** dipakai: "lubang hitam menyedot semuanya" (keliru, gravitasi dari jauh sama seperti benda bermassa sama), angka massa/jarak, dan apa yang terjadi di pusat.
+Klaim yang sengaja **tidak** dipakai: "lubang hitam menyedot semuanya" (keliru), angka massa atau jarak, dan apa yang terjadi di pusat.
 
 ## Caption unggahan dan tag
 
