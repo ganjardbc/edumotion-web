@@ -1,23 +1,18 @@
 import type React from "react";
-import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { EduBackdrop } from "../../../assets/backdrops";
-import { Pembawa } from "../../../characters/ganjar";
-import { EDU_FEET_Y, HookText } from "../../../explainers";
-import { QuestionMark } from "../../../props";
-import { META } from "../scenes";
+import { Ikon } from "../../../dark-chalk/ikon/Ikon";
+import { Kanvas } from "../../../dark-chalk/Kanvas";
+import { Label } from "../../../dark-chalk/Label";
+import { KAPUR } from "../../../dark-chalk/palette";
+import { Teks } from "../../../dark-chalk/Teks";
 import type { SceneProps } from "../../_shared/types";
 
-// Cta: Tako menunjuk laut, tanda tanya, mengundang komentar.
-export const Cta: React.FC<SceneProps> = () => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const pop = spring({ frame: frame - 10, fps, config: { damping: 10, stiffness: 140 } });
-  return (
-    <AbsoluteFill>
-      <EduBackdrop topic={META.topic} />
-      <HookText text="Kenapa laut biru?" highlight="laut" size={104} />
-      <QuestionMark x={720} y={820} size={280} topic="air" pop={pop} />
-      <Pembawa topic={META.topic} x={440} y={EDU_FEET_Y} tinggi={608} ekspresi="mikir" gestur="mikir" />
-    </AbsoluteFill>
-  );
-};
+// Cta: ikon laut (riak air) dan tanda tanya emas saat "tebakanmu".
+export const Cta: React.FC<SceneProps> = ({ at }) => (
+  <>
+    <Teks text="Kenapa laut biru?" sorot="laut" size={104} top={250} />
+    <Kanvas>
+      <Ikon nama="ripple" cx={540} cy={780} size={340} mulai={Math.max(8, at("laut"))} warna={KAPUR.es} tebal={9} />
+    </Kanvas>
+    <Label teks="?" x={540} y={1090} at={at("tebakanmu")} size={240} warna={KAPUR.gold} lebar={300} />
+  </>
+);
