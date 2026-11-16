@@ -1,7 +1,7 @@
 # Apa yang terjadi di lubang hitam?
 
 Topik: planet · Tema: dark-chalk · Suara: narator (Aldo) · Tokoh di layar: tidak ada (semua visual gambar kapur beranimasi)
-Status: naskah dan brief disetujui Ganjar (16 Nov 2026). Fakta dicek 16 Nov 2026 lewat pencarian web (tabel di bawah). Views ditulis; **storyboard menunggu persetujuan Ganjar**. VO belum dibuat.
+Status: naskah dan brief disetujui Ganjar (16 Nov 2026). Fakta dicek 16 Nov 2026 lewat pencarian web (tabel di bawah). Views ditulis; storyboard disetujui Ganjar (16 Nov 2026). VO belum dibuat (menunggu persetujuan Ganjar soal kredit).
 
 Pertanyaan Hook (5W1H): **Apa** yang terjadi di lubang hitam?
 Jawaban satu kalimat (calon Payoff): Di dalam lubang hitam, gravitasinya begitu kuat sampai tidak ada yang bisa keluar, bahkan cahaya.
