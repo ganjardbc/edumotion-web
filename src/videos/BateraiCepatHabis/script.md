@@ -60,6 +60,29 @@ Kunci (1 frame layar penuh): scene `Kunci` setelah Explain3, narasi "Panas di at
 - Sisi Android: pernyataan Google (Hiroshi Lockheimer, 2016) bahwa menutup aplikasi tidak menghemat baterai hanya ditemukan lewat media sekunder. Narasi hanya mengutip Apple.
 - Cta (mengisi semalaman) hanya bertanya, tidak menyatakan fakta; bahan video berikutnya.
 
+## Caption unggahan dan tag
+
+Untuk Instagram, TikTok, dan YouTube Shorts (bukan caption di layar). Handle akun `@dipapantulis`.
+
+**Caption (Instagram dan TikTok)**
+```
+Kenapa baterai HP cepat habis? 🔋
+
+Bukan karena aplikasi yang terbuka. Apple sendiri menyarankan menutup aplikasi hanya kalau aplikasinya macet. Yang paling boros: layar terang, sinyal lemah (HP terus mencari sinyal yang lebih kuat), dan baterai yang makin tua. Panas di atas 35°C bahkan bisa merusak baterai selamanya.
+
+Menurutmu, mengisi baterai semalaman itu bahaya atau tidak? Tulis di komentar 👇
+
+Follow @dipapantulis, 1 pertanyaan 1 animasi tiap Selasa, Kamis & Sabtu ✏️
+```
+
+**Tag**
+`#bateraihp #hematbaterai #sains #faktaunik #animasiedukasi #teknologi #tipshp #belajarsains #tahukahkamu #dipapantulis`
+
+**Judul YouTube Shorts:** Kenapa baterai HP cepat habis? #shorts
+**Tag YouTube (kolom tag):** kenapa baterai hp cepat habis, baterai boros, hemat baterai hp, tutup aplikasi, baterai rusak karena panas, fakta unik, animasi edukasi, teknologi
+
+Catatan: TikTok: aktifkan label konten AI (VO ElevenLabs). Caption hanya mengulang isi narasi dan sumber Apple di bagian "Fakta dan sumber"; tidak ada klaim baru. Jangan unggah dengan klaim angka persen layar.
+
 ## Catatan format
 - Hook 5 kata. Satu sorotan per scene.
 - Tiap scene Explain satu gagasan: layar, sinyal, umur baterai dan panas.
