@@ -51,6 +51,29 @@ Latar: papan hijau Dark Chalk (digambar cangkang ShortEdu, `tema="dark-chalk"`).
 - Susunan "berongga" yang dibayangkan sebagai heksagonal: tidak dikatakan di narasi; cek bila visual menampilkannya.
 - "Es bening tanpa gelembung tetap mengapung": benar secara fisika, tapi belum dicarikan kutipan.
 
+## Caption unggahan dan tag
+
+Untuk Instagram, TikTok, dan YouTube Shorts (bukan caption di layar). Handle akun `@dipapantulis`.
+
+**Caption (Instagram dan TikTok)**
+```
+Kenapa es batu mengapung di air? 🧊
+
+Bukan karena gelembung udara di dalamnya. Es bening tanpa gelembung pun tetap mengapung. Saat air membeku, molekulnya mengunci diri dalam susunan teratur yang berongga, jadi lebih renggang. Jumlah molekulnya sama, tapi tempatnya lebih luas (memuai sekitar 9%), sehingga es lebih ringan daripada air.
+
+Menurutmu, apa jadinya kalau es tenggelam di danau? Tulis di komentar 👇
+
+Follow @dipapantulis, 1 pertanyaan 1 animasi tiap Selasa, Kamis & Sabtu ✏️
+```
+
+**Tag**
+`#esbatu #es #sains #faktaunik #animasiedukasi #air #fisika #belajarsains #tahukahkamu #dipapantulis`
+
+**Judul YouTube Shorts:** Kenapa es batu mengapung di air? #shorts
+**Tag YouTube (kolom tag):** kenapa es mengapung, es batu mengapung, air membeku memuai, molekul air, kepadatan es, fakta unik, animasi edukasi, sains
+
+Catatan: TikTok: aktifkan label konten AI (VO ElevenLabs). Caption hanya mengulang isi narasi; angka 9% mengikuti USGS (lihat "Belum terverifikasi": cek ulang pembulatan sebelum tayang). Klaim Hook "zat padat biasanya tenggelam" sengaja tidak dimasukkan ke caption.
+
 ## Catatan
 - Pengaruh gelembung udara pada es keruh nyata tapi kecil; narasi hanya menyatakan itu bukan penyebab utama, tidak mengklaim es "tidak berisi udara".
 - Cta tidak membocorkan jawaban video lanjutan.
