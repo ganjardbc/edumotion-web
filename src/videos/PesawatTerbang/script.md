@@ -40,6 +40,29 @@ Objek kapur baru: `Pesawat`, `Penampang`, `SayapUdara`, `Panah` di `src/dark-cha
 | Udara membalas mendorong sayap ke atas | Sesuai: aliran dibelokkan ke satu arah, gaya angkat ke arah sebaliknya (hukum ketiga Newton) | NASA Glenn: Lift from Flow Turning |
 | Gaya angkat lebih besar dari berat, jadi pesawat naik | Sesuai sebagai penyederhanaan: bila gaya tidak seimbang, pesawat berakselerasi ke arah gaya terbesar; saat terbang datar, angkat = berat. Pada tanjakan stabil, gaya dorong juga ikut berperan (rincian ini sengaja tidak dibahas) | NASA Glenn: Four Forces; [NASA Glenn: Forces in a Climb](https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/forces-in-a-climb) |
 
+## Caption unggahan dan tag
+
+Untuk Instagram, TikTok, dan YouTube Shorts (bukan caption di layar). Handle akun `@dipapantulis`.
+
+**Caption (Instagram dan TikTok)**
+```
+Bagaimana pesawat bisa terbang? ✈️
+
+Pesawat besar beratnya ratusan ton, tapi bisa melayang. Rahasianya ada di sayap. Sayap yang miring dan melengkung membelokkan udara ke bawah. Udara yang terdorong ke bawah membalas dengan mendorong sayap ke atas. Dorongan ke atas ini disebut gaya angkat. Saat gaya angkat lebih besar dari berat, pesawat naik.
+
+Menurutmu, kenapa pesawat butuh landasan yang panjang? Tulis jawabanmu di komentar 👇
+
+Follow @dipapantulis, 1 pertanyaan 1 animasi tiap Selasa, Kamis & Sabtu ✏️
+```
+
+**Tag**
+`#pesawat #pesawatterbang #fisika #sains #faktaunik #animasiedukasi #gayaangkat #belajarsains #tahukahkamu #dipapantulis`
+
+**Judul YouTube Shorts:** Bagaimana pesawat bisa terbang? #shorts
+**Tag YouTube (kolom tag):** bagaimana pesawat bisa terbang, cara pesawat terbang, gaya angkat, sayap pesawat, hukum newton, fisika pesawat, fakta unik, animasi edukasi
+
+Catatan: TikTok: aktifkan label konten AI (VO ElevenLabs). Caption hanya mengulang isi narasi dan sesuai tabel fakta (NASA Glenn, Boeing). Sengaja tanpa penjelasan "udara di atas sayap menempuh jarak lebih jauh" (keliru) dan tanpa rincian gaya dorong pada tanjakan. Jawaban Cta (landasan panjang) sengaja tidak dibocorkan.
+
 ## Catatan
 - Sengaja tidak memakai penjelasan "udara di atas sayap menempuh jarak lebih jauh dalam waktu sama" (keliru).
 - Cta mengundang komentar secara eksplisit (permintaan Ganjar).

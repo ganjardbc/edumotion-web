@@ -45,6 +45,7 @@ Sumber utama ada di `.agents/skills/` (`.claude/skills/` hanya symlink ke sana).
 9. Bahasa narasi sederhana: kalimat pendek (sekitar 12 kata), satu gagasan per kalimat, istilah langsung dijelaskan, menyapa penonton "kamu". Tiap klaim fakta punya sumber di `script.md`.
 10. Objek (props) berstatus `antre` → `draf` → `disetujui` di `props/registry.md`. Hanya Ganjar yang mengubah ke `disetujui`.
 11. **Voice over memakai kredit berbayar.** `scripts/vo-generate.mjs` hanya dijalankan setelah Ganjar menyetujui jumlah baris dan huruf. Jangan membaca, mencetak, meng-commit, atau menyalin `.env.local`.
+12. **Caption unggahan dan tag** tiap video ditulis di bagian "Caption unggahan dan tag" pada `script.md` (caption Instagram/TikTok, tag, judul dan tag YouTube Shorts), tanpa menunggu diminta. Hanya memuat klaim yang ada di tabel fakta; jawaban Cta tidak dibocorkan. Contoh: `src/videos/PesawatTerbang/script.md`.
 
 ## Verifikasi sebelum menyatakan selesai
 - `npm run lint` (eslint + tsc + pemeriksa struktur video + pemeriksa props). Peringatan boleh ada, galat tidak.

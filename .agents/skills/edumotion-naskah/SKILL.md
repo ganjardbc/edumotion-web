@@ -52,6 +52,14 @@ Visual yang tidak nyambung biasanya berasal dari brief yang kabur. Isi tabel "Br
 - **Pembawa (hanya bila Ganjar meminta tokoh):** untuk scene `karakter`, tulis ekspresi + gestur stickman yang sesuai makna kalimat (mis. kaget + menyerah di Twist, senang + tunjuk saat jawaban muncul). Variasikan antar scene.
 - Latar kertas berpetak; SFX paling banyak satu per scene dan empat per video, hanya di Hook, Twist, Payoff, atau satu momen tematik.
 
+## Caption unggahan dan tag (wajib, tiap video)
+Setiap `script.md` punya bagian "Caption unggahan dan tag" (templat sudah ada di `video:new`). Tulis langsung bersama naskah, jangan menunggu diminta; contoh terbaru: `src/videos/PesawatTerbang/script.md`.
+- **Caption (Instagram dan TikTok):** baris pertama = pertanyaan Hook + satu emoji; lalu jawaban 2–4 kalimat yang hanya mengulang isi narasi dan tabel fakta (angka dibulatkan dengan "sekitar"); lalu pertanyaan Cta dengan ajakan "Tulis di komentar 👇"; penutup tetap: `Follow @dipapantulis, 1 pertanyaan 1 animasi tiap Selasa, Kamis & Sabtu ✏️`.
+- **Tag:** sekitar 10 tagar (topik, kata kunci, `#faktaunik #animasiedukasi #belajarsains #tahukahkamu #dipapantulis`).
+- **YouTube Shorts:** judul = pertanyaan Hook + ` #shorts`; kolom tag 6–8 kata kunci dipisah koma.
+- Catatan di bawahnya: pengingat label konten AI TikTok (VO ElevenLabs), klaim yang sengaja tidak dipakai, dan bahwa jawaban Cta tidak dibocorkan.
+- Akun berdiri sendiri: tanpa nama Coderium, @ganjar_hadiatna, atau nama pribadi. Caption tidak memuat fakta yang belum bersumber; bila naskah berubah, ubah caption juga.
+
 ## Daftar periksa sebelum minta persetujuan
 - [ ] Jawaban video bisa diucapkan dalam satu kalimat.
 - [ ] Tiap scene Explain hanya memuat satu gagasan.
@@ -62,5 +70,6 @@ Visual yang tidak nyambung biasanya berasal dari brief yang kabur. Isi tabel "Br
 - [ ] Cta tidak membocorkan jawaban video berikutnya.
 - [ ] Tiap scene punya brief visual lengkap; tiap kata kunci ada di narasi scene-nya.
 - [ ] Tidak ada kalimat narasi tanpa visual, dan tidak ada visual tanpa kalimat.
+- [ ] Bagian "Caption unggahan dan tag" terisi (caption, tag, judul dan tag YouTube) dan hanya memuat klaim yang ada di tabel fakta.
 
 Untuk ejaan dan tata bahasa, pakai skill `bahasa-indonesia` bila tersedia.

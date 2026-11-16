@@ -107,7 +107,7 @@ src/videos/
 Aturan:
 - Nama folder = id komposisi = `META.id` (PascalCase). Id scene PascalCase dan sama dengan nama berkas di `views/`: `Hook`, `Setup`, `Twist`, `Explain`/`Explain1..n`, `Payoff`, `Cta`.
 - Urutan cerita baku (format baru, 13 Nov 2026): Hook (pertanyaan 5W1H) → Explain (satu atau lebih) → Payoff → Cta. Setup dan Twist hanya untuk video lama atau bila Ganjar memintanya. Ubah `--scenes` hanya bila naskah memang berbeda.
-- **Alur kerja:** `script.md` disetujui Ganjar → isi `scenes.ts` dari naskah → tinjau tempo dalam mode animatik → objek yang belum ada dicatat di registry (`antre`) lalu dibuat di `src/props/<domain>/` → tulis `views/` → tinjau di Studio dengan `<ShortEdu safeZone />` → VO (dengan persetujuan Ganjar) → render.
+- **Alur kerja:** `script.md` disetujui Ganjar → isi `scenes.ts` dari naskah → tinjau tempo dalam mode animatik → objek yang belum ada dicatat di registry (`antre`) lalu dibuat di `src/props/<domain>/` → tulis `views/` → tinjau di Studio dengan `<ShortEdu safeZone />` → VO (dengan persetujuan Ganjar) → render. **Caption unggahan dan tag** (Instagram, TikTok, YouTube Shorts) wajib ditulis di bagian "Caption unggahan dan tag" pada `script.md` tiap video, tanpa menunggu diminta (templat di `video:new`, aturan di skill `edumotion-naskah`).
 - Objek yang bisa dipakai ulang masuk `src/props/<domain>/`, komponen penjelas lintas video masuk `src/explainers/`. Folder `props/` di dalam video hanya untuk objek yang tidak akan dipakai ulang.
 - Jangan menulis warna heksadesimal di `src/videos/<Nama>/`; pakai `useTheme()` atau `TOPIC_COLORS` (`src/themes/topics.ts`).
 - Durasi scene mengikuti audio; sebelum audio ada, memakai `dur` dari naskah. Jangan menulis durasi tetap di komposisi.
