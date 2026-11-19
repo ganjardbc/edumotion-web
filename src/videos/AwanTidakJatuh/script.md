@@ -75,5 +75,5 @@ Catatan: TikTok: aktifkan label konten AI (VO ElevenLabs). Caption hanya mengula
 - [x] views/ ditulis (Dark Chalk)
 - [ ] Ditinjau di Studio
 - [x] Fakta diverifikasi (19 Nov 2026)
-- [ ] VO dibuat
+- [x] VO dibuat (Aldo, eleven_v4, 19 Nov 2026, 6 baris, 581 huruf, durasi ~42 dtk)
 - [ ] Render

@@ -13,7 +13,7 @@ Awan kok nggak jatuh?
 - [x] Scene visual selesai (views/, Dark Chalk); storyboard disetujui
 - [x] Objek kapur di `src/dark-chalk/objek/Awan.tsx`, menunggu tinjauan Ganjar
 - [x] Fakta diverifikasi (19 Nov 2026, script.md)
-- [ ] Voice over dibuat (`node scripts/vo-generate.mjs --video AwanTidakJatuh`, setelah persetujuan Ganjar)
+- [x] Voice over dibuat (Aldo, eleven_v4, 19 Nov 2026, 6 baris, 581 huruf, durasi ~42 dtk) (`node scripts/vo-generate.mjs --video AwanTidakJatuh`, setelah persetujuan Ganjar)
 - [ ] Ditinjau di Remotion Studio dengan panduan safe zone
 - [ ] Render akhir
 
