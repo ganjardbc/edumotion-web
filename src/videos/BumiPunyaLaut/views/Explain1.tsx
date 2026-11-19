@@ -1,46 +1,29 @@
 import type React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
-import { EduBackdrop } from "../../../assets/backdrops";
-import { CastCharacter } from "../../../characters/cast";
-import { EDU_FEET_Y, Timeline } from "../../../explainers";
-import { Meteor } from "../../../props";
-import { META } from "../scenes";
+import { Ikon } from "../../../dark-chalk/ikon/Ikon";
+import { Kanvas } from "../../../dark-chalk/Kanvas";
+import { Label } from "../../../dark-chalk/Label";
+import { BumiLava } from "../../../dark-chalk/objek/Laut";
+import { Silang } from "../../../dark-chalk/objek/LubangHitam";
+import { KAPUR } from "../../../dark-chalk/palette";
+import { Judul } from "../../../dark-chalk/pola";
 import type { SceneProps } from "../../_shared/types";
 
-// [x0, y0, x1, y1, jeda (frame) sejak kata "asteroid", size]
-const METEOR_PATHS: ReadonlyArray<readonly [number, number, number, number, number, number]> = [
-  [1120, 640, 600, 930, 0, 170],
-  [980, 600, 520, 910, 16, 150],
-  [1180, 700, 700, 940, 32, 160],
-  [900, 580, 470, 920, 48, 140],
-];
-
-// Explain1: garis waktu (lahir panas → hujan asteroid → laut) di papan diagram, meteor menghujani Bumi di bawahnya.
-export const Explain1: React.FC<SceneProps> = ({ frames, at }) => {
-  const frame = useCurrentFrame();
-  const hujan = at("asteroid");
-  const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
-  const floatY = Math.sin(frame / 26) * 6;
+// Explain1: Bumi muda membara saat "panas"; tetes air dicoret saat "bertahan".
+export const Explain1: React.FC<SceneProps> = ({ at }) => {
+  const panas = at("panas");
+  const lava = at("lava");
+  const setetes = at("bertahan");
   return (
-    <AbsoluteFill>
-      <EduBackdrop topic={META.topic} />
-      <Timeline
-        top={250}
-        topic="planet"
-        frames={Math.round(frames * 0.55)}
-        events={[
-          { year: "Lahir", label: "panas, tanpa air" },
-          { year: "Hujan batu", label: "asteroid & meteor" },
-          { year: "Laut", label: "air terkumpul" },
-        ]}
-      />
-      {METEOR_PATHS.map(([x0, y0, x1, y1, delay, size], i) => {
-        const dur = Math.max(1, Math.round(frames * 0.5));
-        const p = interpolate(frame, [hujan + delay, hujan + delay + dur * 0.5], [0, 1], clamp);
-        const op = interpolate(frame, [hujan + delay, hujan + delay + 8], [0, 1], clamp) * (1 - Math.max(0, (p - 0.9) * 10));
-        return <Meteor key={i} x={x0 + (x1 - x0) * p} y={y0 + (y1 - y0) * p} size={size} topic="planet" opacity={op} />;
-      })}
-      <CastCharacter id="bumi" x={540} y={EDU_FEET_Y - 10 + floatY} size={440} expression="scared" animation="confusion" />
-    </AbsoluteFill>
+    <>
+      <Judul teks="Dulu, Bumi membara" sorot="membara" />
+      <Kanvas>
+        <BumiLava cx={540} cy={800} r={230} mulai={panas - 4} />
+        <Ikon nama="flame" cx={250} cy={1100} size={120} mulai={lava} warna={KAPUR.orange} tebal={7} />
+        <Ikon nama="droplet" cx={830} cy={1100} size={130} mulai={setetes - 8} warna={KAPUR.es} tebal={7} />
+        <Silang cx={830} cy={1100} size={120} mulai={setetes} />
+      </Kanvas>
+      <Label teks="panas membara" x={540} y={1090} at={panas + 6} size={52} warna={KAPUR.orange} lebar={440} />
+      <Label teks="air sulit bertahan" x={800} y={1215} at={setetes} size={48} warna={KAPUR.gold} lebar={420} />
+    </>
   );
 };
