@@ -17,14 +17,14 @@ export const Hook: React.FC<SceneProps> = ({ at }) => {
     <>
       <Teks text="Apa yang terjadi di lubang hitam?" sorot="terjadi" size={92} top={250} />
       <Kanvas>
-        <LubangHitam cx={540} cy={860} size={620} mulai={4} />
-        <Aliran d="M90 560 C300 560 400 700 470 800" mulai={cahaya} warna={KAPUR.gold} laju={7} />
-        <Aliran d="M60 860 C260 860 360 860 440 860" mulai={cahaya + 4} warna={KAPUR.gold} laju={7} />
-        <Aliran d="M90 1160 C300 1160 400 1020 470 920" mulai={cahaya + 8} warna={KAPUR.gold} laju={7} />
+        <LubangHitam cx={540} cy={800} size={680} mulai={4} />
+        <Aliran d="M90 600 C300 600 400 680 460 740" mulai={cahaya} warna={KAPUR.gold} laju={7} />
+        <Aliran d="M60 800 C260 800 360 800 430 800" mulai={cahaya + 4} warna={KAPUR.gold} laju={7} />
+        <Aliran d="M90 1000 C300 1000 400 920 460 860" mulai={cahaya + 8} warna={KAPUR.gold} laju={7} />
       </Kanvas>
-      <Label teks="cahaya" x={200} y={1260} at={cahaya + 6} size={60} warna={KAPUR.gold} lebar={300} />
-      <Label teks="?" x={540} y={850} at={dalamnya} size={240} warna={KAPUR.gold} lebar={240} />
-      <Label teks="tertarik masuk" x={540} y={1190} at={kabur} size={52} lebar={560} />
+      <Label teks="cahaya" x={200} y={1090} at={cahaya + 6} size={60} warna={KAPUR.gold} lebar={300} />
+      <Label teks="?" x={540} y={790} at={dalamnya} size={240} warna={KAPUR.gold} lebar={240} />
+      <Label teks="tertarik masuk" x={540} y={1110} at={kabur} size={52} lebar={560} />
     </>
   );
 };

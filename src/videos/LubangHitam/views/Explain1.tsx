@@ -11,10 +11,10 @@ export const Explain1: React.FC<SceneProps> = ({ at }) => {
   return (
     <SebabAkibat
       renggang
-      judul="Bintang besar runtuh"
+      judul="Bintang runtuh"
       sorotJudul="runtuh"
       sebab={{ teks: "bintang besar", at: bintang, gambar: ({ x, y }) => <BintangRuntuh cx={x} cy={y} size={260} mulai={bintang} kerut={runtuh} /> }}
-      akibat={{ teks: "lubang hitam", at: terpampat, gambar: ({ x, y }) => <LubangHitam cx={x} cy={y} size={300} mulai={terpampat} /> }}
+      akibat={{ teks: "lubang hitam", at: terpampat, gambar: ({ x, y }) => <LubangHitam cx={x} cy={y} size={400} mulai={terpampat} /> }}
     />
   );
 };

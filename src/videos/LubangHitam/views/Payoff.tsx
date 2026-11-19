@@ -15,14 +15,14 @@ export const Payoff: React.FC<SceneProps> = ({ at }) => {
   const belum = at("belum");
   return (
     <>
-      <Teks text="Dari dalam, tak ada jalan keluar" sorot="keluar" size={84} top={250} />
+      <Teks text="Tak ada jalan keluar" sorot="keluar" size={84} top={250} />
       <Kanvas>
-        <LubangHitam cx={540} cy={880} size={560} mulai={4} />
-        <Garis kasar={1} d="M600 900 L880 900" mulai={keluar - 8} lama={10} warna={KAPUR.abu} tebal={9} />
-        <Silang cx={760} cy={900} size={80} mulai={keluar} />
+        <LubangHitam cx={540} cy={780} size={600} mulai={4} />
+        <Garis kasar={1} d="M600 800 L880 800" mulai={keluar - 8} lama={10} warna={KAPUR.abu} tebal={9} />
+        <Silang cx={760} cy={800} size={80} mulai={keluar} />
       </Kanvas>
-      <Label teks="?" x={540} y={870} at={pusatnya} size={230} warna={KAPUR.gold} lebar={230} />
-      <Label teks="belum tahu pasti" x={540} y={1300} at={belum} size={60} warna={KAPUR.gold} lebar={700} />
+      <Label teks="?" x={540} y={770} at={pusatnya} size={230} warna={KAPUR.gold} lebar={230} />
+      <Label teks="belum tahu pasti" x={540} y={1170} at={belum} size={60} warna={KAPUR.gold} lebar={700} />
     </>
   );
 };

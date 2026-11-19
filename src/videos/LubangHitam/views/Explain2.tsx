@@ -11,7 +11,7 @@ import type { SceneProps } from "../../_shared/types";
 const BATAS = { x: 705, y: 998 };
 const TARIK = [45, 135, 225, 315].map((deg) => {
   const a = (deg * Math.PI) / 180;
-  return { dari: { x: 540 + Math.cos(a) * 275, y: 860 + Math.sin(a) * 275 }, ke: { x: 540 + Math.cos(a) * 232, y: 860 + Math.sin(a) * 232 } };
+  return { dari: { x: 540 + Math.cos(a) * 292, y: 860 + Math.sin(a) * 292 }, ke: { x: 540 + Math.cos(a) * 236, y: 860 + Math.sin(a) * 236 } };
 });
 
 // Explain2: lensa berisi lubang hitam; panah tarik emas saat "gravitasi"; lingkaran putus-putus (batas) saat
@@ -38,9 +38,9 @@ export const Explain2: React.FC<SceneProps> = ({ at }) => {
             <Silang cx={x + 90} cy={y + 42} size={70} mulai={kembali} />
           </>
         )}
-        penanda={{ teks: "cakrawala peristiwa", dari: { x: 790, y: 1300 }, ke: BATAS, at: cakrawala }}
+        penanda={{ teks: "cakrawala peristiwa", dari: { x: 700, y: 1300 }, ke: BATAS, at: cakrawala }}
       />
-      <Label teks="gravitasi" x={250} y={1230} at={gravitasi + 6} size={56} warna={KAPUR.gold} lebar={340} />
+      <Label teks="gravitasi" x={270} y={1250} at={gravitasi + 6} size={56} warna={KAPUR.gold} lebar={340} />
     </>
   );
 };

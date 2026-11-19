@@ -15,10 +15,10 @@ export const Cta: React.FC<SceneProps> = ({ at }) => {
     <>
       <Teks text="Bagaimana kita melihatnya?" sorot="melihatnya" size={90} top={250} />
       <Kanvas>
-        <LubangHitam cx={540} cy={820} size={600} mulai={4} terang />
-        <Ikon nama="telescope" cx={820} cy={1060} size={200} mulai={melihat} warna={KAPUR.gold} tebal={7} />
+        <LubangHitam cx={540} cy={790} size={640} mulai={4} terang />
+        <Ikon nama="telescope" cx={800} cy={1020} size={200} mulai={melihat} warna={KAPUR.gold} tebal={7} />
       </Kanvas>
-      <Label teks="tulis di komentar" x={540} y={1210} at={komentar} size={60} warna={KAPUR.gold} lebar={760} />
+      <Label teks="tulis di komentar" x={540} y={1170} at={komentar} size={60} warna={KAPUR.gold} lebar={760} />
     </>
   );
 };
