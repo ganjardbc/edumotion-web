@@ -12,6 +12,7 @@ import { VIDEO as NabiAdamTinggi } from "./NabiAdamTinggi";
 import { VIDEO as PenemuNol } from "./PenemuNol";
 import { VIDEO as PesawatTerbang } from "./PesawatTerbang";
 import { VIDEO as LubangHitam } from "./LubangHitam";
+import { VIDEO as KilatLebihDuluDariGuntur } from "./KilatLebihDuluDariGuntur";
 // @videos:imports
 
 import type { VideoEntry } from "./_shared/video";
@@ -30,5 +31,6 @@ export const VIDEOS: ReadonlyArray<VideoEntry> = [
   PenemuNol,
   PesawatTerbang,
   LubangHitam,
+  KilatLebihDuluDariGuntur,
   // @videos:list
 ];
