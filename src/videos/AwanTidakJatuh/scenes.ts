@@ -4,7 +4,7 @@ export const META: VideoMeta = {
   id: "AwanTidakJatuh",
   title: "Kenapa awan tidak jatuh?",
   topic: "cuaca",
-  cast: ["awan", "tetes"],
+  cast: [],
   fps: 30,
 };
 
@@ -12,9 +12,7 @@ export const META: VideoMeta = {
 // who: kunci suara di voiceover.ts ("narator"). Tokoh di layar tidak berbicara; semua kalimat dibawakan narator.
 // SFX hemat: paling banyak satu cue per scene dan empat per video (dicek scripts/check-videos.mjs).
 export const BASE_SCENES: ReadonlyArray<Scene> = [
-  { id: "Hook", segment: "hook", lines: [{ who: "narator", text: "Satu awan beratnya seperti seratus gajah. Kok tidak jatuh?", dur: 4 }], sfx: [{ sfx: "pop", at: 0, volume: 0.4 }] },
-  { id: "Setup", segment: "setup", lines: [{ who: "narator", text: "Banyak orang mengira awan itu ringan seperti kapas. Makanya ia bisa melayang.", dur: 6 }] },
-  { id: "Twist", segment: "twist", lines: [{ who: "narator", text: "Ternyata keliru. Awan itu berat sekali!", dur: 3.2 }], sfx: [{ sfx: "wrong", at: 0.4, volume: 0.4 }] },
+  { id: "Hook", segment: "hook", lines: [{ who: "narator", text: "Satu awan bisa seberat seratus gajah. Kok tidak jatuh?", dur: 4 }], sfx: [{ sfx: "pop", at: 0, volume: 0.4 }] },
   { id: "Explain1", segment: "explain", lines: [{ who: "narator", text: "Awan adalah kumpulan tetes air yang sangat kecil. Satu tetes jauh lebih tipis dari sehelai rambut. Tapi jumlahnya sangat banyak, jadi totalnya berat.", dur: 9 }] },
   { id: "Explain2", segment: "explain", lines: [{ who: "narator", text: "Tetes sekecil itu jatuhnya sangat pelan. Udara hangat dari bawah terus mendorongnya ke atas. Akibatnya, tetes itu melayang.", dur: 8 }] },
   { id: "Explain3", segment: "explain", lines: [{ who: "narator", text: "Kalau tetes-tetes itu bergabung, ukurannya jadi besar dan berat. Udara tidak kuat lagi menahannya. Tetes itu pun jatuh sebagai hujan.", dur: 8.5 }] },
