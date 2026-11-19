@@ -34,13 +34,17 @@ export const Explain2: React.FC<SceneProps> = ({ at }) => {
             <Pop at={cakrawala}>
               <circle cx={x} cy={y} r={215} fill="none" stroke={KAPUR.es} strokeWidth={7} strokeDasharray="26 20" strokeLinecap="round" />
             </Pop>
+            <Pop at={cakrawala}>
+              <line x1={600} y1={1190} x2={BATAS.x} y2={BATAS.y} stroke={KAPUR.gold} strokeWidth={6} strokeLinecap="round" />
+              <circle cx={BATAS.x} cy={BATAS.y} r={10} fill={KAPUR.gold} />
+            </Pop>
             <Garis kasar={1} d={`M${x + 20} ${y + 20} L${x + 150} ${y + 60}`} mulai={kembali - 6} lama={10} warna={KAPUR.abu} tebal={8} />
             <Silang cx={x + 90} cy={y + 42} size={70} mulai={kembali} />
           </>
         )}
-        penanda={{ teks: "cakrawala peristiwa", dari: { x: 700, y: 1300 }, ke: BATAS, at: cakrawala }}
       />
-      <Label teks="gravitasi" x={270} y={1250} at={gravitasi + 6} size={56} warna={KAPUR.gold} lebar={340} />
+      <Label teks="cakrawala peristiwa" x={600} y={1262} at={cakrawala} size={48} warna={KAPUR.gold} lebar={420} />
+      <Label teks="gravitasi" x={245} y={1215} at={gravitasi + 6} size={56} warna={KAPUR.gold} lebar={340} />
     </>
   );
 };
