@@ -1,22 +1,26 @@
 import type React from "react";
-import { AbsoluteFill } from "remotion";
-import { EduBackdrop } from "../../../assets/backdrops";
-import { CastCharacter } from "../../../characters/cast";
-import { Pembawa } from "../../../characters/ganjar";
-import { EDU_FEET_Y, HookText } from "../../../explainers";
-import { Muncul } from "../../../explainers/pola";
-import { META } from "../scenes";
-import { HorizonLandscape } from "../assets/Visuals";
+import { Kanvas } from "../../../dark-chalk/Kanvas";
+import { Label } from "../../../dark-chalk/Label";
+import { BulanKapur, Cakrawala } from "../../../dark-chalk/objek/Bulan";
+import { KAPUR } from "../../../dark-chalk/palette";
+import { Teks } from "../../../dark-chalk/Teks";
 import type { SceneProps } from "../../_shared/types";
 
+// Hook: cakrawala dengan siluet; Bulan besar muncul rendah saat "Bulan"; label "dekat cakrawala" saat "cakrawala";
+// tanda tanya emas saat "besar".
 export const Hook: React.FC<SceneProps> = ({ at }) => {
+  const bulan = at("Bulan");
+  const cakrawala = at("cakrawala");
+  const besar = at("besar");
   return (
-    <AbsoluteFill>
-      <EduBackdrop topic={META.topic} />
-      <HorizonLandscape y={1120} />
-      <HookText text="Bulan terlihat besar?" highlight="besar" size={104} />
-      <Muncul at={at("Bulan")}><CastCharacter id="bulan" x={740} y={900} size={320} expression="surprised" animation="idle" /></Muncul>
-      <Pembawa topic={META.topic} x={430} y={EDU_FEET_Y} tinggi={570} ekspresi="mikir" gestur="mikir" />
-    </AbsoluteFill>
+    <>
+      <Teks text="Bulan terlihat besar?" sorot="besar" size={96} top={250} />
+      <Kanvas>
+        <Cakrawala y={1100} mulai={4} />
+        <BulanKapur cx={580} cy={850} size={460} mulai={bulan - 6} />
+      </Kanvas>
+      <Label teks="dekat cakrawala" x={540} y={1190} at={cakrawala} size={56} lebar={640} />
+      <Label teks="?" x={880} y={640} at={besar} size={170} warna={KAPUR.gold} lebar={170} />
+    </>
   );
 };

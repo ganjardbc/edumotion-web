@@ -1,26 +1,27 @@
 import type React from "react";
-import { AbsoluteFill } from "remotion";
-import { EduBackdrop } from "../../../assets/backdrops";
-import { CastCharacter } from "../../../characters/cast";
-import { Sorot } from "../../../explainers/pola";
-import { META } from "../scenes";
+import { Kanvas } from "../../../dark-chalk/Kanvas";
+import { Label } from "../../../dark-chalk/Label";
+import { BulanKapur, Cakrawala } from "../../../dark-chalk/objek/Bulan";
+import { KAPUR } from "../../../dark-chalk/palette";
+import { Judul } from "../../../dark-chalk/pola";
 import type { SceneProps } from "../../_shared/types";
-import { HorizonLandscape } from "../assets/Visuals";
 
-export const Explain3: React.FC<SceneProps> = ({ at }) => (
-  <AbsoluteFill>
-    <EduBackdrop topic={META.topic} />
-      <HorizonLandscape y={1115} />
-    <Sorot
-      judul="Latar mungkin berpengaruh"
-      sorotJudul="mungkin"
-      topic={META.topic}
-      gambar={(k) => <CastCharacter id="bulan" x={k.x} y={k.y + k.size * 0.45} size={k.size} expression="thinking" animation="idle" />}
-      titik={[
-        { x: 0.18, y: 0.86, teks: "Gedung", sisi: "kiri", at: at("Pemandangan") },
-        { x: 0.82, y: 0.86, teks: "Pepohonan", sisi: "kanan", at: at("sekitar") },
-        { x: 0.5, y: 0.16, teks: "Mungkin", sisi: "kanan", at: at("mungkin") },
-      ]}
-    />
-  </AbsoluteFill>
-);
+// Explain3: Bulan besar di atas cakrawala bersiluet. Saat "sekitar" gedung dan pohon diberi label; saat "mungkin" tanda tanya emas.
+export const Explain3: React.FC<SceneProps> = ({ at }) => {
+  const pemandangan = at("Pemandangan");
+  const sekitar = at("sekitar");
+  const mungkin = at("mungkin");
+  return (
+    <>
+      <Judul teks="Latar mungkin berpengaruh" sorot="mungkin" at={pemandangan} />
+      <Kanvas>
+        <BulanKapur cx={540} cy={760} size={320} mulai={pemandangan + 4} />
+        <Cakrawala y={1100} mulai={sekitar} />
+      </Kanvas>
+      <Label teks="gedung" x={150} y={1175} at={sekitar + 6} size={48} lebar={170} />
+      <Label teks="pohon" x={330} y={1175} at={sekitar + 10} size={48} lebar={150} />
+      <Label teks="gedung" x={905} y={1175} at={sekitar + 14} size={48} lebar={170} />
+      <Label teks="?" x={820} y={640} at={mungkin + 6} size={170} warna={KAPUR.gold} lebar={170} />
+    </>
+  );
+};

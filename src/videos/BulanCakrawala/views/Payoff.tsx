@@ -1,25 +1,28 @@
 import type React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
-import { EduBackdrop } from "../../../assets/backdrops";
-import { CastCharacter } from "../../../characters/cast";
-import { Pembawa } from "../../../characters/ganjar";
-import { EDU_FEET_Y, HookText } from "../../../explainers";
-import { META } from "../scenes";
+import { Garis } from "../../../dark-chalk/Garis";
+import { Kanvas } from "../../../dark-chalk/Kanvas";
+import { Label } from "../../../dark-chalk/Label";
+import { BulanKapur } from "../../../dark-chalk/objek/Bulan";
+import { KAPUR } from "../../../dark-chalk/palette";
+import { Judul } from "../../../dark-chalk/pola";
 import type { SceneProps } from "../../_shared/types";
-import { HorizonLandscape, MeasurementMarks } from "../assets/Visuals";
 
+// Payoff: dua Bulan sama besar dengan tanda "=" emas saat "tidak benar-benar".
 export const Payoff: React.FC<SceneProps> = ({ at }) => {
-  const frame = useCurrentFrame();
-  const sejajar = frame >= at("tidak benar-benar");
+  const jadi = at("Jadi");
+  const sama = at("tidak benar-benar");
   return (
-    <AbsoluteFill>
-      <EduBackdrop topic={META.topic} />
-      <HorizonLandscape y={1110} />
-      <HookText text="Ilusinya belum terpecahkan" highlight="belum" size={84} />
-      <CastCharacter id="bulan" x={730} y={760} size={290} expression="happy" animation="idle" />
-      {sejajar ? <CastCharacter id="bulan" x={390} y={760} size={290} expression="thinking" animation="idle" opacity={0.7} /> : null}
-      {sejajar ? <MeasurementMarks x={560} y={950} width={220} /> : null}
-      <Pembawa topic={META.topic} x={540} y={EDU_FEET_Y} tinggi={470} ekspresi="senang" gestur="tunjuk" />
-    </AbsoluteFill>
+    <>
+      <Judul teks="Cuma ilusi mata" sorot="ilusi" at={jadi} />
+      <Kanvas>
+        <BulanKapur cx={290} cy={820} size={300} mulai={jadi + 6} />
+        <BulanKapur cx={790} cy={820} size={300} mulai={sama - 10} />
+        <Garis kasar={1} d="M490 800 L590 800" mulai={sama} lama={8} warna={KAPUR.gold} tebal={11} />
+        <Garis kasar={1} d="M490 850 L590 850" mulai={sama + 6} lama={8} warna={KAPUR.gold} tebal={11} />
+      </Kanvas>
+      <Label teks="langit tinggi" x={290} y={1030} at={jadi + 14} size={52} lebar={380} />
+      <Label teks="cakrawala" x={790} y={1030} at={sama} size={52} lebar={380} />
+      <Label teks="sama besar" x={540} y={1160} at={sama + 10} size={62} warna={KAPUR.gold} lebar={640} />
+    </>
   );
 };

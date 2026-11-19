@@ -1,31 +1,33 @@
 import type React from "react";
-import { useCurrentFrame } from "remotion";
-import { Kunci as KunciPola } from "../../../explainers/pola";
-import { QuestionMark } from "../../../props";
-import { TOPIC_COLORS } from "../../../themes/topics";
-import { META } from "../scenes";
+import { Pop } from "../../../dark-chalk/Kanvas";
+import { Label } from "../../../dark-chalk/Label";
+import { BulanKapur } from "../../../dark-chalk/objek/Bulan";
+import { KAPUR } from "../../../dark-chalk/palette";
+import { Kunci as KunciPola } from "../../../dark-chalk/pola";
 import type { SceneProps } from "../../_shared/types";
 
-export const Kunci: React.FC<SceneProps> = () => {
-  const frame = useCurrentFrame();
+// Kunci (layar penuh, tanpa karakter): Bulan besar; lingkaran putus-putus saat "penyebab"; tanda tanya emas besar saat
+// "belum diketahui".
+export const Kunci: React.FC<SceneProps> = ({ at }) => {
+  const penyebab = at("penyebab");
+  const belum = at("belum");
   return (
+    <>
     <KunciPola
-      judul="Penyebabnya belum diketahui"
-      sorot="belum"
-      sub="Ilusi Bulan masih diteliti"
-      topic={META.topic}
-      gambar={(k) => (
+      judul="Penyebab belum pasti"
+      sorotJudul="belum"
+      keterangan="masih diteliti"
+      keteranganAt={belum + 8}
+      gambar={
         <>
-          <svg width={k.size} height={k.size} viewBox={`0 0 ${k.size} ${k.size}`} style={{ position: "absolute", left: k.x - k.size / 2, top: k.y - k.size / 2 }}>
-            <circle cx={k.size / 2} cy={k.size / 2} r={k.size * 0.46} fill="none" stroke={TOPIC_COLORS.planet.rim} strokeWidth={6} strokeDasharray="10 22" opacity={0.72} />
-            <circle cx={k.size / 2} cy={k.size / 2} r={k.size * 0.32} fill={TOPIC_COLORS.planet.shine} stroke={TOPIC_COLORS.planet.ink} strokeWidth={8} />
-            <circle cx={k.size * 0.4} cy={k.size * 0.42} r={k.size * 0.05} fill={TOPIC_COLORS.planet.rim} />
-            <circle cx={k.size * 0.59} cy={k.size * 0.57} r={k.size * 0.075} fill={TOPIC_COLORS.planet.rim} />
-            <path d={`M${k.size * 0.1} ${k.size * 0.72} Q${k.size * 0.5} ${k.size * 0.88} ${k.size * 0.9} ${k.size * 0.72}`} fill="none" stroke={TOPIC_COLORS.planet.ink} strokeWidth={5} strokeDasharray="8 14" opacity={0.6} />
-          </svg>
-          <QuestionMark x={k.x + 190} y={k.y - 80} size={150} topic={META.topic} pop={Math.min(1, frame / 18)} />
+          <BulanKapur cx={540} cy={860} size={440} mulai={4} />
+          <Pop at={penyebab}>
+            <circle cx={540} cy={860} r={290} fill="none" stroke={KAPUR.es} strokeWidth={8} strokeDasharray="28 22" strokeLinecap="round" />
+          </Pop>
         </>
-      )}
+      }
     />
+    <Label teks="?" x={540} y={860} at={belum} size={260} warna={KAPUR.gold} lebar={260} />
+    </>
   );
 };

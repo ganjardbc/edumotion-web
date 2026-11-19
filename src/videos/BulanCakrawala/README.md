@@ -2,7 +2,7 @@
 
 Kenapa Bulan terlihat besar?
 
-- Topik: `planet` · Karakter: bumi, bulan · 1080×1920, 30 fps
+- Topik: `planet` · Tema: Dark Chalk · Tanpa tokoh · 1080×1920, 30 fps
 - Naskah dan tabel shot: [script.md](./script.md) (sumber kebenaran; ubah di sini dulu, baru kode)
 - Data scene dan baris VO: [scenes.ts](./scenes.ts)
 - Struktur folder: lihat "Struktur video" di CLAUDE.md di root proyek
