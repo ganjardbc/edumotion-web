@@ -9,11 +9,12 @@ Apa yang terjadi di lubang hitam?
 - Struktur folder: lihat "Struktur video" di CLAUDE.md di root proyek
 
 ## Status
-- [ ] Naskah disetujui Ganjar
-- [ ] Objek (`props`) yang dibutuhkan sudah ada atau dicatat `antre` di design-system/edumotion-design-system/props/registry.md
-- [ ] Scene visual selesai (views/)
-- [ ] Voice over dibuat (`node scripts/vo-generate.mjs --video LubangHitam`, setelah persetujuan Ganjar)
-- [ ] Ditinjau di Remotion Studio dengan panduan safe zone
+- [x] Naskah disetujui Ganjar (16 Nov 2026)
+- [x] Objek kapur di `src/dark-chalk/objek/LubangHitam.tsx` (LubangHitam, BintangRuntuh, Spageti, Silang)
+- [x] Scene visual selesai (views/); storyboard disetujui Ganjar (19 Nov 2026, setelah jarak judul dan visual dirapikan)
+- [x] Fakta diverifikasi (NASA, ESO; lihat script.md)
+- [x] Voice over dibuat (Aldo, eleven_v4, 19 Nov 2026, 7 baris, 686 huruf, durasi ~48 dtk) (`node scripts/vo-generate.mjs --video LubangHitam`, setelah persetujuan Ganjar)
+- [ ] Ditinjau di Remotion Studio dengan panduan safe zone (termasuk didengarkan)
 - [ ] Render akhir
 
 ## Render

@@ -55,4 +55,5 @@ Sumber utama ada di `.agents/skills/` (`.claude/skills/` hanya symlink ke sana).
 - `npm i`, `npm run dev` (Remotion Studio), `npm run lint`, `npm run video:new`, `npm run cast:export`, `npm run build`.
 - Voice over butuh `python3` dan `ffmpeg`; contoh perintah ada di skill `edumotion-vo`.
 - Jangan commit: `out/`, `.env.local`, `node_modules/`. Commit hanya bila diminta, dengan pesan berbahasa Indonesia gaya `feat(<ruang>): ...`.
+- **Status video** (naskah disetujui, visual, VO, render) dicatat di `src/videos/<Nama>/README.md` bagian "Status", bukan di `CLAUDE.md`. `CLAUDE.md` hanya untuk aturan dan keputusan yang jarang berubah; jangan menambah status per video ke sana.
 - Bila aturan berubah, perbarui `CLAUDE.md` dan skill yang bersangkutan (sumber kebenaran), bukan hanya berkas ini.
