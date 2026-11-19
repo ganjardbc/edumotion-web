@@ -1,1 +1,338 @@
-{ "lines": {} }
+{
+  "lines": {
+    "Cta-1": {
+      "hash": "67f30fc4c5ac",
+      "file": "voiceover/Cta-1.mp3",
+      "duration": 2.71,
+      "words": [
+        {
+          "w": "Kamu",
+          "s": 0.0,
+          "e": 0.24
+        },
+        {
+          "w": "pernah",
+          "s": 0.32,
+          "e": 0.64
+        },
+        {
+          "w": "melihat",
+          "s": 0.72,
+          "e": 1.04
+        },
+        {
+          "w": "Bulan",
+          "s": 1.12,
+          "e": 1.44
+        },
+        {
+          "w": "tampak",
+          "s": 1.52,
+          "e": 1.84
+        },
+        {
+          "w": "sebesar",
+          "s": 1.92,
+          "e": 2.24
+        },
+        {
+          "w": "itu?",
+          "s": 2.32,
+          "e": 2.711
+        }
+      ]
+    },
+    "Explain1-1": {
+      "hash": "9e107efe4db6",
+      "file": "voiceover/Explain1-1.mp3",
+      "duration": 3.99,
+      "words": [
+        {
+          "w": "Foto",
+          "s": 0.0,
+          "e": 0.32
+        },
+        {
+          "w": "dengan",
+          "s": 0.4,
+          "e": 0.64
+        },
+        {
+          "w": "zoom",
+          "s": 0.8,
+          "e": 1.12
+        },
+        {
+          "w": "sama",
+          "s": 1.2,
+          "e": 1.44
+        },
+        {
+          "w": "menunjukkan",
+          "s": 1.52,
+          "e": 2.0
+        },
+        {
+          "w": "ukuran",
+          "s": 2.08,
+          "e": 2.4
+        },
+        {
+          "w": "Bulan",
+          "s": 2.48,
+          "e": 2.88
+        },
+        {
+          "w": "yang",
+          "s": 2.96,
+          "e": 3.04
+        },
+        {
+          "w": "hampir",
+          "s": 3.2,
+          "e": 3.52
+        },
+        {
+          "w": "sama.",
+          "s": 3.68,
+          "e": 3.993
+        }
+      ]
+    },
+    "Explain2-1": {
+      "hash": "de380a4ffe05",
+      "file": "voiceover/Explain2-1.mp3",
+      "duration": 5.58,
+      "words": [
+        {
+          "w": "Bulan",
+          "s": 0.0,
+          "e": 0.32
+        },
+        {
+          "w": "dekat",
+          "s": 0.4,
+          "e": 0.64
+        },
+        {
+          "w": "cakrawala",
+          "s": 0.68,
+          "e": 1.44
+        },
+        {
+          "w": "justru",
+          "s": 1.6,
+          "e": 2.0
+        },
+        {
+          "w": "sedikit",
+          "s": 2.08,
+          "e": 2.4
+        },
+        {
+          "w": "lebih",
+          "s": 2.44,
+          "e": 2.64
+        },
+        {
+          "w": "jauh.",
+          "s": 2.68,
+          "e": 3.12
+        },
+        {
+          "w": "Atmosfer",
+          "s": 3.52,
+          "e": 4.08
+        },
+        {
+          "w": "pun",
+          "s": 4.2,
+          "e": 4.32
+        },
+        {
+          "w": "tidak",
+          "s": 4.48,
+          "e": 4.72
+        },
+        {
+          "w": "memperbesarnya.",
+          "s": 4.8,
+          "e": 5.576
+        }
+      ]
+    },
+    "Explain3-1": {
+      "hash": "25e3b086e5d2",
+      "file": "voiceover/Explain3-1.mp3",
+      "duration": 3.59,
+      "words": [
+        {
+          "w": "Pemandangan",
+          "s": 0.0,
+          "e": 0.48
+        },
+        {
+          "w": "sekitar",
+          "s": 0.56,
+          "e": 1.12
+        },
+        {
+          "w": "mungkin",
+          "s": 1.36,
+          "e": 1.68
+        },
+        {
+          "w": "memengaruhi",
+          "s": 1.76,
+          "e": 2.32
+        },
+        {
+          "w": "kesan",
+          "s": 2.44,
+          "e": 2.72
+        },
+        {
+          "w": "ukuran",
+          "s": 2.8,
+          "e": 3.04
+        },
+        {
+          "w": "Bulan.",
+          "s": 3.12,
+          "e": 3.586
+        }
+      ]
+    },
+    "Hook-1": {
+      "hash": "c634107b8723",
+      "file": "voiceover/Hook-1.mp3",
+      "duration": 2.78,
+      "words": [
+        {
+          "w": "Kenapa",
+          "s": 0.0,
+          "e": 0.4
+        },
+        {
+          "w": "Bulan",
+          "s": 0.48,
+          "e": 0.8
+        },
+        {
+          "w": "dekat",
+          "s": 0.88,
+          "e": 1.12
+        },
+        {
+          "w": "cakrawala",
+          "s": 1.173,
+          "e": 1.84
+        },
+        {
+          "w": "terlihat",
+          "s": 1.92,
+          "e": 2.24
+        },
+        {
+          "w": "besar?",
+          "s": 2.32,
+          "e": 2.78
+        }
+      ]
+    },
+    "Kunci-1": {
+      "hash": "3cd02e0e0d83",
+      "file": "voiceover/Kunci-1.mp3",
+      "duration": 2.82,
+      "words": [
+        {
+          "w": "Namun,",
+          "s": 0.0,
+          "e": 0.64
+        },
+        {
+          "w": "penyebab",
+          "s": 0.72,
+          "e": 1.04
+        },
+        {
+          "w": "pastinya",
+          "s": 1.12,
+          "e": 1.68
+        },
+        {
+          "w": "belum",
+          "s": 1.84,
+          "e": 2.08
+        },
+        {
+          "w": "diketahui.",
+          "s": 2.16,
+          "e": 2.817
+        }
+      ]
+    },
+    "Payoff-1": {
+      "hash": "049a288d91de",
+      "file": "voiceover/Payoff-1.mp3",
+      "duration": 5.96,
+      "words": [
+        {
+          "w": "Jadi,",
+          "s": 0.0,
+          "e": 0.56
+        },
+        {
+          "w": "Bulan",
+          "s": 0.88,
+          "e": 1.2
+        },
+        {
+          "w": "tidak",
+          "s": 1.28,
+          "e": 1.44
+        },
+        {
+          "w": "benar-benar",
+          "s": 1.52,
+          "e": 2.0
+        },
+        {
+          "w": "membesar",
+          "s": 2.04,
+          "e": 2.56
+        },
+        {
+          "w": "dekat",
+          "s": 2.64,
+          "e": 2.88
+        },
+        {
+          "w": "cakrawala.",
+          "s": 2.933,
+          "e": 3.6
+        },
+        {
+          "w": "Penyebab",
+          "s": 4.0,
+          "e": 4.32
+        },
+        {
+          "w": "ilusinya",
+          "s": 4.4,
+          "e": 4.96
+        },
+        {
+          "w": "masih",
+          "s": 5.04,
+          "e": 5.36
+        },
+        {
+          "w": "diteliti.",
+          "s": 5.44,
+          "e": 5.963
+        }
+      ]
+    }
+  }
+}
