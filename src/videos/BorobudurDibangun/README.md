@@ -12,7 +12,7 @@ Bagaimana Borobudur bisa dibangun?
 - [x] Naskah disetujui Ganjar (19 Nov 2026)
 - [x] Objek kapur dibuat di `src/dark-chalk/objek/Borobudur.tsx` (19 Nov 2026; menunggu tinjauan Ganjar)
 - [x] Scene visual selesai (views/) (19 Nov 2026); storyboard disetujui Ganjar (19 Nov 2026)
-- [ ] Voice over dibuat (`node scripts/vo-generate.mjs --video BorobudurDibangun`, setelah persetujuan Ganjar)
+- [x] Voice over dibuat (Aldo, 6 baris, 502 huruf, 19 Nov 2026)
 - [ ] Ditinjau di Remotion Studio dengan panduan safe zone
 - [ ] Render akhir
 
