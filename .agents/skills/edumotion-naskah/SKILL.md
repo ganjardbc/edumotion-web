@@ -42,6 +42,7 @@ Visual yang tidak nyambung biasanya berasal dari brief yang kabur. Isi tabel "Br
   `Bandingkan` (dua hal, A vs B), `Langkah` (urutan atau daftar alasan, 2–4 butir), `SebabAkibat` (satu sebab, satu akibat),
   `Sorot` (satu objek, bagian-bagiannya ditunjuk), `AngkaBesar` (satu angka mengejutkan). Paling banyak dua pola (dua fase) per scene.
 - **Tema Dark Chalk:** pola yang sama berlaku (varian kapur di `src/dark-chalk/pola`: `SebabAkibat`, `Koreksi`, `Sorot`, `Bandingkan`, `Langkah`, `Kunci`). Video boleh tanpa tokoh sama sekali; Hook, Twist, Payoff, dan Cta lalu ditulis sebagai gambar (objek, perbandingan, kartu koreksi), bukan reaksi pembawa. Brief tetap memakai kolom Pola, Objek utama, Label, dan Kata kunci → aksi.
+- **Penanda `Sorot`:** garis penunjuk dari `dari` ke `ke`; label otomatis di belakang pangkal garis. Di brief, tulis posisi label agar tidak dilewati garis atau gambar lain.
 - **Judul:** paling banyak 6 kata, menyatakan inti scene (bukan topik umum), satu kata disorot.
 - **Objek utama:** dari registry. Bila belum ada, tulis `antre` dan sebutkan acuan gambar (tautan atau berkas). Pilih objek yang
   terbaca di ukuran kecil; konsep abstrak lebih baik dijelaskan dengan `Bandingkan` atau `Langkah` daripada digambar rumit.
