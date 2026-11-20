@@ -6,6 +6,9 @@ import { KAPUR } from "../palette";
 import { Judul } from "./Judul";
 
 // Pola SOROT (kapur): satu lingkaran lensa besar berisi gambar, dengan satu penanda (label + garis emas) ke bagian penting.
+// Penanda: garis emas dari `dari` (pangkal) ke `ke` (bagian yang ditunjuk). Label diletakkan di belakang pangkal garis,
+// berlawanan arah dengan `ke` (di bawah pangkal bila `ke` lebih tinggi, di atasnya bila `ke` lebih rendah), supaya garis
+// tidak pernah melewati teks. Letakkan `dari` di luar lensa dan jauh dari gambar lain.
 export const Sorot: React.FC<{
   readonly judul: string;
   readonly sorotJudul?: string;
@@ -17,6 +20,7 @@ export const Sorot: React.FC<{
   const R = 300;
   const cx = 540;
   const cy = 860;
+  const labelY = penanda ? penanda.dari.y + (penanda.dari.y >= penanda.ke.y ? 44 : -44) : 0;
   return (
     <>
       <Judul teks={judul} sorot={sorotJudul} />
@@ -30,7 +34,7 @@ export const Sorot: React.FC<{
           </Pop>
         ) : null}
       </Kanvas>
-      {penanda ? <Label teks={penanda.teks} x={penanda.dari.x} y={penanda.dari.y - 36} at={penanda.at} size={48} warna={KAPUR.gold} lebar={420} durasi={cepat ? 3 : 10} /> : null}
+      {penanda ? <Label teks={penanda.teks} x={penanda.dari.x} y={labelY} at={penanda.at} size={48} warna={KAPUR.gold} lebar={420} durasi={cepat ? 3 : 10} /> : null}
     </>
   );
 };
