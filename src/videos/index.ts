@@ -17,6 +17,7 @@ import { VIDEO as BorobudurDibangun } from "./BorobudurDibangun";
 import { VIDEO as GempaBumi } from "./GempaBumi";
 import { VIDEO as TsunamiTerjadi } from "./TsunamiTerjadi";
 import { VIDEO as BadakJawaTinggal } from "./BadakJawaTinggal";
+import { VIDEO as BadakJawaLangka } from "./BadakJawaLangka";
 // @videos:imports
 
 import type { VideoEntry } from "./_shared/video";
@@ -40,5 +41,6 @@ export const VIDEOS: ReadonlyArray<VideoEntry> = [
   GempaBumi,
   TsunamiTerjadi,
   BadakJawaTinggal,
+  BadakJawaLangka,
   // @videos:list
 ];

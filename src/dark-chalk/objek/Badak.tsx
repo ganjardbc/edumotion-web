@@ -91,3 +91,65 @@ export const Semenanjung: React.FC<{ readonly cx: number; readonly cy: number; r
     </g>
   );
 };
+
+// Pohon palem kapur (video BadakJawaLangka): lima pelepah berbentuk lensa dari pucuk (cx, cy), batang turun ke `dasar` (y).
+// `size` = lebar tajuk kira-kira. Lebar lokal ±230.
+const PELEPAH = [
+  "M0 0 Q-110 -80 -230 40 Q-110 -20 0 0 Z",
+  "M0 0 Q-60 -130 -140 -60 Q-70 -60 0 0 Z",
+  "M0 0 Q-30 -120 0 -160 Q30 -120 0 0 Z",
+  "M0 0 Q60 -130 140 -60 Q70 -60 0 0 Z",
+  "M0 0 Q110 -80 230 40 Q110 -20 0 0 Z",
+];
+export const PalemLangkap: React.FC<{ readonly cx: number; readonly cy: number; readonly size?: number; readonly dasar: number; readonly mulai?: number }> = ({ cx, cy, size = 460, dasar, mulai = 0 }) => {
+  const s = size / 460;
+  return (
+    <g>
+      <Garis kasar={0.8} d={`M${cx} ${cy} L${cx} ${dasar}`} mulai={mulai} lama={18} warna={KAPUR.coklat} tebal={14} />
+      <g transform={`translate(${cx} ${cy}) scale(${s})`}>
+        {PELEPAH.map((d, i) => (
+          <Garis key={i} kasar={0.8} d={d} mulai={mulai + 10 + i * 5} lama={16} warna={KAPUR.daun} isi={KAPUR.daunIsi} tebal={6 / s} />
+        ))}
+      </g>
+    </g>
+  );
+};
+
+// Tunas tanaman berpusat di pangkal (cx, cy): dua daun tegak; saat `layu`, tegak memudar dan versi merunduk (oranye) muncul.
+export const Tunas: React.FC<{ readonly cx: number; readonly cy: number; readonly size?: number; readonly mulai?: number; readonly layu?: number }> = ({ cx, cy, size = 150, mulai = 0, layu = BELUM }) => {
+  const frame = useCurrentFrame();
+  const s = size / 100;
+  const k = interpolate(frame, [layu, layu + 14], [0, 1], CLAMP);
+  return (
+    <g transform={`translate(${cx} ${cy}) scale(${s})`}>
+      <g opacity={1 - k}>
+        <Garis kasar={0.8} d="M0 0 L0 -90" mulai={mulai} lama={12} warna={KAPUR.daun} tebal={6 / s} />
+        <Garis kasar={0.8} d="M0 -50 Q-40 -60 -50 -90 Q-15 -85 0 -50 Z" mulai={mulai + 6} lama={12} warna={KAPUR.daun} isi={KAPUR.daunIsi} tebal={6 / s} />
+        <Garis kasar={0.8} d="M0 -70 Q40 -80 52 -110 Q15 -105 0 -70 Z" mulai={mulai + 10} lama={12} warna={KAPUR.daun} isi={KAPUR.daunIsi} tebal={6 / s} />
+      </g>
+      <g opacity={k}>
+        <path d="M0 0 Q0 -50 40 -60" fill="none" stroke={KAPUR.orange} strokeWidth={6 / s} strokeLinecap="round" />
+        <path d="M40 -60 Q50 -30 70 -20 Q65 -45 40 -60 Z" fill="none" stroke={KAPUR.orange} strokeWidth={6 / s} strokeLinejoin="round" />
+        <path d="M0 -30 Q-30 -30 -50 -10 Q-25 -5 0 -30 Z" fill="none" stroke={KAPUR.orange} strokeWidth={6 / s} strokeLinejoin="round" />
+      </g>
+    </g>
+  );
+};
+
+// Badak jawa kapur tampak samping (bercula satu, lipatan kulit), menghadap kiri; `hadap` -1 membalik ke kanan.
+// Berpusat di (cx, cy); `size` = lebar badan (±200 lokal); tanah di cy + 100 * size / 400. Anak = panggil dengan `size` kecil.
+// Dirender di titik asal lalu diskalakan lewat transform supaya goresan kasar tetap stabil.
+const BADAN = "M-200 45 L-206 15 Q-196 -8 -172 -18 Q-140 -48 -108 -58 Q-60 -92 10 -84 L120 -74 Q190 -68 198 -20 L192 48 L192 100 L150 100 L146 52 Q80 64 -10 62 L-18 100 L-66 100 L-76 58 Q-110 72 -140 62 Q-175 62 -200 45 Z";
+export const BadakKapur: React.FC<{ readonly cx: number; readonly cy: number; readonly size?: number; readonly mulai?: number; readonly hadap?: 1 | -1 }> = ({ cx, cy, size = 400, mulai = 0, hadap = 1 }) => {
+  const s = size / 400;
+  const tebal = 6 / s;
+  return (
+    <g transform={`translate(${cx} ${cy}) scale(${hadap === 1 ? s : -s} ${s})`}>
+      <Garis kasar={0.9} tebal={tebal} mulai={mulai} lama={36} warna={KAPUR.chalk} isi={ISI} d={BADAN} />
+      <Garis kasar={0.8} tebal={tebal} mulai={mulai + 22} lama={10} warna={KAPUR.gold} isi="rgba(244, 185, 66, 0.35)" d="M-199 2 L-188 -44 L-181 -14" />
+      <Garis kasar={0.8} tebal={tebal} mulai={mulai + 26} lama={10} warna={KAPUR.chalk} d="M-98 -58 L-90 -82 L-72 -64" />
+      <Garis kasar={0.8} tebal={tebal * 1.2} mulai={mulai + 28} lama={20} warna={KAPUR.abu} d="M-112 -56 Q-96 -8 -126 56 M-70 -80 Q-34 -22 -58 56 M-20 -84 Q10 -30 0 58 M118 -74 Q140 -20 118 52 M198 -20 Q216 10 208 42 M-204 20 Q-194 30 -176 31" />
+      <circle cx={-152} cy={-12} r={6} fill={KAPUR.chalk} opacity={0.9} />
+    </g>
+  );
+};
