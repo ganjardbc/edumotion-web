@@ -16,6 +16,7 @@ import { VIDEO as KilatLebihDuluDariGuntur } from "./KilatLebihDuluDariGuntur";
 import { VIDEO as BorobudurDibangun } from "./BorobudurDibangun";
 import { VIDEO as GempaBumi } from "./GempaBumi";
 import { VIDEO as TsunamiTerjadi } from "./TsunamiTerjadi";
+import { VIDEO as BadakJawaTinggal } from "./BadakJawaTinggal";
 // @videos:imports
 
 import type { VideoEntry } from "./_shared/video";
@@ -38,5 +39,6 @@ export const VIDEOS: ReadonlyArray<VideoEntry> = [
   BorobudurDibangun,
   GempaBumi,
   TsunamiTerjadi,
+  BadakJawaTinggal,
   // @videos:list
 ];
