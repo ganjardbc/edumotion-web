@@ -23,9 +23,37 @@ export type SceneTiming = {
 export const normWord = (w: string): string => w.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
 export const textWords = (text: string): ReadonlyArray<string> => text.split(/\s+/).filter((w) => normWord(w) !== "");
 
-// Stempel waktu hanya dipakai bila jumlah katanya sama dengan teks caption (teks `tts` khusus bisa berbeda).
-export const usableWords = (text: string, words: ReadonlyArray<WordTime> | null | undefined): ReadonlyArray<WordTime> | null =>
-  words && words.length === textWords(text).length ? words : null;
+// Stempel waktu hanya dipakai bila bisa diselaraskan dengan kata di teks caption. Teks `tts` boleh berbeda jumlah kata
+// (angka dieja: "1883" -> "seribu delapan ratus delapan puluh tiga"): kata berangka dipetakan ke rentang kata ejaannya,
+// dengan kata biasa di sebelahnya sebagai jangkar. Mengembalikan satu WordTime per kata teks, atau null bila gagal selaras.
+export const usableWords = (text: string, words: ReadonlyArray<WordTime> | null | undefined): ReadonlyArray<WordTime> | null => {
+  if (!words) return null;
+  const raw = text.split(/\s+/).filter((w) => normWord(w) !== "");
+  if (words.length === raw.length) return words;
+  const angka = (w: string): boolean => /\p{N}/u.test(w);
+  const out: WordTime[] = [];
+  let a = 0;
+  for (let i = 0; i < raw.length; i++) {
+    if (a >= words.length) return null;
+    if (!angka(raw[i])) {
+      const j = words.findIndex((w, k) => k >= a && normWord(w.w) === normWord(raw[i]));
+      if (j < 0) return null;
+      out.push(words[j]);
+      a = j + 1;
+      continue;
+    }
+    let akhir = words.length; // tanpa jangkar sesudahnya: sampai akhir audio
+    const nextIdx = raw.findIndex((w, k) => k > i && !angka(w));
+    if (nextIdx >= 0) {
+      const j = words.findIndex((w, k) => k > a && normWord(w.w) === normWord(raw[nextIdx]));
+      if (j < 0) return null;
+      akhir = j;
+    }
+    out.push({ w: raw[i], s: words[a].s, e: words[akhir - 1].e });
+    a = akhir;
+  }
+  return a === words.length ? out : null;
+};
 
 // Perkiraan: kata dibagi rata menurut jumlah huruf, sama seperti Caption tanpa stempel waktu.
 const estimateWords = (text: string, frames: number): ReadonlyArray<WordCue> => {
